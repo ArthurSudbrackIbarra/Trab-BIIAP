@@ -16,9 +16,10 @@ The assignment is in `Enunciado Trabalho BIIAP-2026-2.pdf`. The SBC LaTeX templa
 **Language.** The paper is written in **English**. In the SBC template, a paper in English carries
 only `\begin{abstract}`; the `\begin{resumo}` block is dropped.
 
-**Writing prose.** Before writing any prose in this repository (paper text, README, commit messages
-longer than one line, the video script), load the `anthropic-skills:humanizer` skill and follow it.
-This applies to every draft and every revision, not just the first pass.
+**Writing prose.** Before writing any prose that ships (paper text, abstract, the video script,
+README), load the `anthropic-skills:humanizer` skill and follow it. This applies to every draft and
+every revision, not just the first pass. Internal planning notes under `docs/` and commit messages
+are exempt; they still follow the style rules below.
 
 **No em dashes or en dashes** in new prose. Rewrite the sentence instead.
 
@@ -72,16 +73,34 @@ Required structure:
 
 ## Current status
 
-Topic not chosen yet. The plan is to build on an existing project (see below) and extend it with a
-study that fits the course, which is about AI as an instrument **in research** (benefits and
-impacts), not about public hearings as such.
+Proposed direction: **calibrating an LLM used as a verification instrument**. Full design in
+[docs/study-design.md](docs/study-design.md), including hypotheses, both experiments, the
+single-author adaptations, the measured API budget and a five-day schedule. Awaiting the author's
+go-ahead.
+
+The finding that anchors it is already computed, with no API calls, by
+[docs/probe_nli.py](docs/probe_nli.py): over the 4,238 human-labelled PublicHearingBR NLI items,
+changing only the judge prompt moves F1 from 0.727 to 0.405 and the reported hallucination rate from
+9.1% to 42.3%, against a true rate of 11.89%. Changing the model instead moves F1 much less. Prompt
+choice, which nobody reports, dominates the measurement.
 
 Open items before writing:
 
-- Pick the research question and hypotheses.
-- Get the advisor's and co-advisor's names and affiliations for the author block.
+- Author's go-ahead on the direction.
+- **Authorship.** The assignment requires the advisor and co-advisor as collaborating co-authors, but
+  the work is individual and they will not collaborate. Ask the professors directly. Do not list
+  someone who did not contribute.
+- Confirm whether the video is due with the paper.
 - No LaTeX toolchain on this machine (`pdflatex`, `latexmk`, `bibtex` are all missing). Either
   install TeX Live or compile on Overleaf. Check before promising a built PDF.
+
+## This machine
+
+i7-4790 (8 threads), 15 GB RAM, GTX 745 with 4 GB. The GPU is Maxwell (sm_50) and current CUDA builds
+do not support it, so **nothing runs locally**: no open-weight judge, no quantised model, no
+fine-tuning. Every model call goes to an API. The local side of the work is JSON and pandas, which
+this machine handles comfortably. Say so in the paper; needing no specialised hardware is part of the
+argument.
 
 ## The project this paper builds on
 
@@ -174,6 +193,8 @@ path, so the Kunumi repository stays as submitted.
 
 ```
 Enunciado Trabalho BIIAP-2026-2.pdf   the assignment
+docs/study-design.md                  proposed study, budget, schedule
+docs/probe_nli.py                     zero-cost probe over the NLI benchmark
 Artigo/                               SBC template (.tex, .sty, .bst, .bib, example figures)
 CLAUDE.md                             this file
 ```
