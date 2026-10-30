@@ -6,6 +6,9 @@ import re
 JATS_TITLE = re.compile(r"<jats:title[^>]*>(.*?)</jats:title>", re.S)
 TAG = re.compile(r"<[^>]+>")
 LEADING_LABEL = re.compile(r"^(resumo|abstract|resumen|summary)\b\s*[:.]?\s*", re.I)
+# Inside an abstract these mean a second abstract or the keywords were glued on (common in Crossref).
+INNER_LABEL = re.compile(r"\b(abstract|resumo|resumen|résumé|keywords?|key words|palavras[- ]chave|"
+                         r"palabras clave|mots[- ]cl[ée]s)\b", re.I)
 WORD = re.compile(r"[^\W\d_]+(?:['-][^\W\d_]+)*")
 
 # Function words that tell apart the three languages SciELO publishes in. Words that Portuguese
@@ -40,7 +43,11 @@ def word_count(text):
 
 
 def detect_language(text):
-    """'pt', 'en' or 'es' when one language clearly dominates the function words, else None."""
+    """'pt', 'en' or 'es' when one language clearly dominates the function words, else None.
+
+    Abstracts with two languages glued together get None: the runner-up may have at most a fifth
+    of the leader's function words.
+    """
     counts = {lang: 0 for lang in STOPWORDS}
     for word in words(text):
         for lang, vocabulary in STOPWORDS.items():
@@ -48,4 +55,8 @@ def detect_language(text):
                 counts[lang] += 1
     ranked = sorted(counts.items(), key=lambda pair: pair[1], reverse=True)
     (best, top), (_, second) = ranked[0], ranked[1]
-    return best if top >= 3 and top >= 2 * second else None
+    return best if top >= 3 and top >= 5 * second else None
+
+
+def has_inner_label(text):
+    return bool(INNER_LABEL.search(text))

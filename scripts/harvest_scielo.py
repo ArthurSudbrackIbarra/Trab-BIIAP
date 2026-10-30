@@ -25,6 +25,7 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
+import zlib
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
@@ -34,6 +35,9 @@ ARTICLEMETA = "https://articlemeta.scielo.org/api/v1"
 CROSSREF = "https://api.crossref.org/works"
 USER_AGENT = "BIIAP-study/0.1 (+https://github.com/ArthurSudbrackIbarra/Trab-BIIAP)"
 FIRST_YEAR, LAST_YEAR = 2015, 2026
+# Fetch order for the pairs: the years the rewriting experiment samples from, then the years
+# compared with them, then the rest.
+PRIORITY = (2019, 2020, 2021, 2024, 2025, 2026, 2022, 2023)
 ISSN = re.compile(r"^\d{4}-\d{3}[\dX]$")
 RETRYABLE = {429, 500, 502, 503, 504}
 
@@ -70,9 +74,18 @@ def texts(record, field):
 
 
 def read_jsonl(path):
+    """Rows of a JSON-lines file, gzipped or not. A file cut short by an interrupted run gives the
+    rows written before the cut."""
     opener = gzip.open if path.suffix == ".gz" else open
-    with opener(path, "rt", encoding="utf-8") as handle:
-        return [json.loads(line) for line in handle if line.strip()]
+    rows = []
+    try:
+        with opener(path, "rt", encoding="utf-8") as handle:
+            for line in handle:
+                if line.strip():
+                    rows.append(json.loads(line))
+    except (EOFError, gzip.BadGzipFile, zlib.error, json.JSONDecodeError):
+        pass
+    return rows
 
 
 # --- journals ---------------------------------------------------------------------------------
@@ -236,8 +249,20 @@ def cmd_pairs(args):
          "codes": sample}, indent=1))
 
     out = outdir / "articles.jsonl.gz"
-    done = {row["code"] for row in read_jsonl(out)} if out.exists() else set()
-    todo = [code for codes in sample.values() for code in codes if code not in done]
+    done = set()
+    if out.exists():
+        # Copy what is there into a clean file, so new rows never land after a gzip member that an
+        # interrupted run left unfinished.
+        rows = read_jsonl(out)
+        partial = out.with_name(out.name + ".tmp")
+        with gzip.open(partial, "wt", encoding="utf-8") as handle:
+            for row in rows:
+                handle.write(json.dumps(row, ensure_ascii=False) + "\n")
+        partial.replace(out)
+        done = {row["code"] for row in rows}
+    order = sorted(sample, key=lambda year: (PRIORITY.index(year) if year in PRIORITY
+                                             else len(PRIORITY), year))
+    todo = [code for year in order for code in sample[year] if code not in done]
     log(f"{len(done)} already fetched, {len(todo)} to go")
     lock = threading.Lock()
     started = time.time()

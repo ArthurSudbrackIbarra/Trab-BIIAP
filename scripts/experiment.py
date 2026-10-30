@@ -27,7 +27,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from harvest_scielo import RAW, ROOT, read_jsonl  # noqa: E402
-from textutil import clean_abstract, detect_language, word_count  # noqa: E402
+from textutil import clean_abstract, detect_language, has_inner_label, word_count  # noqa: E402
 
 EXP = ROOT / "experiment"
 MODELS = ("chatgpt", "gemini", "claude")
@@ -63,7 +63,8 @@ def crossref_candidates(lang, allow_partial):
             if row["year"] not in YEARS:
                 continue
             text = clean_abstract(row["abstract"])
-            if detect_language(text) == lang and MIN_WORDS <= word_count(text) <= MAX_WORDS:
+            if (detect_language(text) == lang and not has_inner_label(text)
+                    and MIN_WORDS <= word_count(text) <= MAX_WORDS):
                 yield {"doi": row["doi"].lower(), "journal": row["journal"],
                        "area": areas[row["journal"]], "year": row["year"], "input": text}
 
@@ -84,6 +85,7 @@ def articlemeta_candidates(allow_partial):
         pt = clean_abstract(row["abstracts"].get("pt"))
         en = clean_abstract(row["abstracts"].get("en"))
         if (detect_language(pt) == "pt" and detect_language(en) == "en"
+                and not has_inner_label(pt) and not has_inner_label(en)
                 and MIN_WORDS <= word_count(pt) <= MAX_WORDS):
             yield {"doi": (row["doi"] or row["code"]).lower(), "code": row["code"],
                    "journal": row["journal"], "area": areas.get(row["journal"], "?"),
