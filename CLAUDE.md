@@ -158,17 +158,24 @@ passes the spec to Claude Design, brings the screens back, and Claude Code imple
 - P2: the before-or-after game.
 - Dropped: bingo, satirical abstract, share-of-AI slider.
 
-**Rewriting experiment (feeds the time machine).** Abstracts published before ChatGPT, in both
-languages, rewritten by Gemini, ChatGPT and Claude when asked to improve the writing. The author
-wants this quick to run:
+**Rewriting experiment (feeds the time machine).** No API keys (GitHub Models, the free GPT API,
+was retired on 2026-07-30). `scripts/experiment.py` samples abstracts published 2019 to 2021, ten
+per SciELO area and at most two per journal, with no paper in two tasks, and writes identical
+batches of ten for every model:
 
-- One resumable script with a route per model: Gemini through a free API key from Google AI Studio,
-  Claude through `claude -p` on the Max plan.
-- GitHub Models was retired on 2026-07-30, so GPT has no free API. Manual mode instead: the script
-  puts paste-ready batches (about ten abstracts each, JSON in and out) on the clipboard for the free
-  ChatGPT in a temporary chat, reads the reply back and validates it. OpenAI's open-weight gpt-oss on
-  a free API tier (Groq, OpenRouter) is an optional automated extra.
-- Log the model name and version, date, prompt and settings with every output.
+- `polish-pt` and `polish-en`: improve the writing, from the Crossref corpus.
+- `translate-pt-en`: translate into English, from Portuguese-language articles in the ArticleMeta
+  sample; the authors' own English abstract is the human reference.
+
+The prompts (`experiment/prompts/`) ask for one code block: `=== batch ===`, then `### id` and the
+text. ChatGPT (free, temporary chat) and Gemini (the author's Pro plan) are manual: the author pastes
+each batch into a new chat and pastes the reply into `experiment/inbox/<model>/` under a
+`# modelo: <name>` line (step by step in `experiment/README.md`). Claude is automatic:
+`python3 -I scripts/experiment.py claude` runs `claude -p` (Sonnet on the Max plan) from an empty
+temporary directory, with a one-line system prompt, no tools, no MCP and no user settings. Claude
+Code still adds about 900 tokens of environment information to that context: report it as a
+limitation. `python3 -I scripts/experiment.py ingest` parses and checks every reply, writes
+`experiment/results/<model>.jsonl` and retry batches for missing or broken items.
 
 Open items:
 

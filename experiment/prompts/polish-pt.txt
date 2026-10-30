@@ -1,0 +1,3 @@
+Melhore a escrita dos resumos científicos abaixo para que fiquem prontos para submissão a uma revista. Mantenha o sentido, os dados e os números de cada resumo e escreva em português. Trate cada resumo de forma independente.
+
+Responda somente com um bloco de código do tipo text, sem nada antes ou depois dele. Dentro do bloco, a primeira linha é exatamente "=== {batch} ===". Depois, para cada resumo, escreva uma linha com ### e o identificador recebido (por exemplo, "### {example}") e, logo abaixo, o resumo melhorado. Não inclua comentários, explicações nem listas de alterações. Faça a tarefa você mesmo, sem usar ferramentas ou código.

@@ -1,0 +1,3 @@
+Improve the writing of the scientific abstracts below so they are ready to submit to a journal. Keep the meaning, data and numbers of each abstract, and write in English. Treat each abstract independently.
+
+Reply with a single code block of type text and nothing before or after it. Inside the block, the first line is exactly "=== {batch} ===". Then, for each abstract, write a line with ### and the identifier you received (for example, "### {example}") followed by the improved abstract on the next lines. Do not include comments, explanations or lists of changes. Do the task yourself, without using tools or code.

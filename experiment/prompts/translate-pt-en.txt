@@ -1,0 +1,3 @@
+Traduza para o inglês os resumos científicos abaixo, para submissão a uma revista internacional. Mantenha o sentido, os dados e os números de cada resumo. Trate cada resumo de forma independente.
+
+Responda somente com um bloco de código do tipo text, sem nada antes ou depois dele. Dentro do bloco, a primeira linha é exatamente "=== {batch} ===". Depois, para cada resumo, escreva uma linha com ### e o identificador recebido (por exemplo, "### {example}") e, logo abaixo, a tradução. Não inclua comentários, explicações nem notas de tradução. Faça a tarefa você mesmo, sem usar ferramentas ou código.

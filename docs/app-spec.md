@@ -267,8 +267,12 @@ as palavras que eles inserem são as mesmas que cresceram no SciELO.
 
 Primeira parte, um resumo:
 
-- Seletores: o resumo (lista com busca, ou "Outro resumo" para sortear), o modelo em abas (Gemini,
-  ChatGPT e Claude; a aba fica desativada se aquele modelo não tiver resultado) e a língua, PT | EN.
+- Seletores: a tarefa (Melhorar a escrita | Traduzir para o inglês), o resumo (lista com busca, ou
+  "Outro resumo" para sortear), o modelo em abas (Gemini, ChatGPT e Claude; a aba fica desativada
+  se aquele modelo não tiver resultado) e, na tarefa de melhorar, a língua, PT | EN.
+- Na tarefa de traduzir, a coluna da esquerda mostra o resumo em português, e um terceiro painel,
+  "Como os autores traduziram", mostra o abstract em inglês que os próprios autores publicaram. É a
+  comparação mais forte da tela: a mesma tradução feita por gente e por IA.
 - Duas colunas, "Original (2019)" e "Reescrito pelo [modelo]". Como alternativa, uma coluna só, com
   as diferenças marcadas no próprio texto.
 - Palavras inseridas com fundo verde, removidas riscadas em vermelho. Uma palavra inserida que
