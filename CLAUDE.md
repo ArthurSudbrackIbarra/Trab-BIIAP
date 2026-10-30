@@ -79,45 +79,43 @@ Required structure:
 
 ## Current status
 
-Direction: **a secondary analysis of what an LLM judge actually measures**, at zero cost. Full design,
-hypotheses, findings and a three-day schedule in [docs/study-design.md](docs/study-design.md).
-Awaiting the author's go-ahead.
+**Leading candidate: a standalone brain-decoding tool.** The author prefers building something
+concrete and creative over an audit, and wants brain decoding as its own project, not merged with
+anything else. Proposal in [docs/brain-tool.md](docs/brain-tool.md): a browser app where you type a
+word and watch a real person's recorded brain activity try to type it, using BCI Competition IV 2a
+and an EEGNet decoder per person. Awaiting the author's go-ahead.
 
-**The results are already computed**, with no API calls, by [docs/probe_nli.py](docs/probe_nli.py),
-[docs/probe2.py](docs/probe2.py) and [docs/probe3.py](docs/probe3.py), over the 4,238 human-labelled
-PublicHearingBR NLI items and the 12 published verdicts (3 prompts x 4 models) that ship with them:
+Its evidence is already computed on this CPU in 404 seconds by [docs/eeg_sweep.py](docs/eeg_sweep.py)
+and [docs/eeg_usability.py](docs/eeg_usability.py):
 
-- The reported hallucination rate runs from 7.2% to 42.3% across the 12 configurations, against a
-  human-labelled truth of 11.89%.
-- Best F1 anywhere is 0.727; worst is 0.405, on the same model with a different prompt.
-- For F1, prompt explains 36.7% of variance, model 11.5%, **interaction 51.8%**. A judge is a
-  model-and-prompt pair and only the pair can be validated.
-- Judge-to-judge kappa (0.549) is indistinguishable from judge-to-human kappa (0.553). There is no
-  model consensus to appeal to.
-- Majority voting over all 12 gives F1 0.709, **worse** than the best single configuration.
-- But the flag count is a good graded score: 0.9% of zero-flag items are genuinely hallucinations,
-  rising monotonically to 95.2% at twelve flags.
-- In all 12 conditions, justifications for wrong verdicts are longer than for right ones.
+- Cross-session accuracy, 4 classes, chance 0.25: 0.712, 0.472, 0.837, 0.549, 0.333, 0.403, 0.677,
+  0.674, 0.816. Mean 0.608. **All nine above chance.**
+- In a speller with one-step undo (utility metric, Dal Seno et al. 2010), net progress needs accuracy
+  above 0.5. **Three of the nine cannot type a single letter.** The best types a 5-letter word in 1.5
+  minutes.
+- Rejecting low-confidence decisions rescues two of those three, slowly. One cannot be rescued.
 
-The reanalysis reproduces the source paper's published true-positive and false-positive rates exactly,
-which is the check that the data is being read correctly.
-
-**A second case study is on the table.** The author wants to work on brain decoding. A feasibility
-probe says it fits: the EEG stack installs, BCI Competition IV 2a downloads in seconds per subject,
-and EEGNet trains on this CPU in 20 seconds to a literature-plausible 71.2% cross-session accuracy.
-See [docs/eeg-option.md](docs/eeg-option.md). It is the same thesis in another domain: a measurement
-whose value depends on the configuration of the instrument, here the evaluation protocol rather than
-the prompt. Decide whether the paper carries one case or two.
+**Fallback, finished: the LLM-judge secondary analysis.** Design in
+[docs/study-design.md](docs/study-design.md), results already computed with no API calls by
+[docs/probe_nli.py](docs/probe_nli.py), [docs/probe2.py](docs/probe2.py) and
+[docs/probe3.py](docs/probe3.py) over the 4,238 human-labelled PublicHearingBR NLI items. Headline:
+the reported hallucination rate runs from 7.2% to 42.3% across 12 configurations against a true
+11.89%, and majority voting is worse than the best single configuration. If the brain tool stalls,
+this paper needs only writing. [docs/eeg-option.md](docs/eeg-option.md) describes merging the two,
+which the author has declined.
 
 Open items before writing:
 
-- Author's go-ahead on the direction, and on one case study or two.
+- Author's go-ahead on the brain tool.
 - **Authorship.** The assignment requires the advisor and co-advisor as collaborating co-authors, but
   the work is individual and they will not collaborate. Ask the professors directly. Do not list
   someone who did not contribute.
 - Confirm whether the video is due with the paper.
+- Check the BCI Competition IV 2a terms before publishing per-trial data on a public site.
 - No LaTeX toolchain on this machine (`pdflatex`, `latexmk`, `bibtex` are all missing). Either
   install TeX Live or compile on Overleaf. Check before promising a built PDF.
+- The EEG stack (mne, moabb, braindecode, torch) is installed only in a scratch venv on Python 3.12.
+  Give the project its own `pyproject.toml` before building on it.
 
 ## This machine
 
@@ -227,6 +225,9 @@ docs/probe2.py                        agreement, voting, variance decomposition,
 docs/probe3.py                        flag-count calibration, explanation length
 docs/eeg-option.md                    the brain-decoding case study and how it joins the paper
 docs/probe_eeg_feasibility.py         measured: the EEG stack runs on this CPU in seconds
+docs/brain-tool.md                    leading candidate: type with a real person's recorded brain
+docs/eeg_sweep.py                     EEGNet per subject, cross-session, all 9 subjects
+docs/eeg_usability.py                 decoder output to letters per minute, with thresholds
 Artigo/                               SBC template (.tex, .sty, .bst, .bib, example figures)
 CLAUDE.md                             this file
 ```
