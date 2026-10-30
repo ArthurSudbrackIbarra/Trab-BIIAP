@@ -33,9 +33,15 @@ declaration inside the paper is where AI involvement gets recorded.
 why.
 
 **No user studies.** The delivery deadline is days away and there is no ethics committee approval.
-Nothing in the methodology may involve human subjects. The authors annotating their own data as
-expert coders is fine and is not a user study; recruiting participants, measuring learning, or
+Nothing in the methodology may involve human subjects. The author annotating their own data as an
+expert coder is fine and is not a user study; recruiting participants, measuring learning, or
 collecting opinions is not.
+
+**No API budget. Zero dollars.** Never propose a method that calls a paid model API, and never write
+code that does. No `ANTHROPIC_API_KEY`, no OpenAI, no Maritaca, no cloud compute. Everything runs on
+files already on this machine with local Python. The only model available is Claude inside this
+Claude Code session, which is not a reproducible instrument and so must not be a source of data for
+the paper's results. This is a hard constraint, not a preference to optimise around.
 
 ## What the assignment requires
 
@@ -73,16 +79,28 @@ Required structure:
 
 ## Current status
 
-Proposed direction: **calibrating an LLM used as a verification instrument**. Full design in
-[docs/study-design.md](docs/study-design.md), including hypotheses, both experiments, the
-single-author adaptations, the measured API budget and a five-day schedule. Awaiting the author's
-go-ahead.
+Direction: **a secondary analysis of what an LLM judge actually measures**, at zero cost. Full design,
+hypotheses, findings and a three-day schedule in [docs/study-design.md](docs/study-design.md).
+Awaiting the author's go-ahead.
 
-The finding that anchors it is already computed, with no API calls, by
-[docs/probe_nli.py](docs/probe_nli.py): over the 4,238 human-labelled PublicHearingBR NLI items,
-changing only the judge prompt moves F1 from 0.727 to 0.405 and the reported hallucination rate from
-9.1% to 42.3%, against a true rate of 11.89%. Changing the model instead moves F1 much less. Prompt
-choice, which nobody reports, dominates the measurement.
+**The results are already computed**, with no API calls, by [docs/probe_nli.py](docs/probe_nli.py),
+[docs/probe2.py](docs/probe2.py) and [docs/probe3.py](docs/probe3.py), over the 4,238 human-labelled
+PublicHearingBR NLI items and the 12 published verdicts (3 prompts x 4 models) that ship with them:
+
+- The reported hallucination rate runs from 7.2% to 42.3% across the 12 configurations, against a
+  human-labelled truth of 11.89%.
+- Best F1 anywhere is 0.727; worst is 0.405, on the same model with a different prompt.
+- For F1, prompt explains 36.7% of variance, model 11.5%, **interaction 51.8%**. A judge is a
+  model-and-prompt pair and only the pair can be validated.
+- Judge-to-judge kappa (0.549) is indistinguishable from judge-to-human kappa (0.553). There is no
+  model consensus to appeal to.
+- Majority voting over all 12 gives F1 0.709, **worse** than the best single configuration.
+- But the flag count is a good graded score: 0.9% of zero-flag items are genuinely hallucinations,
+  rising monotonically to 95.2% at twelve flags.
+- In all 12 conditions, justifications for wrong verdicts are longer than for right ones.
+
+The reanalysis reproduces the source paper's published true-positive and false-positive rates exactly,
+which is the check that the data is being read correctly.
 
 Open items before writing:
 
@@ -97,10 +115,13 @@ Open items before writing:
 ## This machine
 
 i7-4790 (8 threads), 15 GB RAM, GTX 745 with 4 GB. The GPU is Maxwell (sm_50) and current CUDA builds
-do not support it, so **nothing runs locally**: no open-weight judge, no quantised model, no
-fine-tuning. Every model call goes to an API. The local side of the work is JSON and pandas, which
-this machine handles comfortably. Say so in the paper; needing no specialised hardware is part of the
-argument.
+do not support it, so no local model runs here either: no open-weight judge, no quantised model, no
+fine-tuning. Combined with the zero-budget rule above, this means **no model is run for this paper at
+all**. The work is JSON and pandas over a 56 MB file, which this machine handles comfortably.
+
+That is a strength worth stating in the paper. The analysis is deterministic Python over a public
+dataset, so a reader reproduces every number with no API key, no GPU and no credentials. A paper
+arguing that AI-produced measurements are hard to trust should be reproducible without AI.
 
 ## The project this paper builds on
 
@@ -193,8 +214,10 @@ path, so the Kunumi repository stays as submitted.
 
 ```
 Enunciado Trabalho BIIAP-2026-2.pdf   the assignment
-docs/study-design.md                  proposed study, budget, schedule
-docs/probe_nli.py                     zero-cost probe over the NLI benchmark
+docs/study-design.md                  the study, findings so far, three-day schedule
+docs/probe_nli.py                     scores the 12 published verdicts against the human labels
+docs/probe2.py                        agreement, voting, variance decomposition, hard items
+docs/probe3.py                        flag-count calibration, explanation length
 Artigo/                               SBC template (.tex, .sty, .bst, .bib, example figures)
 CLAUDE.md                             this file
 ```
