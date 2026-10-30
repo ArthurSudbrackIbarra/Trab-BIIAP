@@ -102,9 +102,16 @@ PublicHearingBR NLI items and the 12 published verdicts (3 prompts x 4 models) t
 The reanalysis reproduces the source paper's published true-positive and false-positive rates exactly,
 which is the check that the data is being read correctly.
 
+**A second case study is on the table.** The author wants to work on brain decoding. A feasibility
+probe says it fits: the EEG stack installs, BCI Competition IV 2a downloads in seconds per subject,
+and EEGNet trains on this CPU in 20 seconds to a literature-plausible 71.2% cross-session accuracy.
+See [docs/eeg-option.md](docs/eeg-option.md). It is the same thesis in another domain: a measurement
+whose value depends on the configuration of the instrument, here the evaluation protocol rather than
+the prompt. Decide whether the paper carries one case or two.
+
 Open items before writing:
 
-- Author's go-ahead on the direction.
+- Author's go-ahead on the direction, and on one case study or two.
 - **Authorship.** The assignment requires the advisor and co-advisor as collaborating co-authors, but
   the work is individual and they will not collaborate. Ask the professors directly. Do not list
   someone who did not contribute.
@@ -218,6 +225,8 @@ docs/study-design.md                  the study, findings so far, three-day sche
 docs/probe_nli.py                     scores the 12 published verdicts against the human labels
 docs/probe2.py                        agreement, voting, variance decomposition, hard items
 docs/probe3.py                        flag-count calibration, explanation length
+docs/eeg-option.md                    the brain-decoding case study and how it joins the paper
+docs/probe_eeg_feasibility.py         measured: the EEG stack runs on this CPU in seconds
 Artigo/                               SBC template (.tex, .sty, .bst, .bib, example figures)
 CLAUDE.md                             this file
 ```
