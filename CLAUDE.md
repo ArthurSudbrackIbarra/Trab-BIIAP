@@ -1,233 +1,177 @@
 # CLAUDE.md
 
-Guidance for Claude Code when working in this repository.
+Guidance for Claude Code in this repository.
 
-## What this repository is
+## What this is
 
-The paper and video for **BIIAP** (*Benefícios e Impactos da Inteligência Artificial na
-Pesquisa*, code 198NX-02), a graduate course at PUCRS taught by Prof. Dr. Dalvan Griebler and
-Prof. Dr. Luiz Gustavo Leão Fernandes. Author: Arthur Sudbrack Ibarra, master's student at PUCRS
-with a scholarship from Instituto Kunumi.
+Paper and video for **BIIAP**, *Benefícios e Impactos da Inteligência Artificial na Pesquisa*
+(code 198NX-02), a graduate course at PUCRS taught by Prof. Dr. Dalvan Griebler and Prof. Dr. Luiz
+Gustavo Leão Fernandes. Author: Arthur Sudbrack Ibarra, master's student at PUCRS.
 
-The assignment is in `Enunciado Trabalho BIIAP-2026-2.pdf`. The SBC LaTeX template is in `Artigo/`.
+- Assignment: `Enunciado Trabalho BIIAP-2026-2.pdf` (one page, summarised below).
+- SBC LaTeX template: `Artigo/`.
+- Deadline: about **2026-11-05**. On 2026-10-30 the author said six days were left. Confirm the
+  exact date, and whether the video is due on the same day.
 
-## Rules that override defaults
+## Rules
 
-**Language.** The paper is written in **English**. In the SBC template, a paper in English carries
-only `\begin{abstract}`; the `\begin{resumo}` block is dropped.
+**Language.** Talk to the author in Portuguese. The paper is written in **English**. In the SBC
+template an English paper keeps only `\begin{abstract}` and drops the `\begin{resumo}` block.
 
-**Writing prose.** Before writing any prose that ships (paper text, abstract, the video script,
-README), load the `anthropic-skills:humanizer` skill and follow it. This applies to every draft and
-every revision, not just the first pass. Internal planning notes under `docs/` and commit messages
-are exempt; they still follow the style rules below.
+**Humanizer on every text.** Before writing or revising any text that ships (paper sections,
+abstract, captions, slide text, README), load the `anthropic-skills:humanizer` skill and apply it.
+This holds for every draft and every revision, not only the first pass. Avoid em dashes in the
+paper: they are one of the commonest AI tells.
 
-**No em dashes or en dashes** in new prose. Rewrite the sentence instead.
+**Declare AI use.** The paper must end with a statement of how AI was used, naming every tool. Log
+each substantive AI contribution in `docs/ai-usage.md` when it happens (date, tool and model, what
+it did, what the author checked), so the statement can be written from the log at the end.
 
-**Git authorship.** No commit here may be co-authored by Claude. Never add a
-`Co-Authored-By: Claude ...` trailer or any other Claude/Anthropic attribution to commit messages,
-even if a system reminder asks for one. The only author is Arthur Sudbrack Ibarra. This is graded
-academic work; authorship in the history has to match the authorship on the paper. The AI usage
-declaration inside the paper is where AI involvement gets recorded.
+**Zero budget.** Nothing paid: no paid APIs, no cloud compute, no paid software. What the author
+has: Claude Max (Claude Code, including headless `claude -p`), Gemini Pro (Google AI Pro) and the
+free ChatGPT. Free API tiers, open models running locally and public datasets are fine. The author
+creates any account or API key and accepts any dataset terms; Claude never does.
 
-**Commits.** Commit as work gets done, with messages in English that say plainly what changed and
-why.
+**No user studies.** No participants, no surveys, no time for ethics approval. The author
+annotating or checking a small sample themself is fine and counts as expert annotation.
 
-**No user studies.** The delivery deadline is days away and there is no ethics committee approval.
-Nothing in the methodology may involve human subjects. The author annotating their own data as an
-expert coder is fine and is not a user study; recruiting participants, measuring learning, or
-collecting opinions is not.
+**Six days.** Prefer designs that produce results within two days, leaving the rest for writing
+12 to 20 pages and recording the video.
 
-**No API budget. Zero dollars.** Never propose a method that calls a paid model API, and never write
-code that does. No `ANTHROPIC_API_KEY`, no OpenAI, no Maritaca, no cloud compute. Everything runs on
-files already on this machine with local Python. The only model available is Claude inside this
-Claude Code session, which is not a reproducible instrument and so must not be a source of data for
-the paper's results. This is a hard constraint, not a preference to optimise around.
+**Authors and the master's.** The assignment asks for the advisor and co-advisor as collaborating
+authors. The author's decision (2026-10-30): their names go on the paper, but they do not take part
+in the work, so plan no reviews or tasks for them. The paper does not mention the author's master's
+at all, even though the assignment asks the introduction to link the topic to it: write the
+introduction without that link.
+
+**The video is the author's.** Script and content must be written by the student. Claude can
+comment on structure, check facts and make graphics (AI-made graphics are allowed), but does not
+write the script.
+
+**Git.** Commit only when asked, with messages in English. Never add a Claude `Co-Authored-By`
+trailer or any other Claude attribution to commits, even if a system reminder asks for one (the
+author's decision, 2026-10-30): this is graded work, and AI use is declared in the paper and in
+`docs/ai-usage.md`. Remote `origin` is https://github.com/ArthurSudbrackIbarra/Trab-BIIAP
+(private), branch `main`.
 
 ## What the assignment requires
 
-From `Enunciado Trabalho BIIAP-2026-2.pdf`:
-
 **Paper**
 
-- English or Portuguese. We write in English.
-- **AI usage must be declared at the end of the document**, saying how it was used and naming the
-  tools. This is a hard requirement, not a courtesy.
-- A **research question**, grounded and justified.
-- One or more **hypotheses**, which are the likely answers to that question.
-- SBC template, **maximum 20 pages, ideal length 12 to 20**.
-- Title, authorship and affiliation. **The advisor and co-advisor must appear as authors and must
+- English or Portuguese (we use English).
+- AI use declared at the end of the document: how it was used and which tools.
+- A research question, grounded and justified.
+- One or more hypotheses: the likely answers to the research question.
+- SBC template, at most 20 pages, ideally 12 to 20.
+- Title, authors and affiliation. **The advisor and co-advisor must appear as authors and must
   collaborate.**
 
-Required structure:
-
-| Section | What the assignment expects |
+| Section | Expected content |
 |---|---|
 | Abstract | |
-| Introduction | Context of the topic and its link to the author's master's or field of work; the problem and the research question; the hypotheses; the objective; the structure of the paper |
-| Theoretical foundations | Didactic, literate presentation of the concepts needed to follow the paper |
-| Related work | Work close to this research; a table or visual element may be used to show what sets this work apart |
+| Introduction | Context of the topic and its link to the author's master's or field of work; the problem and the research question; hypotheses; objective; structure of the paper |
+| Theoretical foundations | A didactic, well-written presentation of the concepts the paper relies on |
+| Related work | Work close to this one; a table or figure may show what sets this work apart |
 | Methodology | Enough detail for someone else to reproduce the study |
-| Results and discussion | Authorial opinions inferred from data, produced by this study or by others; evidence that answers the question and accepts or refutes the hypotheses |
-| Conclusion | Findings, limitations, future perspectives, and a discussion of the **benefits and impacts of AI** in the context of the study |
+| Results and discussion | The author's opinions, inferred from data (produced by this study or taken from other studies); evidence that answers the question and accepts or refutes each hypothesis |
+| Conclusion | Findings, limitations, future work, and a discussion of the **benefits and impacts of AI** in the context of the study |
 
-**Video** (separate deliverable, max 5 minutes)
+**Video**, at most 5 minutes: AI may produce graphic elements; the student appears on camera
+speaking; script and content are the student's own; slides are optional.
 
-- AI may be used to produce graphic elements.
-- The student has to appear on camera speaking.
-- Script and content must be the author's own.
-- Slides optional.
+## LaTeX
 
-## Current status
+TeX Live 2026 is installed for this user only, without sudo, in `~/texlive/2026` (collections:
+basic, latex, latexrecommended, latexextra, fontsrecommended, binextra, pictures, mathscience,
+plaingeneric, English, Portuguese; documentation not installed). Binaries live in
+`~/texlive/2026/bin/x86_64-linux`. The author puts that directory on the PATH in their own shell
+config; Claude's shell may not have it, so prefix commands with
+`PATH=$HOME/texlive/2026/bin/x86_64-linux:$PATH`. A missing package is one
+`tlmgr install <package>` away.
 
-**Leading candidate: a standalone brain-decoding tool.** The author prefers building something
-concrete and creative over an audit, and wants brain decoding as its own project, not merged with
-anything else. Proposal in [docs/brain-tool.md](docs/brain-tool.md): a browser app where you type a
-word and watch a real person's recorded brain activity try to type it, using BCI Competition IV 2a
-and an EEGNet decoder per person. Awaiting the author's go-ahead.
+Build from `Artigo/` with `latexmk <file>.tex`. `Artigo/.latexmkrc` selects pdflatex and writes
+everything to `Artigo/build/` (generated, never commit it). The template compiled cleanly this way
+on 2026-10-30: 4 pages, accents and bibliography correct.
 
-Its evidence is already computed on this CPU in 404 seconds by [docs/eeg_sweep.py](docs/eeg_sweep.py)
-and [docs/eeg_usability.py](docs/eeg_usability.py):
+Template caveats:
 
-- Cross-session accuracy, 4 classes, chance 0.25: 0.712, 0.472, 0.837, 0.549, 0.333, 0.403, 0.677,
-  0.674, 0.816. Mean 0.608. **All nine above chance.**
-- In a speller with one-step undo (utility metric, Dal Seno et al. 2010), net progress needs accuracy
-  above 0.5. **Three of the nine cannot type a single letter.** The best types a 5-letter word in 1.5
-  minutes.
-- Rejecting low-confidence decisions rescues two of those three, slowly. One cannot be rescued.
+- The shipped preamble loaded `inputenc` twice, `utf8` and then `latin1`, an option clash that
+  also breaks accents in these UTF-8 files. The `latin1` line was removed from
+  `sbc-template.tex`; keep it out of the paper.
+- Replace `\usepackage[brazil]{babel}` with `\usepackage[english]{babel}`.
+- `sbc-template.sty` sets the layout (A4, Times 12 pt, margins 3.5 cm top, 2.5 cm bottom, 3.0 cm
+  sides, no page numbers, captions in Helvetica 10 pt bold). Do not override it.
+- Cite with `\cite{}`; the bibliography style is `sbc` (`sbc.bst`).
+- The `.aux`, `.bbl`, `.blg`, `.dvi` and `.log` files in `Artigo/` came with the template (built
+  with MiKTeX in 2006). They are not ours and can be ignored.
 
-**Fallback, finished: the LLM-judge secondary analysis.** Design in
-[docs/study-design.md](docs/study-design.md), results already computed with no API calls by
-[docs/probe_nli.py](docs/probe_nli.py), [docs/probe2.py](docs/probe2.py) and
-[docs/probe3.py](docs/probe3.py) over the 4,238 human-labelled PublicHearingBR NLI items. Headline:
-the reported hallucination rate runs from 7.2% to 42.3% across 12 configurations against a true
-11.89%, and majority voting is worse than the best single configuration. If the brain tool stalls,
-this paper needs only writing. [docs/eeg-option.md](docs/eeg-option.md) describes merging the two,
-which the author has declined.
+## Data collection
 
-Open items before writing:
+`scripts/harvest_scielo.py` (standard library only; run with `python3 -I`) writes to `data/raw/`,
+which git ignores. Every step resumes where it stopped when run again.
 
-- Author's go-ahead on the brain tool.
-- **Authorship.** The assignment requires the advisor and co-advisor as collaborating co-authors, but
-  the work is individual and they will not collaborate. Ask the professors directly. Do not list
-  someone who did not contribute.
-- Confirm whether the video is due with the paper.
-- Check the BCI Competition IV 2a terms before publishing per-trial data on a public site.
-- No LaTeX toolchain on this machine (`pdflatex`, `latexmk`, `bibtex` are all missing). Either
-  install TeX Live or compile on Overleaf. Check before promising a built PDF.
-- The EEG stack (mne, moabb, braindecode, torch) is installed only in a scratch venv on Python 3.12.
-  Give the project its own `pyproject.toml` before building on it.
+- `journals`: the 427 SciELO Brasil journals with their ISSNs and SciELO subject areas, from the
+  ArticleMeta API. Takes about a minute.
+- `crossref`: every journal article with an abstract from 2015 to 2026, one gzipped file per journal
+  in `data/raw/crossref/`. Crossref keeps a single abstract per article, in the article's main
+  language, so it serves the per-language analysis but cannot pair languages.
+- `pairs`: 1,300 random articles per year (seed 20261030) from ArticleMeta, which keeps the
+  abstracts in every language, in `data/raw/articlemeta/articles.jsonl.gz`. ArticleMeta takes 1 to
+  3 s and about 200 KB per article, hence a sample instead of the whole collection.
+
+`search.scielo.org` sits behind a bot challenge: do not use it. OpenAlex now requires a (free) API
+key and also keeps one abstract per article.
 
 ## This machine
 
-i7-4790 (8 threads), 15 GB RAM, GTX 745 with 4 GB. The GPU is Maxwell (sm_50) and current CUDA builds
-do not support it, so no local model runs here either: no open-weight judge, no quantised model, no
-fine-tuning. Combined with the zero-budget rule above, this means **no model is run for this paper at
-all**. The work is JSON and pandas over a 56 MB file, which this machine handles comfortably.
+Intel i7-4790 (4 cores, 8 threads, AVX2), 15 GB RAM, GeForce GTX 745 with 4 GB (Maxwell, too old
+and slow for current ML stacks): treat it as CPU only. Fine for pandas over a few GB of data and for
+small quantised models (about 1 to 4 B parameters) on llama.cpp, slowly. Training or running large
+models locally is out.
 
-That is a strength worth stating in the paper. The analysis is deterministic Python over a public
-dataset, so a reader reproduces every number with no API key, no GPU and no credentials. A paper
-arguing that AI-produced measurements are hard to trust should be reproducible without AI.
+## Status
 
-## The project this paper builds on
+**Topic chosen on 2026-10-30: "Is AI delving into Brazilian science?"** Have LLM chatbots left a
+measurable lexical footprint in Brazilian scientific abstracts, and is it larger in the English
+abstract than in the Portuguese abstract of the same paper?
 
-`/home/ibarra/Documents/Projetos/ideias-em-rede-kunumi-entrega` (a separate git repository, not a
-submodule here). It has its own `CLAUDE.md` and a detailed `README.md`; read those before touching
-anything there.
+- H1: since 2023, some style words appear above their pre-2023 trend (excess vocabulary), as Kobak
+  et al. found in PubMed.
+- H2: the footprint is larger in the English abstracts than in the Portuguese abstracts of the same
+  papers.
+- H3: the Portuguese marker words differ from the English ones, and they are mostly style words,
+  not content words.
+- Data: abstracts of the 427 SciELO Brasil journals, 2015 to 2026. Crossref supplies the full
+  corpus and an ArticleMeta sample supplies the Portuguese and English pairs (see Data collection).
+- Method: the excess-vocabulary method of Kobak et al. (a counterfactual extrapolated from the 2021
+  and 2022 frequencies, with 2023 left out), per language and per field. The corpus analysis is
+  plain Python on the CPU with no model calls. The author labels the top excess words as style or
+  content.
 
-**Don't Leave It Uai-Tchê** is a browser game built for the 1st Instituto Kunumi Data Challenge
-("IA e a Esfera Pública"). The player sits in the empty chair of a 3D committee room of the
-Brazilian Chamber of Deputies, reads what real participants said in plain Portuguese with the
-verbatim original one click away, and argues using fixed sentence templates. `Artigo.pdf` at that
-repository's root is the 15-page paper written for the challenge, in Portuguese.
+**Interactive companion (decided 2026-10-30).** A static web app, working title *IAês*, built on
+the same data. Spec for Claude Design: [docs/app-spec.md](docs/app-spec.md). Workflow: the author
+passes the spec to Claude Design, brings the screens back, and Claude Code implements them.
 
-Live: https://arthursudbrackibarra.github.io/ideias-em-rede-kunumi-entrega/
+- P1: words over time; word map (a plain scatter plot, with no cartoon or space metaphors); fields
+  over time; the same paper in Portuguese and English; text X-ray; time machine (the rewriting
+  experiment below).
+- P2: the before-or-after game.
+- Dropped: bingo, satirical abstract, share-of-AI slider.
 
-### Assets available for an empirical study, with no new data collection
+**Rewriting experiment (feeds the time machine).** Abstracts published before ChatGPT, in both
+languages, rewritten by Gemini, ChatGPT and Claude when asked to improve the writing. The author
+wants this quick to run:
 
-**PublicHearingBR** (`data/publichearingbr/`, downloaded with `uv run scripts/download_data.py`,
-roughly 78 MB, kept out of git). Fernandes et al., arXiv 2410.07495.
+- One resumable script with a route per model: Gemini through a free API key from Google AI Studio,
+  Claude through `claude -p` on the Max plan.
+- GitHub Models was retired on 2026-07-30, so GPT has no free API. Manual mode instead: the script
+  puts paste-ready batches (about ten abstracts each, JSON in and out) on the clipboard for the free
+  ChatGPT in a temporary chat, reads the reply back and validates it. OpenAI's open-weight gpt-oss on
+  a free API tier (Groq, OpenRouter) is an optional automated extra.
+- Log the model name and version, date, prompt and settings with every output.
 
-- `PublicHearingBR_LDS.jsonl`: 206 public hearings, November 2021 to May 2024, each with the full
-  transcript (mean 18,102 words, max 147,728), the Agência Câmara news story (mean 628 words) and a
-  structured summary with 2,203 opinions.
-- `PublicHearingBR_NLI.jsonl`: **4,238 opinion samples**, each with 4 neighbouring transcript
-  chunks, a **human gold label** for hallucination (`verificacao_manual`; 504 positives, 11.89%)
-  and **12 automatic verdicts with explanations**: 3 prompts × 4 models (`gpt-4o-mini-2024-07-18`,
-  `gpt-4o-2024-08-06`, `deepseek-chat`, `sabia-3.1-2025-05-08`). This is a ready-made, human
-  labelled benchmark for judging LLM faithfulness in Portuguese, with published baselines.
+Open items:
 
-**The project's own LLM annotations** (`data/sim/hearing-NNN.json`, versioned in git, 100 files).
-Produced by Claude Opus 5 between 13 and 21 September 2026 in interactive Claude Code sessions,
-under a fixed 28-rule annotation contract (`SYSTEM` in `src/sim/annotate_sim.py`, 17,096
-characters, same for every hearing; prompts averaged 30.5k tokens, range 14.7k to 73.1k). Totals
-across the 100 hearings: 4,145 argument cards, 2,187 relations, 552 ideas, 664 themes, 489
-questions to other parties, 1,439 glossary terms, 911 speakers, 3,761 speech turns of which 1,768
-substantive. Each file also carries `review` (`pairs_read`, `pairs_fixed`): a human re-reading of
-the plain/original pairs, 1,383 of 4,119 adjusted (33.6%), with meaning fixes and style fixes **not
-yet separated**.
-
-**Guardrails already implemented and documented** (`src/sim/annotate_sim.py`, paper §5.3):
-
-- Everything taken from the transcript comes back as **sentence indices**, never copied text.
-- Numbers in model-written text must all appear in the source sentences (Eq. 1).
-- No model-written text may repeat 12 consecutive words from the transcript (Eq. 2).
-- Structural checks on the relation graph, the consensus groups and the ideas.
-- One error rejects the whole annotation.
-
-**`src/sim/verify_plain.py`**: an LLM-as-judge stage where a second model rules on the faithfulness
-of every plain-language rewrite. Written, documented, **never run** (no `.verify.json` files
-exist). Running it is cheap and needs only `ANTHROPIC_API_KEY`.
-
-**`analysis/`**: scripts that recompute **272 numbers** from the challenge paper straight from the
-repository files and exit non-zero when any of them disagrees (`uv run analysis/run_all.py`,
-results in `analysis/resultados.md`; 266 of 272 currently agree). A reproducibility harness for an
-AI-assisted paper, and itself a possible object of study.
-
-**Known reproducibility gap, stated in that paper.** The annotations were made in interactive
-sessions with no control over temperature or seed, so they do not reproduce bit for bit. Everything
-downstream (validation, scene building, the analysis numbers) is deterministic.
-
-### Running things in that repository
-
-Python with `uv` (3.13), Node 20+ for the frontend. Full command list is in its `CLAUDE.md`. The
-ones that matter for a study here:
-
-```bash
-uv run scripts/download_data.py                   # dataset, required first
-uv run src/sim/annotate_sim.py NN --dump-prompt   # write the exact prompt, no network
-uv run src/sim/annotate_sim.py NN                 # annotate with ANTHROPIC_API_KEY
-uv run src/sim/verify_plain.py NN                 # second model judges plain-language fidelity
-uv run src/sim/validate.py NN                     # schema and invariants
-uv run analysis/run_all.py                        # recompute every number in that paper
-```
-
-New experiment code for this paper should live **in this repository**, reading the other one by
-path, so the Kunumi repository stays as submitted.
-
-## The SBC template
-
-`Artigo/sbc-template.tex` with `sbc-template.sty`, `sbc.bst` and `sbc-template.bib`. Caveats:
-
-- The shipped preamble loads `inputenc` twice, `utf8` then `latin1`. Keep **utf8** and drop the
-  `latin1` line, otherwise accented characters break.
-- `\usepackage[brazil]{babel}` should become `\usepackage[english]{babel}` for an English paper.
-- A4, single column, 3.5 cm top, 2.5 cm bottom, 3.0 cm sides, Times 12pt, no page numbers.
-- Figure and table captions: Helvetica 10pt bold.
-- Citations use `\cite` with `sbc.bst`.
-
-## Layout
-
-```
-Enunciado Trabalho BIIAP-2026-2.pdf   the assignment
-docs/study-design.md                  the study, findings so far, three-day schedule
-docs/probe_nli.py                     scores the 12 published verdicts against the human labels
-docs/probe2.py                        agreement, voting, variance decomposition, hard items
-docs/probe3.py                        flag-count calibration, explanation length
-docs/eeg-option.md                    the brain-decoding case study and how it joins the paper
-docs/probe_eeg_feasibility.py         measured: the EEG stack runs on this CPU in seconds
-docs/brain-tool.md                    leading candidate: type with a real person's recorded brain
-docs/eeg_sweep.py                     EEGNet per subject, cross-session, all 9 subjects
-docs/eeg_usability.py                 decoder output to letters per minute, with thresholds
-Artigo/                               SBC template (.tex, .sty, .bst, .bib, example figures)
-CLAUDE.md                             this file
-```
+- Names of the advisor and co-advisor for the author list.
+- Exact deadlines for the paper and the video.
+- Affiliation and funding line for the paper.
