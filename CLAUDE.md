@@ -122,6 +122,52 @@ which git ignores. Every step resumes where it stopped when run again.
 `search.scielo.org` sits behind a bot challenge: do not use it. OpenAlex now requires a (free) API
 key and also keeps one abstract per article.
 
+Crossref holds abstracts for some journal-years and not others: 69 journals have none, and 49 have
+abstracts in 2024-2025 but none in 2021-2022 (many deposited them in 2015-2017, stopped, and started
+again in 2025). Never compare raw yearly totals of the whole corpus; see Analysis.
+
+## Analysis
+
+`scripts/excess.py` (standard library only; run with `python3 -I`; every step takes seconds to two
+minutes):
+
+- `prepare`: cleans the 214,252 Crossref abstracts into `data/interim/abstracts.jsonl.gz` (git
+  ignores it): 204,937 usable, with each abstract's set of words.
+- `audit`: coverage by year, language, area and journal (`analysis/coverage.md`).
+- `excess --rule rolling|fixed [--half a|b] [--full] [--raw]`: excess words per language and year
+  (`analysis/excess-<variant>/`), and the list of words to label (`analysis/labels/words-*.txt`).
+- `label`: Claude Opus labels every listed word through `claude -p` (`analysis/labels/claude-*.csv`)
+  and draws the author's blind sample of 100 words per language (`analysis/labels/author-*.csv`;
+  instructions in `analysis/labels/README.md`).
+- `report`: style and content counts per year, author-Claude agreement (kappa), and the lower bound
+  per language, year and area (`analysis/report.md`, `analysis/report.json`).
+
+Rerun the four `excess` variants used by the report (`rolling`, `fixed`, `fixed --half a`,
+`fixed --half b`), then `label` (it only sends unlabelled words), then `report`. Changes from
+Kobak et al., all for a corpus about a hundred times smaller than PubMed, each to be stated in the
+paper:
+
+- **Balanced panel.** Each comparison uses only the journals with at least 5 usable abstracts in the
+  language in every year it involves. Without it, journals entering and leaving Crossref produce
+  dozens of spurious excess words in years before ChatGPT (`--full` shows this).
+- **Length standardization.** Abstracts got longer (distinct words per abstract in English: 85 in
+  2022, 99 in 2026), which raises the frequency of any word. Frequencies are reweighted to the
+  baseline years' length deciles (`--raw` turns this off).
+- **Significance and spread.** A word must appear in at least 10 abstracts that year, pass Kobak's
+  thresholds and a z test with Benjamini-Hochberg FDR 0.05, and be used by at least 5 journals with
+  none holding more than half its uses (this drops one-journal artifacts such as reprinted old
+  articles).
+- **Two baselines.** `rolling` is Kobak's rule for every year (years Y-3 and Y-2, same span every
+  year): use it to count excess words per year (H1). `fixed` keeps 2021-2022 for every year after
+  2022: use it for the lower bound.
+- **Cross-fitted lower bound.** Marker words are chosen on one random half of the abstracts (by DOI)
+  and the gap is measured on the other half, both ways; the same-data estimate (Kobak's procedure)
+  is reported next to it. A placebo applies the same markers and span to 2015-2016 and should give
+  about zero.
+- Kobak et al. print the ratio threshold as log10 r > (log10 2 / 4) log10 p, which read literally
+  passes almost every word; the code uses r > 2^(-log10(p) / 4) (r > 2 at p = 1e-4, rising for
+  rarer words). Check this against the published version before describing it in the paper.
+
 ## This machine
 
 Intel i7-4790 (4 cores, 8 threads, AVX2), 15 GB RAM, GeForce GTX 745 with 4 GB (Maxwell, too old
@@ -144,9 +190,15 @@ abstract than in the Portuguese abstract of the same paper?
 - Data: abstracts of the 427 SciELO Brasil journals, 2015 to 2026. Crossref supplies the full
   corpus and an ArticleMeta sample supplies the Portuguese and English pairs (see Data collection).
 - Method: the excess-vocabulary method of Kobak et al. (a counterfactual extrapolated from the 2021
-  and 2022 frequencies, with 2023 left out), per language and per field. The corpus analysis is
-  plain Python on the CPU with no model calls. The author labels the top excess words as style or
-  content.
+  and 2022 frequencies, with 2023 left out), per language and per field, with the changes listed
+  under Analysis. Claude labels every excess word as style or content; the author labels a blind
+  random sample to measure agreement.
+- First results (2026-10-30, Claude's labels, before the author's check): excess style words per
+  year stay at 0 to 6 until 2022, then English 50 (2024), 105 (2025), 142 (2026) and Portuguese 10,
+  66, 116. Cross-fitted lower bound on the share of abstracts processed by an LLM: English 11% in
+  2024, 17% in 2025, 16% in 2026; Portuguese 0% in 2024, 15% in 2025, 20% in 2026; placebo about 0.
+  Many Portuguese markers look like counterparts of English ones (aprofunda/delves,
+  ressaltando/underscoring, moldam/shaping, crucial), which bears on H3.
 
 **Interactive companion (decided 2026-10-30).** A static web app, working title *IAês*, built on
 the same data. Spec for Claude Design: [docs/app-spec.md](docs/app-spec.md). Workflow: the author

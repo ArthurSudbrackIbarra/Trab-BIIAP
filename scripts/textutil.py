@@ -23,12 +23,14 @@ STOPWORDS = {
 }
 
 
-def clean_abstract(raw):
-    """Plain text from a Crossref (JATS) or ArticleMeta abstract, without the leading label."""
+def clean_abstract(raw, titles=True):
+    """Plain text from a Crossref (JATS) or ArticleMeta abstract, without the leading label.
+
+    Section titles of structured abstracts become "Objetivo: ..." or, with titles=False, are dropped.
+    """
     if not raw:
         return ""
-    # Section titles of structured abstracts become "Objetivo: ...".
-    text = JATS_TITLE.sub(lambda m: f" {m.group(1).strip()}: ", raw)
+    text = JATS_TITLE.sub(lambda m: f" {m.group(1).strip()}: " if titles else " ", raw)
     text = html.unescape(TAG.sub(" ", text))
     text = re.sub(r"\s+", " ", text).strip()
     return LEADING_LABEL.sub("", text).strip()

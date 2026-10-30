@@ -18,6 +18,8 @@ Artigo/build/
 
 # Harvested data (large, re-creatable with scripts/harvest_scielo.py)
 data/raw/
+# Cleaned corpus (re-creatable with scripts/excess.py prepare)
+data/interim/
 
 # Python
 __pycache__/

@@ -1,0 +1,9 @@
+The words below became more frequent in scientific abstracts written in {language}. Label each one as content, style or ambiguous, following Kobak et al. (2025):
+
+- content: the word names something a study is about, such as a topic, an object of study, a method or technology, a disease, an organism, a place, a population or a field. Examples: covid, pandemic, vaccine, genome, soil, migrants, algorithm, chatgpt, pandemia, vacina, solo, migrantes.
+- style: the word says nothing about the subject of the study and could appear in an abstract on any subject. Most are verbs, adjectives, adverbs, connectives or generic nouns of academic writing. Examples: delves, underscores, crucial, notably, comprehensive, insights, additionally, enhancing, destaca, aprofunda, abrangente, ademais.
+- ambiguous: the word could be either, or it cannot be judged without context.
+
+Judge each word on its own. Reply with one line per word, in the order given: the word, a tab, and its label. Write nothing else.
+
+Words:

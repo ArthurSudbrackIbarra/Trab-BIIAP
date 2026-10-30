@@ -1,0 +1,1247 @@
+{
+ "style_counts": {
+  "pt": {
+   "2018": {
+    "style": 1
+   },
+   "2019": {},
+   "2020": {
+    "content": 10,
+    "ambiguous": 5,
+    "style": 1
+   },
+   "2021": {
+    "content": 10,
+    "ambiguous": 4
+   },
+   "2022": {},
+   "2023": {
+    "ambiguous": 2,
+    "style": 2,
+    "content": 2
+   },
+   "2024": {
+    "style": 10,
+    "content": 3
+   },
+   "2025": {
+    "ambiguous": 20,
+    "style": 66,
+    "content": 15
+   },
+   "2026": {
+    "style": 116,
+    "ambiguous": 58,
+    "content": 48
+   }
+  },
+  "en": {
+   "2018": {
+    "style": 3,
+    "content": 1
+   },
+   "2019": {},
+   "2020": {
+    "style": 4,
+    "content": 6,
+    "ambiguous": 3
+   },
+   "2021": {
+    "content": 12,
+    "style": 4,
+    "ambiguous": 3
+   },
+   "2022": {
+    "style": 6,
+    "ambiguous": 3,
+    "content": 2
+   },
+   "2023": {
+    "style": 13,
+    "ambiguous": 15,
+    "content": 7
+   },
+   "2024": {
+    "style": 50,
+    "ambiguous": 4,
+    "content": 5
+   },
+   "2025": {
+    "style": 105,
+    "ambiguous": 35,
+    "content": 23
+   },
+   "2026": {
+    "style": 142,
+    "ambiguous": 108,
+    "content": 26
+   }
+  }
+ },
+ "agreement": {},
+ "bound": {
+  "pt": {
+   "2023": {
+    "crossfit": {
+     "observed": 0.05505808201689231,
+     "expected": 0.03754023028859121,
+     "gap": 0.0175178517283011,
+     "se": 0.007975011457143027,
+     "abstracts": 3419
+    },
+    "thresholds": {
+     "a": 0.1,
+     "b": null
+    },
+    "markers": {
+     "a": 1,
+     "b": 0
+    },
+    "same_data": {
+     "observed": 0.11868336182915433,
+     "expected": 0.08509252004893562,
+     "gap": 0.033590841780218705,
+     "se": 0.00509941553714096,
+     "abstracts": 6879,
+     "threshold": 0.1,
+     "markers": 2
+    },
+    "placebo": {
+     "observed": 0.08502202618432657,
+     "expected": 0.0757608133647509,
+     "gap": 0.009261212819575662,
+     "se": 0.004553102957549373,
+     "abstracts": 7099,
+     "year": 2017
+    }
+   },
+   "2024": {
+    "crossfit": {
+     "observed": 0.02605940295828079,
+     "expected": 0.02217065550812219,
+     "gap": 0.0038887474501585993,
+     "se": 0.008337354889646502,
+     "abstracts": 3106
+    },
+    "thresholds": {
+     "a": 0.05,
+     "b": null
+    },
+    "markers": {
+     "a": 1,
+     "b": 0
+    },
+    "same_data": {
+     "observed": 0.19735862273705923,
+     "expected": 0.13259981409968974,
+     "gap": 0.06475880863736949,
+     "se": 0.006450600132788087,
+     "abstracts": 6163,
+     "threshold": 0.1,
+     "markers": 8
+    },
+    "placebo": {
+     "observed": 0.13965346233553844,
+     "expected": 0.15339324035790639,
+     "gap": -0.013739778022367949,
+     "se": 0.015415974632604409,
+     "abstracts": 7082,
+     "year": 2018
+    }
+   },
+   "2025": {
+    "crossfit": {
+     "observed": 0.4158783096108155,
+     "expected": 0.2692650251248981,
+     "gap": 0.14661328448591746,
+     "se": 0.01921725642779093,
+     "abstracts": 6431
+    },
+    "thresholds": {
+     "a": 0.05,
+     "b": 0.05
+    },
+    "markers": {
+     "a": 41,
+     "b": 33
+    },
+    "same_data": {
+     "observed": 0.6593940754237969,
+     "expected": 0.4649226251953196,
+     "gap": 0.19447145022847728,
+     "se": 0.008320248689808822,
+     "abstracts": 6431,
+     "threshold": 0.05,
+     "markers": 84
+    },
+    "placebo": {
+     "observed": 0.45548640940869906,
+     "expected": 0.4507140523441339,
+     "gap": 0.004772357064565136,
+     "se": 0.03209508333794546,
+     "abstracts": 7238,
+     "year": 2019
+    }
+   },
+   "2026": {
+    "crossfit": {
+     "observed": 0.5106764822985006,
+     "expected": 0.3107063841976676,
+     "gap": 0.19997009810083308,
+     "se": 0.008920828279482373,
+     "abstracts": 5230
+    },
+    "thresholds": {
+     "a": 0.02,
+     "b": 0.05
+    },
+    "markers": {
+     "a": 64,
+     "b": 71
+    },
+    "same_data": {
+     "observed": 0.6002802900997486,
+     "expected": 0.3362060842440465,
+     "gap": 0.26407420585570207,
+     "se": 0.009243812726232661,
+     "abstracts": 5230,
+     "threshold": 0.02,
+     "markers": 133
+    },
+    "placebo": {
+     "observed": 0.35020826216691114,
+     "expected": 0.35212831295446934,
+     "gap": -0.0019200507875581918,
+     "se": 0.008392714138006109,
+     "abstracts": 6850,
+     "year": 2020
+    }
+   }
+  },
+  "en": {
+   "2023": {
+    "crossfit": {
+     "observed": 0.04585214302182044,
+     "expected": 0.04056785679878756,
+     "gap": 0.005284286223032874,
+     "se": 0.005237500383742802,
+     "abstracts": 7804
+    },
+    "thresholds": {
+     "a": 0.01,
+     "b": 0.1
+    },
+    "markers": {
+     "a": 1,
+     "b": 3
+    },
+    "same_data": {
+     "observed": 0.49764829695470225,
+     "expected": 0.44716630440862526,
+     "gap": 0.05048199254607699,
+     "se": 0.007886838637353859,
+     "abstracts": 7804,
+     "threshold": 1.0,
+     "markers": 6
+    },
+    "placebo": {
+     "observed": 0.4940479845004415,
+     "expected": 0.4891073710927171,
+     "gap": 0.004940613407724392,
+     "se": 0.01766239978175685,
+     "abstracts": 4947,
+     "year": 2017
+    }
+   },
+   "2024": {
+    "crossfit": {
+     "observed": 0.46024611836440305,
+     "expected": 0.34831720202526756,
+     "gap": 0.11192891633913549,
+     "se": 0.007872401936794013,
+     "abstracts": 7418
+    },
+    "thresholds": {
+     "a": 1.0,
+     "b": 1.0
+    },
+    "markers": {
+     "a": 23,
+     "b": 16
+    },
+    "same_data": {
+     "observed": 0.44875238000822315,
+     "expected": 0.29661567529461635,
+     "gap": 0.1521367047136068,
+     "se": 0.0077576586269149355,
+     "abstracts": 7418,
+     "threshold": 0.05,
+     "markers": 45
+    },
+    "placebo": {
+     "observed": 0.26238488281779243,
+     "expected": 0.2799563096178441,
+     "gap": -0.017571426800051693,
+     "se": 0.009272637376671668,
+     "abstracts": 4701,
+     "year": 2018
+    }
+   },
+   "2025": {
+    "crossfit": {
+     "observed": 0.5374761964323536,
+     "expected": 0.36326527964170385,
+     "gap": 0.1742109167906497,
+     "se": 0.007532753725845042,
+     "abstracts": 8144
+    },
+    "thresholds": {
+     "a": 0.02,
+     "b": 0.05
+    },
+    "markers": {
+     "a": 55,
+     "b": 95
+    },
+    "same_data": {
+     "observed": 0.5532726656372393,
+     "expected": 0.32809946152362046,
+     "gap": 0.22517320411361885,
+     "se": 0.007841838052584083,
+     "abstracts": 8144,
+     "threshold": 0.02,
+     "markers": 126
+    },
+    "placebo": {
+     "observed": 0.3060729925967151,
+     "expected": 0.29720013766680314,
+     "gap": 0.008872854929911966,
+     "se": 0.009612475631255326,
+     "abstracts": 4683,
+     "year": 2019
+    }
+   },
+   "2026": {
+    "crossfit": {
+     "observed": 0.544845617454767,
+     "expected": 0.3850733015202981,
+     "gap": 0.1597723159344689,
+     "se": 0.035247882225777814,
+     "abstracts": 6606
+    },
+    "thresholds": {
+     "a": 0.05,
+     "b": 0.02
+    },
+    "markers": {
+     "a": 99,
+     "b": 63
+    },
+    "same_data": {
+     "observed": 0.5742871634413308,
+     "expected": 0.3084631121829313,
+     "gap": 0.2658240512583995,
+     "se": 0.008758779473276067,
+     "abstracts": 6606,
+     "threshold": 0.02,
+     "markers": 125
+    },
+    "placebo": {
+     "observed": 0.2887948690066845,
+     "expected": 0.2670232754989382,
+     "gap": 0.021771593507746323,
+     "se": 0.009300998105230995,
+     "abstracts": 4926,
+     "year": 2020
+    }
+   }
+  }
+ },
+ "areas": {
+  "pt": {
+   "Applied Social Sciences": {
+    "2023": {
+     "observed": 0.04977601544408608,
+     "expected": 0.05365293802126776,
+     "gap": -0.0038769225771816823,
+     "se": 0.020920790163387055,
+     "abstracts": 596
+    },
+    "2024": {
+     "observed": 0.02531478365928087,
+     "expected": 0.009698999203598556,
+     "gap": 0.015615784455682314,
+     "se": 0.007231494075689785,
+     "abstracts": 628
+    },
+    "2025": {
+     "observed": 0.48017732904563853,
+     "expected": 0.3700905151782512,
+     "gap": 0.11008681386738736,
+     "se": 0.048653994554376766,
+     "abstracts": 1221
+    },
+    "2026": {
+     "observed": 0.5865698517489178,
+     "expected": 0.33286941372555107,
+     "gap": 0.2537004380233668,
+     "se": 0.06878792020100784,
+     "abstracts": 1655
+    }
+   },
+   "Health Sciences": {
+    "2023": {
+     "observed": 0.05224810049359974,
+     "expected": 0.03505043222635266,
+     "gap": 0.017197668267247085,
+     "se": 0.010842290234310806,
+     "abstracts": 1305
+    },
+    "2024": {
+     "observed": 0.034336403153167404,
+     "expected": 0.04036133781769821,
+     "gap": -0.006024934664530808,
+     "se": 0.014996304579285814,
+     "abstracts": 1041
+    },
+    "2025": {
+     "observed": 0.42310148229492783,
+     "expected": 0.26799550961047724,
+     "gap": 0.15510597268445062,
+     "se": 0.031701957008546125,
+     "abstracts": 2226
+    },
+    "2026": {
+     "observed": 0.5109817067789835,
+     "expected": 0.3248569628764889,
+     "gap": 0.18612474390249462,
+     "se": 0.03918694379034637,
+     "abstracts": 1895
+    }
+   },
+   "Human Sciences": {
+    "2023": {
+     "observed": 0.04073601724344446,
+     "expected": 0.03670172525384977,
+     "gap": 0.004034291989594686,
+     "se": 0.006812605634859761,
+     "abstracts": 1576
+    },
+    "2024": {
+     "observed": 0.023778682097058645,
+     "expected": 0.01669389915953482,
+     "gap": 0.007084782937523824,
+     "se": 0.005085110557824328,
+     "abstracts": 1497
+    },
+    "2025": {
+     "observed": 0.40223299497134846,
+     "expected": 0.27025932051690593,
+     "gap": 0.1319736744544425,
+     "se": 0.011518156345229822,
+     "abstracts": 3196
+    },
+    "2026": {
+     "observed": 0.47005423014966136,
+     "expected": 0.31127398206707396,
+     "gap": 0.1587802480825874,
+     "se": 0.041228337819182746,
+     "abstracts": 1928
+    }
+   },
+   "Linguistics, Letters and Arts": {
+    "2023": {
+     "observed": 0.07044161271860257,
+     "expected": 0.0591334699825343,
+     "gap": 0.011308142736068269,
+     "se": 0.021355574725455913,
+     "abstracts": 251
+    },
+    "2024": {
+     "observed": 0.011283621255193528,
+     "expected": 0.024348443058720068,
+     "gap": -0.01306482180352654,
+     "se": 0.011593330817538277,
+     "abstracts": 256
+    },
+    "2025": {
+     "observed": 0.3655047080012599,
+     "expected": 0.233674831304852,
+     "gap": 0.1318298766964079,
+     "se": 0.02880269371453922,
+     "abstracts": 484
+    },
+    "2026": {
+     "observed": 0.4141238518948298,
+     "expected": 0.4552271387258422,
+     "gap": -0.0411032868310124,
+     "se": 0.1352158225692404,
+     "abstracts": 328
+    }
+   }
+  },
+  "en": {
+   "Agricultural Sciences": {
+    "2023": {
+     "observed": 0.03379155220243954,
+     "expected": 0.03861905174849645,
+     "gap": -0.004827499546056907,
+     "se": 0.011015221217451514,
+     "abstracts": 1418
+    },
+    "2024": {
+     "observed": 0.4618910373983485,
+     "expected": 0.36073369418632517,
+     "gap": 0.10115734321202333,
+     "se": 0.03502452810895234,
+     "abstracts": 1317
+    },
+    "2025": {
+     "observed": 0.46938580420936094,
+     "expected": 0.34671799700165234,
+     "gap": 0.12266780720770856,
+     "se": 0.04816966274558254,
+     "abstracts": 1361
+    },
+    "2026": {
+     "observed": 0.49944942401827264,
+     "expected": 0.2640761342946144,
+     "gap": 0.2353732897236582,
+     "se": 0.019535372590026103,
+     "abstracts": 1071
+    }
+   },
+   "Applied Social Sciences": {
+    "2023": {
+     "observed": 0.03107430702273066,
+     "expected": 0.057117172310753785,
+     "gap": -0.026042865288023125,
+     "se": 0.021912815981271788,
+     "abstracts": 480
+    },
+    "2024": {
+     "observed": 0.4907385630152613,
+     "expected": 0.48359019338072584,
+     "gap": 0.0071483696345354675,
+     "se": 0.05847557801210031,
+     "abstracts": 522
+    },
+    "2025": {
+     "observed": 0.7081348871768186,
+     "expected": 0.6099371281833954,
+     "gap": 0.09819775899342326,
+     "se": 0.10321131320743865,
+     "abstracts": 548
+    },
+    "2026": {
+     "observed": 0.7002248557390447,
+     "expected": 0.6395168091961998,
+     "gap": 0.06070804654284481,
+     "se": 0.10035270298424451,
+     "abstracts": 376
+    }
+   },
+   "Biological Sciences": {
+    "2023": {
+     "observed": 0.027219840475347968,
+     "expected": 0.017124721790930574,
+     "gap": 0.010095118684417394,
+     "se": 0.009954660501808205,
+     "abstracts": 941
+    },
+    "2024": {
+     "observed": 0.46786601984327447,
+     "expected": 0.4550444007572805,
+     "gap": 0.012821619085993996,
+     "se": 0.059968960599899604,
+     "abstracts": 1185
+    },
+    "2025": {
+     "observed": 0.4914460063843442,
+     "expected": 0.40531105441620735,
+     "gap": 0.08613495196813688,
+     "se": 0.06224209203093565,
+     "abstracts": 964
+    },
+    "2026": {
+     "observed": 0.5075061237060288,
+     "expected": 0.35910178574111995,
+     "gap": 0.14840433796490882,
+     "se": 0.07876027970131302,
+     "abstracts": 892
+    }
+   },
+   "Engineering": {
+    "2023": {
+     "observed": 0.035836441467525695,
+     "expected": 0.03913494195292446,
+     "gap": -0.003298500485398762,
+     "se": 0.013905727643142322,
+     "abstracts": 357
+    },
+    "2024": {
+     "observed": 0.5094567871001326,
+     "expected": 0.44654519502825546,
+     "gap": 0.06291159207187721,
+     "se": 0.08014413844313686,
+     "abstracts": 430
+    },
+    "2025": {
+     "observed": 0.673171073952172,
+     "expected": 0.6243962584038307,
+     "gap": 0.048774815548341344,
+     "se": 0.10834910140181993,
+     "abstracts": 844
+    },
+    "2026": {
+     "observed": 0.7047427024327853,
+     "expected": 0.6473873818481206,
+     "gap": 0.05735532058466469,
+     "se": 0.13552542991166971,
+     "abstracts": 658
+    }
+   },
+   "Exact and Earth Sciences": {
+    "2023": {
+     "observed": 0.033792064286419905,
+     "expected": 0.041863997346308524,
+     "gap": -0.008071933059888623,
+     "se": 0.013519215246119903,
+     "abstracts": 482
+    },
+    "2024": {
+     "observed": 0.48379004819513793,
+     "expected": 0.42838865471909,
+     "gap": 0.05540139347604797,
+     "se": 0.07913225981073065,
+     "abstracts": 583
+    },
+    "2025": {
+     "observed": 0.5700434826484506,
+     "expected": 0.5327938382292718,
+     "gap": 0.03724964441917886,
+     "se": 0.07043395031313,
+     "abstracts": 818
+    },
+    "2026": {
+     "observed": 0.6105424548315104,
+     "expected": 0.5789743879245915,
+     "gap": 0.03156806690691885,
+     "se": 0.13897431726866682,
+     "abstracts": 693
+    }
+   },
+   "Health Sciences": {
+    "2023": {
+     "observed": 0.06081842962172828,
+     "expected": 0.04170814023050669,
+     "gap": 0.019110289391221596,
+     "se": 0.007989651329926139,
+     "abstracts": 3838
+    },
+    "2024": {
+     "observed": 0.4381017568489782,
+     "expected": 0.3460866635136131,
+     "gap": 0.09201509333536506,
+     "se": 0.022763811673497045,
+     "abstracts": 3064
+    },
+    "2025": {
+     "observed": 0.48845790370003583,
+     "expected": 0.3227975104460617,
+     "gap": 0.1656603932539741,
+     "se": 0.024937420536889632,
+     "abstracts": 3417
+    },
+    "2026": {
+     "observed": 0.5123580216762066,
+     "expected": 0.4063212077533909,
+     "gap": 0.10603681392281566,
+     "se": 0.050765512486974876,
+     "abstracts": 2791
+    }
+   },
+   "Human Sciences": {
+    "2023": {
+     "observed": 0.030940492594562066,
+     "expected": 0.04078569537981073,
+     "gap": -0.009845202785248666,
+     "se": 0.014754533152779085,
+     "abstracts": 771
+    },
+    "2024": {
+     "observed": 0.45418969567690315,
+     "expected": 0.31269634127109736,
+     "gap": 0.14149335440580582,
+     "se": 0.024274533644859844,
+     "abstracts": 784
+    },
+    "2025": {
+     "observed": 0.5985714981141687,
+     "expected": 0.4111019248398705,
+     "gap": 0.18746957327429817,
+     "se": 0.023841963864493183,
+     "abstracts": 865
+    },
+    "2026": {
+     "observed": 0.5973130078745885,
+     "expected": 0.37094361109667895,
+     "gap": 0.22636939677790965,
+     "se": 0.027448499832057643,
+     "abstracts": 630
+    }
+   }
+  }
+ },
+ "markers": {
+  "pt": {
+   "2023": [
+    "autores",
+    "metodologia"
+   ],
+   "2024": [
+    "oferecendo",
+    "desempenha",
+    "crucial",
+    "contemporânea",
+    "destacando",
+    "abordagens",
+    "desafios",
+    "metodologia"
+   ],
+   "2025": [
+    "multifacetada",
+    "moldam",
+    "tensionam",
+    "perpetuando",
+    "exigindo",
+    "perpetuam",
+    "complementam",
+    "aprofunda",
+    "otimizar",
+    "compromete",
+    "crucial",
+    "integradas",
+    "plurais",
+    "cruciais",
+    "desafia",
+    "oferecendo",
+    "desempenha",
+    "incluíram",
+    "integrando",
+    "culturalmente",
+    "alinhadas",
+    "fortalecer",
+    "integrar",
+    "aprofundada",
+    "destacando",
+    "enfrenta",
+    "investiga",
+    "criticamente",
+    "inovadoras",
+    "examina",
+    "reduz",
+    "reconhecendo",
+    "persistem",
+    "evidencia",
+    "ressaltando",
+    "seguiu",
+    "reforça",
+    "dinâmicas",
+    "preocupações",
+    "abrangente",
+    "incluiu",
+    "reforçando",
+    "evidenciando",
+    "autoras",
+    "enfrentados",
+    "abordagens",
+    "contemporânea",
+    "avanços",
+    "ressalta",
+    "fundamentada",
+    "estratégico",
+    "contribui",
+    "baseia",
+    "revela",
+    "promover",
+    "estruturais",
+    "predominância",
+    "essenciais",
+    "recomendações",
+    "investigou",
+    "explorar",
+    "escopo",
+    "barreiras",
+    "revelou",
+    "marcada",
+    "frequentemente",
+    "iniciativas",
+    "historicamente",
+    "indicam",
+    "influenciam",
+    "ausência",
+    "centralidade",
+    "considerar",
+    "fundamentos",
+    "destacam",
+    "revelaram",
+    "limitações",
+    "contribuem",
+    "contextos",
+    "evidenciam",
+    "aborda",
+    "falta",
+    "perspectivas",
+    "ferramenta"
+   ],
+   "2026": [
+    "tensionam",
+    "moldam",
+    "exigindo",
+    "tensionando",
+    "aprofunda",
+    "distingue",
+    "combinou",
+    "integradas",
+    "moldaram",
+    "examinou",
+    "institucionalmente",
+    "integrando",
+    "persistentes",
+    "perpetuam",
+    "persistem",
+    "tensiona",
+    "mera",
+    "integrar",
+    "ultrapassa",
+    "persistente",
+    "oferecendo",
+    "nexo",
+    "criticamente",
+    "transcende",
+    "enfrenta",
+    "reafirmando",
+    "plurais",
+    "carecem",
+    "fundamentadas",
+    "otimizar",
+    "complementada",
+    "desafiam",
+    "plenamente",
+    "reforçando",
+    "alinhar",
+    "incorpora",
+    "incluíram",
+    "consistente",
+    "estruturam",
+    "reafirma",
+    "limitada",
+    "consolidou",
+    "combinando",
+    "comprometendo",
+    "ampliam",
+    "consolidando",
+    "promissoras",
+    "limitados",
+    "fortaleçam",
+    "estratégico",
+    "articulada",
+    "reforça",
+    "concebida",
+    "desempenha",
+    "permaneceu",
+    "permanecem",
+    "fortalece",
+    "culturalmente",
+    "permanece",
+    "limita",
+    "oferecem",
+    "emerge",
+    "orientadas",
+    "contemporâneos",
+    "fundamentado",
+    "reduz",
+    "alinhada",
+    "predominância",
+    "estratégicos",
+    "configuram",
+    "crucial",
+    "marcada",
+    "profundamente",
+    "incorporando",
+    "consistentes",
+    "sustentada",
+    "propondo",
+    "justa",
+    "consolidado",
+    "investigando",
+    "contemplando",
+    "favorece",
+    "funciona",
+    "concentra",
+    "estruturantes",
+    "eficazes",
+    "integrados",
+    "consolidar",
+    "intencional",
+    "acessíveis",
+    "contínua",
+    "exigências",
+    "configura",
+    "apoiar",
+    "discutindo",
+    "aprimoramento",
+    "fortalecendo",
+    "orientado",
+    "articulam",
+    "incluiu",
+    "eficiência",
+    "determinante",
+    "qualificar",
+    "plena",
+    "atua",
+    "pressões",
+    "seguiu",
+    "orientar",
+    "favorecendo",
+    "estruturado",
+    "adotando",
+    "falhas",
+    "analíticas",
+    "formais",
+    "lacuna",
+    "historicamente",
+    "indicou",
+    "sugerindo",
+    "recomendações",
+    "fundamentos",
+    "reduzir",
+    "favorecer",
+    "analisando",
+    "contemporâneas",
+    "constituem",
+    "subsídios",
+    "examinar",
+    "essenciais",
+    "predominantemente",
+    "formal",
+    "recentes",
+    "demonstram",
+    "capazes"
+   ]
+  },
+  "en": {
+   "2023": [
+    "qualities",
+    "causing",
+    "improving",
+    "into",
+    "conclusion",
+    "after"
+   ],
+   "2024": [
+    "underscore",
+    "delves",
+    "aiding",
+    "interplay",
+    "advancements",
+    "underscores",
+    "align",
+    "deemed",
+    "crucial",
+    "insights",
+    "pivotal",
+    "encompassing",
+    "enhancing",
+    "utilizing",
+    "serves",
+    "profound",
+    "examines",
+    "globally",
+    "offering",
+    "utilized",
+    "incorporating",
+    "necessity",
+    "exhibited",
+    "exhibit",
+    "valuable",
+    "contemporary",
+    "enhance",
+    "causing",
+    "utilization",
+    "additionally",
+    "particularly",
+    "involves",
+    "plays",
+    "highlights",
+    "enhanced",
+    "achieve",
+    "specifically",
+    "like",
+    "approaches",
+    "demonstrated",
+    "promising",
+    "focus",
+    "resulting",
+    "strategy",
+    "against"
+   ],
+   "2025": [
+    "underscore",
+    "aligns",
+    "scalable",
+    "outperforming",
+    "underscoring",
+    "advancements",
+    "engages",
+    "outperformed",
+    "aligning",
+    "aiding",
+    "achieves",
+    "interplay",
+    "standalone",
+    "integrates",
+    "intricate",
+    "underscores",
+    "delves",
+    "promise",
+    "persisted",
+    "align",
+    "alongside",
+    "sequentially",
+    "renowned",
+    "heightened",
+    "enhancements",
+    "illustrates",
+    "incorporating",
+    "amid",
+    "reliably",
+    "deemed",
+    "integrating",
+    "merely",
+    "incorporates",
+    "strictly",
+    "complexities",
+    "employs",
+    "exceeding",
+    "improper",
+    "introduces",
+    "exhibits",
+    "concludes",
+    "utilizing",
+    "enhances",
+    "notable",
+    "leverage",
+    "reinforcing",
+    "linking",
+    "delivering",
+    "integrate",
+    "consistently",
+    "serves",
+    "markedly",
+    "emerges",
+    "shaping",
+    "constructing",
+    "exceeded",
+    "achieving",
+    "exhibit",
+    "examining",
+    "compromising",
+    "inform",
+    "pronounced",
+    "contemporary",
+    "evaluates",
+    "shapes",
+    "holistic",
+    "combining",
+    "confirming",
+    "mitigating",
+    "reflecting",
+    "compares",
+    "typically",
+    "enabling",
+    "optimize",
+    "enhancement",
+    "shifts",
+    "frameworks",
+    "preserving",
+    "encompassing",
+    "argues",
+    "engage",
+    "globally",
+    "hinder",
+    "driven",
+    "gaps",
+    "substantial",
+    "roles",
+    "feasibility",
+    "involves",
+    "exploration",
+    "concerns",
+    "optimized",
+    "facilitating",
+    "shaped",
+    "assessments",
+    "revealing",
+    "strengths",
+    "adjustments",
+    "improvements",
+    "minimal",
+    "robust",
+    "maintaining",
+    "core",
+    "covering",
+    "urgent",
+    "shift",
+    "comprising",
+    "improves",
+    "contrast",
+    "plays",
+    "accurate",
+    "affecting",
+    "unique",
+    "specifically",
+    "emerging",
+    "expanding",
+    "goals",
+    "applicability",
+    "rapid",
+    "consistent",
+    "require",
+    "advantages",
+    "achieve",
+    "methodologies",
+    "shape",
+    "contributions"
+   ],
+   "2026": [
+    "scalable",
+    "outperforming",
+    "underscore",
+    "aligns",
+    "outperformed",
+    "achieves",
+    "constrain",
+    "lacked",
+    "integrates",
+    "finds",
+    "persisted",
+    "linking",
+    "aligning",
+    "underscoring",
+    "interplay",
+    "scalability",
+    "strongest",
+    "merely",
+    "constrained",
+    "incorporates",
+    "align",
+    "markedly",
+    "alongside",
+    "integrating",
+    "generalizability",
+    "underscores",
+    "reinforcing",
+    "governing",
+    "consistently",
+    "incorporating",
+    "posing",
+    "offering",
+    "promise",
+    "advancements",
+    "employs",
+    "shaping",
+    "balancing",
+    "exceeding",
+    "emerges",
+    "alters",
+    "concludes",
+    "exhibits",
+    "compromising",
+    "insights",
+    "reflecting",
+    "robustness",
+    "achieving",
+    "insufficiently",
+    "enhances",
+    "combining",
+    "encompassing",
+    "technically",
+    "integrate",
+    "rigorous",
+    "confirming",
+    "substantial",
+    "constraints",
+    "exceeded",
+    "shaped",
+    "driven",
+    "supports",
+    "effectively",
+    "expands",
+    "strengthened",
+    "frameworks",
+    "declined",
+    "designing",
+    "sustain",
+    "rely",
+    "poses",
+    "efficiently",
+    "contemporary",
+    "engaging",
+    "mitigating",
+    "valuable",
+    "descriptively",
+    "shifts",
+    "reinforce",
+    "enabling",
+    "predominated",
+    "minimal",
+    "conversely",
+    "gaps",
+    "feasibility",
+    "preserving",
+    "argues",
+    "maintaining",
+    "strengths",
+    "stronger",
+    "inform",
+    "comprising",
+    "traditionally",
+    "optimize",
+    "evaluates",
+    "revealing",
+    "expanding",
+    "reductions",
+    "nearly",
+    "overcoming",
+    "adjustments",
+    "typically",
+    "covering",
+    "identifies",
+    "guiding",
+    "critically",
+    "precise",
+    "systematically",
+    "optimized",
+    "assessments",
+    "centered",
+    "successfully",
+    "applicability",
+    "capture",
+    "roles",
+    "plays",
+    "core",
+    "insufficient",
+    "improves",
+    "guidance",
+    "rapid",
+    "accurate",
+    "shape",
+    "emerging",
+    "affecting",
+    "dynamic"
+   ]
+  }
+ }
+}
