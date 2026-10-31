@@ -179,6 +179,20 @@ controls, shuffled together, into the other language; a word hits when one of it
 the dictionary form of a marker of the other language. Commands: `controls`, `translate`,
 `compare` (`analysis/crosslang/report.md`).
 
+`scripts/pairs.py` tests H2 on the ArticleMeta sample. `prepare` cleans both abstracts of every
+sampled paper with the corpus filters (`data/interim/pairs.jsonl.gz`, 9,312 usable papers).
+`compare` (about a minute; `analysis/pairs/report.md`) checks each paper's English and Portuguese
+abstracts against the cross-fitted marker sets of the lower bound, taking the sets picked on the
+Crossref half the paper's DOI is not in (`excess.py report` saves them in `analysis/report.json`;
+rerun `compare` whenever it changes). Only years with at least 10 markers per half in both
+languages are used: 2025 and 2026, since the 2023 and 2024 Portuguese sets have 0 or 1 words. With
+about 750 papers a year the counterfactual is flat (the 2021-2022 share), and the estimate is a
+difference in differences, how much more the English share rose than the Portuguese share in the
+same papers: length-standardized (quintiles), with 2,000 bootstrap resamples of papers within
+years and a placebo. The report adds the 2025 sets applied to every year (timing and pre-trends),
+which abstract carries the markers, robustness variants, and how often the experiment's texts
+carry a marker.
+
 ## This machine
 
 Intel i7-4790 (4 cores, 8 threads, AVX2), 15 GB RAM, GeForce GTX 745 with 4 GB (Maxwell, too old
@@ -214,6 +228,16 @@ abstract than in the Portuguese abstract of the same paper?
   are mostly style words but largely mirror the English ones (aprofunda/delves,
   ressaltando/underscore, moldam/shaping), so the "differ" half of H3 fails; a quarter are
   Portuguese only (tensionam, perpetuando, plurais, multifacetada).
+- H2 (2026-10-31, `scripts/pairs.py`, same papers): from 2021-2022 to 2025-2026 the share of English
+  abstracts with an English marker rose 17.1 points and the share of Portuguese abstracts with a
+  Portuguese marker 14.7; the difference, 2.4 points [-2.1, 6.8] (p = 0.13), is no larger than the
+  placebo (2.6) and stays between -0.7 and 2.4 in every robustness variant. With the 2025 sets on
+  every year, English led in 2024 (8.9 against 2.3 points, difference 6.6 [1.1, 12.0]) and
+  Portuguese caught up in 2025. The growth is in papers with markers in both abstracts (13% to 26%
+  with the 2025 sets), while papers with markers in English only went from 25% to 28%. So H2 holds
+  for 2024 only. Claude's rewrites in the experiment carry few corpus markers (polishing: English
+  40% to 48%, Portuguese 20% to 25%), so they cannot calibrate how many LLM-edited abstracts the
+  markers catch; ChatGPT's and Gemini's might.
 - One translation batch was answered with a refusal (the model read the listed word "stop" as an
   instruction); its words were resent in batches of 25 in a new order. Mention it in the paper as
   a small example of LLM fragility in research pipelines.
