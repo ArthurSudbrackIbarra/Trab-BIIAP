@@ -324,7 +324,7 @@ def cmd_analyze(args):
             change = [len(new & markers[lang]) - len(old & markers[lang]) for old, new in pairs]
             resampled = sorted(sum(rng.choices(change, k=len(change))) / len(change)
                                for _ in range(BOOT))
-            shift = {word: after[word] - before[word] for word in set(before) | set(after)
+            shift = {word: after[word] - before[word] for word in sorted(set(before) | set(after))
                      if max(before[word], after[word]) >= MIN_SHIFT}
             added = {word for word, value in shift.items() if value >= MIN_SHIFT}
             dropped = {word for word, value in shift.items() if value <= -MIN_SHIFT}

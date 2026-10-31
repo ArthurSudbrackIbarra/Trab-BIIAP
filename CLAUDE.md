@@ -298,8 +298,8 @@ sent the replies as files named `1.txt` (polish-pt-01), `1-en.txt` (polish-en-01
 (translate-pt-en-01), with Windows line endings, some without the code block and none with the
 model line; they were rewritten into `experiment/inbox/chatgpt/<batch>.txt` in Claude's format
 without touching the replies. The reply to polish-en-02 is headed `polish-en-01` but holds batch
-02's abstracts, which is what counts. Gemini is done too (2026-10-31, same file names, 240 of
-240, no warnings), labelled `Gemini (Google AI Pro)` until the author confirms the model name.
+02's abstracts, which is what counts. Gemini is done too (2026-10-31, Gemini 3.6 Flash on the
+author's Google AI Pro plan, same file names, 240 of 240, no warnings).
 `python3 -I scripts/experiment.py analyze` compares each model's text with the original (a
 translation with the authors' English): markers per text with a bootstrap interval, the words
 each model adds and drops (a word counts when its number of texts changes by at least 4 of 80),
@@ -310,4 +310,3 @@ Open items:
 - Names of the advisor and co-advisor for the author list.
 - Exact deadlines for the paper and the video.
 - Affiliation and funding line for the paper.
-- The Gemini model name the author saw on screen (the replies say `Gemini (Google AI Pro)`).

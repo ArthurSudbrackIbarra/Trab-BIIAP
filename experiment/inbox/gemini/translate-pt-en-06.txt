@@ -1,4 +1,4 @@
-# modelo: Gemini (Google AI Pro)
+# modelo: Gemini 3.6 Flash (Google AI Pro)
 # data: 2026-10-31
 
 ```text
