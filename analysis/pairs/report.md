@@ -124,9 +124,21 @@ Share of texts with a marker word of the year's sets (cross-fitted by DOI): the 
 
 | model | task | markers | texts | original | model | authors' English |
 |---|---|---|---|---|---|---|
+| chatgpt | polish-en | 2025 | 80 | 41.2 | 70.0 | - |
+| chatgpt | polish-en | 2026 | 80 | 41.2 | 62.5 | - |
+| chatgpt | polish-pt | 2025 | 80 | 32.5 | 40.0 | - |
+| chatgpt | polish-pt | 2026 | 80 | 27.5 | 40.0 | - |
+| chatgpt | translate-pt-en | 2025 | 80 | 32.5 | 63.7 | 32.5 |
+| chatgpt | translate-pt-en | 2026 | 80 | 21.2 | 57.5 | 38.8 |
 | claude | polish-en | 2025 | 80 | 41.2 | 48.8 | - |
 | claude | polish-en | 2026 | 80 | 41.2 | 42.5 | - |
 | claude | polish-pt | 2025 | 80 | 32.5 | 32.5 | - |
 | claude | polish-pt | 2026 | 80 | 27.5 | 32.5 | - |
 | claude | translate-pt-en | 2025 | 80 | 32.5 | 46.2 | 32.5 |
 | claude | translate-pt-en | 2026 | 80 | 21.2 | 43.8 | 38.8 |
+| gemini | polish-en | 2025 | 80 | 41.2 | 82.5 | - |
+| gemini | polish-en | 2026 | 80 | 41.2 | 73.8 | - |
+| gemini | polish-pt | 2025 | 80 | 32.5 | 46.2 | - |
+| gemini | polish-pt | 2026 | 80 | 27.5 | 55.0 | - |
+| gemini | translate-pt-en | 2025 | 80 | 32.5 | 47.5 | 32.5 |
+| gemini | translate-pt-en | 2026 | 80 | 21.2 | 52.5 | 38.8 |

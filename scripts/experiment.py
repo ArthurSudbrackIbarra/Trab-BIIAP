@@ -9,6 +9,8 @@ so replies pasted from the chat apps can be parsed here without any API key.
     claude    send the pending batches to Claude through `claude -p` (Max plan, no API key)
     ingest    parse the replies in experiment/inbox/, check them, write experiment/results/ and
               retry batches for anything missing or broken
+    analyze   which words each model adds and how many are SciELO markers
+              (analysis/experiment/report.md and report.json)
 
 Step-by-step instructions for the author are in experiment/README.md.
 """
@@ -21,6 +23,7 @@ import subprocess
 import sys
 import tempfile
 import time
+import unicodedata
 from collections import Counter
 from datetime import date
 from pathlib import Path
@@ -42,6 +45,10 @@ TASKS = {
 }
 BROKEN = {"empty", "language", "unchanged"}
 CLAUDE_SYSTEM = "You are Claude, a helpful AI assistant."
+MIN_SHIFT = 4  # texts a word must gain (lose) to count as added (dropped): 5% of a task
+TOP_WORDS = 15
+LATEX_COMMAND = re.compile(r"\\[A-Za-z]+")
+BOOT = 2000  # bootstrap resamples
 
 FENCED = re.compile(r"```[^\n]*\n(.*?)```", re.S)
 ITEM_LINE = re.compile(r"^[ \t]*(?:#{1,4}[ \t]*)?\**[ \t]*((?:pt|en|tr)-\d{3})[ \t]*\**[ \t]*:?[ \t]*$",
@@ -284,6 +291,95 @@ def cmd_ingest(args):
     print(report)
 
 
+# --- analysis ---------------------------------------------------------------------------------
+
+def cmd_analyze(args):
+    from crosslang import fisher_greater, marker_words  # the corpus analysis loads only here
+    from excess import TOKEN, table
+
+    def words_of(text):
+        # Gemini writes some notation as LaTeX ($q\text{CO}_2$): its commands are not words.
+        text = LATEX_COMMAND.sub(" ", unicodedata.normalize("NFC", text))
+        return set(TOKEN.findall(text.lower()))
+
+    items = load_items()
+    markers = {lang: set(marker_words(lang)) for lang in ("pt", "en")}
+    rng = random.Random("20261030-analyze")
+    report, rows, lists, added_markers = {}, [], [], {}
+    for model in MODELS:
+        path = EXP / "results" / f"{model}.jsonl"
+        results = list(read_jsonl(path)) if path.exists() else []
+        for task in TASKS:
+            done = [r for r in results if r["task"] == task]
+            if not done:
+                continue
+            lang = TASKS[task]["reply_lang"]
+            # A translation is compared with the authors' own English, a rewrite with the original.
+            field = "reference" if task.startswith("translate") else "input"
+            pairs = [(words_of(items[r["id"]][field]), words_of(r["text"])) for r in done]
+            before, after = Counter(), Counter()
+            for old, new in pairs:
+                before.update(old)
+                after.update(new)
+            change = [len(new & markers[lang]) - len(old & markers[lang]) for old, new in pairs]
+            resampled = sorted(sum(rng.choices(change, k=len(change))) / len(change)
+                               for _ in range(BOOT))
+            shift = {word: after[word] - before[word] for word in set(before) | set(after)
+                     if max(before[word], after[word]) >= MIN_SHIFT}
+            added = {word for word, value in shift.items() if value >= MIN_SHIFT}
+            dropped = {word for word, value in shift.items() if value <= -MIN_SHIFT}
+            a, c = len(added & markers[lang]), len(dropped & markers[lang])
+            ratios = sorted(r["words"] / int(items[r["id"]]["words"]) for r in done)
+            result = {
+                "label": done[0]["model_label"], "texts": len(done),
+                "length_ratio": ratios[len(ratios) // 2],
+                "markers_before": sum(len(old & markers[lang]) for old, _ in pairs) / len(pairs),
+                "markers_after": sum(len(new & markers[lang]) for _, new in pairs) / len(pairs),
+                "change": sum(change) / len(change),
+                "interval": (resampled[int(0.025 * BOOT)], resampled[int(0.975 * BOOT) - 1]),
+                "added": sorted(added, key=lambda w: (-shift[w], w)),
+                "dropped": sorted(dropped, key=lambda w: (shift[w], w)),
+                "shift": shift, "added_markers": a, "dropped_markers": c,
+                "p": fisher_greater(a, len(added) - a, c, len(dropped) - c)}
+            report.setdefault(model, {})[task] = result
+            for word in added & markers[lang]:
+                added_markers.setdefault(task, {}).setdefault(word, []).append(model)
+            rows.append([f"{model} ({result['label']})", task, result["texts"],
+                         f"{result['length_ratio']:.2f}",
+                         f"{result['markers_before']:.2f} → {result['markers_after']:.2f}",
+                         f"{result['change']:+.2f} [{result['interval'][0]:+.2f}, "
+                         f"{result['interval'][1]:+.2f}]",
+                         f"{a}/{len(added)}", f"{c}/{len(dropped)}", f"{result['p']:.1e}"])
+            lists += [f"**{model}, {task}**: " + ", ".join(
+                f"{w}{'*' if w in markers[lang] else ''} (+{shift[w]})"
+                for w in result["added"][:TOP_WORDS]), ""]
+
+    lines = ["# What the chatbots change in an abstract", "",
+             "Generated by `python3 -I scripts/experiment.py analyze`. SciELO markers are the excess "
+             "style words of 2024-2026 (`scripts/crosslang.py`, 349 Portuguese and 437 English). A "
+             "rewrite is compared with the original abstract and a translation with the authors' own "
+             f"English. A word counts as added (dropped) when it appears in at least {MIN_SHIFT} more "
+             f"(fewer) of the 80 texts after the model's pass. Brackets: 95% intervals from {BOOT} "
+             "resamples of texts. p: Fisher's exact test, one-sided, for markers being more common "
+             "among the added words than among the dropped ones. Length: median ratio of words, "
+             "model's text to original.", ""]
+    lines += table(["model", "task", "texts", "length", "markers per text", "change",
+                    "markers among added", "markers among dropped", "p"], rows)
+    lines += ["## Words each model adds most", "",
+              f"Top {TOP_WORDS} by the number of texts gained; * marks a SciELO marker.", "", *lists]
+    lines += ["## Markers that more than one model adds", ""]
+    for task, models in added_markers.items():
+        shared = sorted((w for w in models if len(models[w]) > 1), key=lambda w: (-len(models[w]), w))
+        report.setdefault("shared", {})[task] = {w: models[w] for w in shared}
+        lines += [f"**{task}** ({len(shared)}): " + (", ".join(
+            f"{w} ({', '.join(models[w])})" for w in shared) or "none"), ""]
+    out = ROOT / "analysis" / "experiment"
+    out.mkdir(parents=True, exist_ok=True)
+    (out / "report.md").write_text("\n".join(lines), encoding="utf-8")
+    (out / "report.json").write_text(json.dumps(report, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(f"wrote {out / 'report.md'}")
+
+
 # --- claude -----------------------------------------------------------------------------------
 
 def run_claude(text, model):
@@ -344,8 +440,10 @@ def main():
     claude.add_argument("--model", default="sonnet")
     claude.add_argument("--limit", type=int, default=0, help="send at most this many batches")
     sub.add_parser("ingest")
+    sub.add_parser("analyze")
     args = parser.parse_args()
-    {"build": cmd_build, "claude": cmd_claude, "ingest": cmd_ingest}[args.command](args)
+    {"build": cmd_build, "claude": cmd_claude, "ingest": cmd_ingest,
+     "analyze": cmd_analyze}[args.command](args)
 
 
 if __name__ == "__main__":

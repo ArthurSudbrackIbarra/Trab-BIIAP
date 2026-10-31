@@ -242,9 +242,24 @@ abstract than in the Portuguese abstract of the same paper?
   caught up in 2025. The growth is in papers with markers in both abstracts (15% to 31% with the
   2025 sets), while papers with markers in English only went from 23% to 24%. So H2 holds for 2024
   only. The placebo of the papers written in Portuguese is 5.4 [-0.2, 10.9], too large to read the
-  subgroups by article language. Claude's rewrites in the experiment carry few corpus markers
-  (polishing, 2025 sets: English 41% to 49%, Portuguese 33% to 33%), so they cannot calibrate how
-  many LLM-edited abstracts the markers catch; ChatGPT's and Gemini's might.
+  subgroups by article language.
+- Rewriting experiment (2026-10-31, 80 texts per task and model). Word analysis
+  (`experiment.py analyze`, `analysis/experiment/report.md`, markers = the H3 markers): polishing an
+  English abstract adds about 5 markers per text with ChatGPT and Gemini (8.1 to 13.2) and 1.1 with
+  Claude; a Portuguese one, 2.2 (ChatGPT), 2.4 (Gemini) and 0.8 (Claude); translating adds 3.6, 1.5
+  and 0.3 (Claude, not significant) over the authors' own English. Markers are far more common
+  among the words ChatGPT and Gemini add than among those they drop (ChatGPT polishing English: 40
+  of 92 added words against 1 of 46 dropped, p = 4e-8). All three models add across, findings,
+  these, using and whereas to English abstracts. With the lower-bound sets (`analysis/pairs/report.md`),
+  polishing raises the share of abstracts with a marker by 29 (ChatGPT), 41 (Gemini) and 8 (Claude)
+  points in English but by 8, 14 and 0 in Portuguese with the 2025 sets, and by 21, 33 and 1
+  against 13, 28 and 5 with the 2026 sets. So the markers catch an edit more often in English than
+  in Portuguese, and similar footprints in the two languages may hide more editing of the
+  Portuguese abstracts. Dividing the rises in the same papers by these rates gives shares from about
+  35% to over 100% in both languages, so one polishing pass by a 2026 model cannot calibrate the
+  markers: real use evidently leaves more of them (older models, several passes, drafting). Gemini
+  also wrote chemical and mathematical notation as LaTeX in 23 of its 240 texts (the analysis drops
+  LaTeX commands). With 80 texts per task, treat the rates as rough.
 - One translation batch was answered with a refusal (the model read the listed word "stop" as an
   instruction); its words were resent in batches of 25 in a new order. Mention it in the paper as
   a small example of LLM fragility in research pipelines.
@@ -278,8 +293,21 @@ Code still adds about 900 tokens of environment information to that context: rep
 limitation. `python3 -I scripts/experiment.py ingest` parses and checks every reply, writes
 `experiment/results/<model>.jsonl` and retry batches for missing or broken items.
 
+ChatGPT is done (2026-10-31, GPT-6 per the author, 240 of 240 replies, no warnings). The author
+sent the replies as files named `1.txt` (polish-pt-01), `1-en.txt` (polish-en-01) and `t1.txt`
+(translate-pt-en-01), with Windows line endings, some without the code block and none with the
+model line; they were rewritten into `experiment/inbox/chatgpt/<batch>.txt` in Claude's format
+without touching the replies. The reply to polish-en-02 is headed `polish-en-01` but holds batch
+02's abstracts, which is what counts. Gemini is done too (2026-10-31, same file names, 240 of
+240, no warnings), labelled `Gemini (Google AI Pro)` until the author confirms the model name.
+`python3 -I scripts/experiment.py analyze` compares each model's text with the original (a
+translation with the authors' English): markers per text with a bootstrap interval, the words
+each model adds and drops (a word counts when its number of texts changes by at least 4 of 80),
+and a Fisher test of markers among added against dropped words.
+
 Open items:
 
 - Names of the advisor and co-advisor for the author list.
 - Exact deadlines for the paper and the video.
 - Affiliation and funding line for the paper.
+- The Gemini model name the author saw on screen (the replies say `Gemini (Google AI Pro)`).
