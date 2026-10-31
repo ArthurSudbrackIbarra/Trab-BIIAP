@@ -1,0 +1,25 @@
+plays	jogar, tocar, brincar
+supports	apoiar, sustentar, suportar
+promise	promessa, prometer
+finds	encontrar, achar, descobrir
+itself	si mesmo, se, próprio
+missing	desaparecido, ausente, faltante
+expands	expandir, ampliar, dilatar
+high	alto, elevado
+strategic	estratégico
+direct	direto, dirigir, orientar
+internal	interno
+outlined	delinear, esboçar, resumir
+small	pequeno
+actively	ativamente
+gather	reunir, juntar, colher
+lies	mentira, mentir, deitar
+methodologies	metodologia
+favor	favor, favorecer
+argues	argumentar, discutir, alegar
+preserving	preservar, conservar, manter
+across	através de, do outro lado de
+turns	virar, girar, vez
+suggestions	sugestão
+unique	único, singular
+verifies	verificar, conferir, comprovar

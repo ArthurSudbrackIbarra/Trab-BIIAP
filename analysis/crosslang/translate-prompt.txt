@@ -1,0 +1,3 @@
+Translate each {source} word below into {target}. Give up to three {target} translations that a bilingual dictionary would list for the word, most common first, each in dictionary form (the infinitive for a verb, the singular for a noun, the masculine singular for an adjective). Reply with one line per word, in the order given: the {source} word, a tab, and the translations separated by commas. Write nothing else.
+
+Words:

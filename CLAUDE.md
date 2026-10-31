@@ -117,7 +117,9 @@ which git ignores. Every step resumes where it stopped when run again.
   language, so it serves the per-language analysis but cannot pair languages.
 - `pairs`: 1,300 random articles per year (seed 20261030) from ArticleMeta, which keeps the
   abstracts in every language, in `data/raw/articlemeta/articles.jsonl.gz`. ArticleMeta takes 1 to
-  3 s and about 200 KB per article, hence a sample instead of the whole collection.
+  3 s and about 200 KB per article, hence a sample instead of the whole collection. Finished on
+  2026-10-30 with no errors: 15,600 records, 9,505 with both a Portuguese and an English abstract
+  (708 to 877 per year, before cleaning), 4,785 of them Portuguese-language articles.
 
 `search.scielo.org` sits behind a bot challenge: do not use it. OpenAlex now requires a (free) API
 key and also keeps one abstract per article.
@@ -168,6 +170,15 @@ paper:
   passes almost every word; the code uses r > 2^(-log10(p) / 4) (r > 2 at p = 1e-4, rising for
   rarer words). Check this against the published version before describing it in the paper.
 
+`scripts/crosslang.py` tests whether the Portuguese markers echo the English ones (H3). Markers
+are the excess style words of 2024-2026 under either baseline. Each marker gets a control: a word
+of the same language with the closest frequency in 2021-2022 that was never excess and that Claude
+labels style with the markers' prompt. Claude (through `claude -p`, prompts in
+`analysis/crosslang/`) gives the dictionary form of every marker and translates markers and
+controls, shuffled together, into the other language; a word hits when one of its translations is
+the dictionary form of a marker of the other language. Commands: `controls`, `translate`,
+`compare` (`analysis/crosslang/report.md`).
+
 ## This machine
 
 Intel i7-4790 (4 cores, 8 threads, AVX2), 15 GB RAM, GeForce GTX 745 with 4 GB (Maxwell, too old
@@ -197,8 +208,15 @@ abstract than in the Portuguese abstract of the same paper?
   year stay at 0 to 6 until 2022, then English 50 (2024), 105 (2025), 142 (2026) and Portuguese 10,
   66, 116. Cross-fitted lower bound on the share of abstracts processed by an LLM: English 11% in
   2024, 17% in 2025, 16% in 2026; Portuguese 0% in 2024, 15% in 2025, 20% in 2026; placebo about 0.
-  Many Portuguese markers look like counterparts of English ones (aprofunda/delves,
-  ressaltando/underscoring, moldam/shaping, crucial), which bears on H3.
+  H3 test (`scripts/crosslang.py`): 75% of the 332 Portuguese markers translate into an English
+  marker against 43% of their controls (Fisher p = 5e-17); 50% of the 415 English markers
+  translate into a Portuguese marker against 22% of controls (p = 7e-18). The Portuguese markers
+  are mostly style words but largely mirror the English ones (aprofunda/delves,
+  ressaltando/underscore, moldam/shaping), so the "differ" half of H3 fails; a quarter are
+  Portuguese only (tensionam, perpetuando, plurais, multifacetada).
+- One translation batch was answered with a refusal (the model read the listed word "stop" as an
+  instruction); its words were resent in batches of 25 in a new order. Mention it in the paper as
+  a small example of LLM fragility in research pipelines.
 
 **Interactive companion (decided 2026-10-30).** A static web app, working title *IAês*, built on
 the same data. Spec for Claude Design: [docs/app-spec.md](docs/app-spec.md). Workflow: the author

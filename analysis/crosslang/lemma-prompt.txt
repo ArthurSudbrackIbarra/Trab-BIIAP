@@ -1,0 +1,3 @@
+Give the dictionary form of each {language} word below: the infinitive for a verb, the singular for a noun, the masculine singular for an adjective; leave any other word as it is. Reply with one line per word, in the order given: the word, a tab, and its dictionary form. Write nothing else.
+
+Words:

@@ -1,0 +1,831 @@
+word,translations,model
+develop,"desenvolver, elaborar, revelar",claude-opus-5-5
+evolved,"evoluir, desenvolver, evoluído",claude-opus-5-5
+leads,"levar, conduzir, liderar",claude-opus-5-5
+correlated,"correlacionar, correlacionado, relacionar",claude-opus-5-5
+fell,"cair, derrubar, abater",claude-opus-5-5
+might,"poder, poderio, força",claude-opus-5-5
+require,"exigir, requerer, necessitar",claude-opus-5-5
+returned,"voltar, retornar, devolver",claude-opus-5-5
+fosters,"fomentar, promover, estimular",claude-opus-5-5
+feasibility,"viabilidade, exequibilidade, praticabilidade",claude-opus-5-5
+identifies,"identificar, reconhecer, apontar",claude-opus-5-5
+partial,"parcial, incompleto, tendencioso",claude-opus-5-5
+reveals,"revelar, mostrar, divulgar",claude-opus-5-5
+centered,"centrar, centralizar, centrado",claude-opus-5-5
+contrast,"contraste, contrastar, diferença",claude-opus-5-5
+insights,"percepção, compreensão, discernimento",claude-opus-5-5
+subgroups,"subgrupo, subconjunto, subdivisão",claude-opus-5-5
+question,"pergunta, questão, questionar",claude-opus-5-5
+arising,"surgir, resultar, decorrer",claude-opus-5-5
+adds,"adicionar, acrescentar, somar",claude-opus-5-5
+reductions,"redução, diminuição, corte",claude-opus-5-5
+accounted,"explicar, representar, contabilizar",claude-opus-5-5
+gaps,"lacuna, intervalo, brecha",claude-opus-5-5
+profound,"profundo, intenso, grave",claude-opus-5-5
+extended,"estender, prolongar, estendido",claude-opus-5-5
+respect,"respeito, respeitar, aspecto",claude-opus-5-5
+controlled,"controlar, controlado, dominar",claude-opus-5-5
+contingent,"contingente, dependente, condicional",claude-opus-5-5
+adopts,"adotar, assumir, acolher",claude-opus-5-5
+proportions,"proporção, dimensão, parte",claude-opus-5-5
+specifically,"especificamente, particularmente, expressamente",claude-opus-5-5
+importance,"importância, relevância, significado",claude-opus-5-5
+compromising,"comprometer, prejudicar, comprometedor",claude-opus-5-5
+analyzed,"analisar, examinar, estudar",claude-opus-5-5
+noticed,"notar, perceber, observar",claude-opus-5-5
+phenomenon,"fenômeno, acontecimento, prodígio",claude-opus-5-5
+reliably,"confiavelmente, seguramente, consistentemente",claude-opus-5-5
+encompassing,"abranger, englobar, incluir",claude-opus-5-5
+independent,"independente, autônomo, livre",claude-opus-5-5
+difference,"diferença, distinção, divergência",claude-opus-5-5
+comparisons,"comparação, confronto, paralelo",claude-opus-5-5
+bring,"trazer, levar, causar",claude-opus-5-5
+core,"núcleo, essência, central",claude-opus-5-5
+accessible,"acessível, disponível, compreensível",claude-opus-5-5
+emphasizes,"enfatizar, destacar, salientar",claude-opus-5-5
+assessments,"avaliação, apreciação, análise",claude-opus-5-5
+goals,"objetivo, meta, gol",claude-opus-5-5
+achieve,"alcançar, atingir, conseguir",claude-opus-5-5
+coupled,"acoplar, associar, acoplado",claude-opus-5-5
+reinforce,"reforçar, fortalecer, consolidar",claude-opus-5-5
+remarkable,"notável, extraordinário, marcante",claude-opus-5-5
+although,"embora, apesar de, ainda que",claude-opus-5-5
+previously,"anteriormente, previamente, antes",claude-opus-5-5
+even,"até, mesmo, par",claude-opus-5-5
+lowest,"baixo, mínimo, inferior",claude-opus-5-5
+serving,"servir, atender, porção",claude-opus-5-5
+understudied,"pouco estudado, negligenciado, substituto",claude-opus-5-5
+scarce,"escasso, raro, insuficiente",claude-opus-5-5
+were,"ser, estar, ficar",claude-opus-5-5
+serves,"servir, atender, cumprir",claude-opus-5-5
+relatively,"relativamente, comparativamente, razoavelmente",claude-opus-5-5
+participate,"participar, tomar parte, colaborar",claude-opus-5-5
+correlates,"correlacionar, correlato, relacionar",claude-opus-5-5
+whereas,"enquanto, ao passo que, considerando que",claude-opus-5-5
+situate,"situar, localizar, posicionar",claude-opus-5-5
+this,"este, esse, isto",claude-opus-5-5
+intricate,"intricado, complexo, complicado",claude-opus-5-5
+illustrates,"ilustrar, exemplificar, demonstrar",claude-opus-5-5
+functionality,"funcionalidade, função, operacionalidade",claude-opus-5-5
+valuable,"valioso, precioso, útil",claude-opus-5-5
+rapid,"rápido, veloz, acelerado",claude-opus-5-5
+mediated,"mediar, intermediar, mediado",claude-opus-5-5
+confirms,"confirmar, comprovar, ratificar",claude-opus-5-5
+milder,"suave, brando, ameno",claude-opus-5-5
+promoting,"promover, fomentar, incentivar",claude-opus-5-5
+decreasing,"diminuir, reduzir, decrescente",claude-opus-5-5
+analytical,"analítico, lógico, metódico",claude-opus-5-5
+final,"final, último, definitivo",claude-opus-5-5
+pronounced,"pronunciar, acentuado, marcante",claude-opus-5-5
+analyzing,"analisar, examinar, estudar",claude-opus-5-5
+sophisticated,"sofisticado, refinado, complexo",claude-opus-5-5
+works,"trabalhar, funcionar, obra",claude-opus-5-5
+marked,"marcar, marcado, acentuado",claude-opus-5-5
+allocated,"alocar, destinar, atribuir",claude-opus-5-5
+ordered,"ordenar, encomendar, pedir",claude-opus-5-5
+shift,"mudança, deslocamento, turno",claude-opus-5-5
+adapt,"adaptar, ajustar, adequar",claude-opus-5-5
+inefficient,"ineficiente, ineficaz, improdutivo",claude-opus-5-5
+depends,"depender, contar com, confiar",claude-opus-5-5
+first,"primeiro, inicial, primeiramente",claude-opus-5-5
+exceeded,"exceder, ultrapassar, superar",claude-opus-5-5
+indicated,"indicar, apontar, sinalizar",claude-opus-5-5
+against,"contra, em oposição a, comparado a",claude-opus-5-5
+double,"duplo, dobro, dobrar",claude-opus-5-5
+robust,"robusto, forte, sólido",claude-opus-5-5
+themes,"tema, assunto, tópico",claude-opus-5-5
+enabled,"possibilitar, permitir, habilitar",claude-opus-5-5
+challenge,"desafio, desafiar, contestar",claude-opus-5-5
+simultaneously,"simultaneamente, ao mesmo tempo, concomitantemente",claude-opus-5-5
+enhances,"melhorar, aumentar, realçar",claude-opus-5-5
+designing,"projetar, desenhar, conceber",claude-opus-5-5
+future,futuro,claude-opus-5-5
+recognized,"reconhecer, identificar, admitir",claude-opus-5-5
+utilizing,"utilizar, usar, empregar",claude-opus-5-5
+considers,"considerar, ponderar, julgar",claude-opus-5-5
+longer,"longo, comprido, extenso",claude-opus-5-5
+rather,"preferivelmente, bastante, um tanto",claude-opus-5-5
+incorporates,"incorporar, incluir, integrar",claude-opus-5-5
+standardized,"padronizar, normalizar, uniformizar",claude-opus-5-5
+effective,"eficaz, efetivo, eficiente",claude-opus-5-5
+posing,"colocar, apresentar, posar",claude-opus-5-5
+circumstances,"circunstância, situação, condição",claude-opus-5-5
+slow,"lento, devagar, vagaroso",claude-opus-5-5
+highest,"alto, elevado, superior",claude-opus-5-5
+conducting,"conduzir, realizar, dirigir",claude-opus-5-5
+broader,"amplo, largo, abrangente",claude-opus-5-5
+consequence,"consequência, resultado, importância",claude-opus-5-5
+combines,"combinar, juntar, unir",claude-opus-5-5
+coordinated,"coordenar, organizar, harmonizar",claude-opus-5-5
+clear,"claro, nítido, evidente",claude-opus-5-5
+emerge,"emergir, surgir, aparecer",claude-opus-5-5
+emerging,"emergente, surgir, emergir",claude-opus-5-5
+inside,"dentro, interior, interno",claude-opus-5-5
+distinguishing,"distinguir, diferenciar, discernir",claude-opus-5-5
+inverse,"inverso, contrário, oposto",claude-opus-5-5
+novel,"novo, inovador, romance",claude-opus-5-5
+agreed,"concordar, combinar, acordar",claude-opus-5-5
+underscoring,"sublinhar, ressaltar, enfatizar",claude-opus-5-5
+existent,"existente, real, atual",claude-opus-5-5
+exerts,"exercer, empregar, aplicar",claude-opus-5-5
+holistic,"holístico, integral, global",claude-opus-5-5
+sequential,"sequencial, consecutivo, sucessivo",claude-opus-5-5
+help,"ajudar, ajuda, auxílio",claude-opus-5-5
+enhancements,"melhoria, aprimoramento, aperfeiçoamento",claude-opus-5-5
+component,"componente, elemento, peça",claude-opus-5-5
+placed,"colocar, pôr, posicionar",claude-opus-5-5
+lower,"inferior, baixo, abaixar",claude-opus-5-5
+constructing,"construir, edificar, montar",claude-opus-5-5
+contributing,"contribuir, colaborar, cooperar",claude-opus-5-5
+transforming,"transformar, converter, modificar",claude-opus-5-5
+denoting,"denotar, indicar, significar",claude-opus-5-5
+actionable,"acionável, prático, processável",claude-opus-5-5
+likely,"provável, provavelmente, plausível",claude-opus-5-5
+still,"ainda, imóvel, quieto",claude-opus-5-5
+confronting,"confrontar, enfrentar, encarar",claude-opus-5-5
+utilized,"utilizar, usar, empregar",claude-opus-5-5
+experienced,"experiente, experimentar, vivenciar",claude-opus-5-5
+advancements,"avanço, progresso, desenvolvimento",claude-opus-5-5
+exhibit,"exibir, apresentar, mostrar",claude-opus-5-5
+understands,"entender, compreender, perceber",claude-opus-5-5
+assumptions,"suposição, pressuposto, premissa",claude-opus-5-5
+restricted,"restrito, limitado, restringir",claude-opus-5-5
+combination,"combinação, mistura, união",claude-opus-5-5
+minimal,"mínimo, ínfimo, reduzido",claude-opus-5-5
+occurrences,"ocorrência, acontecimento, incidência",claude-opus-5-5
+lacked,"carecer, faltar, necessitar",claude-opus-5-5
+recommended,"recomendar, aconselhar, indicar",claude-opus-5-5
+based,"basear, fundamentar, apoiar",claude-opus-5-5
+overall,"geral, global, total",claude-opus-5-5
+equal,"igual, equivalente, igualar",claude-opus-5-5
+positively,"positivamente, favoravelmente, decididamente",claude-opus-5-5
+rely,"depender, confiar, contar",claude-opus-5-5
+mentioning,"mencionar, citar, referir",claude-opus-5-5
+enhancement,"melhoria, aprimoramento, aperfeiçoamento",claude-opus-5-5
+shaped,"moldar, formar, modelar",claude-opus-5-5
+underscores,"sublinhar, ressaltar, enfatizar",claude-opus-5-5
+principle,"princípio, norma, preceito",claude-opus-5-5
+overcoming,"superar, vencer, dominar",claude-opus-5-5
+introduces,"introduzir, apresentar, lançar",claude-opus-5-5
+notions,"noção, ideia, conceito",claude-opus-5-5
+ratios,"razão, proporção, relação",claude-opus-5-5
+achieving,"alcançar, conseguir, atingir",claude-opus-5-5
+enhancing,"melhorar, aprimorar, realçar",claude-opus-5-5
+contrasts,"contrastar, contraste, comparar",claude-opus-5-5
+ninety,noventa,claude-opus-5-5
+improvements,"melhoria, aperfeiçoamento, aprimoramento",claude-opus-5-5
+relevance,"relevância, pertinência, importância",claude-opus-5-5
+inversely,"inversamente, contrariamente",claude-opus-5-5
+associate,"associar, relacionar, associado",claude-opus-5-5
+reaches,"alcançar, atingir, chegar",claude-opus-5-5
+insufficient,"insuficiente, escasso, inadequado",claude-opus-5-5
+affecting,"afetar, influenciar, comover",claude-opus-5-5
+varying,"variar, variável, diversificar",claude-opus-5-5
+outcomes,"resultado, consequência, desfecho",claude-opus-5-5
+delves,"aprofundar, investigar, explorar",claude-opus-5-5
+modern,"moderno, atual, contemporâneo",claude-opus-5-5
+realities,"realidade, fato, verdade",claude-opus-5-5
+either,"qualquer, cada, também",claude-opus-5-5
+achieves,"alcançar, conseguir, atingir",claude-opus-5-5
+depend,"depender, contar, confiar",claude-opus-5-5
+standalone,"independente, autônomo, isolado",claude-opus-5-5
+estimated,"estimar, calcular, avaliar",claude-opus-5-5
+sustain,"sustentar, manter, suportar",claude-opus-5-5
+scalable,"escalável, expansível, ampliável",claude-opus-5-5
+delimited,"delimitar, demarcar, limitar",claude-opus-5-5
+investigates,"investigar, examinar, pesquisar",claude-opus-5-5
+submitted,"submeter, enviar, apresentar",claude-opus-5-5
+indicates,"indicar, mostrar, sinalizar",claude-opus-5-5
+consist,"consistir, compor-se, constar",claude-opus-5-5
+essential,"essencial, fundamental, indispensável",claude-opus-5-5
+often,"frequentemente, muitas vezes, com frequência",claude-opus-5-5
+analyzes,"analisar, examinar, estudar",claude-opus-5-5
+formed,"formar, constituir, moldar",claude-opus-5-5
+starting,"começar, iniciar, partir",claude-opus-5-5
+comprehensive,"abrangente, completo, amplo",claude-opus-5-5
+empirical,empírico,claude-opus-5-5
+known,"conhecido, sabido, notório",claude-opus-5-5
+adaptable,"adaptável, flexível, maleável",claude-opus-5-5
+examining,"examinar, analisar, investigar",claude-opus-5-5
+discuss,"discutir, debater, tratar",claude-opus-5-5
+millions,milhão,claude-opus-5-5
+happens,"acontecer, ocorrer, suceder",claude-opus-5-5
+during,durante,claude-opus-5-5
+deeper,"profundo, mais profundo",claude-opus-5-5
+inappropriate,"inadequado, impróprio, inapropriado",claude-opus-5-5
+highlighted,"destacar, realçar, ressaltar",claude-opus-5-5
+weaker,"fraco, mais fraco, débil",claude-opus-5-5
+remains,"permanecer, continuar, restar",claude-opus-5-5
+enhanced,"melhorar, aprimorar, aumentar",claude-opus-5-5
+locate,"localizar, situar, encontrar",claude-opus-5-5
+persist,"persistir, continuar, perdurar",claude-opus-5-5
+toward,"em direção a, para, rumo a",claude-opus-5-5
+former,"antigo, anterior, ex-",claude-opus-5-5
+reducing,"reduzir, diminuir",claude-opus-5-5
+eliminates,"eliminar, excluir, suprimir",claude-opus-5-5
+regulate,"regular, regulamentar, controlar",claude-opus-5-5
+excluded,"excluir, eliminar",claude-opus-5-5
+underexplored,"pouco explorado, subexplorado",claude-opus-5-5
+suggesting,"sugerir, indicar, propor",claude-opus-5-5
+extending,"estender, prolongar, ampliar",claude-opus-5-5
+proposition,"proposição, proposta",claude-opus-5-5
+advances,"avanço, progresso, adiantamento",claude-opus-5-5
+appears,"parecer, aparecer, surgir",claude-opus-5-5
+connections,"conexão, ligação, relação",claude-opus-5-5
+attached,"anexo, ligado, apegado",claude-opus-5-5
+created,"criar, gerar, produzir",claude-opus-5-5
+concludes,"concluir, terminar, encerrar",claude-opus-5-5
+despite,"apesar de, a despeito de, não obstante",claude-opus-5-5
+both,"ambos, os dois, tanto",claude-opus-5-5
+cheap,"barato, econômico, ordinário",claude-opus-5-5
+optimizing,otimizar,claude-opus-5-5
+shape,"forma, formato, estado",claude-opus-5-5
+particular,"particular, específico, especial",claude-opus-5-5
+furthermore,"além disso, ademais, outrossim",claude-opus-5-5
+exist,"existir, haver",claude-opus-5-5
+existing,"existente, atual, vigente",claude-opus-5-5
+distinguished,"distinto, ilustre, eminente",claude-opus-5-5
+urgent,"urgente, premente",claude-opus-5-5
+biggest,"maior, grande",claude-opus-5-5
+once,"uma vez, outrora, assim que",claude-opus-5-5
+alone,"sozinho, só, apenas",claude-opus-5-5
+preferred,"preferido, predileto",claude-opus-5-5
+long,"longo, comprido, extenso",claude-opus-5-5
+ensures,"garantir, assegurar",claude-opus-5-5
+belong,"pertencer, fazer parte",claude-opus-5-5
+subjects,"assunto, sujeito, disciplina",claude-opus-5-5
+adjacent,"adjacente, contíguo, vizinho",claude-opus-5-5
+seminal,"seminal, fundamental, influente",claude-opus-5-5
+produces,"produzir, fabricar, gerar",claude-opus-5-5
+weak,"fraco, débil, frágil",claude-opus-5-5
+demonstrated,"demonstrar, provar, mostrar",claude-opus-5-5
+strategy,estratégia,claude-opus-5-5
+sections,"seção, parte, trecho",claude-opus-5-5
+generalizability,"generalidade, capacidade de generalização",claude-opus-5-5
+phenomena,fenômeno,claude-opus-5-5
+consecutive,"consecutivo, seguido, sucessivo",claude-opus-5-5
+pertinent,"pertinente, relevante",claude-opus-5-5
+distinguishes,"distinguir, diferenciar, discernir",claude-opus-5-5
+interplay,"interação, inter-relação",claude-opus-5-5
+suitable,"adequado, apropriado, conveniente",claude-opus-5-5
+poses,"apresentar, colocar, representar",claude-opus-5-5
+reflects,"refletir, espelhar",claude-opus-5-5
+improved,"melhorado, aprimorado",claude-opus-5-5
+proposed,"proposto, sugerido",claude-opus-5-5
+wide,"amplo, largo, vasto",claude-opus-5-5
+concentrating,"concentrar, focar",claude-opus-5-5
+detailed,"detalhado, minucioso, pormenorizado",claude-opus-5-5
+critical,"crítico, decisivo, essencial",claude-opus-5-5
+applicability,aplicabilidade,claude-opus-5-5
+consequently,"consequentemente, por conseguinte, portanto",claude-opus-5-5
+basis,"base, fundamento, alicerce",claude-opus-5-5
+prioritize,"priorizar, dar prioridade",claude-opus-5-5
+practical,"prático, viável",claude-opus-5-5
+knowing,"saber, conhecer",claude-opus-5-5
+aligns,"alinhar, harmonizar",claude-opus-5-5
+aiding,"ajudar, auxiliar, apoiar",claude-opus-5-5
+normally,"normalmente, geralmente",claude-opus-5-5
+though,"embora, apesar de, contudo",claude-opus-5-5
+revealing,"revelar, mostrar, divulgar",claude-opus-5-5
+every,"cada, todo",claude-opus-5-5
+sixteen,dezesseis,claude-opus-5-5
+governed,"governar, reger, controlar",claude-opus-5-5
+sufficient,"suficiente, bastante",claude-opus-5-5
+correlations,correlação,claude-opus-5-5
+occurring,"ocorrer, acontecer, suceder",claude-opus-5-5
+advantages,"vantagem, benefício",claude-opus-5-5
+detect,"detectar, perceber, descobrir",claude-opus-5-5
+specified,"especificar, determinar, estipular",claude-opus-5-5
+improves,"melhorar, aprimorar, aperfeiçoar",claude-opus-5-5
+heavily,"fortemente, pesadamente, intensamente",claude-opus-5-5
+scenario,"cenário, situação, panorama",claude-opus-5-5
+develops,"desenvolver, elaborar, evoluir",claude-opus-5-5
+conducted,"conduzir, realizar, dirigir",claude-opus-5-5
+utilization,"utilização, uso, aproveitamento",claude-opus-5-5
+assessed,"avaliar, estimar, aferir",claude-opus-5-5
+respond,"responder, reagir, corresponder",claude-opus-5-5
+argue,"argumentar, discutir, sustentar",claude-opus-5-5
+much,"muito, bastante, grande",claude-opus-5-5
+associations,"associação, ligação, relação",claude-opus-5-5
+reduction,"redução, diminuição, corte",claude-opus-5-5
+involving,"envolver, implicar, abranger",claude-opus-5-5
+occur,"ocorrer, acontecer, suceder",claude-opus-5-5
+emerged,"emergir, surgir, aparecer",claude-opus-5-5
+discussions,"discussão, debate, conversa",claude-opus-5-5
+addressing,"abordar, tratar, endereçar",claude-opus-5-5
+continuous,"contínuo, ininterrupto, constante",claude-opus-5-5
+intense,"intenso, forte, profundo",claude-opus-5-5
+interested,"interessado, atento, envolvido",claude-opus-5-5
+month,mês,claude-opus-5-5
+adjustments,"ajuste, ajustamento, adaptação",claude-opus-5-5
+apparently,"aparentemente, pelo visto, ao que parece",claude-opus-5-5
+strengthen,"fortalecer, reforçar, consolidar",claude-opus-5-5
+framed,"enquadrar, emoldurar, formular",claude-opus-5-5
+nine,nove,claude-opus-5-5
+contributions,"contribuição, colaboração, doação",claude-opus-5-5
+brought,"trazer, levar, provocar",claude-opus-5-5
+resulting,"resultar, decorrer, advir",claude-opus-5-5
+solved,"resolver, solucionar, decifrar",claude-opus-5-5
+consistent,"consistente, coerente, constante",claude-opus-5-5
+collaborative,"colaborativo, cooperativo, conjunto",claude-opus-5-5
+points,"ponto, apontar, indicar",claude-opus-5-5
+situating,"situar, localizar, posicionar",claude-opus-5-5
+combat,"combater, combate, luta",claude-opus-5-5
+comprising,"compreender, abranger, incluir",claude-opus-5-5
+section,"seção, parte, setor",claude-opus-5-5
+better,"melhor, melhorar, aperfeiçoar",claude-opus-5-5
+replaced,"substituir, repor, trocar",claude-opus-5-5
+considered,"considerar, ponderar, julgar",claude-opus-5-5
+identifying,"identificar, reconhecer, apontar",claude-opus-5-5
+familiar,"familiar, conhecido, habitual",claude-opus-5-5
+narratively,narrativamente,claude-opus-5-5
+preserves,"preservar, conservar, manter",claude-opus-5-5
+requires,"exigir, requerer, necessitar",claude-opus-5-5
+played,"jogar, tocar, desempenhar",claude-opus-5-5
+affects,"afetar, influenciar, comover",claude-opus-5-5
+delivering,"entregar, fornecer, proferir",claude-opus-5-5
+encompasses,"abranger, englobar, compreender",claude-opus-5-5
+exhibited,"exibir, apresentar, expor",claude-opus-5-5
+contrary,"contrário, oposto, adverso",claude-opus-5-5
+highlights,"destacar, ressaltar, destaque",claude-opus-5-5
+threaten,"ameaçar, intimidar, pôr em risco",claude-opus-5-5
+able,"capaz, apto, hábil",claude-opus-5-5
+complexities,"complexidade, complicação, dificuldade",claude-opus-5-5
+assumption,"suposição, pressuposto, premissa",claude-opus-5-5
+entire,"inteiro, todo, completo",claude-opus-5-5
+integrated,"integrado, combinado, incorporado",claude-opus-5-5
+difficulty,"dificuldade, problema, obstáculo",claude-opus-5-5
+remain,"permanecer, continuar, ficar",claude-opus-5-5
+faced,"enfrentar, encarar, defrontar",claude-opus-5-5
+rich,"rico, abundante, farto",claude-opus-5-5
+keeping,"manter, guardar, conservar",claude-opus-5-5
+developed,"desenvolver, desenvolvido, elaborar",claude-opus-5-5
+through,"através de, por, por meio de",claude-opus-5-5
+efficiently,"eficientemente, com eficiência, eficazmente",claude-opus-5-5
+pivotal,"crucial, fundamental, central",claude-opus-5-5
+favors,"favorecer, favor, privilegiar",claude-opus-5-5
+conversely,"inversamente, por outro lado, ao contrário",claude-opus-5-5
+incomplete,"incompleto, inacabado, parcial",claude-opus-5-5
+predominated,"predominar, prevalecer, preponderar",claude-opus-5-5
+increases,"aumentar, aumento, crescer",claude-opus-5-5
+exhibiting,"exibir, apresentar, demonstrar",claude-opus-5-5
+papers,"papel, artigo, documento",claude-opus-5-5
+strengths,"ponto forte, força, vantagem",claude-opus-5-5
+innovative,"inovador, criativo, original",claude-opus-5-5
+encourages,"incentivar, encorajar, estimular",claude-opus-5-5
+balancing,"equilibrar, balancear, compensar",claude-opus-5-5
+close,"fechar, próximo, perto",claude-opus-5-5
+description,"descrição, relato, caracterização",claude-opus-5-5
+objectives,"objetivo, meta, finalidade",claude-opus-5-5
+should,dever,claude-opus-5-5
+about,"sobre, acerca de, cerca de",claude-opus-5-5
+arranged,"organizar, arranjar, dispor",claude-opus-5-5
+confirm,"confirmar, comprovar, ratificar",claude-opus-5-5
+represented,"representar, retratar, simbolizar",claude-opus-5-5
+reflections,"reflexão, reflexo, consideração",claude-opus-5-5
+professionally,profissionalmente,claude-opus-5-5
+compare,"comparar, confrontar, cotejar",claude-opus-5-5
+renowned,"renomado, famoso, célebre",claude-opus-5-5
+combining,"combinar, unir, conjugar",claude-opus-5-5
+personal,"pessoal, particular, individual",claude-opus-5-5
+leveraging,"alavancar, aproveitar, potencializar",claude-opus-5-5
+specific,"específico, determinado, particular",claude-opus-5-5
+assuming,"supor, assumir, presumir",claude-opus-5-5
+addresses,"abordar, endereço, tratar",claude-opus-5-5
+complementary,complementar,claude-opus-5-5
+simplified,"simplificado, simplificar, facilitado",claude-opus-5-5
+supplemental,"suplementar, adicional, complementar",claude-opus-5-5
+concomitant,"concomitante, simultâneo, concorrente",claude-opus-5-5
+predominantly,"predominantemente, majoritariamente, principalmente",claude-opus-5-5
+linked,"ligado, vinculado, relacionado",claude-opus-5-5
+engages,"envolver, engajar, contratar",claude-opus-5-5
+engage,"envolver, engajar, contratar",claude-opus-5-5
+applications,"aplicação, candidatura, aplicativo",claude-opus-5-5
+examine,"examinar, analisar, inspecionar",claude-opus-5-5
+demands,"exigência, demanda, exigir",claude-opus-5-5
+guidance,"orientação, direção, conselho",claude-opus-5-5
+consisted,"consistir, compor-se",claude-opus-5-5
+quite,"bastante, bem, completamente",claude-opus-5-5
+subsequently,"posteriormente, subsequentemente, depois",claude-opus-5-5
+proposes,"propor, sugerir",claude-opus-5-5
+designated,"designado, indicado, nomeado",claude-opus-5-5
+inseparable,"inseparável, indissociável",claude-opus-5-5
+traditionally,tradicionalmente,claude-opus-5-5
+anticipate,"antecipar, prever, esperar",claude-opus-5-5
+data,"dados, informação",claude-opus-5-5
+example,"exemplo, modelo",claude-opus-5-5
+effectiveness,"eficácia, efetividade, eficiência",claude-opus-5-5
+strongly,"fortemente, firmemente, vigorosamente",claude-opus-5-5
+increasingly,"cada vez mais, crescentemente",claude-opus-5-5
+concerns,"preocupação, interesse, dizer respeito a",claude-opus-5-5
+contemporary,"contemporâneo, atual, moderno",claude-opus-5-5
+compares,"comparar, confrontar",claude-opus-5-5
+eventual,"final, eventual, definitivo",claude-opus-5-5
+associated,"associado, relacionado, ligado",claude-opus-5-5
+individual,"individual, indivíduo, particular",claude-opus-5-5
+proactive,proativo,claude-opus-5-5
+approach,"abordagem, aproximar-se, enfoque",claude-opus-5-5
+linking,"ligar, vincular, conectar",claude-opus-5-5
+timely,"oportuno, pontual, tempestivo",claude-opus-5-5
+compatible,compatível,claude-opus-5-5
+leverage,"alavancar, aproveitar, alavancagem",claude-opus-5-5
+evaluates,"avaliar, analisar",claude-opus-5-5
+reported,"relatado, informado, comunicado",claude-opus-5-5
+scalability,escalabilidade,claude-opus-5-5
+original,"original, inicial, primitivo",claude-opus-5-5
+nearly,"quase, aproximadamente, cerca de",claude-opus-5-5
+perspective,"perspectiva, ponto de vista, visão",claude-opus-5-5
+typically,"tipicamente, normalmente, geralmente",claude-opus-5-5
+components,"componente, elemento, peça",claude-opus-5-5
+outperformed,"superar, ultrapassar",claude-opus-5-5
+pass,"passar, aprovar, passe",claude-opus-5-5
+strong,"forte, intenso, resistente",claude-opus-5-5
+dynamic,"dinâmico, dinâmica",claude-opus-5-5
+strongest,"forte, mais forte",claude-opus-5-5
+reach,"alcançar, atingir, chegar",claude-opus-5-5
+recognize,"reconhecer, identificar",claude-opus-5-5
+larger,"grande, maior",claude-opus-5-5
+offered,"oferecer, proporcionar",claude-opus-5-5
+recommendations,"recomendação, sugestão, conselho",claude-opus-5-5
+observing,"observar, cumprir, notar",claude-opus-5-5
+articulating,"articular, expressar, formular",claude-opus-5-5
+concerned,"preocupado, interessado, envolvido",claude-opus-5-5
+manage,"gerenciar, administrar, conseguir",claude-opus-5-5
+occurs,"ocorrer, acontecer",claude-opus-5-5
+form,"forma, formulário, formar",claude-opus-5-5
+findings,"resultado, constatação, descoberta",claude-opus-5-5
+mentioned,"mencionar, citar, referir",claude-opus-5-5
+barriers,"barreira, obstáculo, impedimento",claude-opus-5-5
+effects,"efeito, consequência, resultado",claude-opus-5-5
+collaborating,"colaborar, cooperar",claude-opus-5-5
+confirmed,"confirmado, comprovado, convicto",claude-opus-5-5
+eventually,"finalmente, por fim, eventualmente",claude-opus-5-5
+whether,"se, quer",claude-opus-5-5
+correspond,"corresponder, equivaler, corresponder-se",claude-opus-5-5
+strict,"rigoroso, estrito, severo",claude-opus-5-5
+conventional,"convencional, tradicional",claude-opus-5-5
+notes,"nota, anotação, observação",claude-opus-5-5
+additional,"adicional, suplementar, extra",claude-opus-5-5
+constraints,"restrição, limitação, coação",claude-opus-5-5
+contexts,contexto,claude-opus-5-5
+bridging,"ligar, preencher, transpor",claude-opus-5-5
+emphasized,"enfatizar, destacar, salientar",claude-opus-5-5
+centric,"centrado, cêntrico",claude-opus-5-5
+strategically,estrategicamente,claude-opus-5-5
+intending,"pretender, tencionar",claude-opus-5-5
+changes,"mudança, alteração, mudar",claude-opus-5-5
+facilitating,facilitar,claude-opus-5-5
+frameworks,"estrutura, quadro, arcabouço",claude-opus-5-5
+integrating,"integrar, incorporar",claude-opus-5-5
+impact,"impacto, impactar, efeito",claude-opus-5-5
+robustness,"robustez, solidez",claude-opus-5-5
+ranging,"variar, abranger, estender-se",claude-opus-5-5
+impacts,"impacto, impactar, efeito",claude-opus-5-5
+save,"salvar, poupar, economizar",claude-opus-5-5
+periodically,periodicamente,claude-opus-5-5
+benefit,"benefício, vantagem, beneficiar",claude-opus-5-5
+improving,"melhorar, aprimorar, aperfeiçoar",claude-opus-5-5
+intended,"pretendido, destinado, intencional",claude-opus-5-5
+over,"sobre, acima de, por",claude-opus-5-5
+changed,"mudar, alterar, modificar",claude-opus-5-5
+comparable,"comparável, semelhante, equivalente",claude-opus-5-5
+explained,"explicar, esclarecer",claude-opus-5-5
+build,"construir, edificar, criar",claude-opus-5-5
+hinder,"dificultar, impedir, atrapalhar",claude-opus-5-5
+declined,"recusar, diminuir, declinar",claude-opus-5-5
+worked,"trabalhar, funcionar",claude-opus-5-5
+acronym,"acrônimo, sigla",claude-opus-5-5
+largely,"em grande parte, amplamente, principalmente",claude-opus-5-5
+indicate,"indicar, apontar, sinalizar",claude-opus-5-5
+point,"ponto, apontar, ponta",claude-opus-5-5
+percentage,"porcentagem, percentagem, percentual",claude-opus-5-5
+empowering,"capacitar, empoderar, autorizar",claude-opus-5-5
+analyse,"analisar, examinar, estudar",claude-opus-5-5
+challenging,"desafiador, difícil, estimulante",claude-opus-5-5
+greatly,"muito, grandemente, consideravelmente",claude-opus-5-5
+helping,"ajudar, auxiliar, servir",claude-opus-5-5
+crucial,"crucial, decisivo, fundamental",claude-opus-5-5
+quick,"rápido, ágil, ligeiro",claude-opus-5-5
+focusing,"focar, concentrar, enfocar",claude-opus-5-5
+stimulates,"estimular, incentivar, excitar",claude-opus-5-5
+patterns,"padrão, modelo, estampa",claude-opus-5-5
+sequentially,"sequencialmente, consecutivamente, sucessivamente",claude-opus-5-5
+intends,"pretender, tencionar, destinar",claude-opus-5-5
+maximal,"máximo, maximal",claude-opus-5-5
+offering,"oferecer, ofertar, proporcionar",claude-opus-5-5
+operates,"operar, funcionar, administrar",claude-opus-5-5
+several,"vários, diversos, alguns",claude-opus-5-5
+guiding,"guiar, orientar, conduzir",claude-opus-5-5
+stimulate,"estimular, incentivar, excitar",claude-opus-5-5
+originate,"originar, surgir, provir",claude-opus-5-5
+allow,"permitir, deixar, conceder",claude-opus-5-5
+prevalent,"prevalecente, predominante, comum",claude-opus-5-5
+prominent,"proeminente, destacado, saliente",claude-opus-5-5
+minimum,mínimo,claude-opus-5-5
+issues,"questão, problema, emissão",claude-opus-5-5
+eliminating,"eliminar, suprimir, excluir",claude-opus-5-5
+arrived,"chegar, alcançar, atingir",claude-opus-5-5
+examined,"examinar, analisar, inspecionar",claude-opus-5-5
+originating,"originar, surgir, provir",claude-opus-5-5
+shaping,"moldar, modelar, formar",claude-opus-5-5
+constrained,"restringir, limitar, obrigar",claude-opus-5-5
+accessing,"acessar, aceder, entrar",claude-opus-5-5
+qualifying,"qualificar, habilitar, classificar",claude-opus-5-5
+ones,"um, aquele",claude-opus-5-5
+implications,"implicação, consequência, insinuação",claude-opus-5-5
+integrate,"integrar, incorporar, unir",claude-opus-5-5
+visualize,"visualizar, imaginar, conceber",claude-opus-5-5
+accurate,"preciso, exato, correto",claude-opus-5-5
+provides,"fornecer, proporcionar, prover",claude-opus-5-5
+expensive,"caro, dispendioso, custoso",claude-opus-5-5
+always,sempre,claude-opus-5-5
+suitability,"adequação, conveniência, aptidão",claude-opus-5-5
+show,"mostrar, exibir, demonstrar",claude-opus-5-5
+assessment,"avaliação, apreciação, análise",claude-opus-5-5
+next,"próximo, seguinte",claude-opus-5-5
+rigor,"rigor, rigidez, severidade",claude-opus-5-5
+take,"tomar, levar, pegar",claude-opus-5-5
+engaging,"envolver, cativar, contratar",claude-opus-5-5
+covering,"cobrir, abranger, tratar",claude-opus-5-5
+particularly,"particularmente, especialmente, sobretudo",claude-opus-5-5
+repeated,"repetir, reiterar, repassar",claude-opus-5-5
+enhance,"melhorar, aumentar, realçar",claude-opus-5-5
+capture,"capturar, captar, prender",claude-opus-5-5
+suggests,"sugerir, indicar, propor",claude-opus-5-5
+advancing,"avançar, progredir, promover",claude-opus-5-5
+distinct,"distinto, diferente, nítido",claude-opus-5-5
+fourteen,"catorze, quatorze",claude-opus-5-5
+summary,"resumo, sumário, síntese",claude-opus-5-5
+governing,"governar, reger, controlar",claude-opus-5-5
+examines,"examinar, analisar, inspecionar",claude-opus-5-5
+employs,"empregar, utilizar, contratar",claude-opus-5-5
+causing,"causar, provocar, ocasionar",claude-opus-5-5
+merely,"meramente, apenas, simplesmente",claude-opus-5-5
+useful,"útil, proveitoso, prático",claude-opus-5-5
+underlying,"subjacente, fundamental, implícito",claude-opus-5-5
+percentages,"porcentagem, percentagem, percentual",claude-opus-5-5
+encountered,"encontrar, deparar, enfrentar",claude-opus-5-5
+suggest,"sugerir, indicar, propor",claude-opus-5-5
+aligning,"alinhar, ajustar, harmonizar",claude-opus-5-5
+valid,"válido, legítimo, vigente",claude-opus-5-5
+further,"adicional, mais, ulterior",claude-opus-5-5
+involves,"envolver, implicar, abranger",claude-opus-5-5
+similarly,"similarmente, igualmente, da mesma forma",claude-opus-5-5
+maintaining,"manter, conservar, sustentar",claude-opus-5-5
+reinforcing,"reforçar, fortalecer, consolidar",claude-opus-5-5
+reliable,"confiável, fiável, seguro",claude-opus-5-5
+managed,"gerenciar, administrar, conseguir",claude-opus-5-5
+captured,"capturar, captar, prender",claude-opus-5-5
+simplest,simples,claude-opus-5-5
+latest,"último, recente, mais novo",claude-opus-5-5
+clarify,"esclarecer, clarificar, elucidar",claude-opus-5-5
+heightened,"intensificar, aumentar, elevar",claude-opus-5-5
+obtaining,"obter, conseguir, adquirir",claude-opus-5-5
+arbitrary,"arbitrário, aleatório, discricionário",claude-opus-5-5
+strengthened,"fortalecer, reforçar, consolidar",claude-opus-5-5
+driven,"conduzir, impulsionar, dirigir",claude-opus-5-5
+systematic,"sistemático, metódico, ordenado",claude-opus-5-5
+foster,"promover, fomentar, estimular",claude-opus-5-5
+laying,"colocar, assentar, pôr",claude-opus-5-5
+served,"servir, atender, cumprir",claude-opus-5-5
+significantly,"significativamente, consideravelmente, notavelmente",claude-opus-5-5
+carry,"carregar, levar, transportar",claude-opus-5-5
+evidence,"evidência, prova, indício",claude-opus-5-5
+computed,"calcular, computar, contar",claude-opus-5-5
+grounded,"fundamentar, basear, aterrar",claude-opus-5-5
+informing,"informar, comunicar, avisar",claude-opus-5-5
+surpass,"superar, ultrapassar, exceder",claude-opus-5-5
+appropriate,"apropriado, adequado, conveniente",claude-opus-5-5
+evaluation,"avaliação, apreciação, análise",claude-opus-5-5
+everyday,"cotidiano, diário, comum",claude-opus-5-5
+enough,"suficiente, bastante",claude-opus-5-5
+basic,"básico, fundamental, elementar",claude-opus-5-5
+constitutes,"constituir, compor, formar",claude-opus-5-5
+substantially,"substancialmente, consideravelmente, essencialmente",claude-opus-5-5
+kinds,"tipo, espécie, gênero",claude-opus-5-5
+helpful,"útil, prestativo, proveitoso",claude-opus-5-5
+become,"tornar-se, ficar, virar",claude-opus-5-5
+reflecting,"refletir, espelhar, ponderar",claude-opus-5-5
+improper,"impróprio, inadequado, indevido",claude-opus-5-5
+consisting,"consistir, compor-se, constar",claude-opus-5-5
+exhibits,"exibir, mostrar, apresentar",claude-opus-5-5
+rigorous,"rigoroso, severo, exato",claude-opus-5-5
+chosen,"escolher, eleger, selecionar",claude-opus-5-5
+commitment,"compromisso, comprometimento, dedicação",claude-opus-5-5
+average,"média, médio, comum",claude-opus-5-5
+characterizations,"caracterização, descrição, representação",claude-opus-5-5
+technically,tecnicamente,claude-opus-5-5
+effectively,"efetivamente, eficazmente, na prática",claude-opus-5-5
+estimate,"estimar, calcular, estimativa",claude-opus-5-5
+argued,"argumentar, discutir, alegar",claude-opus-5-5
+various,"vário, diverso, diferente",claude-opus-5-5
+wider,"amplo, largo, extenso",claude-opus-5-5
+remained,"permanecer, ficar, continuar",claude-opus-5-5
+derived,"derivar, obter, provir",claude-opus-5-5
+most,"mais, maioria, a maior parte",claude-opus-5-5
+leading,"principal, líder, levar",claude-opus-5-5
+outperforming,"superar, ultrapassar, exceder",claude-opus-5-5
+approximately,"aproximadamente, cerca de, por volta de",claude-opus-5-5
+alters,"alterar, modificar, mudar",claude-opus-5-5
+employed,"empregar, utilizar, usar",claude-opus-5-5
+correlation,"correlação, relação, correspondência",claude-opus-5-5
+make,"fazer, tornar, produzir",claude-opus-5-5
+dedicated,"dedicado, empenhado, devotado",claude-opus-5-5
+unprecedented,"inédito, sem precedentes, inaudito",claude-opus-5-5
+herein,"aqui, neste documento, nisto",claude-opus-5-5
+deemed,"considerar, julgar, achar",claude-opus-5-5
+resulted,"resultar, originar, decorrer",claude-opus-5-5
+technical,técnico,claude-opus-5-5
+taking,"tomar, levar, pegar",claude-opus-5-5
+identify,"identificar, reconhecer, apontar",claude-opus-5-5
+promising,"promissor, prometer",claude-opus-5-5
+attenuates,"atenuar, diminuir, abrandar",claude-opus-5-5
+truly,"verdadeiramente, realmente, sinceramente",claude-opus-5-5
+meaningfully,"significativamente, de forma significativa, expressivamente",claude-opus-5-5
+participants,participante,claude-opus-5-5
+triggering,"desencadear, provocar, acionar",claude-opus-5-5
+principles,"princípio, fundamento, norma",claude-opus-5-5
+framework,"estrutura, quadro, arcabouço",claude-opus-5-5
+these,"estes, estas, esses",claude-opus-5-5
+represents,"representar, simbolizar, constituir",claude-opus-5-5
+nuances,"nuance, matiz, sutileza",claude-opus-5-5
+priority,"prioridade, preferência, primazia",claude-opus-5-5
+looked,"olhar, parecer, procurar",claude-opus-5-5
+describes,"descrever, retratar, relatar",claude-opus-5-5
+resolved,"resolver, decidir, solucionar",claude-opus-5-5
+imperative,"imperativo, essencial, indispensável",claude-opus-5-5
+advocated,"defender, advogar, preconizar",claude-opus-5-5
+amid,"em meio a, entre, no meio de",claude-opus-5-5
+insufficiently,insuficientemente,claude-opus-5-5
+assessing,"avaliar, aferir, estimar",claude-opus-5-5
+estimates,"estimativa, estimar, orçamento",claude-opus-5-5
+alternative,"alternativa, alternativo, opção",claude-opus-5-5
+integrates,"integrar, incorporar, unir",claude-opus-5-5
+gradual,"gradual, progressivo, paulatino",claude-opus-5-5
+including,"incluindo, inclusive, incluir",claude-opus-5-5
+highlight,"destacar, realçar, destaque",claude-opus-5-5
+shifts,"mudança, turno, deslocar",claude-opus-5-5
+magnitude,"magnitude, grandeza, dimensão",claude-opus-5-5
+competing,"competir, concorrer, concorrente",claude-opus-5-5
+pursuit,"busca, perseguição, procura",claude-opus-5-5
+focus,"foco, enfoque, focar",claude-opus-5-5
+emerges,"emergir, surgir, aparecer",claude-opus-5-5
+already,já,claude-opus-5-5
+transformative,"transformador, transformativo",claude-opus-5-5
+precise,"preciso, exato, rigoroso",claude-opus-5-5
+globally,"globalmente, mundialmente",claude-opus-5-5
+exceeding,"exceder, ultrapassar, superar",claude-opus-5-5
+strengthening,"fortalecimento, fortalecer, reforçar",claude-opus-5-5
+aware,"ciente, consciente, atento",claude-opus-5-5
+approaches,"abordagem, aproximar-se, método",claude-opus-5-5
+optimize,"otimizar, aperfeiçoar",claude-opus-5-5
+famous,"famoso, célebre, conhecido",claude-opus-5-5
+aspect,"aspecto, faceta, lado",claude-opus-5-5
+required,"exigir, requerer, necessário",claude-opus-5-5
+settings,"configuração, cenário, ambiente",claude-opus-5-5
+under,"sob, debaixo de, abaixo de",claude-opus-5-5
+coming,"vir, chegar, próximo",claude-opus-5-5
+analyses,análise,claude-opus-5-5
+interdisciplinary,interdisciplinar,claude-opus-5-5
+concerning,"sobre, a respeito de, preocupante",claude-opus-5-5
+critically,"criticamente, gravemente, crucialmente",claude-opus-5-5
+applying,"aplicar, candidatar-se, empregar",claude-opus-5-5
+confirming,"confirmar, comprovar, ratificar",claude-opus-5-5
+substantial,"substancial, considerável, significativo",claude-opus-5-5
+reduces,"reduzir, diminuir, baixar",claude-opus-5-5
+moving,"mover, comovente, mudar",claude-opus-5-5
+shapes,"forma, moldar, formato",claude-opus-5-5
+constrain,"restringir, limitar, coagir",claude-opus-5-5
+emphasizing,"enfatizar, salientar, destacar",claude-opus-5-5
+foundations,"fundação, base, fundamento",claude-opus-5-5
+past,"passado, último, anterior",claude-opus-5-5
+correcting,"corrigir, retificar, emendar",claude-opus-5-5
+literature,"literatura, bibliografia",claude-opus-5-5
+markedly,"marcadamente, notavelmente, acentuadamente",claude-opus-5-5
+outcome,"resultado, desfecho, consequência",claude-opus-5-5
+researched,"pesquisar, investigar, estudar",claude-opus-5-5
+enabling,"permitir, possibilitar, habilitar",claude-opus-5-5
+quantified,"quantificar, medir",claude-opus-5-5
+intervening,"intervir, interferir, mediar",claude-opus-5-5
+along,"ao longo de, junto, adiante",claude-opus-5-5
+feasible,"viável, factível, exequível",claude-opus-5-5
+operate,"operar, funcionar, administrar",claude-opus-5-5
+frequently,"frequentemente, muitas vezes, amiúde",claude-opus-5-5
+determinant,"determinante, fator determinante",claude-opus-5-5
+differently,"diferentemente, de modo diferente, de outra forma",claude-opus-5-5
+solely,"somente, unicamente, exclusivamente",claude-opus-5-5
+chance,"chance, oportunidade, acaso",claude-opus-5-5
+attentive,"atento, atencioso, cuidadoso",claude-opus-5-5
+expanding,"expandir, ampliar, aumentar",claude-opus-5-5
+using,"usar, utilizar, empregar",claude-opus-5-5
+additionally,"adicionalmente, além disso, ademais",claude-opus-5-5
+highlighting,"destacar, realçar, ressaltar",claude-opus-5-5
+limitations,"limitação, restrição, limite",claude-opus-5-5
+accuracy,"precisão, exatidão, acurácia",claude-opus-5-5
+highly,"altamente, muito, extremamente",claude-opus-5-5
+lasted,"durar, perdurar, permanecer",claude-opus-5-5
+efforts,"esforço, empenho, tentativa",claude-opus-5-5
+total,"total, completo, absoluto",claude-opus-5-5
+major,"principal, maior, importante",claude-opus-5-5
+structured,"estruturar, organizar",claude-opus-5-5
+serve,"servir, atender, cumprir",claude-opus-5-5
+mediates,"mediar, intermediar, conciliar",claude-opus-5-5
+like,"como, gostar, semelhante",claude-opus-5-5
+achieved,"alcançar, conseguir, realizar",claude-opus-5-5
+amounts,"quantidade, quantia, montante",claude-opus-5-5
+thereby,"assim, desse modo, por meio disso",claude-opus-5-5
+explicitly,"explicitamente, expressamente, claramente",claude-opus-5-5
+chapter,"capítulo, seção, filial",claude-opus-5-5
+removing,"remover, retirar, eliminar",claude-opus-5-5
+certain,"certo, determinado, seguro",claude-opus-5-5
+simple,"simples, fácil, singelo",claude-opus-5-5
+capacities,"capacidade, competência, função",claude-opus-5-5
+strictly,"estritamente, rigorosamente, exclusivamente",claude-opus-5-5
+desirable,"desejável, conveniente, atraente",claude-opus-5-5
+into,"em, para, para dentro de",claude-opus-5-5
+last,"último, durar, passado",claude-opus-5-5
+well,"bem, poço, bom",claude-opus-5-5
+knowledge,"conhecimento, saber, ciência",claude-opus-5-5
+qualified,"qualificado, habilitado, competente",claude-opus-5-5
+conventionally,"convencionalmente, tradicionalmente, habitualmente",claude-opus-5-5
+emphasis,"ênfase, destaque, realce",claude-opus-5-5
+mitigating,"mitigar, atenuar, amenizar",claude-opus-5-5
+mutual,"mútuo, recíproco, comum",claude-opus-5-5
+minor,"menor, secundário, pequeno",claude-opus-5-5
+criterion,"critério, padrão, norma",claude-opus-5-5
+eighteen,dezoito,claude-opus-5-5
+consistently,"consistentemente, constantemente, sistematicamente",claude-opus-5-5
+influence,"influência, influenciar, influir",claude-opus-5-5
+divided,"dividir, dividido, separado",claude-opus-5-5
+necessity,"necessidade, exigência, precisão",claude-opus-5-5
+otherwise,"caso contrário, de outra forma, senão",claude-opus-5-5
+stop,"parar, interromper, parada",claude-opus-5-5
+prevailed,"prevalecer, predominar, vencer",claude-opus-5-5
+alternatively,"alternativamente, como alternativa, ou então",claude-opus-5-5
+descriptively,descritivamente,claude-opus-5-5
+successfully,"com sucesso, com êxito, bem-sucedidamente",claude-opus-5-5
+systematically,"sistematicamente, metodicamente",claude-opus-5-5
+stronger,"mais forte, mais intenso, mais resistente",claude-opus-5-5
+elucidated,"elucidar, esclarecer, explicar",claude-opus-5-5
+contrasting,"contrastante, contrastar, oposto",claude-opus-5-5
+presents,"apresentar, presente, oferecer",claude-opus-5-5
+contextual,contextual,claude-opus-5-5
+represent,"representar, simbolizar, retratar",claude-opus-5-5
+distinction,"distinção, diferença, destaque",claude-opus-5-5
+nonetheless,"no entanto, contudo, mesmo assim",claude-opus-5-5
+align,"alinhar, ajustar, harmonizar",claude-opus-5-5
+suppressing,"suprimir, reprimir, conter",claude-opus-5-5
+weaknesses,"fraqueza, ponto fraco, debilidade",claude-opus-5-5
+favorable,"favorável, propício, vantajoso",claude-opus-5-5
+incorporating,"incorporar, incluir, integrar",claude-opus-5-5
+plays,"jogar, tocar, brincar",claude-opus-5-5
+supports,"apoiar, sustentar, suportar",claude-opus-5-5
+promise,"promessa, prometer",claude-opus-5-5
+finds,"encontrar, achar, descobrir",claude-opus-5-5
+itself,"si mesmo, se, próprio",claude-opus-5-5
+missing,"desaparecido, ausente, faltante",claude-opus-5-5
+expands,"expandir, ampliar, dilatar",claude-opus-5-5
+high,"alto, elevado",claude-opus-5-5
+strategic,estratégico,claude-opus-5-5
+direct,"direto, dirigir, orientar",claude-opus-5-5
+internal,interno,claude-opus-5-5
+outlined,"delinear, esboçar, resumir",claude-opus-5-5
+small,pequeno,claude-opus-5-5
+actively,ativamente,claude-opus-5-5
+gather,"reunir, juntar, colher",claude-opus-5-5
+lies,"mentira, mentir, deitar",claude-opus-5-5
+methodologies,metodologia,claude-opus-5-5
+favor,"favor, favorecer",claude-opus-5-5
+argues,"argumentar, discutir, alegar",claude-opus-5-5
+preserving,"preservar, conservar, manter",claude-opus-5-5
+across,"através de, do outro lado de",claude-opus-5-5
+turns,"virar, girar, vez",claude-opus-5-5
+suggestions,sugestão,claude-opus-5-5
+unique,"único, singular",claude-opus-5-5
+verifies,"verificar, conferir, comprovar",claude-opus-5-5
+ideal,"ideal, perfeito, modelo",claude-opus-5-5
+shared,"compartilhado, partilhado, comum",claude-opus-5-5
+inform,"informar, comunicar, avisar",claude-opus-5-5
+comparing,"comparar, confrontar, cotejar",claude-opus-5-5
+shows,"mostrar, exibir, demonstrar",claude-opus-5-5
+supplementary,"suplementar, complementar, adicional",claude-opus-5-5
+called,"chamar, telefonar, denominar",claude-opus-5-5
+exploit,"explorar, aproveitar, façanha",claude-opus-5-5
+alongside,"ao lado de, junto a, paralelamente",claude-opus-5-5
+exploration,"exploração, investigação, pesquisa",claude-opus-5-5
+while,"enquanto, embora, momento",claude-opus-5-5
+optimized,"otimizar, aperfeiçoar, melhorar",claude-opus-5-5
+roles,"papel, função, cargo",claude-opus-5-5
+explores,"explorar, investigar, examinar",claude-opus-5-5
+integrative,"integrativo, integrador, integrante",claude-opus-5-5
+limited,"limitado, restrito, reduzido",claude-opus-5-5
+seeking,"procurar, buscar, pretender",claude-opus-5-5
+turn,"virar, girar, vez",claude-opus-5-5
+know,"saber, conhecer, reconhecer",claude-opus-5-5
+near,"perto, próximo, aproximar-se",claude-opus-5-5
+persisted,"persistir, perdurar, insistir",claude-opus-5-5
+notable,"notável, digno de nota, considerável",claude-opus-5-5
+there,"lá, ali, aí",claude-opus-5-5
+reveal,"revelar, mostrar, divulgar",claude-opus-5-5
+underscore,"sublinhar, enfatizar, ressaltar",claude-opus-5-5
