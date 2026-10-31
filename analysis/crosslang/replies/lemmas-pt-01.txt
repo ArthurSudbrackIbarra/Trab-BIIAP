@@ -1,0 +1,17 @@
+algorítmico	algorítmico
+assistenciais	assistencial
+crítica	crítico
+descritivas	descritivo
+funcional	funcional
+implementação	implementação
+institute	institute
+interseção	interseção
+manejo	manejo
+ocidentais	ocidental
+participativas	participativo
+predição	predição
+pública	público
+relacional	relacional
+sustentáveis	sustentável
+territorialmente	territorialmente
+transformação	transformação

@@ -25,13 +25,13 @@
     "content": 3
    },
    "2025": {
-    "ambiguous": 20,
-    "style": 66,
-    "content": 15
+    "content": 16,
+    "style": 69,
+    "ambiguous": 16
    },
    "2026": {
-    "style": 116,
-    "ambiguous": 58,
+    "style": 126,
+    "ambiguous": 48,
     "content": 48
    }
   },
@@ -57,8 +57,8 @@
     "content": 2
    },
    "2023": {
-    "style": 13,
-    "ambiguous": 15,
+    "style": 14,
+    "ambiguous": 14,
     "content": 7
    },
    "2024": {
@@ -67,18 +67,48 @@
     "content": 5
    },
    "2025": {
-    "style": 105,
-    "ambiguous": 35,
-    "content": 23
+    "style": 108,
+    "ambiguous": 31,
+    "content": 24
    },
    "2026": {
-    "style": 142,
-    "ambiguous": 108,
+    "style": 150,
+    "ambiguous": 100,
     "content": 26
    }
   }
  },
- "agreement": {},
+ "agreement": {
+  "pt": {
+   "words": 100,
+   "agreement": 0.72,
+   "kappa": 0.4958588404753331,
+   "decided": 78,
+   "decided_agreement": 0.9230769230769231,
+   "confusion": {
+    "style/style": 52,
+    "style/content": 6,
+    "content/content": 20,
+    "style/ambiguous": 13,
+    "content/ambiguous": 9
+   }
+  },
+  "en": {
+   "words": 100,
+   "agreement": 0.67,
+   "kappa": 0.3634259259259261,
+   "decided": 74,
+   "decided_agreement": 0.9054054054054054,
+   "confusion": {
+    "style/style": 53,
+    "style/ambiguous": 23,
+    "content/ambiguous": 3,
+    "content/content": 14,
+    "style/content": 5,
+    "content/style": 2
+   }
+  }
+ },
  "bound": {
   "pt": {
    "2023": {
@@ -151,44 +181,44 @@
    },
    "2025": {
     "crossfit": {
-     "observed": 0.4158783096108155,
-     "expected": 0.2692650251248981,
-     "gap": 0.14661328448591746,
-     "se": 0.01921725642779093,
+     "observed": 0.5245278200802471,
+     "expected": 0.39771645783710435,
+     "gap": 0.12681136224314274,
+     "se": 0.019648490879563017,
      "abstracts": 6431
     },
     "thresholds": {
-     "a": 0.05,
+     "a": 0.1,
      "b": 0.05
     },
     "markers": {
-     "a": 41,
-     "b": 33
+     "a": 50,
+     "b": 34
     },
     "same_data": {
-     "observed": 0.6593940754237969,
-     "expected": 0.4649226251953196,
-     "gap": 0.19447145022847728,
-     "se": 0.008320248689808822,
+     "observed": 0.6607262200374567,
+     "expected": 0.465609301195674,
+     "gap": 0.19511691884178273,
+     "se": 0.00831788454381879,
      "abstracts": 6431,
      "threshold": 0.05,
-     "markers": 84
+     "markers": 85
     },
     "placebo": {
-     "observed": 0.45548640940869906,
-     "expected": 0.4507140523441339,
-     "gap": 0.004772357064565136,
-     "se": 0.03209508333794546,
+     "observed": 0.45641336924920517,
+     "expected": 0.45365366971688065,
+     "gap": 0.002759699532324522,
+     "se": 0.032102732197124687,
      "abstracts": 7238,
      "year": 2019
     }
    },
    "2026": {
     "crossfit": {
-     "observed": 0.5106764822985006,
-     "expected": 0.3107063841976676,
-     "gap": 0.19997009810083308,
-     "se": 0.008920828279482373,
+     "observed": 0.5190735445467318,
+     "expected": 0.32491680430630937,
+     "gap": 0.1941567402404224,
+     "se": 0.028259834314053482,
      "abstracts": 5230
     },
     "thresholds": {
@@ -197,22 +227,22 @@
     },
     "markers": {
      "a": 64,
-     "b": 71
+     "b": 73
     },
     "same_data": {
-     "observed": 0.6002802900997486,
-     "expected": 0.3362060842440465,
-     "gap": 0.26407420585570207,
-     "se": 0.009243812726232661,
+     "observed": 0.6068752099778754,
+     "expected": 0.3444733413883709,
+     "gap": 0.2624018685895045,
+     "se": 0.00924381735176543,
      "abstracts": 5230,
      "threshold": 0.02,
-     "markers": 133
+     "markers": 135
     },
     "placebo": {
-     "observed": 0.35020826216691114,
-     "expected": 0.35212831295446934,
-     "gap": -0.0019200507875581918,
-     "se": 0.008392714138006109,
+     "observed": 0.35881438705492724,
+     "expected": 0.35818927399710326,
+     "gap": 0.0006251130578239783,
+     "se": 0.008429866171968696,
      "abstracts": 6850,
      "year": 2020
     }
@@ -289,10 +319,10 @@
    },
    "2025": {
     "crossfit": {
-     "observed": 0.5374761964323536,
-     "expected": 0.36326527964170385,
-     "gap": 0.1742109167906497,
-     "se": 0.007532753725845042,
+     "observed": 0.5413276302391609,
+     "expected": 0.368153916656328,
+     "gap": 0.17317371358283284,
+     "se": 0.007533773546601597,
      "abstracts": 8144
     },
     "thresholds": {
@@ -301,32 +331,32 @@
     },
     "markers": {
      "a": 55,
-     "b": 95
+     "b": 97
     },
     "same_data": {
-     "observed": 0.5532726656372393,
-     "expected": 0.32809946152362046,
-     "gap": 0.22517320411361885,
-     "se": 0.007841838052584083,
+     "observed": 0.5636570762058327,
+     "expected": 0.33568513750802226,
+     "gap": 0.22797193869781046,
+     "se": 0.007851988697473345,
      "abstracts": 8144,
      "threshold": 0.02,
-     "markers": 126
+     "markers": 131
     },
     "placebo": {
-     "observed": 0.3060729925967151,
-     "expected": 0.29720013766680314,
-     "gap": 0.008872854929911966,
-     "se": 0.009612475631255326,
+     "observed": 0.31242034810081654,
+     "expected": 0.3046053207665885,
+     "gap": 0.007815027334228009,
+     "se": 0.00968042690266023,
      "abstracts": 4683,
      "year": 2019
     }
    },
    "2026": {
     "crossfit": {
-     "observed": 0.544845617454767,
-     "expected": 0.3850733015202981,
-     "gap": 0.1597723159344689,
-     "se": 0.035247882225777814,
+     "observed": 0.551353528545276,
+     "expected": 0.3935896418835093,
+     "gap": 0.1577638866617667,
+     "se": 0.03549903036001424,
      "abstracts": 6606
     },
     "thresholds": {
@@ -335,22 +365,22 @@
     },
     "markers": {
      "a": 99,
-     "b": 63
+     "b": 68
     },
     "same_data": {
-     "observed": 0.5742871634413308,
-     "expected": 0.3084631121829313,
-     "gap": 0.2658240512583995,
-     "se": 0.008758779473276067,
+     "observed": 0.5891216584529175,
+     "expected": 0.3197159694328597,
+     "gap": 0.26940568902005785,
+     "se": 0.008777787427897822,
      "abstracts": 6606,
      "threshold": 0.02,
-     "markers": 125
+     "markers": 133
     },
     "placebo": {
-     "observed": 0.2887948690066845,
-     "expected": 0.2670232754989382,
-     "gap": 0.021771593507746323,
-     "se": 0.009300998105230995,
+     "observed": 0.30009910435370485,
+     "expected": 0.27945398385264225,
+     "gap": 0.020645120501062597,
+     "se": 0.009424327257432833,
      "abstracts": 4926,
      "year": 2020
     }
@@ -375,17 +405,17 @@
      "abstracts": 628
     },
     "2025": {
-     "observed": 0.48017732904563853,
-     "expected": 0.3700905151782512,
-     "gap": 0.11008681386738736,
-     "se": 0.048653994554376766,
+     "observed": 0.6198105304891854,
+     "expected": 0.5201130434530866,
+     "gap": 0.09969748703609882,
+     "se": 0.04965954529307437,
      "abstracts": 1221
     },
     "2026": {
-     "observed": 0.5865698517489178,
-     "expected": 0.33286941372555107,
-     "gap": 0.2537004380233668,
-     "se": 0.06878792020100784,
+     "observed": 0.598074335144761,
+     "expected": 0.3580703297172424,
+     "gap": 0.24000400542751862,
+     "se": 0.06919156650712475,
      "abstracts": 1655
     }
    },
@@ -405,17 +435,17 @@
      "abstracts": 1041
     },
     "2025": {
-     "observed": 0.42310148229492783,
-     "expected": 0.26799550961047724,
-     "gap": 0.15510597268445062,
-     "se": 0.031701957008546125,
+     "observed": 0.5059224255977542,
+     "expected": 0.3804082804247251,
+     "gap": 0.12551414517302914,
+     "se": 0.03214994615432249,
      "abstracts": 2226
     },
     "2026": {
-     "observed": 0.5109817067789835,
-     "expected": 0.3248569628764889,
-     "gap": 0.18612474390249462,
-     "se": 0.03918694379034637,
+     "observed": 0.5157169322706484,
+     "expected": 0.3308331392788381,
+     "gap": 0.1848837929918103,
+     "se": 0.039195316955385626,
      "abstracts": 1895
     }
    },
@@ -435,17 +465,17 @@
      "abstracts": 1497
     },
     "2025": {
-     "observed": 0.40223299497134846,
-     "expected": 0.27025932051690593,
-     "gap": 0.1319736744544425,
-     "se": 0.011518156345229822,
+     "observed": 0.5111366746750379,
+     "expected": 0.3973781874206512,
+     "gap": 0.11375848725438673,
+     "se": 0.031618799833621265,
      "abstracts": 3196
     },
     "2026": {
-     "observed": 0.47005423014966136,
-     "expected": 0.31127398206707396,
-     "gap": 0.1587802480825874,
-     "se": 0.041228337819182746,
+     "observed": 0.4833417022623172,
+     "expected": 0.33926061675098557,
+     "gap": 0.14408108551133164,
+     "se": 0.04144824550297771,
      "abstracts": 1928
     }
    },
@@ -465,17 +495,17 @@
      "abstracts": 256
     },
     "2025": {
-     "observed": 0.3655047080012599,
-     "expected": 0.233674831304852,
-     "gap": 0.1318298766964079,
-     "se": 0.02880269371453922,
+     "observed": 0.4862641110694719,
+     "expected": 0.3644053125688358,
+     "gap": 0.12185879850063612,
+     "se": 0.03004633564174465,
      "abstracts": 484
     },
     "2026": {
-     "observed": 0.4141238518948298,
-     "expected": 0.4552271387258422,
-     "gap": -0.0411032868310124,
-     "se": 0.1352158225692404,
+     "observed": 0.4158770075750542,
+     "expected": 0.450267317687378,
+     "gap": -0.03439031011232381,
+     "se": 0.13551580118124187,
      "abstracts": 328
     }
    }
@@ -497,17 +527,17 @@
      "abstracts": 1317
     },
     "2025": {
-     "observed": 0.46938580420936094,
-     "expected": 0.34671799700165234,
-     "gap": 0.12266780720770856,
-     "se": 0.04816966274558254,
+     "observed": 0.4737314381170533,
+     "expected": 0.3516848780937591,
+     "gap": 0.12204656002329421,
+     "se": 0.04817345653646474,
      "abstracts": 1361
     },
     "2026": {
-     "observed": 0.49944942401827264,
-     "expected": 0.2640761342946144,
-     "gap": 0.2353732897236582,
-     "se": 0.019535372590026103,
+     "observed": 0.5005286835253926,
+     "expected": 0.26345993711151583,
+     "gap": 0.23706874641387676,
+     "se": 0.019542297494700107,
      "abstracts": 1071
     }
    },
@@ -527,17 +557,17 @@
      "abstracts": 522
     },
     "2025": {
-     "observed": 0.7081348871768186,
-     "expected": 0.6099371281833954,
-     "gap": 0.09819775899342326,
-     "se": 0.10321131320743865,
+     "observed": 0.7112067692165482,
+     "expected": 0.6161428822931713,
+     "gap": 0.09506388692337697,
+     "se": 0.10245084575355234,
      "abstracts": 548
     },
     "2026": {
-     "observed": 0.7002248557390447,
-     "expected": 0.6395168091961998,
-     "gap": 0.06070804654284481,
-     "se": 0.10035270298424451,
+     "observed": 0.708013689180568,
+     "expected": 0.6611281082995875,
+     "gap": 0.04688558088098044,
+     "se": 0.10041614320753293,
      "abstracts": 376
     }
    },
@@ -557,17 +587,17 @@
      "abstracts": 1185
     },
     "2025": {
-     "observed": 0.4914460063843442,
-     "expected": 0.40531105441620735,
-     "gap": 0.08613495196813688,
-     "se": 0.06224209203093565,
+     "observed": 0.4962827419290227,
+     "expected": 0.4077745385400188,
+     "gap": 0.0885082033890039,
+     "se": 0.062359570578674695,
      "abstracts": 964
     },
     "2026": {
-     "observed": 0.5075061237060288,
-     "expected": 0.35910178574111995,
-     "gap": 0.14840433796490882,
-     "se": 0.07876027970131302,
+     "observed": 0.511766658783857,
+     "expected": 0.3640663080056785,
+     "gap": 0.1477003507781784,
+     "se": 0.0788029024951624,
      "abstracts": 892
     }
    },
@@ -587,17 +617,17 @@
      "abstracts": 430
     },
     "2025": {
-     "observed": 0.673171073952172,
-     "expected": 0.6243962584038307,
-     "gap": 0.048774815548341344,
-     "se": 0.10834910140181993,
+     "observed": 0.6813487902938778,
+     "expected": 0.6156080736989363,
+     "gap": 0.06574071659494152,
+     "se": 0.1087607177970029,
      "abstracts": 844
     },
     "2026": {
-     "observed": 0.7047427024327853,
-     "expected": 0.6473873818481206,
-     "gap": 0.05735532058466469,
-     "se": 0.13552542991166971,
+     "observed": 0.7036014706047075,
+     "expected": 0.6409267379372775,
+     "gap": 0.06267473266742996,
+     "se": 0.1355960624787294,
      "abstracts": 658
     }
    },
@@ -617,17 +647,17 @@
      "abstracts": 583
     },
     "2025": {
-     "observed": 0.5700434826484506,
-     "expected": 0.5327938382292718,
-     "gap": 0.03724964441917886,
-     "se": 0.07043395031313,
+     "observed": 0.5730280951904707,
+     "expected": 0.5394736512604593,
+     "gap": 0.03355444393001136,
+     "se": 0.07072791097053117,
      "abstracts": 818
     },
     "2026": {
-     "observed": 0.6105424548315104,
-     "expected": 0.5789743879245915,
-     "gap": 0.03156806690691885,
-     "se": 0.13897431726866682,
+     "observed": 0.6108176841893086,
+     "expected": 0.5692937908516423,
+     "gap": 0.04152389333766629,
+     "se": 0.13930299654193642,
      "abstracts": 693
     }
    },
@@ -647,17 +677,17 @@
      "abstracts": 3064
     },
     "2025": {
-     "observed": 0.48845790370003583,
-     "expected": 0.3227975104460617,
-     "gap": 0.1656603932539741,
-     "se": 0.024937420536889632,
+     "observed": 0.4920851016731945,
+     "expected": 0.3280305081384241,
+     "gap": 0.16405459353477045,
+     "se": 0.025026956969253965,
      "abstracts": 3417
     },
     "2026": {
-     "observed": 0.5123580216762066,
-     "expected": 0.4063212077533909,
-     "gap": 0.10603681392281566,
-     "se": 0.050765512486974876,
+     "observed": 0.5239875099005477,
+     "expected": 0.4274518274075893,
+     "gap": 0.09653568249295838,
+     "se": 0.05119843864120403,
      "abstracts": 2791
     }
    },
@@ -677,17 +707,17 @@
      "abstracts": 784
     },
     "2025": {
-     "observed": 0.5985714981141687,
-     "expected": 0.4111019248398705,
-     "gap": 0.18746957327429817,
-     "se": 0.023841963864493183,
+     "observed": 0.5978037611318265,
+     "expected": 0.41536258994928776,
+     "gap": 0.18244117118253886,
+     "se": 0.023843506292071867,
      "abstracts": 865
     },
     "2026": {
-     "observed": 0.5973130078745885,
-     "expected": 0.37094361109667895,
-     "gap": 0.22636939677790965,
-     "se": 0.027448499832057643,
+     "observed": 0.6100792681364613,
+     "expected": 0.38665045877221244,
+     "gap": 0.22342880936424886,
+     "se": 0.027517732879346758,
      "abstracts": 630
     }
    }
@@ -730,6 +760,7 @@
     "incluíram",
     "integrando",
     "culturalmente",
+    "ocidentais",
     "alinhadas",
     "fortalecer",
     "integrar",
@@ -879,6 +910,7 @@
     "contemplando",
     "favorece",
     "funciona",
+    "institute",
     "concentra",
     "estruturantes",
     "eficazes",
@@ -925,6 +957,7 @@
     "examinar",
     "essenciais",
     "predominantemente",
+    "funcional",
     "formal",
     "recentes",
     "demonstram",
@@ -1005,11 +1038,11 @@
     "intricate",
     "underscores",
     "delves",
-    "promise",
     "persisted",
     "align",
     "alongside",
     "sequentially",
+    "tuned",
     "renowned",
     "heightened",
     "enhancements",
@@ -1026,6 +1059,7 @@
     "employs",
     "exceeding",
     "improper",
+    "intersectional",
     "introduces",
     "exhibits",
     "concludes",
@@ -1036,6 +1070,7 @@
     "reinforcing",
     "linking",
     "delivering",
+    "predictions",
     "integrate",
     "consistently",
     "serves",
@@ -1051,6 +1086,7 @@
     "inform",
     "pronounced",
     "contemporary",
+    "targeting",
     "evaluates",
     "shapes",
     "holistic",
@@ -1064,6 +1100,7 @@
     "optimize",
     "enhancement",
     "shifts",
+    "personalized",
     "frameworks",
     "preserving",
     "encompassing",
@@ -1109,6 +1146,7 @@
     "rapid",
     "consistent",
     "require",
+    "perceptions",
     "advantages",
     "achieve",
     "methodologies",
@@ -1134,7 +1172,9 @@
     "scalability",
     "strongest",
     "merely",
+    "tuning",
     "constrained",
+    "intersectional",
     "incorporates",
     "align",
     "markedly",
@@ -1144,11 +1184,11 @@
     "underscores",
     "reinforcing",
     "governing",
+    "caregiving",
     "consistently",
     "incorporating",
     "posing",
     "offering",
-    "promise",
     "advancements",
     "employs",
     "shaping",
@@ -1168,16 +1208,19 @@
     "combining",
     "encompassing",
     "technically",
+    "pseudo",
     "integrate",
     "rigorous",
     "confirming",
     "substantial",
+    "predictions",
     "constraints",
     "exceeded",
     "shaped",
     "driven",
     "supports",
     "effectively",
+    "targeting",
     "expands",
     "strengthened",
     "frameworks",
@@ -1187,11 +1230,13 @@
     "rely",
     "poses",
     "efficiently",
+    "listening",
     "contemporary",
     "engaging",
     "mitigating",
     "valuable",
     "descriptively",
+    "persistence",
     "shifts",
     "reinforce",
     "enabling",
@@ -1237,6 +1282,7 @@
     "guidance",
     "rapid",
     "accurate",
+    "perceptions",
     "shape",
     "emerging",
     "affecting",
@@ -1264,6 +1310,7 @@
      "adaptados",
      "alinhadas",
      "alternativos",
+     "apesar",
      "ausência",
      "avanços",
      "combina",
@@ -1271,18 +1318,24 @@
      "contemporânea",
      "criticamente",
      "crucial",
+     "crítica",
      "dela",
+     "desafios",
      "desempenha",
      "destacando",
      "dinâmicas",
      "enfrenta",
+     "especialmente",
      "evidencia",
      "evidenciando",
      "exigindo",
      "explora",
      "falta",
+     "foco",
      "fortalecer",
      "fundamentada",
+     "impacto",
+     "implementação",
      "incluiu",
      "incluíram",
      "indicam",
@@ -1290,9 +1343,11 @@
      "integrar",
      "limitada",
      "mapear",
+     "metodologia",
      "moldam",
      "oferecendo",
      "otimizar",
+     "papel",
      "percepções",
      "perpetuam",
      "perspectivas",
@@ -1335,7 +1390,8 @@
      "investiga",
      "moldam",
      "priorizando",
-     "ressaltando"
+     "ressaltando",
+     "transformação"
     ]
    },
    "2026": {
@@ -1476,7 +1532,9 @@
      "revela",
      "revelou",
      "tensões",
-     "valorização"
+     "transformação",
+     "valorização",
+     "visuais"
     ]
    }
   },
@@ -1577,7 +1635,6 @@
      "preserving",
      "primarily",
      "progress",
-     "promise",
      "pronounced",
      "proposes",
      "reinforcing",
@@ -1586,6 +1643,7 @@
      "robust",
      "scalable",
      "shape",
+     "strain",
      "strengths",
      "substantial",
      "typically",
@@ -1671,9 +1729,10 @@
      "often",
      "optimal",
      "outperformed",
+     "perceptions",
+     "predictions",
      "predominantly",
      "preserving",
-     "promise",
      "promising",
      "proposing",
      "provides",
@@ -1684,6 +1743,7 @@
      "revealing",
      "roles",
      "specifically",
+     "targeting",
      "transform",
      "underscore",
      "underscoring",
@@ -1749,6 +1809,7 @@
      "integrating",
      "limitations",
      "linking",
+     "listening",
      "maintaining",
      "merely",
      "mitigating",
@@ -1761,7 +1822,6 @@
      "persist",
      "persistent",
      "primarily",
-     "promise",
      "proposes",
      "provides",
      "publicly",
@@ -1834,10 +1894,12 @@
      "integrate",
      "integrates",
      "integrating",
+     "intersectional",
      "markedly",
      "offering",
      "organized",
      "outperformed",
+     "perceptions",
      "plays",
      "predominated",
      "preliminary",
@@ -1850,11 +1912,14 @@
      "reinforcing",
      "representing",
      "requiring",
+     "responsibilities",
      "revealing",
      "strengthened",
      "stronger",
      "strongest",
      "substantial",
+     "synthesizes",
+     "targeting",
      "underscore",
      "utilizing",
      "yielding"

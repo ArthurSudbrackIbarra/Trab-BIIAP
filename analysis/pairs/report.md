@@ -27,8 +27,8 @@ Cross-fitted sets of the lower bound, words picked on half a / half b of the Cro
 
 | year | English words | Portuguese words | English 2021-22 | Portuguese 2021-22 |
 |---|---|---|---|---|
-| 2025 | 55/95 | 41/33 | 37.8 | 26.7 |
-| 2026 | 99/63 | 64/71 | 36.7 | 30.6 |
+| 2025 | 55/97 | 50/34 | 38.5 | 36.8 |
+| 2026 | 99/68 | 64/73 | 37.7 | 30.9 |
 
 ## Rise in each language, same papers
 
@@ -36,15 +36,15 @@ Share of English abstracts with an English marker word and of Portuguese abstrac
 
 | papers | year | English share | English rise | Portuguese share | Portuguese rise | difference | p | placebo difference |
 |---|---|---|---|---|---|---|---|---|
-| every paper | 2025 | 37.8 → 52.2 | 14.4 [9.9, 18.7] | 26.7 → 38.4 | 11.7 [7.2, 15.9] | 2.6 [-3.0, 8.2] | 0.180 | 0.5 [-4.7, 5.3] |
-| every paper | 2026 | 36.7 → 56.7 | 19.9 [15.0, 24.5] | 30.6 → 48.3 | 17.7 [12.9, 22.4] | 2.3 [-4.3, 8.7] | 0.247 | 4.8 [-0.9, 10.3] |
-| every paper | 2025-2026 |  | 17.1 [13.7, 20.6] |  | 14.7 [11.3, 18.0] | 2.4 [-2.1, 6.8] | 0.134 | 2.6 [-1.3, 6.3] |
-| papers written in Portuguese | 2025 | 40.3 → 51.7 | 11.4 [5.3, 17.9] | 28.9 → 34.8 | 5.9 [0.0, 12.0] | 5.5 [-2.7, 13.9] | 0.095 | 2.2 [-4.7, 9.4] |
-| papers written in Portuguese | 2026 | 39.3 → 58.2 | 18.9 [12.3, 26.0] | 28.9 → 48.1 | 19.2 [12.3, 25.6] | -0.3 [-9.7, 9.5] | 0.516 | 6.2 [-1.6, 13.7] |
-| papers written in Portuguese | 2025-2026 |  | 15.0 [10.2, 20.0] |  | 12.3 [7.8, 16.8] | 2.7 [-3.7, 9.3] | 0.189 | 4.1 [-1.2, 9.5] |
-| papers written in English | 2025 | 35.7 → 53.9 | 18.2 [11.7, 24.8] | 24.8 → 42.6 | 17.8 [11.5, 24.1] | 0.3 [-7.9, 8.5] | 0.452 | -1.6 [-9.0, 5.9] |
-| papers written in English | 2026 | 33.9 → 54.7 | 20.8 [14.1, 27.6] | 32.3 → 48.8 | 16.5 [10.0, 23.1] | 4.4 [-4.0, 12.8] | 0.176 | 5.5 [-2.5, 13.4] |
-| papers written in English | 2025-2026 |  | 19.5 [14.7, 24.6] |  | 17.1 [12.5, 22.0] | 2.4 [-3.6, 8.4] | 0.209 | 2.0 [-3.3, 7.6] |
+| every paper | 2025 | 38.5 → 53.1 | 14.6 [10.0, 19.2] | 36.8 → 49.0 | 12.2 [7.8, 16.8] | 2.4 [-3.9, 8.6] | 0.226 | -0.6 [-6.0, 5.0] |
+| every paper | 2026 | 37.7 → 58.3 | 20.6 [16.0, 25.2] | 30.9 → 48.5 | 17.6 [13.0, 22.4] | 3.0 [-3.5, 9.2] | 0.177 | 5.4 [-0.1, 11.0] |
+| every paper | 2025-2026 |  | 17.5 [14.1, 20.9] |  | 14.9 [11.6, 18.3] | 2.7 [-1.8, 7.4] | 0.124 | 2.4 [-1.5, 6.3] |
+| papers written in Portuguese | 2025 | 41.4 → 52.3 | 10.9 [4.2, 17.1] | 39.7 → 47.7 | 8.0 [1.4, 14.4] | 2.9 [-6.3, 11.8] | 0.271 | 3.0 [-4.7, 11.1] |
+| papers written in Portuguese | 2026 | 40.4 → 60.0 | 19.6 [12.8, 26.6] | 29.0 → 48.4 | 19.4 [13.0, 26.0] | 0.3 [-9.1, 9.8] | 0.467 | 8.0 [0.7, 15.3] |
+| papers written in Portuguese | 2025-2026 |  | 15.1 [10.2, 20.3] |  | 13.4 [8.7, 18.2] | 1.7 [-5.0, 8.6] | 0.312 | 5.4 [-0.2, 10.9] |
+| papers written in English | 2025 | 36.0 → 55.0 | 19.0 [12.3, 25.5] | 33.9 → 51.5 | 17.6 [11.1, 24.3] | 1.4 [-7.2, 9.5] | 0.380 | -5.2 [-13.0, 2.7] |
+| papers written in English | 2026 | 34.6 → 55.5 | 20.9 [14.5, 27.6] | 32.7 → 48.8 | 16.1 [9.7, 22.8] | 4.8 [-3.2, 13.1] | 0.127 | 4.9 [-3.5, 13.3] |
+| papers written in English | 2025-2026 |  | 20.0 [15.3, 24.9] |  | 16.8 [12.1, 21.5] | 3.1 [-2.9, 9.1] | 0.153 | 0.0 [-5.8, 5.6] |
 
 ## Which abstract carries the markers
 
@@ -52,18 +52,18 @@ Shares of papers with a marker word in both abstracts, in the English one only, 
 
 | papers | markers | period | n | both | English only | Portuguese only | neither |
 |---|---|---|---|---|---|---|---|
-| every paper | 2025 | 2021-2022 | 1446 | 13.0 | 24.8 | 13.7 | 48.5 |
-| every paper | 2025 | 2025 | 706 | 26.3 | 27.6 | 13.3 | 32.7 |
-| every paper | 2026 | 2021-2022 | 1446 | 13.1 | 23.6 | 17.5 | 45.8 |
-| every paper | 2026 | 2026 | 695 | 34.8 | 25.0 | 17.7 | 22.4 |
-| papers written in Portuguese | 2025 | 2021-2022 | 703 | 13.8 | 26.5 | 15.1 | 44.7 |
-| papers written in Portuguese | 2025 | 2025 | 346 | 21.4 | 30.6 | 14.2 | 33.8 |
-| papers written in Portuguese | 2026 | 2021-2022 | 703 | 12.4 | 26.9 | 16.5 | 44.2 |
-| papers written in Portuguese | 2026 | 2026 | 314 | 33.4 | 27.4 | 18.5 | 20.7 |
-| papers written in English | 2025 | 2021-2022 | 703 | 12.4 | 23.3 | 12.4 | 51.9 |
-| papers written in English | 2025 | 2025 | 347 | 32.0 | 25.1 | 11.8 | 31.1 |
-| papers written in English | 2026 | 2021-2022 | 703 | 13.8 | 20.1 | 18.5 | 47.7 |
-| papers written in English | 2026 | 2026 | 366 | 36.6 | 22.1 | 16.9 | 24.3 |
+| every paper | 2025 | 2021-2022 | 1446 | 15.4 | 23.1 | 21.4 | 40.1 |
+| every paper | 2025 | 2025 | 706 | 30.6 | 24.2 | 19.8 | 25.4 |
+| every paper | 2026 | 2021-2022 | 1446 | 13.6 | 24.1 | 17.4 | 45.0 |
+| every paper | 2026 | 2026 | 695 | 35.7 | 25.6 | 17.1 | 21.6 |
+| papers written in Portuguese | 2025 | 2021-2022 | 703 | 16.6 | 24.8 | 23.0 | 35.6 |
+| papers written in Portuguese | 2025 | 2025 | 346 | 26.0 | 26.6 | 22.3 | 25.1 |
+| papers written in Portuguese | 2026 | 2021-2022 | 703 | 12.9 | 27.5 | 16.1 | 43.5 |
+| papers written in Portuguese | 2026 | 2026 | 314 | 34.1 | 28.3 | 18.2 | 19.4 |
+| papers written in English | 2025 | 2021-2022 | 703 | 14.2 | 21.8 | 19.6 | 44.4 |
+| papers written in English | 2025 | 2025 | 347 | 36.0 | 22.2 | 17.0 | 24.8 |
+| papers written in English | 2026 | 2021-2022 | 703 | 14.1 | 20.5 | 18.6 | 46.8 |
+| papers written in English | 2026 | 2026 | 366 | 37.2 | 22.7 | 16.4 | 23.8 |
 
 ## Year by year with the 2025 sets
 
@@ -71,42 +71,42 @@ The 2025 marker sets applied to every year: rise over 2021-2022 in each language
 
 | papers | year | English rise | Portuguese rise | difference |
 |---|---|---|---|---|
-| every paper | 2015 | -4.4 [-8.4, -0.5] | -8.1 [-11.6, -4.5] | 3.6 [-1.5, 8.9] |
-| every paper | 2016 | -6.0 [-10.0, -1.9] | -6.2 [-9.8, -2.5] | 0.2 [-4.8, 5.6] |
-| every paper | 2017 | -3.6 [-7.6, 0.6] | -4.9 [-8.7, -1.1] | 1.4 [-4.0, 6.6] |
-| every paper | 2018 | -3.4 [-7.5, 0.7] | -3.1 [-6.9, 0.7] | -0.3 [-5.4, 4.6] |
-| every paper | 2019 | -3.9 [-7.8, 0.4] | -5.9 [-9.5, -2.2] | 2.0 [-3.0, 7.2] |
-| every paper | 2020 | -2.5 [-6.6, 1.6] | -4.6 [-8.1, -0.8] | 2.1 [-3.4, 7.2] |
-| every paper | 2021 | 0.5 [-1.9, 3.1] | 0.3 [-1.9, 2.6] | 0.2 [-2.9, 3.3] |
-| every paper | 2022 | -0.3 [-2.8, 2.3] | -0.5 [-2.8, 1.7] | 0.2 [-2.9, 3.4] |
-| every paper | 2023 | 1.8 [-2.1, 6.2] | 0.4 [-3.4, 4.5] | 1.4 [-3.9, 6.8] |
-| every paper | 2024 | 8.9 [4.7, 13.0] | 2.3 [-1.7, 6.5] | 6.6 [1.1, 12.0] |
-| every paper | 2025 | 14.4 [9.9, 18.7] | 11.7 [7.2, 15.9] | 2.6 [-3.0, 8.2] |
-| every paper | 2026 | 20.2 [15.2, 25.0] | 12.9 [8.6, 17.3] | 7.3 [1.0, 13.8] |
-| papers written in Portuguese | 2015 | -6.9 [-12.3, -1.5] | -8.2 [-13.1, -3.4] | 1.3 [-5.6, 8.2] |
-| papers written in Portuguese | 2016 | -6.9 [-12.5, -1.4] | -7.6 [-12.7, -2.6] | 0.7 [-6.6, 8.0] |
-| papers written in Portuguese | 2017 | -0.9 [-6.7, 5.2] | -4.6 [-9.9, 0.8] | 3.7 [-3.9, 11.6] |
-| papers written in Portuguese | 2018 | -4.0 [-10.0, 2.1] | -2.8 [-8.4, 2.6] | -1.2 [-8.8, 6.7] |
-| papers written in Portuguese | 2019 | -5.0 [-10.8, 0.8] | -8.0 [-13.2, -2.6] | 3.0 [-4.8, 10.4] |
-| papers written in Portuguese | 2020 | -2.3 [-8.1, 3.8] | -3.8 [-9.2, 1.6] | 1.5 [-6.2, 9.4] |
-| papers written in Portuguese | 2021 | -0.8 [-4.0, 2.5] | -0.1 [-3.2, 3.0] | -0.7 [-4.9, 3.5] |
-| papers written in Portuguese | 2022 | 1.4 [-2.2, 5.2] | 0.3 [-3.2, 3.9] | 1.1 [-3.9, 6.0] |
-| papers written in Portuguese | 2023 | 1.5 [-4.5, 7.8] | 0.5 [-5.2, 6.0] | 1.0 [-6.4, 9.2] |
-| papers written in Portuguese | 2024 | 8.7 [2.7, 14.6] | 2.4 [-3.2, 8.6] | 6.4 [-1.5, 14.3] |
-| papers written in Portuguese | 2025 | 11.4 [5.3, 17.9] | 5.9 [0.0, 12.0] | 5.5 [-2.7, 13.9] |
-| papers written in Portuguese | 2026 | 20.2 [13.3, 27.1] | 12.1 [5.5, 18.6] | 8.1 [-1.3, 18.0] |
-| papers written in English | 2015 | -2.6 [-8.6, 3.7] | -9.7 [-14.8, -4.6] | 7.2 [-0.3, 15.0] |
-| papers written in English | 2016 | -6.1 [-11.9, -0.1] | -5.5 [-10.8, -0.2] | -0.6 [-8.2, 6.9] |
-| papers written in English | 2017 | -7.1 [-13.1, -1.2] | -5.5 [-10.7, -0.1] | -1.6 [-9.3, 5.9] |
-| papers written in English | 2018 | -3.3 [-8.7, 2.3] | -3.7 [-8.7, 1.5] | 0.4 [-7.1, 7.4] |
-| papers written in English | 2019 | -3.3 [-8.9, 3.0] | -3.8 [-8.9, 1.5] | 0.6 [-6.6, 8.1] |
-| papers written in English | 2020 | -3.0 [-8.8, 3.1] | -5.8 [-10.7, -0.4] | 2.8 [-4.5, 10.2] |
-| papers written in English | 2021 | 1.1 [-2.6, 4.7] | 0.6 [-2.9, 3.8] | 0.6 [-4.1, 5.0] |
-| papers written in English | 2022 | -0.7 [-4.0, 2.8] | -0.9 [-3.9, 2.2] | 0.2 [-3.8, 4.2] |
-| papers written in English | 2023 | 0.5 [-5.7, 6.3] | 0.4 [-4.8, 5.9] | 0.1 [-7.7, 7.2] |
-| papers written in English | 2024 | 9.3 [2.9, 15.8] | 0.9 [-4.7, 6.5] | 8.4 [0.2, 16.2] |
-| papers written in English | 2025 | 18.2 [11.7, 24.8] | 17.8 [11.5, 24.1] | 0.3 [-7.9, 8.5] |
-| papers written in English | 2026 | 19.6 [12.5, 26.3] | 13.8 [7.8, 20.4] | 5.8 [-3.4, 14.5] |
+| every paper | 2015 | -4.4 [-8.5, -0.4] | -9.3 [-13.0, -5.4] | 4.9 [-0.9, 10.2] |
+| every paper | 2016 | -6.2 [-10.1, -2.1] | -5.8 [-9.9, -1.7] | -0.4 [-6.2, 5.1] |
+| every paper | 2017 | -3.9 [-8.0, 0.2] | -7.1 [-11.2, -3.2] | 3.1 [-2.5, 8.9] |
+| every paper | 2018 | -3.8 [-7.8, 0.4] | -3.7 [-7.9, 0.4] | -0.1 [-5.8, 5.7] |
+| every paper | 2019 | -3.7 [-8.0, 0.4] | -4.8 [-8.9, -0.8] | 1.0 [-4.7, 6.7] |
+| every paper | 2020 | -2.7 [-7.0, 1.4] | -1.5 [-5.8, 2.5] | -1.2 [-7.2, 4.8] |
+| every paper | 2021 | 0.5 [-2.1, 3.0] | -0.5 [-3.0, 1.9] | 1.0 [-2.5, 4.4] |
+| every paper | 2022 | -0.3 [-2.8, 2.3] | 0.4 [-2.1, 3.0] | -0.7 [-4.3, 2.9] |
+| every paper | 2023 | 1.5 [-2.7, 5.9] | 0.6 [-3.7, 4.7] | 1.0 [-4.9, 6.9] |
+| every paper | 2024 | 8.6 [4.2, 13.0] | 1.8 [-2.4, 6.2] | 6.8 [0.8, 12.8] |
+| every paper | 2025 | 14.6 [10.0, 19.2] | 12.2 [7.8, 16.8] | 2.4 [-3.9, 8.6] |
+| every paper | 2026 | 20.2 [15.3, 25.0] | 10.8 [6.2, 15.3] | 9.4 [2.8, 15.9] |
+| papers written in Portuguese | 2015 | -7.7 [-13.3, -2.1] | -9.1 [-14.4, -3.7] | 1.4 [-6.0, 9.3] |
+| papers written in Portuguese | 2016 | -8.0 [-13.4, -2.3] | -6.9 [-12.6, -1.1] | -1.1 [-9.1, 6.9] |
+| papers written in Portuguese | 2017 | -2.0 [-7.9, 4.1] | -7.3 [-13.3, -1.3] | 5.3 [-3.1, 14.0] |
+| papers written in Portuguese | 2018 | -5.1 [-10.7, 1.1] | -3.4 [-9.5, 2.4] | -1.7 [-9.6, 6.6] |
+| papers written in Portuguese | 2019 | -5.3 [-11.2, 0.5] | -8.1 [-14.0, -2.3] | 2.8 [-5.5, 11.5] |
+| papers written in Portuguese | 2020 | -3.2 [-8.7, 2.5] | -2.1 [-8.1, 3.7] | -1.1 [-9.3, 7.6] |
+| papers written in Portuguese | 2021 | -1.1 [-4.3, 2.4] | -1.7 [-5.1, 1.7] | 0.6 [-4.0, 5.4] |
+| papers written in Portuguese | 2022 | 1.6 [-2.3, 5.3] | 1.9 [-2.0, 5.8] | -0.3 [-5.7, 5.2] |
+| papers written in Portuguese | 2023 | 0.4 [-5.7, 6.7] | -0.2 [-6.3, 6.2] | 0.6 [-8.0, 9.3] |
+| papers written in Portuguese | 2024 | 8.1 [1.9, 14.3] | 4.6 [-1.6, 10.5] | 3.5 [-4.8, 12.5] |
+| papers written in Portuguese | 2025 | 10.9 [4.2, 17.1] | 8.0 [1.4, 14.4] | 2.9 [-6.3, 11.8] |
+| papers written in Portuguese | 2026 | 20.3 [13.0, 26.9] | 10.6 [3.7, 17.3] | 9.7 [-0.2, 19.3] |
+| papers written in English | 2015 | -1.7 [-7.6, 4.3] | -11.7 [-17.3, -6.0] | 10.0 [1.9, 18.3] |
+| papers written in English | 2016 | -5.5 [-11.6, 0.7] | -5.8 [-11.7, 0.2] | 0.3 [-8.0, 8.3] |
+| papers written in English | 2017 | -6.8 [-12.8, -0.9] | -7.4 [-13.0, -1.7] | 0.6 [-7.7, 8.6] |
+| papers written in English | 2018 | -3.0 [-8.9, 2.5] | -3.9 [-9.3, 1.8] | 0.9 [-6.9, 7.9] |
+| papers written in English | 2019 | -3.0 [-8.8, 2.7] | -2.0 [-7.7, 3.8] | -1.1 [-9.3, 6.8] |
+| papers written in English | 2020 | -2.5 [-8.5, 3.2] | -0.5 [-6.2, 5.3] | -2.0 [-10.2, 5.7] |
+| papers written in English | 2021 | 1.5 [-2.2, 5.0] | 0.6 [-2.8, 4.3] | 0.8 [-4.4, 5.9] |
+| papers written in English | 2022 | -1.0 [-4.2, 2.6] | -0.8 [-4.3, 2.3] | -0.1 [-4.8, 4.7] |
+| papers written in English | 2023 | 1.0 [-4.9, 6.6] | 1.9 [-4.0, 7.8] | -0.9 [-9.1, 7.0] |
+| papers written in English | 2024 | 9.0 [2.7, 15.2] | -2.8 [-8.7, 3.2] | 11.8 [3.3, 19.6] |
+| papers written in English | 2025 | 19.0 [12.3, 25.5] | 17.6 [11.1, 24.3] | 1.4 [-7.2, 9.5] |
+| papers written in English | 2026 | 19.5 [12.8, 26.2] | 10.6 [4.3, 17.0] | 9.0 [-0.4, 18.4] |
 
 ## Robustness of the pooled difference
 
@@ -114,9 +114,9 @@ Main estimate; without the length standardization; with 2019-2022 as the baselin
 
 | papers | main | raw shares | baseline 2019-2022 | same-data markers |
 |---|---|---|---|---|
-| every paper | 2.4 [-2.1, 6.8] | 2.2 [-1.9, 6.4] | 1.8 [-2.2, 5.9] | -0.7 [-5.1, 3.7] |
-| papers written in Portuguese | 2.7 [-3.7, 9.3] | 2.0 [-4.0, 8.1] | 2.7 [-3.0, 8.5] | -2.7 [-9.1, 4.0] |
-| papers written in English | 2.4 [-3.6, 8.4] | 3.0 [-2.6, 8.6] | 1.4 [-4.0, 6.7] | 1.2 [-5.2, 7.2] |
+| every paper | 2.7 [-1.8, 7.4] | 2.2 [-2.0, 6.6] | 2.7 [-1.3, 6.9] | 0.2 [-4.6, 4.6] |
+| papers written in Portuguese | 1.7 [-5.0, 8.6] | 0.8 [-5.6, 7.3] | 2.1 [-4.0, 8.5] | -2.6 [-8.7, 4.2] |
+| papers written in English | 3.1 [-2.9, 9.1] | 3.8 [-2.0, 9.2] | 3.0 [-2.5, 8.4] | 3.0 [-3.2, 9.7] |
 
 ## Marker words in the rewriting experiment
 
@@ -124,9 +124,9 @@ Share of texts with a marker word of the year's sets (cross-fitted by DOI): the 
 
 | model | task | markers | texts | original | model | authors' English |
 |---|---|---|---|---|---|---|
-| claude | polish-en | 2025 | 80 | 40.0 | 47.5 | - |
-| claude | polish-en | 2026 | 80 | 38.8 | 38.8 | - |
-| claude | polish-pt | 2025 | 80 | 20.0 | 25.0 | - |
+| claude | polish-en | 2025 | 80 | 41.2 | 48.8 | - |
+| claude | polish-en | 2026 | 80 | 41.2 | 42.5 | - |
+| claude | polish-pt | 2025 | 80 | 32.5 | 32.5 | - |
 | claude | polish-pt | 2026 | 80 | 27.5 | 32.5 | - |
-| claude | translate-pt-en | 2025 | 80 | 15.0 | 45.0 | 31.2 |
-| claude | translate-pt-en | 2026 | 80 | 21.2 | 41.2 | 37.5 |
+| claude | translate-pt-en | 2025 | 80 | 32.5 | 46.2 | 32.5 |
+| claude | translate-pt-en | 2026 | 80 | 21.2 | 43.8 | 38.8 |

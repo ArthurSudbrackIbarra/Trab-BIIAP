@@ -633,14 +633,19 @@ def cmd_report(args):
         pairs = [(author[lang][word], claude[lang][word]) for word in author[lang]
                  if word in claude[lang]]
         if pairs:
+            # Where Claude did not answer "ambiguous": how often the author took the same side.
+            decided = [(a, b) for a, b in pairs if b != "ambiguous"]
             agreement = {"words": len(pairs), "agreement": sum(a == b for a, b in pairs) / len(pairs),
-                         "kappa": kappa(pairs),
+                         "kappa": kappa(pairs), "decided": len(decided),
+                         "decided_agreement": sum(a == b for a, b in decided) / len(decided),
                          "confusion": {f"{a}/{b}": n for (a, b), n in Counter(pairs).items()}}
             report["agreement"][lang] = agreement
             rows.append([lang, len(pairs), f"{agreement['agreement']:.0%}", f"{agreement['kappa']:.2f}",
+                         f"{agreement['decided_agreement']:.0%} of {len(decided)}",
                          ", ".join(f"author {k.replace('/', ', Claude ')}: {n}"
                                    for k, n in sorted(agreement["confusion"].items()))])
-    lines += table(["lang", "words", "agreement", "kappa", "author vs Claude"], rows) if rows else [
+    lines += table(["lang", "words", "agreement", "kappa", "agreement where Claude chose a side",
+                    "author vs Claude"], rows) if rows else [
         "The author has not labelled the sample yet (analysis/labels/author-<lang>.csv).", ""]
 
     bound_rows, area_rows = [], []
