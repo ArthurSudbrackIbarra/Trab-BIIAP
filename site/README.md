@@ -4,9 +4,7 @@ Site estático que acompanha o artigo: uma página por ferramenta, em inglês (o
 português (em `/pt/`), com os dados pré-calculados. Não chama modelo de IA nenhum, não usa cookies
 e não faz requisição a terceiros (fontes e dados vêm do próprio site).
 
-O design veio de um pacote do Claude Design (`iaes-design.zip`, aberto em `design/`: guia
-`IMPLEMENTACAO.md`, decisões `DECISOES.md`, imagens de referência e `css/iaes.css`), que fica só na
-máquina do autor, fora do repositório; a spec original está em `docs/app-spec.md`. Os dados seguem
+O design foi feito no Claude Design a partir da spec em `docs/app-spec.md`. Os dados seguem
 `site/DADOS.md`.
 
 ## Gerar e ver
@@ -35,7 +33,7 @@ site/
   src/pages/<id>.html   corpo (dentro de <main>) de cada tela, com {{t:chave}}, {{rota:id}}, {{raiz}}
   src/i18n/comum.json   textos de todas as telas: cabeçalho, rodapé, estados, painel, áreas
   src/i18n/<id>.json    textos de uma tela: {"pt": {...}, "en": {...}}, com as mesmas chaves
-  public/css/iaes.css   tokens e componentes do design (cópia de design/css/iaes.css; não editar)
+  public/css/iaes.css   tokens e componentes do design (o CSS do Claude Design; não editar)
   public/css/site.css   layout global, cabeçalho, rodapé, estados e as regras de celular
   public/css/pages/<id>.css   estilos de uma tela (carregado só nela, se existir)
   public/js/lib/        código comum (ver abaixo)

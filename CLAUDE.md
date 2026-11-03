@@ -201,9 +201,7 @@ carry a marker.
 
 A static site that goes with the paper: 9 tools plus Método, in English (default, at the root)
 and Portuguese (`/pt/`), no framework, no npm, no cookies, no third-party requests. Built on
-2026-10-31 from the Claude Design package (`iaes-design.zip`, unzipped to `design/`, both kept out
-of git: `IMPLEMENTACAO.md` is the guide, section 10 lists the patterns to avoid; `referencias/` has
-the reference images). Details in `site/README.md` (structure, shared JavaScript API, rules) and
+2026-10-31 from the design made in Claude Design. Details in `site/README.md` (structure, shared JavaScript API, rules) and
 `site/DADOS.md` (data contract).
 
 ```
@@ -312,8 +310,8 @@ abstract than in the Portuguese abstract of the same paper?
 
 **Interactive companion (decided 2026-10-30, built 2026-10-31).** A static web app, *IAês*, built
 on the same data; see the Site section. Spec for Claude Design: [docs/app-spec.md](docs/app-spec.md).
-The author passed the spec to Claude Design and brought the package back (`iaes-design.zip`); Claude
-Code implemented every screen. On 2026-11-03 subagents reviewed it in six dimensions and fixed the
+The author passed the spec to Claude Design and brought the design back; Claude Code
+implemented every screen. On 2026-11-03 subagents reviewed it in six dimensions and fixed the
 findings screen by screen; the author then looked at it and asked for the last changes (English as
 the default, no AI-use or citation section). It goes live through the Pages workflow once the
 repository is public.

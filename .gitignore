@@ -39,7 +39,3 @@ __pycache__/
 
 # Built site (python3 -I site/build.py)
 site/dist/
-
-# Claude Design package (kept on the author's machine, not in the repository)
-design/
-iaes-design.zip
