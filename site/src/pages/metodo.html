@@ -1,0 +1,175 @@
+<div class="pagina metodo">
+<div class="metodo-grade">
+
+<nav class="indice" aria-label="{{t:indice_rotulo}}">
+<p class="t-rotulo">{{t:indice_rotulo}}</p>
+<ol class="indice-lista">
+<li><a href="#dados">{{t:sec_dados}}</a></li>
+<li><a href="#excesso">{{t:sec_excesso}}</a></li>
+<li><a href="#ajustes">{{t:sec_ajustes}}</a></li>
+<li><a href="#marcadoras">{{t:sec_marcadoras}}</a></li>
+<li><a href="#no-site">{{t:sec_site}}</a></li>
+<li><a href="#experimento">{{t:sec_experimento}}</a></li>
+<li><a href="#limites">{{t:sec_limites}}</a></li>
+<li><a href="#reproduzir">{{t:sec_reproduzir}}</a></li>
+<li><a href="#creditos">{{t:sec_creditos}}</a></li>
+</ol>
+</nav>
+
+<article class="metodo-texto">
+<header class="metodo-cabeca">
+<h1 class="t-display">{{t:titulo}}</h1>
+<p class="t-lede">{{t:lede}}</p>
+<div class="indice-celular">
+<button class="entrada" type="button" aria-expanded="false" aria-controls="indice-celular-lista"><span><span class="t-legenda">{{t:indice_botao}}</span> <span class="indice-atual">{{t:sec_dados}}</span></span><svg class="ic ic-p" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button>
+<nav id="indice-celular-lista" aria-label="{{t:indice_rotulo}}" hidden>
+<ol class="indice-celular-itens">
+<li><a href="#dados">{{t:sec_dados}}</a></li>
+<li><a href="#excesso">{{t:sec_excesso}}</a></li>
+<li><a href="#ajustes">{{t:sec_ajustes}}</a></li>
+<li><a href="#marcadoras">{{t:sec_marcadoras}}</a></li>
+<li><a href="#no-site">{{t:sec_site}}</a></li>
+<li><a href="#experimento">{{t:sec_experimento}}</a></li>
+<li><a href="#limites">{{t:sec_limites}}</a></li>
+<li><a href="#reproduzir">{{t:sec_reproduzir}}</a></li>
+<li><a href="#creditos">{{t:sec_creditos}}</a></li>
+</ol>
+</nav>
+</div>
+</header>
+
+<section id="dados" class="metodo-secao" aria-labelledby="h-dados">
+<h2 class="t-h2" id="h-dados">{{t:h_dados}}</h2>
+<p class="t-texto" data-num="dados_p1">{{t:dados_p1_sem}}</p>
+<dl class="ficha">
+<dt>{{t:ficha_fonte}}</dt><dd>{{t:ficha_fonte_v}}</dd>
+<dt>{{t:ficha_periodo}}</dt><dd>{{t:ficha_periodo_v}}</dd>
+<dt>{{t:ficha_filtros}}</dt><dd data-num="ficha_filtros_v">{{t:ficha_filtros_sem}}</dd>
+<dt>{{t:ficha_resumos}}</dt><dd data-num="ficha_resumos_v">{{t:ficha_resumos_sem}}</dd>
+<dt>{{t:ficha_pares}}</dt><dd data-num="ficha_pares_v">{{t:ficha_pares_sem}}</dd>
+</dl>
+<figure class="figura figura-resumos" aria-labelledby="graf-titulo" aria-describedby="graf-resumo">
+<figcaption class="t-p figura-titulo" id="graf-titulo">{{t:graf_titulo}}</figcaption>
+<div class="legenda" aria-hidden="true">
+<span class="legenda-item"><span class="am-barra am-barra-pt"></span>{{t:graf_pt}}</span>
+<span class="legenda-item"><span class="am-barra am-barra-en"></span>{{t:graf_en}}</span>
+<span class="legenda-item"><span class="am-barra am-barra-es"></span>{{t:graf_es}}</span>
+<span class="legenda-item"><span class="am-barra am-barra-parcial"></span>{{t:parcial_ate}}</span>
+</div>
+<div class="caixa-resumos" id="caixa-resumos"></div>
+<p class="sr" id="graf-resumo"></p>
+<div class="figura-pe"><span></span><button class="btn btn-p btn-fantasma botao-tabela" type="button" aria-controls="caixa-resumos" hidden></button></div>
+</figure>
+</section>
+
+<section id="excesso" class="metodo-secao" aria-labelledby="h-excesso">
+<h2 class="t-h2" id="h-excesso">{{t:h_excesso}}</h2>
+<figure class="figura figura-esquema" aria-describedby="diag-resumo">
+<div class="legenda legenda-esquema" aria-hidden="true">
+<span class="legenda-item"><span class="chave chave-pt"></span>{{t:diag_obs}}</span>
+<span class="legenda-item"><span class="am-esp"></span>{{t:diag_esp}}</span>
+<span class="legenda-item"><span class="am-base"></span><span class="so-largo">{{t:diag_base}}</span><span class="so-estreito">{{t:diag_base_rot}}</span></span>
+<span class="legenda-item"><span class="hachura am-tran"></span><span class="so-largo">{{t:diag_tran}}</span><span class="so-estreito">{{t:diag_tran_curto}}</span></span>
+</div>
+<div class="caixa-esquema"></div>
+<p class="formula t-p">{{t:diag_formula}}</p>
+<p class="sr" id="diag-resumo">{{t:diag_resumo}}</p>
+<p class="t-legenda">{{t:diag_nota}}</p>
+</figure>
+<p class="t-texto">{{t:excesso_p1}}</p>
+<p class="t-texto">{{t:excesso_p2}}</p>
+<p class="t-texto" id="corte">{{t:excesso_corte}}</p>
+</section>
+
+<section id="ajustes" class="metodo-secao" aria-labelledby="h-ajustes">
+<h2 class="t-h2" id="h-ajustes">{{t:h_ajustes}}</h2>
+<p class="t-texto">{{t:ajustes_intro}}</p>
+<h3 class="t-h3">{{t:aj_painel_h}}</h3>
+<p class="t-texto">{{t:aj_painel}}</p>
+<h3 class="t-h3">{{t:aj_tamanho_h}}</h3>
+<p class="t-texto" data-num="aj_tamanho">{{t:aj_tamanho_sem}}</p>
+<h3 class="t-h3">{{t:aj_filtro_h}}</h3>
+<p class="t-texto">{{t:aj_filtro}}</p>
+<h3 class="t-h3">{{t:aj_bases_h}}</h3>
+<p class="t-texto">{{t:aj_bases}}</p>
+</section>
+
+<section id="marcadoras" class="metodo-secao" aria-labelledby="h-marcadoras">
+<h2 class="t-h2" id="h-marcadoras">{{t:h_marcadoras}}</h2>
+<p class="t-texto">{{t:marc_p1}}</p>
+<p class="t-texto" data-num="marc_p2">{{t:marc_p2_sem}}</p>
+<p class="t-texto" data-num="marc_h1">{{t:marc_h1_sem}}</p>
+<p class="t-texto" data-num="marc_lista">{{t:marc_lista_sem}}</p>
+<h3 class="t-h3">{{t:h3_h}}</h3>
+<p class="t-texto" data-num="h3_p">{{t:h3_p_sem}}</p>
+<h3 class="t-h3" id="estimativa-minima">{{t:min_h}}</h3>
+<p class="t-texto">{{t:min_p1}}</p>
+<p class="t-texto">{{t:min_p2}}</p>
+<p class="t-texto" data-num="min_conjuntos">{{t:min_conjuntos_sem}}</p>
+<figure class="figura" aria-labelledby="min-titulo">
+<figcaption class="t-p figura-titulo" id="min-titulo">{{t:min_tab_titulo}}</figcaption>
+<div class="caixa-minimo"></div>
+</figure>
+<h3 class="t-h3" id="mesmo-artigo">{{t:par_h}}</h3>
+<p class="t-texto">{{t:par_p1}}</p>
+<p class="t-texto" data-num="par_p2">{{t:par_p2_sem}}</p>
+<h3 class="t-h3" id="indice">{{t:indice_h}}</h3>
+<p class="t-texto">{{t:indice_p}}</p>
+</section>
+
+<section id="no-site" class="metodo-secao" aria-labelledby="h-site">
+<h2 class="t-h2" id="h-site">{{t:h_site}}</h2>
+<p class="t-texto">{{t:site_p1}}</p>
+<p class="t-texto">{{t:site_p2}}</p>
+<h3 class="t-h3">{{t:site_detector_h}}</h3>
+<p class="t-texto">{{t:site_detector}}</p>
+</section>
+
+<section id="experimento" class="metodo-secao" aria-labelledby="h-experimento">
+<h2 class="t-h2" id="h-experimento">{{t:h_experimento}}</h2>
+<p class="t-texto">{{t:exp_p1}}</p>
+<p class="t-texto" data-num="exp_p2">{{t:exp_p2_sem}}</p>
+<dl class="ficha ficha-experimento">
+<dt>{{t:exp_chatgpt}}</dt><dd data-num="exp_chatgpt_v">{{t:exp_chatgpt_sem}}</dd>
+<dt>{{t:exp_gemini}}</dt><dd data-num="exp_gemini_v">{{t:exp_gemini_sem}}</dd>
+<dt>{{t:exp_claude}}</dt><dd data-num="exp_claude_v">{{t:exp_claude_sem}}</dd>
+<dt>{{t:exp_amostra}}</dt><dd data-num="exp_amostra_v">{{t:exp_amostra_sem}}</dd>
+<dt>{{t:exp_datas}}</dt><dd data-num="exp_datas_v">{{t:exp_datas_sem}}</dd>
+</dl>
+<p class="t-p metodo-nota">{{t:exp_pedido_rotulo}}</p>
+<pre class="codigo" data-num="exp_prompt">{{t:exp_prompt}}</pre>
+<p class="t-texto">{{t:exp_link}}</p>
+</section>
+
+<section id="limites" class="metodo-secao" aria-labelledby="h-limites">
+<h2 class="t-h2" id="h-limites">{{t:h_limites}}</h2>
+<ul class="lista-regua">
+<li class="t-texto">{{t:lim_1}}</li>
+<li class="t-texto">{{t:lim_2}}</li>
+<li class="t-texto">{{t:lim_3}}</li>
+<li class="t-texto">{{t:lim_4}}</li>
+<li class="t-texto" data-num="lim_5">{{t:lim_5_sem}}</li>
+<li class="t-texto">{{t:lim_6}}</li>
+</ul>
+</section>
+
+<section id="reproduzir" class="metodo-secao" aria-labelledby="h-reproduzir">
+<h2 class="t-h2" id="h-reproduzir">{{t:h_reproduzir}}</h2>
+<ul class="repro">
+<li><a class="linha-link repro-linha" href="{{t:url_codigo}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 8l-5 4 5 4M16 8l5 4-5 4M13.5 5l-3 14"></path></svg><span class="repro-texto"><span class="linha-titulo">{{t:rep_codigo}}</span><span class="repro-desc">{{t:rep_codigo_d}}</span></span><svg class="ic ic-p repro-seta" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"></path></svg></a></li>
+<li><a class="linha-link repro-linha" href="{{t:url_analise}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3zM3 10h18M3 15h18M9 5v14"></path></svg><span class="repro-texto"><span class="linha-titulo">{{t:rep_dados}}</span><span class="repro-desc">{{t:rep_dados_d}}</span></span><svg class="ic ic-p repro-seta" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"></path></svg></a></li>
+<li><a class="linha-link repro-linha" href="{{t:url_dados_site}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H6a2 2 0 0 0-2 2v4l-2 3 2 3v4a2 2 0 0 0 2 2h2M16 3h2a2 2 0 0 1 2 2v4l2 3-2 3v4a2 2 0 0 1-2 2h-2"></path></svg><span class="repro-texto"><span class="linha-titulo">{{t:rep_site}}</span><span class="repro-desc">{{t:rep_site_d}}</span></span><svg class="ic ic-p repro-seta" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"></path></svg></a></li>
+<li class="repro-artigo"><span class="linha-link repro-linha repro-indisponivel"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6zM14 3v4h4"></path></svg><span class="repro-texto"><span class="linha-titulo">{{t:rep_artigo}}</span><span class="repro-desc">{{t:rep_artigo_breve}}</span></span><span></span></span></li>
+</ul>
+<p class="t-texto">{{t:rep_p}}</p>
+<pre class="codigo comandos" tabindex="0" role="region" aria-label="{{t:rep_cmd_rotulo}}">{{t:rep_cmd}}</pre>
+</section>
+
+<section id="creditos" class="metodo-secao" aria-labelledby="h-creditos">
+<h2 class="t-h2" id="h-creditos">{{t:h_creditos}}</h2>
+<p class="t-texto">{{t:cred_p1}}</p>
+<p class="t-texto">{{t:cred_p2}}</p>
+</section>
+</article>
+</div>
+</div>

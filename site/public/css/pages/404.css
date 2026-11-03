@@ -1,0 +1,16 @@
+/* IAês · página que não existe (prancheta Falhas, último bloco). Cor só por token. */
+.nao-existe{display:flex;flex-direction:column;align-items:flex-start;gap:14px;padding-top:64px;padding-bottom:32px}
+.nao-existe-pedido{max-width:min(100%,760px);padding:8px 12px;border-radius:var(--r-1);background:var(--sutil);font-size:12px;color:var(--tinta-2);overflow-wrap:anywhere}
+.nao-existe h1{margin-top:4px}
+.nao-existe-texto,.nao-existe-sugestao{max-width:760px;font-size:15px;line-height:1.6;color:var(--tinta-2)}
+.nao-existe-sugestao a{color:var(--tinta);font-weight:600}
+.iaes .nao-existe-lista{align-self:stretch;max-width:760px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px;margin-top:4px;border-top:1px solid var(--linha);font-size:14px}
+.nao-existe-lista li{position:relative;display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 8px;padding:9px 0;border-bottom:1px solid var(--linha)}
+.nao-existe-lista .t-mono{font-size:12px;color:var(--tinta-3)}
+@media (max-width:599px){
+  .nao-existe{padding-top:32px}
+  .iaes .nao-existe-lista{grid-template-columns:minmax(0,1fr)}
+  .nao-existe-lista li{min-height:52px;padding:8px 0;flex-direction:column;justify-content:center;gap:0}
+  .nao-existe-lista a{font-size:16px}
+  .nao-existe-lista a::after{content:"";position:absolute;inset:0}
+}

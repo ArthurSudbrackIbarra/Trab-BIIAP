@@ -1,0 +1,16 @@
+{
+  "pt": {
+    "titulo": "Esta página não existe",
+    "titulo_frase": "Esta página não existe.",
+    "texto": "Talvez o endereço tenha um erro de digitação, ou o link seja antigo. As ferramentas ficam nestes endereços:",
+    "pedido_rotulo": "Endereço pedido: ",
+    "sugestao": "Talvez você procure {link}."
+  },
+  "en": {
+    "titulo": "This page does not exist",
+    "titulo_frase": "This page does not exist.",
+    "texto": "Maybe the address has a typo, or the link is old. The tools are at these addresses:",
+    "pedido_rotulo": "Requested address: ",
+    "sugestao": "Maybe you are looking for {link}."
+  }
+}

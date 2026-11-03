@@ -1,0 +1,242 @@
+/* IAês · tokens e componentes · v3 (30/10/2026)
+   Fonte única de cores, tipo, espaço e componentes do canvas.
+   A implementação pode copiar este arquivo como base.
+   Só modo claro. Uma família só: Figtree, do Google Fonts (pesos 300 a 800).
+   A mono do sistema aparece apenas em código: prompt, BibTeX e endereços. */
+
+/* ---------- Tokens de cor ---------- */
+:root,.iaes{
+  color-scheme:light;
+  /* superfícies */
+  --papel:#FAF9F6;--superficie:#FFFFFF;--sutil:#F1F0ED;--linha:#E1DFDB;--linha-forte:#CAC7C2;
+  /* tinta (texto) */
+  --tinta:#1C1A17;--tinta-2:#4F4D48;--tinta-3:#66635D;--tinta-inversa:#FAF9F6;
+  /* moldura dos gráficos */
+  --grade:#E8E6E2;--eixo:#BAB7B2;
+  /* gramática dos dados */
+  --base:#888681;--base-claro:#B3B1AB;
+  --excesso:#D84925;--excesso-texto:#AF2F09;--excesso-veu:rgba(216,73,37,.16);
+  --pt:#0A96AF;--en:#3853B6;
+  --pt-1:#D4E9EB;--pt-2:#A8D7DE;--pt-3:#6FC0CD;--pt-4:#2EA5BA;
+  --en-1:#DBDEEC;--en-2:#B8C1E0;--en-3:#8999D1;--en-4:#556CC0;
+  --inserido:#035E23;--inserido-fundo:#CDF1D3;--removido:#982158;--removido-fundo:#FFE3EB;
+  /* escala de realce (palavras-marcadoras no texto) */
+  --realce-1:#FEECE2;--realce-2:#FED6C2;--realce-3:#FFBA9C;--realce-4:#FE9672;
+  /* escala de calor (Áreas): tinta sobre 0 a 4, texto claro sobre 5 e 6 */
+  --calor-0:#F3EFEC;--calor-1:#F7D9C3;--calor-2:#F8BE9E;--calor-3:#F39D78;--calor-4:#E6754F;--calor-5:#C54428;--calor-6:#9F2C19;
+  --calor-texto-forte:#FFFFFF;
+  /* foco, sombras, véu */
+  --foco:#1C1A17;
+  --sombra-1:0 1px 2px rgba(28,26,23,.06),0 6px 16px rgba(28,26,23,.08);
+  --sombra-2:0 24px 64px rgba(28,26,23,.20),0 2px 8px rgba(28,26,23,.08);
+  --veu:rgba(28,26,23,.32);
+}
+
+/* ---------- Tipo, espaço, raios ---------- */
+:root,.iaes{
+  --fonte:'Figtree','Helvetica Neue',Arial,sans-serif;
+  --mono:ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;
+  --e-1:4px;--e-2:8px;--e-3:12px;--e-4:16px;--e-5:24px;--e-6:32px;--e-7:48px;--e-8:64px;--e-9:96px;
+  --r-1:4px;--r-2:8px;--r-3:12px;
+  --conteudo:1240px;--leitura:680px;
+}
+
+/* ---------- Base ---------- */
+.iaes{font-family:var(--fonte);font-size:15px;line-height:1.55;color:var(--tinta);background:var(--papel);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.iaes,.iaes *,.iaes *::before,.iaes *::after{box-sizing:border-box}
+.iaes h1,.iaes h2,.iaes h3,.iaes h4,.iaes p,.iaes figure,.iaes ul,.iaes ol,.iaes dl,.iaes dd,.iaes blockquote,.iaes pre{margin:0}
+.iaes ul,.iaes ol{padding:0;list-style:none}
+.iaes a{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-decoration-color:var(--linha-forte);text-underline-offset:3px}
+.iaes a:hover{text-decoration-color:currentColor}
+.iaes button,.iaes input,.iaes textarea,.iaes select{font:inherit;color:inherit}
+.iaes :focus-visible{outline:2px solid var(--foco);outline-offset:2px}
+.iaes ::selection{background:var(--realce-2)}
+.pagina{width:100%;max-width:1304px;margin:0 auto;padding-left:32px;padding-right:32px}
+.leitura{max-width:var(--leitura)}
+.compacto .pagina{padding-left:16px;padding-right:16px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- Escala tipográfica ----------
+   Sem mono para dados: a palavra analisada vai em negrito e todo número que se compara
+   com outro (tabela, eixo, dica, ranking) usa os algarismos tabulares da Figtree.
+   Ênfase por peso, nunca por itálico. */
+.t-display{font-weight:600;font-size:60px;line-height:1.02;letter-spacing:-.025em}
+.t-h1{font-weight:600;font-size:38px;line-height:1.12;letter-spacing:-.015em}
+.t-h2{font-weight:600;font-size:27px;line-height:1.2;letter-spacing:-.01em}
+.t-h3{font-weight:600;font-size:20px;line-height:1.3}
+.t-lede{font-weight:400;font-size:20px;line-height:1.55;color:var(--tinta-2)}
+.t-texto{font-weight:400;font-size:17px;line-height:1.65}
+.t-ui{font-size:15px;line-height:1.5}
+.t-p{font-size:13px;line-height:1.5}
+.t-legenda{font-size:12px;line-height:1.45;color:var(--tinta-3)}
+.t-rotulo{font-size:13px;font-weight:600;line-height:1.35;color:var(--tinta-2)}
+.t-numero{font-weight:600;font-size:46px;line-height:1;letter-spacing:-.025em}
+.t-mono{font-family:var(--mono);font-size:13px;line-height:1.6}
+.num,.dado{font-variant-numeric:tabular-nums lining-nums}
+/* palavra-dado: toda palavra analisada aparece assim, em qualquer tela */
+.w{font-style:normal;font-weight:700;letter-spacing:0}
+:is(h1,h2,h3,.t-display,.t-h1,.t-h2,.t-h3) .w,.w:is(h1,h2,h3){font-weight:800}
+.compacto .t-display{font-size:42px}
+.compacto .t-h1{font-size:29px}
+.compacto .t-h2{font-size:22px}
+.compacto .t-h3{font-size:18px}
+.compacto .t-lede{font-size:18px}
+.compacto .t-texto{font-size:16px}
+.compacto .t-numero{font-size:38px}
+
+/* ---------- Ícones (traço 1,75 em grade de 24) ---------- */
+.ic{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.ic-p{width:16px;height:16px}
+.ic-g{width:22px;height:22px}
+
+/* ---------- Botões ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:40px;padding:0 16px;border:1px solid var(--linha-forte);border-radius:var(--r-1);background:var(--superficie);color:var(--tinta);font-family:var(--fonte);font-size:14px;font-weight:500;line-height:1.2;text-decoration:none;white-space:nowrap;cursor:pointer}
+.btn:hover{background:var(--sutil);text-decoration:none}
+.btn-primario{background:var(--tinta);border-color:var(--tinta);color:var(--tinta-inversa)}
+.btn-primario:hover{background:var(--tinta-2);border-color:var(--tinta-2)}
+.btn-fantasma{background:transparent;border-color:transparent;color:var(--tinta-2)}
+.btn-fantasma:hover{background:var(--sutil);color:var(--tinta)}
+.btn-p{min-height:32px;padding:0 12px;font-size:13px;gap:6px}
+.btn-g{min-height:56px;padding:0 24px;font-size:16px;gap:12px}
+.btn-icone{width:40px;padding:0}
+.btn-p.btn-icone{width:32px}
+.btn:disabled,.btn[aria-disabled="true"]{opacity:.45;cursor:not-allowed}
+.compacto .btn{min-height:44px}
+.compacto .btn-icone{width:44px}
+.link-acao{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:var(--tinta-2)}
+
+/* ---------- Campos ---------- */
+.campo{display:flex;flex-direction:column;gap:6px}
+.campo-rotulo{font-size:12px;font-weight:600;color:var(--tinta-2)}
+.entrada{display:flex;align-items:center;gap:8px;min-height:40px;padding:0 12px;border:1px solid var(--linha-forte);border-radius:var(--r-1);background:var(--superficie);color:var(--tinta);font-size:14px;text-align:left}
+.entrada input{flex:1;min-width:0;border:0;outline:0;padding:0;background:transparent;font-size:14px}
+.entrada input::placeholder,.area-texto::placeholder{color:var(--tinta-3)}
+.entrada:focus-within,.entrada-foco{border-color:var(--tinta);box-shadow:0 0 0 1px var(--tinta)}
+button.entrada{cursor:pointer;justify-content:space-between}
+.compacto .entrada{min-height:44px}
+.area-texto{display:block;width:100%;min-height:240px;padding:16px;border:1px solid var(--linha-forte);border-radius:var(--r-2);background:var(--superficie);font-family:var(--fonte);font-size:16px;line-height:1.65;color:var(--tinta);resize:vertical}
+
+/* ---------- Filtros ---------- */
+.barra{display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px;padding:12px 0;border-top:1px solid var(--linha);border-bottom:1px solid var(--linha)}
+.filtro{display:inline-flex;align-items:center;gap:10px}
+.filtro-rotulo{font-size:12px;font-weight:600;color:var(--tinta-2);white-space:nowrap}
+.seg{display:inline-flex;align-items:center;gap:2px;padding:3px;border:1px solid var(--linha);border-radius:var(--r-2);background:var(--sutil)}
+.seg button{display:inline-flex;align-items:center;gap:8px;min-height:32px;padding:0 12px;border:0;border-radius:5px;background:transparent;color:var(--tinta-2);font-size:13px;font-weight:500;white-space:nowrap;cursor:pointer}
+.seg button:hover{color:var(--tinta)}
+.seg button[aria-pressed="true"]{background:var(--superficie);color:var(--tinta);box-shadow:0 0 0 1px var(--linha-forte),0 1px 2px rgba(28,26,23,.08)}
+.seg button:disabled{opacity:.45;cursor:not-allowed}
+.compacto .seg button{min-height:38px}
+.interruptor{display:inline-flex;align-items:center;gap:10px;padding:0;border:0;background:transparent;font-size:13px;font-weight:500;color:var(--tinta);cursor:pointer;white-space:nowrap}
+.trilho{position:relative;flex:none;width:36px;height:20px;border-radius:10px;background:var(--linha-forte)}
+.trilho::after{content:"";position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:8px;background:var(--superficie);box-shadow:0 1px 2px rgba(0,0,0,.25)}
+.interruptor[aria-checked="true"] .trilho{background:var(--tinta)}
+.interruptor[aria-checked="true"] .trilho::after{transform:translateX(16px)}
+.compacto .interruptor{min-height:44px}
+
+/* ---------- Língua dos resumos: chave de linha e etiqueta ----------
+   A língua aparece como um traço na cor da linha do gráfico, nunca como bolinha. */
+.chave{display:inline-block;flex:none;width:16px;height:0;border-top:3px solid var(--tinta)}
+.chave-pt{border-top-color:var(--pt)}.chave-en{border-top-color:var(--en)}.chave-base{border-top-color:var(--base)}.chave-exc{border-top-color:var(--excesso)}
+.chave-esp{border-top:2px dashed var(--base)}
+.chave-par{display:inline-flex;flex:none;flex-direction:column;gap:3px}
+.etq{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;line-height:1.3;color:var(--tinta-2);white-space:nowrap}
+.etq-nota{font-size:12px;font-weight:400;color:var(--tinta-3)}
+
+/* ---------- Chips de palavra (retos, como os campos) ---------- */
+.chip{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 4px 0 10px;border:1px solid var(--linha-forte);border-radius:var(--r-1);background:var(--superficie);white-space:nowrap}
+.chip .w{font-size:15px;font-weight:700}
+.chip-lingua{font-size:11px;font-weight:600;color:var(--tinta-3)}
+.chip-x{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;padding:0;border:0;border-radius:3px;background:transparent;color:var(--tinta-3);cursor:pointer}
+.chip-x:hover{background:var(--sutil);color:var(--tinta)}
+.chip-sug{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 10px;border:1px solid var(--linha);border-radius:var(--r-1);background:transparent;color:var(--tinta);cursor:pointer;white-space:nowrap}
+.chip-sug::before{content:"+";font-weight:500;color:var(--tinta-3)}
+.chip-sug:hover{border-color:var(--linha-forte);background:var(--superficie)}
+.compacto .chip{height:40px}
+.compacto .chip-x{width:36px;height:36px}
+.compacto .chip-sug{height:40px}
+
+/* ---------- Abas ---------- */
+.abas{display:flex;gap:4px;border-bottom:1px solid var(--linha)}
+.aba{position:relative;min-height:40px;padding:0 14px;border:0;background:transparent;color:var(--tinta-2);font-size:14px;font-weight:500;cursor:pointer;white-space:nowrap}
+.aba:hover{color:var(--tinta)}
+.aba[aria-selected="true"]{color:var(--tinta)}
+.aba[aria-selected="true"]::after{content:"";position:absolute;left:10px;right:10px;bottom:-1px;height:2px;background:var(--tinta)}
+.aba:disabled{color:var(--tinta-3);opacity:.55;cursor:not-allowed}
+
+/* ---------- Cartões, avisos, teclas ----------
+   Cartão só para o que é objeto (um resumo, um painel, uma dica). Listas de números e de
+   ferramentas usam linhas e réguas, não grades de cartões iguais. */
+.cartao{background:var(--superficie);border:1px solid var(--linha);border-radius:var(--r-2)}
+.cartao-link{display:flex;flex-direction:column;color:inherit;text-decoration:none}
+.cartao-link:hover{border-color:var(--linha-forte);box-shadow:var(--sombra-1)}
+.regua{border-top:1px solid var(--linha)}
+.regua-forte{border-top:2px solid var(--tinta)}
+.linha-link{display:grid;align-items:center;color:inherit;text-decoration:none;border-bottom:1px solid var(--linha)}
+.iaes a.linha-link{text-decoration:none}
+.linha-link:hover .linha-titulo{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}.aviso{display:flex;align-items:flex-start;gap:14px;padding:18px 20px;border:1px solid var(--linha-forte);border-radius:var(--r-2);background:var(--superficie)}
+.kbd{display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;padding:0 6px;border:1px solid var(--linha-forte);border-bottom-width:2px;border-radius:4px;background:var(--superficie);font-size:11px;font-weight:600;color:var(--tinta-2)}
+.codigo{padding:16px 18px;border:1px solid var(--linha);border-radius:var(--r-2);background:var(--sutil);font-family:var(--mono);font-size:13px;line-height:1.6;color:var(--tinta);white-space:pre-wrap;overflow-x:auto}
+
+/* ---------- Gráficos ---------- */
+.figura{display:flex;flex-direction:column;gap:12px}
+.figura-pe{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;font-size:12px;color:var(--tinta-3)}
+.plot{position:relative}
+.plot svg{display:block;width:100%;height:auto;overflow:visible}
+.plot-rot{position:absolute;font-family:var(--fonte);font-size:12px;line-height:1;color:var(--tinta-3);white-space:nowrap;font-variant-numeric:tabular-nums}
+.rot-y{transform:translate(-100%,-50%);padding-right:8px;font-size:11.5px}
+.rot-x{transform:translate(-50%,8px);font-size:11.5px}
+.rot-marco{transform:translate(6px,0);font-size:11px;font-weight:600;color:var(--tinta-2)}
+.legenda{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;font-size:12px;color:var(--tinta-2)}
+.legenda-item{display:inline-flex;align-items:center;gap:8px}
+.am-area{display:inline-block;flex:none;width:16px;height:10px;background:var(--excesso-veu)}
+.am-esp{display:inline-block;flex:none;width:18px;border-top:2px dashed var(--base)}
+.am-parcial{display:inline-block;flex:none;width:10px;height:10px;border-radius:50%;border:2px solid var(--tinta-2);background:var(--papel)}
+.am-marco{display:inline-block;flex:none;width:1px;height:14px;background:var(--tinta-3)}
+.hachura{background:repeating-linear-gradient(135deg,var(--linha-forte) 0 1px,transparent 1px 6px),var(--sutil)}
+
+/* ---------- Dica (tooltip) ---------- */
+.dica{position:absolute;z-index:5;width:max-content;max-width:300px;padding:10px 12px;border:1px solid var(--linha);border-radius:var(--r-2);background:var(--superficie);box-shadow:var(--sombra-1);font-size:13px;line-height:1.45;color:var(--tinta-2);text-align:left}
+.dica-topo{display:flex;align-items:center;gap:8px;margin-bottom:6px;font-size:12px;color:var(--tinta-3)}
+.dica-valor{font-size:16px;font-weight:600;color:var(--tinta);font-variant-numeric:tabular-nums}
+.dica-leitura{margin-top:8px;padding-top:8px;border-top:1px solid var(--linha);color:var(--tinta-2)}
+
+/* ---------- Tabela ---------- */
+.tabela-caixa{overflow-x:auto;border:1px solid var(--linha);border-radius:var(--r-2);background:var(--superficie)}
+.tabela{width:100%;border-collapse:collapse;font-size:14px}
+.tabela th{padding:10px 14px;border-bottom:1px solid var(--linha-forte);background:var(--sutil);font-size:12px;font-weight:600;color:var(--tinta-2);text-align:left;white-space:nowrap}
+.tabela td{padding:10px 14px;border-bottom:1px solid var(--linha);vertical-align:middle;font-variant-numeric:tabular-nums}
+.tabela tr:last-child td{border-bottom:0}
+.tabela .n{text-align:right}
+
+/* ---------- Palavras no texto: realce, inserido, removido ---------- */
+.mk{padding:0 2px;border-radius:3px;box-shadow:inset 0 -2px 0 var(--excesso);color:var(--tinta);-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.mk-1{background:var(--realce-1)}.mk-2{background:var(--realce-2)}.mk-3{background:var(--realce-3)}.mk-4{background:var(--realce-4)}
+.ins{padding:0 2px;border-radius:3px;background:var(--inserido-fundo);box-shadow:inset 0 -2px 0 var(--inserido);color:var(--tinta)}
+.ins-marca{outline:2px solid var(--excesso);outline-offset:1px}
+.rem{color:var(--removido);text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:var(--removido)}
+
+/* ---------- Esqueleto (carregando): cinza chapado que pulsa, sem brilho correndo ---------- */
+.esq{border-radius:3px;background:var(--sutil);animation:iaes-esq 1.6s ease-in-out infinite}
+@keyframes iaes-esq{0%,100%{opacity:1}50%{opacity:.55}}
+
+/* ---------- Cabeçalho ---------- */
+.cab{background:var(--papel);border-bottom:1px solid var(--linha)}
+.marca{font-family:var(--fonte);font-weight:800;font-size:24px;line-height:1;letter-spacing:-.025em;color:var(--tinta);text-decoration:none;white-space:nowrap}
+.iaes a.marca{text-decoration:none}
+.marca em{font-style:normal;font-weight:300;letter-spacing:0}
+.nav-link{position:relative;display:inline-flex;align-items:center;height:64px;padding:0 10px;font-size:14px;font-weight:500;color:var(--tinta-2);white-space:nowrap}
+.iaes a.nav-link{text-decoration:none}
+.nav-link:hover{color:var(--tinta)}
+.nav-link[aria-current="page"]{color:var(--tinta)}
+.nav-link[aria-current="page"]::after{content:"";position:absolute;left:10px;right:10px;bottom:-1px;height:2px;background:var(--tinta)}
+.lingua-site{display:inline-flex;align-items:center;gap:4px;font-size:12px;color:var(--tinta-3)}
+.lingua-site button{min-height:28px;padding:0 6px;border:0;border-radius:4px;background:transparent;font-size:12px;font-weight:600;color:var(--tinta-3);cursor:pointer}
+.lingua-site button[aria-pressed="true"]{color:var(--tinta);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px}
+.compacto .lingua-site button{min-height:44px;min-width:36px}
+
+/* ---------- Gaveta e folha (painel da palavra) ---------- */
+.gaveta{background:var(--superficie);border-left:1px solid var(--linha);box-shadow:var(--sombra-2)}
+.folha{background:var(--superficie);border-radius:16px 16px 0 0;box-shadow:var(--sombra-2)}
+.alca{width:36px;height:4px;border-radius:2px;background:var(--linha-forte)}
+
+@media (prefers-reduced-motion:reduce){.esq{animation:none}}

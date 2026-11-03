@@ -1,0 +1,38 @@
+<div class="pagina">
+<header class="exp-cabeca">
+<div class="exp-cabeca-texto"><h1 class="t-h1">{{t:titulo}}</h1><p class="subtitulo" id="exp-subtitulo">{{t:subtitulo_melhorar}}</p></div>
+<div class="exp-cabeca-acoes" id="exp-acoes"></div>
+</header>
+<div id="exp-aviso"></div>
+<div class="barra exp-filtros" id="exp-filtros">
+<div class="exp-linha1" id="exp-linha1"></div>
+<div class="exp-linha2" id="exp-linha2"></div>
+</div>
+</div>
+
+<section class="pagina exp-resumo" aria-labelledby="exp-resumo-titulo">
+<h2 class="sr" id="exp-resumo-titulo">{{t:resumo_secao}}</h2>
+<div id="exp-textos"></div>
+<details class="cartao exp-como" id="exp-como">
+<summary class="exp-como-resumo"><svg class="ic ic-p" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg>{{t:como_pedimos}}</summary>
+<div class="exp-como-corpo" id="exp-como-corpo"></div>
+</details>
+</section>
+
+<section class="pagina exp-secao" aria-labelledby="exp-ins-titulo">
+<div class="exp-secao-topo">
+<div class="exp-secao-texto"><h2 class="t-h2" id="exp-ins-titulo">{{t:insere_titulo}}</h2><p class="t-p exp-sub" id="exp-ins-sub"></p></div>
+<div class="exp-secao-controles" id="exp-ins-controles"></div>
+</div>
+<div id="exp-ins-aviso"></div>
+<div id="exp-ins-corpo"></div>
+</section>
+
+<section class="pagina exp-secao" aria-labelledby="exp-prova-titulo">
+<div class="exp-secao-topo">
+<div class="exp-secao-texto"><h2 class="t-h2" id="exp-prova-titulo">{{t:prova_titulo}}</h2><p class="t-p exp-sub">{{t:prova_sub}}</p></div>
+<div class="exp-secao-controles" id="exp-prova-controles"></div>
+</div>
+<div class="exp-grade" id="exp-prova"></div>
+</section>
+<p class="sr" aria-live="polite" id="exp-vivo"></p>

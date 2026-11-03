@@ -1,0 +1,26 @@
+<div class="pagina">
+<div class="jogo">
+<section class="jogo-inicio" id="jogo-inicio" aria-labelledby="jogo-titulo">
+<div class="jogo-inicio-cabeca">
+<h1 class="t-h1 jogo-h1" id="jogo-titulo" tabindex="-1">{{t:titulo}}</h1>
+<p class="t-lede">{{t:lede}}</p>
+</div>
+<form class="jogo-escolha" id="jogo-form">
+<fieldset class="jogo-fieldset">
+<legend class="campo-rotulo">{{t:quais}}</legend>
+<label class="jogo-opcao"><input type="radio" name="modo" value="pt"><span class="jogo-opcao-texto"><span class="jogo-opcao-titulo">{{t:op_pt}}</span><span class="t-legenda">{{t:op_pt_desc}}</span></span><span class="etq"><span class="chave chave-pt"></span>{{t:sigla_pt}}</span></label>
+<label class="jogo-opcao"><input type="radio" name="modo" value="en"><span class="jogo-opcao-texto"><span class="jogo-opcao-titulo">{{t:op_en}}</span><span class="t-legenda">{{t:op_en_desc}}</span></span><span class="etq"><span class="chave chave-en"></span>{{t:sigla_en}}</span></label>
+<label class="jogo-opcao"><input type="radio" name="modo" value="misto" checked><span class="jogo-opcao-texto"><span class="jogo-opcao-titulo">{{t:op_misto}}</span><span class="t-legenda">{{t:op_misto_desc}}</span></span><span class="etq"><span class="chave-par"><span class="chave chave-pt"></span><span class="chave chave-en"></span></span>{{t:op_misto_sigla}}</span></label>
+</fieldset>
+<button class="btn btn-primario btn-g jogo-comecar" type="submit">{{t:comecar}}</button>
+</form>
+<ul class="t-p jogo-notas">
+<li>{{t:nota_periodos}}</li>
+<li>{{t:nota_tema}}</li>
+<li>{{t:nota_placar}}<span class="jogo-teclas"> {{t:nota_teclas}}</span></li>
+</ul>
+</section>
+<div class="jogo-area" id="jogo-area" hidden></div>
+<p class="sr" aria-live="polite" id="jogo-vivo"></p>
+</div>
+</div>

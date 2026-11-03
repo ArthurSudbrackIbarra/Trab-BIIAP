@@ -1,0 +1,125 @@
+/* IAês · Palavras no tempo (d-palavras, m-palavras, e-carregando, e-vazio-erro, e-falhas).
+   Componentes comuns (gráfico, dica, tabela, filtros, busca, painel) ficam em site.css. */
+
+.pal-so-celular{display:none}
+
+/* ---------- Cabeça e barra ---------- */
+.pal-cabeca{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px 24px;padding:28px 0 16px}
+.pal-cabeca-texto{display:flex;flex-direction:column;gap:6px}
+.pal-cabeca .subtitulo{font-size:15px;color:var(--tinta-2)}
+.pal-barra{flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:12px}
+.pal-barra>*,.pal-linha1>*,.pal-linha2>*{min-width:0}
+.pal-linha1{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px}
+.pal-busca{width:260px}
+.pal-cheia .pal-busca{order:2;width:360px}
+.pal-cheia .pal-contagem{order:1}
+.pal-cheia .pal-chips li{order:0}
+.pal-chips{display:contents}
+.pal-chips li{display:flex}
+.pal-chips .w{font-size:15px}
+.pal-linha2{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px}
+.pal-filtros{display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px}
+.pal-aviso-caixa .aviso,#pal-aviso .aviso{max-width:820px;margin:0 0 16px}
+.pal-esq-chip{display:inline-block;width:118px;height:36px}
+.pal-esq-filtro{display:inline-block;height:40px}
+
+/* ---------- Gráfico ---------- */
+.pal-grafico{display:flex;flex-direction:column;gap:14px;padding-top:18px}
+.pal-chave-neutra{border-top-color:var(--tinta-2)}
+.pal-paineis{display:grid;grid-template-columns:repeat(var(--colunas,3),minmax(0,1fr));gap:32px}
+.pal-paineis[data-n="4"]{gap:24px}
+.pal-paineis[data-n="5"]{gap:20px}
+.pal-painel{display:flex;flex-direction:column;gap:8px;min-width:0}
+.pal-painel-cabeca{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;min-height:52px}
+.pal-painel-nome{display:flex;flex-direction:column;gap:6px;min-width:0}
+.pal-painel-palavra{font-size:24px;line-height:1.3;overflow-wrap:anywhere}
+.pal-painel-razao{display:flex;flex-direction:column;gap:2px;text-align:right;flex:none}
+.pal-painel-razao .t-numero{font-size:30px}
+.pal-paineis[data-n="4"] .pal-painel-palavra,.pal-paineis[data-n="5"] .pal-painel-palavra{font-size:20px}
+.pal-paineis[data-n="4"] .pal-painel-razao .t-numero,.pal-paineis[data-n="5"] .pal-painel-razao .t-numero{font-size:24px}
+.pal-paineis[data-n="5"] .pal-painel-razao .t-legenda{max-width:96px}
+.pal-painel-corpo{min-height:330px}
+.pal-painel-estado{display:flex;flex-direction:column;justify-content:center;gap:8px;min-height:330px;padding:24px}
+.pal-painel-estado .pal-estado-titulo{font-size:17px;line-height:1.5;color:var(--tinta)}
+.pal-painel-esq{display:flex;flex-direction:column;gap:8px}
+.pal-painel-tabela .tabela{font-size:13px}
+.pal-painel-tabela .tabela th,.pal-painel-tabela .tabela td{padding:8px 10px;white-space:nowrap}
+.pal-painel-nota{padding-top:4px}
+.pal-vazio{grid-column:1/-1;display:flex;flex-direction:column;gap:6px}
+.pal-pe{border-top:1px solid var(--linha);padding-top:12px}
+.pal-pe p{flex:1;min-width:240px}
+.pal-acao-tabela-celular:empty{display:none}
+
+/* ---------- Tabela, contexto e sugestões ---------- */
+.pal-secao{display:flex;flex-direction:column;gap:16px;padding-top:64px}
+.iaes .pal-tab-palavra{font-size:17px;font-weight:700}
+.pal-tab-sigla{display:none;margin-left:6px}
+.pal-tabela-caixa .tabela td,.pal-tabela-caixa .tabela th{white-space:nowrap}
+.pal-contexto{gap:18px}
+.pal-contexto-topo{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px}
+.pal-contexto-texto{display:flex;flex-direction:column;gap:4px}
+.pal-contexto-texto .t-p{color:var(--tinta-2)}
+.pal-abas{border-bottom:0}
+.pal-abas .aba{display:inline-flex;align-items:center;gap:4px}
+.pal-colunas{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(480px,100%),1fr));gap:40px}
+.pal-coluna{display:flex;flex-direction:column;gap:4px}
+.pal-coluna-ano{padding-bottom:6px;border-bottom:1px solid var(--tinta);color:var(--tinta)}
+.pal-coluna .frase{padding:14px 0}
+.pal-coluna .frase-texto{font-size:17px}
+.pal-coluna-vazia{padding:14px 0;color:var(--tinta-2);font-size:14px}
+.pal-sugestoes{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;padding-top:56px}
+.iaes .pal-sug-titulo{font-size:13px;font-weight:600;line-height:1.5;margin-right:6px}
+.pal-sug-lista{display:flex;flex-wrap:wrap;gap:10px 12px}
+.chip-sug .w{font-size:15px}
+
+/* Tablet: painéis em duas colunas. */
+@media (min-width:600px) and (max-width:1199px){
+  .pal-paineis{--colunas:2!important}
+}
+
+/* ---------- Celular ---------- */
+@media (max-width:599px){
+  .pal-so-largo{display:none!important}
+  .pal-so-celular{display:inline}
+  p.pal-so-celular{display:block}
+  .pal-cabeca{padding:22px 0 14px}
+  .pal-cabeca-acoes{display:none}
+  .pal-barra{gap:12px;margin:0 -16px;padding:12px 16px 16px}
+  .pal-linha1{display:flex;flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:12px}
+  .pal-busca,.pal-cheia .pal-busca{width:100%}
+  .iaes .pal-chips{display:flex;gap:8px;overflow-x:auto;margin:0 -16px;padding:2px 16px;scrollbar-width:none}
+  .pal-chips li{flex:none}
+  .pal-chips:empty{display:none}
+  .pal-contagem{display:none}
+  .pal-linha2{flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:12px}
+  .pal-filtros{flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:12px}
+  .pal-acao-tabela{display:none}
+  .pal-grafico{padding-top:16px;gap:18px}
+  .pal-legenda{gap:6px 14px}
+  .pal-paineis{--colunas:1!important;gap:28px}
+  .pal-painel{gap:6px}
+  .pal-painel-cabeca{align-items:flex-end;min-height:0}
+  .pal-painel-nome{gap:4px}
+  .pal-painel-palavra,.pal-paineis[data-n] .pal-painel-palavra{font-size:18px}
+  .pal-painel-razao{gap:0}
+  .pal-painel-razao .t-numero,.pal-paineis[data-n] .pal-painel-razao .t-numero{font-size:26px}
+  .pal-painel-corpo,.pal-painel-estado{min-height:240px}
+  .pal-pe{border-top:0;padding-top:0;flex-wrap:nowrap}
+  .pal-pe p{min-width:0}
+  .pal-secao{padding-top:40px;gap:12px}
+  .pal-tabela-caixa .tabela{font-size:13px;min-width:620px}
+  .iaes .pal-tab-palavra{font-size:15px}
+  .pal-tab-sigla{display:inline}
+  .pal-col-lingua{display:none}
+  .pal-contexto-topo{flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:12px;min-width:0}
+  .pal-contexto-topo>*{min-width:0}
+  .pal-abas{overflow-x:auto;margin:0 -16px;padding:0 16px;border-bottom:1px solid var(--linha);scrollbar-width:none}
+  .pal-colunas{gap:0}
+  .pal-coluna{gap:0}
+  .pal-coluna-ano{padding:12px 0 4px;border-bottom:0}
+  .pal-coluna .frase{padding:10px 0;gap:4px}
+  .pal-coluna .frase-texto{font-size:16px}
+  .pal-coluna .frase:nth-of-type(n+3){display:none}
+  .pal-sugestoes{flex-direction:column;flex-wrap:nowrap;align-items:flex-start;gap:10px;padding-top:36px}
+  .pal-sug-lista{gap:8px}
+}

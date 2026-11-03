@@ -1,0 +1,127 @@
+/* IAês · Método: página de leitura com índice lateral (desktop) ou recolhido (celular e tablet).
+   Medidas das pranchetas d-metodo e m-metodo. Cor só por token. */
+
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+.metodo{padding-top:48px;padding-bottom:32px}
+.metodo-grade{display:flex;gap:48px 72px;align-items:flex-start}
+.metodo-texto [id],.metodo-texto h3{scroll-margin-top:24px}
+
+/* ---------- Índice lateral ---------- */
+.indice{flex:1 1 220px;max-width:260px;display:flex;flex-direction:column;gap:10px;position:sticky;top:24px;margin-top:150px}
+.indice-lista{display:flex;flex-direction:column;gap:2px;border-left:1px solid var(--linha)}
+.indice-lista a{display:block;padding:6px 0 6px 14px;margin-left:-1px;border-left:2px solid transparent;font-size:14px;line-height:1.4;color:var(--tinta-2);text-decoration:none}
+.iaes .indice-lista a{text-decoration:none}
+.indice-lista a:hover{color:var(--tinta)}
+.indice-lista a[aria-current="location"]{color:var(--tinta);border-left-color:var(--tinta);font-weight:600}
+
+/* Índice recolhido: botão "Nesta página" e lista abaixo dele */
+.indice-celular{display:none;margin-top:6px}
+.indice-celular .entrada{width:100%}
+.indice-celular .entrada>span{display:flex;align-items:baseline;gap:6px;min-width:0}
+.indice-celular .t-legenda{font-size:13px}
+.indice-atual{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.indice-celular .entrada[aria-expanded="true"] svg{transform:rotate(180deg)}
+.iaes .indice-celular-itens{margin-top:4px;border:1px solid var(--linha-forte);border-radius:var(--r-1);background:var(--superficie);padding:4px}
+.indice-celular-itens a{display:flex;align-items:center;min-height:44px;padding:0 12px;border-radius:3px;font-size:15px;color:var(--tinta);text-decoration:none}
+.iaes .indice-celular-itens a{text-decoration:none}
+.indice-celular-itens a:hover,.indice-celular-itens a[aria-current="location"]{background:var(--sutil)}
+.indice-celular-itens a[aria-current="location"]{font-weight:600}
+
+/* ---------- Texto ---------- */
+.metodo-texto{flex:999 1 560px;min-width:0;max-width:760px;display:flex;flex-direction:column;gap:64px}
+.metodo-cabeca{display:flex;flex-direction:column;gap:12px}
+.metodo-cabeca .t-display{font-size:56px}
+.metodo-secao{display:flex;flex-direction:column;gap:18px}
+.metodo-secao h3{margin-top:14px}
+.metodo-secao .t-texto a,.metodo-secao .t-p a{text-decoration-color:var(--tinta-3)}
+.metodo-secao code{font-family:var(--mono);font-size:.86em;padding:1px 4px;border-radius:3px;background:var(--sutil)}
+.metodo-secao sup,.metodo-secao sub{line-height:0}
+.iaes .metodo-nota{color:var(--tinta-2);margin-bottom:-8px}
+
+/* Ficha (dl) */
+.ficha{display:grid;grid-template-columns:150px minmax(0,1fr);gap:10px 20px;padding:14px 0;border-top:2px solid var(--tinta);border-bottom:1px solid var(--linha);font-size:14px;line-height:1.5}
+.ficha dt{font-size:13px;line-height:1.55;color:var(--tinta-3)}
+.ficha dd{margin:0}
+
+/* Figuras */
+.figura-titulo{font-weight:600;color:var(--tinta)}
+.figura-resumos,.figura-esquema{gap:10px}
+.am-barra{display:inline-block;flex:none;width:12px;height:10px;border-radius:1px}
+.am-barra-pt{background:var(--pt)}
+.am-barra-en{background:var(--en)}
+.am-barra-es{background:var(--base-claro)}
+.am-barra-parcial{background:var(--papel);border:1.5px dashed var(--base)}
+.am-base{display:inline-block;flex:none;width:16px;height:10px;background:var(--sutil);border:1px solid var(--linha-forte)}
+.am-tran{display:inline-block;flex:none;width:16px;height:10px;border:1px solid var(--linha-forte)}
+.so-estreito{display:none}
+.caixa-resumos .plot-valor,.caixa-esquema .plot-valor{transform:translate(-50%,-130%);font-size:12px;font-weight:600;color:var(--tinta)}
+.caixa-resumos .rot-y{font-size:11px}
+.caixa-resumos .tabela-caixa{margin-top:4px}
+.metodo .tabela tbody th{padding:10px 14px;border-bottom:1px solid var(--linha);background:none;font-size:14px;font-weight:400;color:var(--tinta);text-align:left}
+.metodo .tabela tbody tr:last-child th{border-bottom:0}
+.figura-pe .btn{margin-right:-12px}
+.caixa-esquema .rot-faixa{transform:translate(-50%,0);font-size:11px;font-weight:600;color:var(--tinta-2)}
+.caixa-esquema .rot-linha{font-size:12px;font-weight:600;color:var(--tinta-2)}
+.caixa-esquema .rot-chave{transform:translate(14px,-50%);width:170px;font-size:13px;line-height:1.4;color:var(--tinta);white-space:normal}
+.caixa-esquema .rot-chave b{font-weight:600}
+.formula{display:none;font-size:14px;padding:10px 12px;border:1px solid var(--linha);border-radius:var(--r-2);background:var(--superficie)}
+.formula b{font-weight:600}
+.caixa-minimo .tabela td.n{white-space:nowrap}
+.caixa-minimo .tabela .fraco{color:var(--tinta-3)}
+.caixa-minimo .t-legenda{margin-top:8px;font-size:13px;line-height:1.5}
+
+/* Listas com régua */
+.lista-regua{display:flex;flex-direction:column;border-top:1px solid var(--linha)}
+.lista-regua>li{padding:12px 0;border-bottom:1px solid var(--linha)}
+
+/* Reprodutibilidade */
+.repro{display:flex;flex-direction:column;border-top:2px solid var(--tinta)}
+.repro-linha{grid-template-columns:28px 200px minmax(0,1fr) 18px;gap:16px;padding:14px 0}
+.repro-texto{display:contents}
+.repro-linha .linha-titulo{font-weight:600}
+.repro-desc{font-size:14px;color:var(--tinta-2)}
+.repro-seta{color:var(--tinta-3)}
+.repro-indisponivel{color:var(--tinta-3)}
+.repro-indisponivel .linha-titulo{color:var(--tinta-2)}
+.repro-indisponivel .repro-desc{color:var(--tinta-3)}
+.comandos{font-size:12.5px;white-space:pre}
+
+
+/* ---------- Tablet e janelas estreitas: índice recolhido ---------- */
+@media (max-width:959px){
+  .indice{display:none}
+  .indice-celular{display:block}
+  .metodo-texto{max-width:760px;margin:0 auto}
+}
+
+/* ---------- Celular ---------- */
+@media (max-width:599px){
+  .metodo{padding-top:28px;padding-bottom:8px}
+  .metodo-texto{gap:44px}
+  .metodo-cabeca{gap:10px}
+  .metodo-cabeca .t-display{font-size:42px}
+  .metodo-secao{gap:14px}
+  .metodo-secao h3{margin-top:10px}
+  .ficha{grid-template-columns:96px minmax(0,1fr);gap:8px 14px}
+  .ficha dt{font-size:12px}
+  .ficha-experimento{grid-template-columns:80px minmax(0,1fr);gap:8px 12px}
+  .so-largo{display:none}
+  .so-estreito{display:inline}
+  .legenda-esquema{order:2;font-size:11px;gap:6px 12px}
+  .figura-esquema .caixa-esquema{order:1}
+  .figura-esquema .formula{order:3;display:block}
+  .figura-esquema .t-legenda{order:4}
+  .caixa-esquema .rot-faixa{font-size:10px}
+  .caixa-resumos .plot-valor{font-size:11px}
+  .lista-regua>li{padding:10px 0}
+  .repro-linha{grid-template-columns:24px minmax(0,1fr) 16px;gap:12px;padding:12px 0;min-height:56px}
+  .repro-texto{display:flex;flex-direction:column;gap:1px}
+  .repro-desc{font-size:12px;line-height:1.45;color:var(--tinta-3)}
+  .codigo{font-size:12px}
+  .comandos{font-size:11px}
+  .metodo .tabela th,.metodo .tabela td{padding:10px 6px;font-size:13px}
+  .metodo .tabela th:first-child,.metodo .tabela td:first-child{padding-left:10px}
+  .metodo .tabela th:last-child,.metodo .tabela td:last-child{padding-right:10px}
+  .metodo .tabela thead th,.metodo .tabela tbody th{white-space:normal;vertical-align:bottom}
+  .metodo .tabela tbody th{font-size:13px;vertical-align:middle}
+}

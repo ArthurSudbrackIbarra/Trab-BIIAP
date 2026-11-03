@@ -1,0 +1,42 @@
+<div class="pagina">
+<header class="mapa-cabeca">
+<div class="mapa-cabeca-texto"><h1 class="t-h1">{{t:titulo}}</h1><p class="subtitulo">{{t:subtitulo_tela}}</p></div>
+<div class="mapa-cabeca-acoes" id="mapa-acoes"></div>
+</header>
+<div id="mapa-aviso"></div>
+<div class="barra mapa-barra" id="mapa-barra">
+<div class="mapa-filtros" id="mapa-filtros"></div>
+<div class="mapa-acoes-barra" id="mapa-acoes-barra"></div>
+</div>
+<p class="t-p mapa-achar-status" id="mapa-achar-status" role="status"></p>
+</div>
+
+<section class="pagina mapa-corpo" aria-labelledby="mapa-graf-titulo">
+<h2 class="sr" id="mapa-graf-titulo">{{t:mapa_graf_titulo}}</h2>
+<p class="t-p mapa-lado-intro" id="mapa-lado-intro" hidden></p>
+<div class="mapa-grade" id="mapa-grade">
+<div class="mapa-principal">
+<div class="mapa-graficos" id="mapa-graficos"></div>
+<div class="legenda mapa-legenda" id="mapa-legenda"></div>
+<div class="mapa-pe" id="mapa-pe">
+<p class="t-legenda mapa-nota-celular" id="mapa-nota-celular"></p>
+<div class="mapa-pe-acoes" id="mapa-pe-acoes"></div>
+</div>
+</div>
+<aside class="mapa-lista" id="mapa-lista" aria-labelledby="mapa-lista-titulo">
+<div class="mapa-lista-topo">
+<h2 class="t-h3 mapa-lista-titulo" id="mapa-lista-titulo">{{t:mapa_maiores}}</h2>
+<div class="mapa-ordem" id="mapa-ordem"></div>
+</div>
+<p class="t-legenda mapa-lista-nota" id="mapa-lista-nota" hidden></p>
+<ol class="mapa-itens" id="mapa-itens"></ol>
+<button type="button" class="btn mapa-ver-mais" id="mapa-ver-mais" aria-controls="mapa-itens" hidden></button>
+</aside>
+</div>
+</section>
+
+<section class="pagina mapa-notas">
+<p class="t-p leitura mapa-nota" id="mapa-nota"></p>
+<p class="t-legenda leitura mapa-recorte" id="mapa-recorte"></p>
+</section>
+<p class="sr" aria-live="polite" id="mapa-vivo"></p>

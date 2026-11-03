@@ -1,0 +1,55 @@
+<div class="pagina">
+<header class="pal-cabeca">
+<div class="pal-cabeca-texto"><h1 class="t-h1">{{t:titulo}}</h1><p class="subtitulo">{{t:subtitulo_tela}}</p></div>
+<div class="pal-cabeca-acoes" id="pal-acoes"></div>
+</header>
+<div id="pal-aviso"></div>
+<div class="barra pal-barra" id="pal-barra">
+<div class="pal-linha1">
+<div class="pal-busca" id="pal-busca"></div>
+<ul class="pal-chips" id="pal-chips" aria-label="{{t:chips_rotulo}}"></ul>
+<span class="t-legenda num pal-contagem" id="pal-contagem"></span>
+</div>
+<div class="pal-linha2">
+<div class="pal-filtros" id="pal-filtros"></div>
+<div class="pal-acao-tabela" id="pal-acao-tabela"></div>
+</div>
+</div>
+</div>
+
+<section class="pagina pal-grafico" aria-labelledby="pal-graf-titulo">
+<h2 class="sr" id="pal-graf-titulo">{{t:graf_titulo}}</h2>
+<div class="legenda pal-legenda" id="pal-legenda">
+<span class="legenda-item pal-so-largo"><span class="chave pal-chave-neutra"></span>{{t:leg_observado}}</span>
+<span class="legenda-item pal-leg-esp"><span class="am-esp"></span><span class="pal-so-largo">{{t:leg_esperado}}</span><span class="pal-so-celular">{{t:leg_esperado_curto}}</span></span>
+<span class="legenda-item pal-leg-esp"><span class="am-area"></span>{{t:leg_excesso}}</span>
+<span class="legenda-item"><span class="am-marco"></span><span class="pal-so-largo">{{t:marco_chatgpt}}</span><span class="pal-so-celular">{{t:marco_chatgpt_curto}}</span></span>
+<span class="legenda-item"><span class="am-parcial"></span><span class="pal-so-largo">{{t:parcial_ate}}</span><span class="pal-so-celular">{{t:leg_parcial_curto}}</span></span>
+</div>
+<div class="pal-paineis" id="pal-paineis"></div>
+<div class="figura-pe pal-pe">
+<p><span class="pal-so-largo">{{t:pe_grafico}}</span><span class="pal-so-celular">{{t:pe_curto}}</span></p>
+<a class="pal-so-largo" href="{{rota:metodo}}#excesso">{{t:como_calculamos}}</a>
+<div class="pal-acao-tabela-celular" id="pal-acao-tabela-celular"></div>
+</div>
+</section>
+
+<section class="pagina pal-secao" aria-labelledby="pal-tab-titulo">
+<h2 class="t-h2" id="pal-tab-titulo">{{t:tabela_titulo}}</h2>
+<div id="pal-tabela"></div>
+<p class="t-legenda" id="pal-tabela-nota">{{t:tabela_nota}}</p>
+</section>
+
+<section class="pagina pal-secao pal-contexto" aria-labelledby="pal-ctx-titulo">
+<div class="pal-contexto-topo">
+<div class="pal-contexto-texto"><h2 class="t-h2" id="pal-ctx-titulo">{{t:contexto_titulo}}</h2><p class="t-p">{{t:contexto_sub}}</p></div>
+<div class="abas pal-abas" role="tablist" aria-label="{{t:contexto_abas}}" id="pal-abas"></div>
+</div>
+<div id="pal-contexto-corpo" role="tabpanel" aria-labelledby="pal-ctx-titulo"></div>
+</section>
+
+<section class="pagina pal-sugestoes" aria-labelledby="pal-sug-titulo">
+<h2 class="pal-sug-titulo" id="pal-sug-titulo">{{t:sugestoes_titulo}}</h2>
+<div class="pal-sug-lista" id="pal-sugestoes"></div>
+</section>
+<p class="sr" aria-live="polite" id="pal-vivo"></p>

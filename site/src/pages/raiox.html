@@ -1,0 +1,34 @@
+<div class="pagina rx-cabeca">
+<h1 class="t-h1">{{t:titulo}}</h1>
+<p class="rx-subtitulo"><span class="rx-so-largo">{{t:subtitulo_tela}}</span><span class="rx-so-celular">{{t:subtitulo_curto}}</span></p>
+</div>
+
+<section class="pagina rx-entrada" id="rx-entrada" aria-labelledby="rx-entrada-titulo">
+<h2 class="sr" id="rx-entrada-titulo">{{t:entrada_titulo}}</h2>
+<div class="rx-entrada-grade">
+<div class="rx-campo">
+<label for="rx-texto" class="campo-rotulo">{{t:caixa_rotulo}}</label>
+<textarea id="rx-texto" class="area-texto rx-area" placeholder="{{t:caixa_placeholder}}" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" data-gramm="false" aria-describedby="rx-privacidade rx-situacao"></textarea>
+<div class="aviso rx-curto" id="rx-curto" hidden><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l9 16H3zM12 10v4M12 17v.5"></path></svg><p class="t-p" id="rx-curto-texto"></p></div>
+<p class="t-p rx-offline" id="rx-offline" hidden><svg class="ic ic-p" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 8.8a15 15 0 0 1 4.2-2.6M10.7 5.1A15 15 0 0 1 22 8.8M5 12.9a10 10 0 0 1 5.2-2.7M16.8 11.2A10 10 0 0 1 19 12.9M8.5 16.4a5 5 0 0 1 7 0M12 20h.01M3 3l18 18"></path></svg><span>{{t:offline_raiox}}</span></p>
+</div>
+<div class="rx-lado">
+<p class="t-p rx-privacidade" id="rx-privacidade"><svg class="ic ic-p" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a9 9 0 1 1-18 0a9 9 0 1 1 18 0M12 11v6M12 7.5v.5"></path></svg><span>{{t:privacidade}}</span></p>
+<div class="rx-lingua-linha">
+<div class="rx-lingua" id="rx-lingua"></div>
+<p class="t-legenda rx-situacao" id="rx-situacao">{{t:situacao_vazia}}</p>
+</div>
+<p class="t-legenda rx-mudou" id="rx-mudou" hidden>{{t:situacao_mudou}}</p>
+<p class="t-legenda rx-fonte" id="rx-fonte" hidden></p>
+</div>
+</div>
+<div class="rx-botoes">
+<button class="btn btn-primario rx-analisar" type="button" id="rx-analisar" disabled>{{t:botao_analisar}}</button>
+<button class="btn btn-fantasma rx-limpar" type="button" id="rx-limpar" disabled>{{t:botao_limpar}}</button>
+<button class="btn rx-exemplo" type="button" id="rx-ex-2019" data-ano="2019" aria-pressed="false"><span class="rx-so-largo">{{t:botao_exemplo_2019}}</span><span class="rx-so-celular">{{t:botao_exemplo_2019_curto}}</span></button>
+<button class="btn rx-exemplo" type="button" id="rx-ex-2025" data-ano="2025" aria-pressed="false"><span class="rx-so-largo">{{t:botao_exemplo_2025}}</span><span class="rx-so-celular">{{t:botao_exemplo_2025_curto}}</span></button>
+</div>
+</section>
+
+<div class="rx-resultado" id="rx-resultado"></div>
+<p class="sr" aria-live="polite" id="rx-vivo"></p>

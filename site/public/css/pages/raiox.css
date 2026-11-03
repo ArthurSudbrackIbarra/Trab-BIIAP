@@ -1,0 +1,184 @@
+/* IAês · Raio-X do seu texto (d-raiox, m-raiox, e-raiox-entrada, e-vazio-erro, e-falhas).
+   Componentes comuns (dica, tabela, segmentos, painel) ficam em site.css. Cor só por token. */
+
+.rx-so-celular{display:none}
+
+/* ---------- Cabeça ---------- */
+.rx-cabeca{display:flex;flex-direction:column;gap:6px;padding-top:28px;padding-bottom:20px}
+.rx-subtitulo{font-size:15px;line-height:1.55;color:var(--tinta-2);max-width:760px}
+
+/* ---------- Entrada ---------- */
+.rx-entrada{display:flex;flex-direction:column;gap:12px}
+.rx-entrada-grade{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:24px;align-items:start}
+.rx-campo{display:flex;flex-direction:column;gap:8px;min-width:0}
+.rx-area{min-height:260px}
+/* O tamanho de .area-texto (iaes.css) perde para .iaes textarea{font:inherit}; abaixo de 16 px, o
+   iPhone amplia a página ao focar o campo. */
+.iaes .rx-area{font-size:16px;line-height:1.65}
+.rx-com-resultado .rx-area{min-height:150px}
+.rx-area:focus-visible{outline:none;border-color:var(--tinta);box-shadow:0 0 0 1px var(--tinta)}
+.rx-curto{background:var(--sutil);border-color:var(--linha);padding:14px 16px}
+.rx-curto .t-p{font-size:14px;color:var(--tinta)}
+.rx-offline{display:flex;align-items:flex-start;gap:8px;font-size:14px;color:var(--tinta-2)}
+.rx-offline .ic{margin-top:2px}
+.rx-lado{display:flex;flex-direction:column;gap:14px;padding-top:26px;min-width:0}
+.rx-privacidade{display:flex;gap:8px;color:var(--tinta-2)}
+.rx-privacidade .ic{margin-top:2px}
+.rx-lingua-linha{display:flex;flex-direction:column;gap:14px}
+.rx-situacao-alerta{font-size:14px;line-height:1.5;color:var(--tinta)}
+.rx-mudou{color:var(--tinta)}
+.rx-fonte a{color:var(--tinta-2)}
+.rx-botoes{display:flex;flex-wrap:wrap;gap:8px}
+.rx-exemplo[aria-pressed="true"]{border-color:var(--tinta);background:var(--sutil);box-shadow:0 0 0 1px var(--tinta)}
+
+/* ---------- Antes de analisar ---------- */
+.rx-carga{padding-top:40px}
+.rx-vazio-secao{padding-top:40px}
+.rx-vazio{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:24px 48px;padding:28px 32px;border:1px dashed var(--linha-forte);border-radius:var(--r-2);background:var(--papel)}
+.rx-vazio-texto{display:flex;flex-direction:column;gap:10px}
+.rx-vazio-titulo{font-size:17px;font-weight:600;line-height:1.35}
+.rx-vazio-p{font-size:16px;color:var(--tinta-2)}
+.rx-vazio-explica{font-size:15px;line-height:1.8;color:var(--tinta-2)}
+
+/* ---------- Resultado: o texto ---------- */
+.rx-res{display:flex;flex-direction:column;gap:20px;padding-top:48px}
+.rx-res-topo{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:12px 24px;padding-top:20px;border-top:1px solid var(--tinta)}
+.rx-res-titulo{font-size:30px;font-weight:600;line-height:1.2;letter-spacing:-.01em}
+.rx-res-titulo:focus{outline:none}
+.rx-res-titulo:focus-visible{outline:2px solid var(--foco);outline-offset:4px}
+.rx-res-por100{font-weight:400;color:var(--tinta-2)}
+.rx-escala{gap:6px 10px}
+.rx-escala-mk{font-size:11px;line-height:1.5;padding:0 4px;white-space:nowrap}
+.rx-texto-caixa{position:relative;max-width:900px}
+.rx-texto{font-size:20px;line-height:1.85;color:var(--tinta);white-space:pre-wrap;overflow-wrap:break-word}
+.iaes .rx-marca{display:inline;margin:0;padding:0 2px;border:0;line-height:1.25;cursor:pointer;vertical-align:baseline}
+.rx-marca.rx-ativa{outline:2px solid var(--tinta);outline-offset:1px}
+.rx-texto-caixa .dica{z-index:6}
+.rx-dica-mk{font-size:12px;color:var(--tinta)}
+.rx-texto-caixa .dica .t-legenda{margin-top:2px}
+.rx-abrir{display:inline-flex;align-items:center;gap:6px;min-height:36px;margin-top:4px;border:0;background:none;text-decoration:underline;text-decoration-color:var(--linha-forte);text-underline-offset:3px;cursor:pointer}
+.rx-abrir:hover{background:none;text-decoration-color:currentColor}
+.iaes .rx-abrir{padding:0;font-size:13px;font-weight:500;color:var(--tinta)}
+
+/* ---------- A comparação honesta ---------- */
+.rx-comp{padding-top:56px}
+.rx-comp-grade{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:48px;align-items:start}
+.rx-figura{gap:10px;min-width:0}
+.rx-comp-cabeca{display:flex;flex-direction:column;gap:4px}
+.rx-comp-cabeca .t-p{color:var(--tinta-2)}
+.rx-am-2019,.rx-am-2025{display:inline-block;flex:none;width:16px;height:10px}
+.rx-am-2019{background:var(--base-claro);border:1px solid var(--base)}
+.rx-am-2025{background:var(--excesso-veu);border:2px solid var(--excesso)}
+.rx-am-seu{display:inline-block;flex:none;width:2px;height:14px;background:var(--tinta)}
+.rx-hist{touch-action:pan-y}
+/* Contorno em --base: só o cinza claro fica abaixo de 3:1 sobre o papel. */
+.rx-h19{fill:var(--base-claro);stroke:var(--base);stroke-width:1}
+.rx-h25{fill:var(--excesso-veu)}
+.rx-h25-linha{fill:none;stroke:var(--excesso);stroke-width:2;stroke-linejoin:round}
+.rx-seu-linha{fill:none;stroke:var(--tinta);stroke-width:2}
+.rx-foco-faixa{fill:var(--grade)}
+.rx-hist:focus-within .rx-foco-faixa{stroke:var(--foco);stroke-width:2}
+.rx-seu-rot{display:flex;flex-direction:column;gap:4px;max-width:180px;white-space:normal;font-size:11px;line-height:1.35;color:var(--tinta-3)}
+.rx-seu-rot strong{font-size:12px;font-weight:600;line-height:1.2;color:var(--tinta);white-space:nowrap}
+.rx-seu-esq{align-items:flex-end;text-align:right}
+.rx-sobre-rot{white-space:normal;font-size:12px;line-height:1.4;color:var(--tinta-2)}
+.rx-sobre-rot strong,.rx-hist-nota strong{font-weight:600;color:var(--tinta)}
+.rx-eixo-y,.rx-eixo-x{font-size:11px;font-weight:600;color:var(--tinta-2)}
+.rx-eixo-x{transform:translateX(-50%)}
+.rx-faixas{position:absolute}
+.rx-faixa{position:absolute;top:0;bottom:0;margin:0;padding:0;border:0;background:transparent;cursor:default;-webkit-tap-highlight-color:transparent}
+.iaes .rx-faixa:focus-visible{outline:none}
+.rx-hist-nota{display:flex;flex-direction:column;gap:6px}
+.rx-hist-nota .t-p{font-size:13px;color:var(--tinta-2)}
+.rx-hist-tabela:empty{display:none}
+.rx-hist-tabela .tabela td,.rx-hist-tabela .tabela th{padding:7px 12px;white-space:nowrap}
+.rx-hist-pe{border-top:1px solid var(--linha);padding-top:12px;align-items:flex-start}
+.rx-hist-pe p{flex:1;min-width:240px}
+
+.rx-detector{flex-direction:column;gap:14px;padding:24px;border-color:var(--tinta);margin-top:84px}
+.rx-detector-cabeca{display:flex;align-items:center;gap:10px}
+.rx-detector-texto{font-size:17px}
+.rx-par-botao{align-self:flex-start;white-space:normal;text-align:left;padding-top:8px;padding-bottom:8px}
+.rx-seta{transition:transform 120ms}
+.rx-par-botao[aria-expanded="true"] .rx-seta{transform:rotate(180deg)}
+
+/* ---------- Resumos de 2019 a 2021 com marca parecida ---------- */
+.rx-parecidos{display:flex;flex-direction:column;gap:14px;padding-top:32px}
+.rx-par-titulo{font-size:17px;font-weight:600;line-height:1.4;max-width:1080px}
+.rx-par-lista{display:flex;flex-direction:column;border-top:2px solid var(--tinta);max-width:1080px}
+.rx-par{display:grid;grid-template-columns:200px minmax(0,1fr);gap:36px;padding:20px 0;border-bottom:1px solid var(--linha)}
+.rx-par:focus{outline:none}
+.rx-par-meta{display:flex;flex-direction:column;gap:3px;min-width:0}
+.rx-par-nota{display:flex;flex-direction:column;gap:3px}
+.rx-par-valor{font-size:24px;font-weight:600;line-height:1.2}
+.rx-par-fonte{overflow-wrap:break-word}
+.iaes .rx-par-fonte{margin-top:8px}
+.rx-par-link{align-self:flex-start}
+.rx-par-texto{font-size:16px;line-height:1.75;white-space:pre-wrap;overflow-wrap:break-word}
+.rx-terceiro{display:none}
+
+/* ---------- Tablet ---------- */
+@media (max-width:1099px){
+  .rx-comp-grade{grid-template-columns:minmax(0,1fr);gap:32px}
+  .rx-detector{margin-top:0;max-width:720px}
+}
+@media (max-width:799px){
+  .rx-entrada-grade{grid-template-columns:minmax(0,1fr);gap:14px}
+  .rx-lado{padding-top:0}
+  .rx-vazio{grid-template-columns:minmax(0,1fr)}
+}
+
+/* ---------- Celular ---------- */
+@media (max-width:599px){
+  .rx-so-largo{display:none}
+  .rx-so-celular{display:inline}
+  .rx-cabeca{padding-top:22px;padding-bottom:14px}
+  .rx-entrada{gap:10px}
+  .rx-entrada-grade{gap:10px}
+  .rx-campo{gap:8px}
+  .rx-area{min-height:160px}
+  .rx-com-resultado .rx-area{min-height:130px}
+  .rx-lado{gap:10px}
+  .rx-lingua-linha{flex-direction:row;justify-content:space-between;align-items:center;gap:10px}
+  .rx-lingua .filtro.filtro-empilha{flex-direction:row}
+  .rx-lingua .filtro-rotulo{display:none}
+  .rx-lingua .filtro-empilha .seg{display:inline-flex}
+  .rx-situacao{text-align:right}
+  .rx-situacao-alerta{font-size:13px;text-align:left}
+  .rx-botoes{display:grid;grid-template-columns:auto minmax(0,1fr) minmax(0,1fr)}
+  .rx-analisar{grid-column:1/-1;width:100%}
+  .rx-botoes .btn{padding:0 12px}
+  .rx-carga,.rx-vazio-secao{padding-top:28px}
+  .rx-vazio{padding:20px}
+
+  .rx-res{gap:14px;padding-top:32px}
+  .rx-res-topo{flex-direction:column;align-items:flex-start;gap:12px;padding-top:14px}
+  .rx-res-titulo{font-size:23px;line-height:1.25}
+  .rx-escala{font-size:11px;gap:6px 8px}
+  .rx-texto{font-size:17px;line-height:1.8}
+  .rx-abrir{min-height:44px}
+
+  .rx-comp{padding-top:36px}
+  .rx-figura{gap:10px}
+  .rx-hist-legenda{font-size:12px;gap:6px 14px}
+  .rx-am-2019,.rx-am-2025{width:14px;height:9px}
+  .rx-am-seu{height:12px}
+  .rx-detector{gap:12px;padding:18px 20px}
+  .rx-detector-texto{font-size:16px}
+  .rx-par-botao{align-self:stretch;justify-content:center;text-align:center}
+
+  .rx-parecidos{padding-top:24px}
+  .rx-par-titulo{font-size:16px}
+  .rx-par{display:flex;flex-direction:column;gap:8px;padding:14px 0}
+  .rx-par-meta{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;gap:2px 12px}
+  .rx-par-nota{grid-column:2;grid-row:1;flex-direction:row;align-items:baseline;gap:4px;white-space:nowrap}
+  .rx-par-valor{font-size:14px}
+  .rx-par-unidade{font-size:12px;color:var(--tinta-2)}
+  .rx-par-fonte{grid-column:1;grid-row:1}
+  .iaes .rx-par-fonte{margin-top:0}
+  .rx-par-area{display:none}
+  .rx-par-link{grid-column:1/-1;grid-row:2;justify-self:start;display:inline-flex;align-items:center;min-height:44px}
+  .rx-par-texto{font-size:15px;line-height:1.65}
+  .rx-par-lista:not(.rx-todos) .rx-par:nth-child(n+3){display:none}
+  .rx-terceiro{display:inline-flex;align-self:flex-start}
+}

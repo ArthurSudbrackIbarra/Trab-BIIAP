@@ -1,0 +1,51 @@
+<div class="pagina">
+<header class="ptx-cabeca">
+<div class="ptx-cabeca-texto"><h1 class="t-h1">{{t:titulo}}</h1><p class="subtitulo">{{t:subtitulo_tela}}</p></div>
+<div class="ptx-cabeca-acoes" id="ptx-acoes"></div>
+</header>
+<div id="ptx-aviso"></div>
+<div class="barra ptx-barra">
+<div class="ptx-filtros" id="ptx-filtros"></div>
+<div class="ptx-acao-tabela" id="ptx-acao-tabela"></div>
+</div>
+</div>
+
+<section class="pagina ptx-visao" aria-labelledby="ptx-visao-titulo">
+<h2 class="sr" id="ptx-visao-titulo">{{t:visao_titulo}}</h2>
+<div class="cartao ptx-destaque" id="ptx-destaque" hidden></div>
+<div class="legenda ptx-legenda">
+<span class="legenda-item"><span class="ptx-amostra" aria-hidden="true"><span class="ptx-en-1"></span><span class="ptx-en-2"></span><span class="ptx-en-3"></span><span class="ptx-en-4"></span></span>{{t:leg_en}}</span>
+<span class="legenda-item"><span class="ptx-amostra" aria-hidden="true"><span class="ptx-pt-1"></span><span class="ptx-pt-2"></span><span class="ptx-pt-3"></span><span class="ptx-pt-4"></span></span>{{t:leg_pt}}</span>
+<span class="t-legenda ptx-leg-nota">{{t:leg_intensidade}}</span>
+</div>
+<div class="ptx-hex" id="ptx-hex">
+<figure class="figura ptx-hex-fig" id="ptx-hex-base"></figure>
+<figure class="figura ptx-hex-fig" id="ptx-hex-ano"></figure>
+</div>
+<div class="ptx-hex-pe">
+<p class="t-legenda ptx-so-celular">{{t:nota_eixo}}</p>
+<p class="t-legenda" id="ptx-fora" hidden></p>
+<p class="t-legenda" id="ptx-poucos" hidden></p>
+<div class="ptx-acao-tabela-celular" id="ptx-acao-tabela-celular"></div>
+</div>
+<div class="ptx-linha">
+<figure class="figura ptx-linha-fig">
+<figcaption class="t-p ptx-linha-titulo"><span class="ptx-so-largo">{{t:linha_titulo}}</span><span class="ptx-so-celular">{{t:linha_titulo_curto}}</span></figcaption>
+<div class="ptx-linha-grafico" id="ptx-linha"></div>
+</figure>
+<div class="ptx-leitura" id="ptx-leitura"></div>
+</div>
+</section>
+
+<section class="pagina ptx-pares" aria-labelledby="ptx-pares-titulo">
+<div class="ptx-pares-cabeca"><h2 class="t-h2" id="ptx-pares-titulo">{{t:pares_titulo}}</h2><p class="t-p">{{t:pares_sub}}</p></div>
+<div class="barra ptx-barra-pares">
+<div class="ptx-filtros ptx-filtros-pares" id="ptx-filtros-pares"></div>
+<div class="ptx-sortear" id="ptx-sortear"></div>
+</div>
+<div class="ptx-pares-corpo">
+<div class="ptx-lista-caixa" id="ptx-lista"></div>
+<div class="ptx-par-caixa" id="ptx-par"></div>
+</div>
+</section>
+<p class="sr" aria-live="polite" id="ptx-vivo"></p>

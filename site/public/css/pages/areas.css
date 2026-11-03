@@ -1,0 +1,184 @@
+/* IAês · Áreas do conhecimento (d-areas, m-areas, e-areas-reproduzindo).
+   Componentes comuns (dica, tabela, filtros, linha do tempo, painel) ficam em site.css. */
+
+.ar-so-celular{display:none}
+
+/* ---------- Cabeça e barra ---------- */
+.ar-cabeca{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px 24px;padding:28px 0 16px}
+.ar-cabeca-texto{display:flex;flex-direction:column;gap:6px}
+.ar-cabeca .subtitulo{font-size:15px;color:var(--tinta-2)}
+.ar-filtrobarra{justify-content:space-between}
+.ar-filtros{display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px}
+#ar-aviso .aviso{max-width:820px;margin:0 0 16px}
+
+/* ---------- Corpo: mapa à esquerda, barras à direita ---------- */
+.ar-corpo{padding-top:20px}
+.ar-grade{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:40px;align-items:start}
+.ar-figura{gap:14px;min-width:0}
+.ar-tabela-lugar:empty,.ar-cartao-lugar:empty,.ar-acoes-celular{display:none}
+.ar-tabela{display:flex;flex-direction:column;gap:10px;min-width:0}
+
+/* ---------- Reproduzir e régua ---------- */
+.ar-tocador{display:flex;align-items:center;gap:16px}
+.ar-tocar{flex:none}
+.ar-regua{position:relative;flex:1;height:32px;cursor:pointer;touch-action:none}
+.iaes .ar-regua:focus-visible{outline:none}
+.ar-regua-trilho,.ar-regua-feito{position:absolute;left:8px;top:15px;height:2px;border-radius:1px}
+.ar-regua-trilho{right:8px;background:var(--linha-forte)}
+.ar-regua-feito{background:var(--tinta)}
+.ar-regua-pega{position:absolute;top:8px;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:var(--superficie);border:2px solid var(--tinta)}
+.ar-regua:focus-visible .ar-regua-pega{outline:2px solid var(--foco);outline-offset:2px}
+.ar-regua:hover .ar-regua-pega{box-shadow:0 0 0 4px var(--sutil)}
+.ar-ano-tocador{display:none;font-size:40px;font-weight:600;line-height:1;letter-spacing:-.02em}
+
+/* ---------- Mapa de calor ---------- */
+.ar-mapa-caixa{position:relative}
+.ar-mapa{--ar-rot:210px;display:flex;flex-direction:column;gap:2px}
+.ar-mapa-cabeca{display:flex;flex-direction:column}
+.ar-mapa-corpo{position:relative;display:flex;flex-direction:column;gap:2px}
+.ar-linha{display:grid;grid-template-columns:var(--ar-rot) repeat(12,minmax(0,1fr));gap:2px;align-items:center}
+.ar-linha-anos{align-items:end}
+.ar-ano-col{display:flex;flex-direction:column;align-items:center;padding-bottom:6px;font-size:12px;line-height:1.1;color:var(--tinta-3);text-align:center;cursor:pointer;user-select:none}
+.ar-ano-nota{min-height:12px;font-size:10px;font-weight:400;line-height:1.2;color:var(--tinta-3)}
+.ar-ano-escolhido .ar-ano-num{font-weight:700;color:var(--tinta)}
+.ar-ano-futuro .ar-ano-num{color:var(--tinta-3)}
+.ar-area{font-size:13px;line-height:1.25;padding-right:12px;color:var(--tinta)}
+.ar-linha-todas{margin-top:6px}
+.ar-linha-todas .ar-area{font-weight:600}
+.ar-celula{height:40px;border-radius:2px;cursor:pointer}
+.ar-c0{background:var(--calor-0)}.ar-c1{background:var(--calor-1)}.ar-c2{background:var(--calor-2)}.ar-c3{background:var(--calor-3)}
+.ar-c4{background:var(--calor-4)}.ar-c5{background:var(--calor-5)}.ar-c6{background:var(--calor-6)}
+.ar-antes{background:transparent}
+.ar-futura{background:transparent;border:1px dashed var(--linha-forte)}
+.ar-col{outline:2px solid var(--tinta);outline-offset:-2px}
+.ar-aberta{position:relative;z-index:2;outline:2px solid var(--tinta);outline-offset:1px}
+.iaes .ar-celula:focus-visible{position:relative;z-index:3;outline:2px solid var(--foco);outline-offset:2px}
+/* A nota cobre as --ar-antes colunas sem estimativa mínima, de 2015 em diante (areas.js muda o número). */
+.ar-antes-nota{--ar-antes:8;display:none;position:absolute;top:0;bottom:0;left:calc(var(--ar-rot) + 2px);width:calc((100% - var(--ar-rot) - 24px) / 12 * var(--ar-antes) + (var(--ar-antes) - 1) * 2px);align-items:center;justify-content:center;padding:16px;border:1px dashed var(--linha-forte);border-radius:var(--r-1);font-size:13px;line-height:1.4;color:var(--tinta-3);text-align:center;pointer-events:none}
+.ar-modo-minimo .ar-antes-nota{display:flex}
+
+/* ---------- Legenda e explicação ---------- */
+.ar-pe{display:flex;flex-direction:column;gap:10px;padding-top:8px}
+.ar-legenda{display:flex;flex-wrap:wrap;align-items:flex-start;gap:10px 24px}
+.ar-escala{display:flex;flex-direction:column;gap:4px;width:300px}
+.ar-escala-cores{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:2px;height:12px}
+.ar-escala-rotulos{position:relative;height:18px}
+.ar-escala-rotulos span{position:absolute;top:0;white-space:nowrap}
+.ar-escala-ini{left:0}
+.ar-escala-meio{transform:translateX(-50%)}
+.ar-escala-fim{right:0}
+.ar-leg-hachura{padding-top:0}
+.ar-am-hachura{display:inline-block;flex:none;width:16px;height:12px}
+.ar-explica{max-width:640px}
+
+/* ---------- Cartão da célula ---------- */
+.ar-cartao{display:flex;flex-direction:column;gap:12px;padding:16px 18px;box-shadow:var(--sombra-1)}
+.ar-cartao-flutua{position:absolute;z-index:6;width:350px}
+.ar-cartao-lugar:not(:empty){padding:6px 0}
+.ar-cartao-topo{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.ar-cartao-cabeca{display:flex;flex-direction:column;gap:2px}
+.ar-cartao-titulo{font-size:19px}
+.ar-cartao-fechar{flex:none;margin:-4px -8px 0 0}
+.ar-cartao-valor{display:flex;align-items:baseline;gap:10px}
+.ar-cartao-valor .t-numero{flex:none;font-size:36px}
+.ar-cartao-valor .t-p{color:var(--tinta-2)}
+.ar-cartao-texto{color:var(--tinta-2)}
+.ar-cartao-secao{display:flex;flex-direction:column;gap:6px}
+.ar-chips{display:flex;flex-wrap:wrap;gap:6px}
+.ar-chip{height:30px;gap:6px}
+.ar-chip::before{content:none}
+.ar-chip .w{font-size:14px}
+.ar-chip-razao{font-size:12px;color:var(--tinta-3)}
+.ar-mini-legenda{font-size:11px;gap:4px 12px}
+.ar-mini{min-height:140px}
+.ar-cartao-mini .t-legenda{font-size:11px}
+
+/* ---------- Barras do ano escolhido ---------- */
+.ar-lado{display:flex;flex-direction:column;gap:16px;min-width:0}
+.ar-ano-caixa{display:flex;align-items:flex-end;gap:14px;padding-bottom:12px;border-bottom:1px solid var(--tinta)}
+.ar-ano-grande{font-size:84px;font-weight:600;line-height:.85;letter-spacing:-.02em}
+.ar-ano-nota{padding-bottom:4px}
+.ar-lado-titulo{font-size:13px;font-weight:600;line-height:1.5;color:var(--tinta)}
+.ar-barras{display:flex;flex-direction:column;gap:8px}
+.ar-barras-vazio{color:var(--tinta-2)}
+.ar-barra-item{display:flex;flex-direction:column;gap:3px}
+.ar-barra-topo{display:flex;justify-content:space-between;gap:8px;font-size:13px}
+.ar-barra-trilho{position:relative;height:14px}
+.ar-barra-dentro{position:absolute;top:0;bottom:0;left:0;right:56px}
+.ar-barra-base{position:absolute;top:-2px;bottom:-2px;width:1px;background:var(--eixo)}
+.ar-barra{position:absolute;top:1px;height:12px;background:var(--excesso);border-radius:0 2px 2px 0;transition:left .3s ease,width .3s ease}
+.ar-barra.ar-barra-neg{background:var(--base);border-radius:2px 0 0 2px}
+.ar-barra-valor{position:absolute;top:0;font-size:13px;font-weight:600;line-height:14px;white-space:nowrap;transition:left .3s ease}
+.ar-barra-nota{position:absolute;left:0;top:0;line-height:14px}
+.ar-barra-sem .ar-barra-dentro{display:none}
+.ar-barra-sem .ar-barra-area{color:var(--tinta-2)}
+.ar-barra-todas{margin-top:2px;padding-top:12px;border-top:1px solid var(--linha)}
+.ar-barra-todas .ar-barra-area{font-weight:600}
+
+/* ---------- Tabela ---------- */
+.ar-tabela .tabela th,.ar-tabela .tabela td{padding:9px 8px}
+.ar-tabela .tabela th:first-child,.ar-tabela .tabela td:first-child{padding-left:14px}
+.ar-tab-celula{display:inline-flex;flex-direction:column;align-items:flex-end;gap:1px}
+.ar-tab-n{font-size:11px;color:var(--tinta-3)}
+.ar-tab-fora{color:var(--tinta-3)}
+.ar-tab-todas{font-weight:600}
+
+/* ---------- Leitura ---------- */
+.ar-leitura-secao{padding-top:48px}
+.ar-leitura{font-size:14px;color:var(--tinta-2)}
+
+/* Desktop com a tabela: as barras e o ano grande saem, e a tabela usa a largura toda. */
+@media (min-width:1200px){
+  .ar-com-tabela{grid-template-columns:minmax(0,1fr)}
+  .ar-com-tabela .ar-lado{display:none}
+}
+
+/* ---------- Tablet: barras abaixo do mapa, ano ao lado da régua ---------- */
+@media (max-width:1199px){
+  .ar-grade{grid-template-columns:minmax(0,1fr);gap:36px}
+  .ar-ano-caixa{display:none}
+  .ar-ano-tocador{display:block}
+  .ar-lado{max-width:560px}
+  .ar-cartao{max-width:520px}
+}
+/* Colunas estreitas: o "escolhido" de 2025 encostaria no "parcial" de 2026. */
+@media (min-width:600px) and (max-width:767px){
+  .ar-ano-escolhido:nth-last-child(2) .ar-ano-nota{visibility:hidden}
+}
+
+/* ---------- Celular ---------- */
+@media (max-width:599px){
+  .ar-so-largo{display:none}
+  .ar-so-celular{display:inline}
+  p.ar-so-celular{display:block}
+  .ar-cabeca{padding:22px 0 14px}
+  .ar-cabeca-acoes,.ar-acao-tabela{display:none}
+  .ar-filtrobarra{padding:12px 0 16px}
+  .ar-filtros{flex-direction:column;align-items:stretch;width:100%;gap:12px}
+  .ar-corpo{padding-top:18px}
+  .ar-grade{gap:0}
+  .ar-tocador{gap:12px}
+  .ar-tocar{width:44px;padding:0}
+  .ar-tocar-texto{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .ar-regua{height:44px}
+  .ar-regua-trilho,.ar-regua-feito{top:21px}
+  .ar-regua-pega{top:12px;width:20px;height:20px;margin-left:-10px}
+  .ar-mapa{--ar-rot:96px}
+  .ar-celula{height:30px}
+  .ar-area{font-size:12px;line-height:1.2;padding-right:6px}
+  .ar-ano-col{font-size:10px;padding-bottom:4px}
+  .ar-ano-nota{display:none}
+  .ar-linha-todas{margin-top:4px}
+  .ar-antes-nota{padding:8px;font-size:12px}
+  .ar-escala{width:100%}
+  .ar-escala-cores{height:10px}
+  .ar-cartao{padding:14px 16px;gap:10px}
+  .ar-cartao-titulo{font-size:18px}
+  .ar-cartao-valor .t-numero{font-size:30px}
+  .ar-chip{height:40px}
+  .ar-acoes-celular{display:flex;flex-wrap:wrap;gap:8px;padding-top:20px}
+  .ar-acoes-celular .btn{min-height:44px}
+  .ar-lado{max-width:none;padding-top:36px;gap:12px}
+  .ar-lado-titulo{font-size:18px;line-height:1.3}
+  .ar-leitura-secao{padding-top:36px}
+}

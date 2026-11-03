@@ -1,0 +1,55 @@
+<div class="pagina">
+<header class="ar-cabeca">
+<div class="ar-cabeca-texto"><h1 class="t-h1">{{t:titulo}}</h1><p class="subtitulo">{{t:subtitulo_tela}}</p></div>
+<div class="ar-cabeca-acoes" id="ar-acoes"></div>
+</header>
+<div id="ar-aviso"></div>
+<div class="barra ar-filtrobarra">
+<div class="ar-filtros" id="ar-filtros"></div>
+<div class="ar-acao-tabela" id="ar-acao-tabela"></div>
+</div>
+</div>
+
+<section class="pagina ar-corpo" aria-labelledby="ar-graf-titulo">
+<h2 class="sr" id="ar-graf-titulo">{{t:graf_titulo}}</h2>
+<div id="ar-carga"></div>
+</section>
+
+<section class="pagina ar-leitura-secao" aria-label="{{t:leitura_rotulo}}">
+<p class="t-p leitura ar-leitura"><span id="ar-leitura"></span> <a id="ar-como" href="{{rota:metodo}}#indice">{{t:como_calculamos}}</a></p>
+</section>
+<p class="sr" aria-live="polite" id="ar-vivo"></p>
+
+<template id="ar-modelo">
+<div class="ar-grade">
+<figure class="figura ar-figura" id="ar-figura">
+<div class="ar-tocador">
+<button class="btn ar-tocar" type="button" id="ar-tocar"></button>
+<div class="ar-regua" id="ar-regua" role="slider" tabindex="0" aria-label="{{t:regua_rotulo}}" aria-valuemin="2015" aria-valuemax="2026">
+<span class="ar-regua-trilho"></span><span class="ar-regua-feito" id="ar-regua-feito"></span><span class="ar-regua-pega" id="ar-regua-pega"></span>
+</div>
+<p class="num ar-ano-tocador" id="ar-ano-tocador" aria-hidden="true"></p>
+</div>
+<div class="ar-mapa-caixa" id="ar-mapa-caixa">
+<div class="ar-mapa" id="ar-mapa" role="grid" aria-describedby="ar-explica"></div>
+</div>
+<div class="ar-pe">
+<div class="ar-legenda" id="ar-legenda"></div>
+<div class="ar-cartao-lugar" id="ar-cartao-lugar"></div>
+<p class="t-legenda ar-explica" id="ar-explica"></p>
+<p class="t-legenda ar-so-celular" id="ar-parcial-celular">{{t:parcial_ate}}</p>
+</div>
+</figure>
+<div class="ar-acoes-celular" id="ar-acoes-celular"></div>
+<div class="ar-tabela-lugar" id="ar-tabela-lugar"></div>
+<aside class="ar-lado" aria-labelledby="ar-lado-titulo">
+<div class="ar-ano-caixa">
+<p class="num ar-ano-grande" id="ar-ano-grande"></p>
+<p class="t-legenda ar-ano-nota" id="ar-ano-nota"></p>
+</div>
+<h2 class="ar-lado-titulo" id="ar-lado-titulo"></h2>
+<ol class="ar-barras" id="ar-barras"></ol>
+<p class="t-legenda" id="ar-lado-pe"></p>
+</aside>
+</div>
+</template>
