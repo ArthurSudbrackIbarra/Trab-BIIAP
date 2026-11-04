@@ -9,7 +9,9 @@
                apart (analysis/crosslang/lemmas-<lang>.csv and translations-<lang>.csv)
     compare    share of markers and of controls with a translation that is a marker of the other
                language, Fisher's exact test, and the exact McNemar test on the marker-control
-               pairs (analysis/crosslang/report.md)
+               pairs, also with one pair per dictionary form (analysis/crosslang/report.md)
+    check      a blind random sample of translated words for the author to check by hand
+               (analysis/crosslang/author-check.csv); `compare` reports the error rates
 
 Run the four `excess.py excess` variants and `excess.py label` first. Claude runs through
 `claude -p`, as in the rewriting experiment, and every step resumes where it stopped.
@@ -36,6 +38,7 @@ MARKER_YEARS = (2024, 2025, 2026)
 CANDIDATES = 5  # nearest-frequency words per marker, labelled to find a style control among them
 MIN_BASELINE = 10  # abstracts of 2021-2022 containing a word for it to be a candidate control
 LABEL_BATCH, WORD_BATCH = 120, 100
+CHECK_SAMPLE = 25  # translated words per language that the author checks by hand
 NAMES = {"pt": "Portuguese", "en": "English"}
 OTHER = {"pt": "en", "en": "pt"}
 # Function words that multi-word translations bring along ("delve into", "play a role").
@@ -231,8 +234,81 @@ def mcnemar_greater(only_first, only_second):
     return sum(math.comb(n, k) for k in range(only_first, n + 1)) / 2 ** n
 
 
+def check_sample():
+    """CHECK_SAMPLE translated words per language, markers and controls of the H3 test together
+    and in random order, so that the author cannot tell them apart."""
+    chosen = []
+    for lang in LANGS:
+        translations = read_sheet(CROSS / f"translations-{lang}.csv")
+        matched = {marker: row["control"]
+                   for marker, row in read_sheet(CROSS / f"controls-{lang}.csv", "marker").items()
+                   if row["control"] and marker in marker_words(lang)}
+        pool = sorted({w for pair in matched.items() for w in pair} & set(translations))
+        chosen += [(lang, w, translations[w]["translations"])
+                   for w in random.Random(f"{SEED}-check-{lang}").sample(pool, CHECK_SAMPLE)]
+    random.Random(f"{SEED}-check").shuffle(chosen)
+    return chosen
+
+
+def cmd_check(args):
+    path = CROSS / "author-check.csv"
+    if path.exists():
+        raise SystemExit(f"{path} exists; delete it to draw the sample again.")
+    rows = [{"n": n, "from": lang, "to": OTHER[lang], "word": word, "translations": translated,
+             "correct": "", "missing": "", "note": ""}
+            for n, (lang, word, translated) in enumerate(check_sample(), 1)]
+    append_rows(path, list(rows[0]), rows)
+    log(f"wrote {path}: {len(rows)} words for the author to check")
+
+
+def yes(value):
+    return value.strip().lower() in {"y", "yes", "s", "sim"}
+
+
+def check_report(status, report):
+    """The author's check of the translations (author-check.csv), once it is filled in, with the
+    markers of the other language that the translations of each flagged word hit."""
+    checked = [row for row in read_sheet(CROSS / "author-check.csv", "n").values()
+               if row["correct"].strip()]
+    if not checked:
+        return []
+    groups = {"markers": [], "controls": []}
+    for row in checked:
+        groups[status[row["from"]][row["word"]] + "s"].append(row)
+    groups["all"] = checked
+    rows = [[name, len(group), f"{sum(yes(r['correct']) for r in group)}",
+             f"{sum(yes(r['missing']) for r in group)}"] for name, group in groups.items()]
+    report["check"] = {name: {"words": len(group),
+                              "correct": sum(yes(r["correct"]) for r in group),
+                              "missing": sum(yes(r["missing"]) for r in group)}
+                       for name, group in groups.items()}
+    flagged = []
+    for row in checked:
+        if yes(row["correct"]) and not yes(row["missing"]):
+            continue
+        lang, word = row["from"], row["word"]
+        kind = status[lang][word]
+        found = report[lang]["pairs" if kind == "marker" else "control_pairs"].get(word, [])
+        flagged.append([word, f"{lang} to {row['to']}", kind, row["translations"],
+                        "yes" if yes(row["correct"]) else "no",
+                        "yes" if yes(row["missing"]) else "no", ", ".join(found) or "none"])
+    return ["## The author's check of the translations", "",
+            f"A blind random sample of {len(checked)} translated words, markers and controls "
+            "together (`crosslang.py check`). Correct: a bilingual dictionary would give every "
+            "translation Claude listed for a common sense of the word; a dictionary form given "
+            "for an inflected word counts as correct. Missing: the list leaves out a common "
+            "translation, either one more common than a translation it gives or any common one "
+            "when it gives fewer than three.", "",
+            *table(["words", "checked", "every translation correct", "a common translation missing"],
+                   rows),
+            "The flagged words, with the markers of the other language that their translations "
+            "hit (the author's notes are in `author-check.csv`):", "",
+            *table(["word", "direction", "kind", "translations", "every translation correct",
+                    "a common translation missing", "hits"], flagged)]
+
+
 def cmd_compare(args):
-    report, lines = {}, [
+    report, status, lines = {}, {}, [
         "# Do the Portuguese markers echo the English ones?", "",
         "Generated by `python3 -I scripts/crosslang.py compare`. Markers are the excess style words "
         "of 2024 to 2026. A word hits when one of its translations, in dictionary form, is the "
@@ -251,10 +327,10 @@ def cmd_compare(args):
                 targets.setdefault(form, set()).add(word)
         translations = read_sheet(CROSS / f"translations-{lang}.csv")
         markers = marker_words(lang)
-        matched = {marker: row["control"]
-                   for marker, row in read_sheet(CROSS / f"controls-{lang}.csv", "marker").items()
-                   if row["control"]}
+        sheet = read_sheet(CROSS / f"controls-{lang}.csv", "marker")
+        matched = {marker: row["control"] for marker, row in sheet.items() if row["control"]}
         controls = sorted(set(matched.values()))
+        status[lang] = {w: "control" for w in controls} | {w: "marker" for w in markers}
 
         def hits(word):
             found = set()
@@ -273,19 +349,36 @@ def cmd_compare(args):
         only_marker = sum(1 for m, k in pairs if m and not k)
         only_control = sum(1 for m, k in pairs if k and not m)
         p_paired = mcnemar_greater(only_marker, only_control)
+        # Inflected forms of one word are separate markers, so a verb with many forms counts many
+        # times. Keep one pair per dictionary form: the most frequent marker that has it.
+        own_lemmas = read_sheet(CROSS / f"lemmas-{lang}.csv")
+        by_lemma = {}
+        for m in sorted(matched, key=lambda w: (-int(sheet[w]["marker_baseline"]), w)):
+            by_lemma.setdefault(own_lemmas.get(m, {}).get("lemma", "").lower() or m, m)
+        lemma_pairs = [(bool(marker_hits[m]), bool(control_hits[matched[m]]))
+                       for m in by_lemma.values() if m in marker_hits and matched[m] in control_hits]
+        lemma_marker = sum(1 for m, k in lemma_pairs if m and not k)
+        lemma_control = sum(1 for m, k in lemma_pairs if k and not m)
+        p_lemma = mcnemar_greater(lemma_marker, lemma_control)
         report[lang] = {
             "markers": len(marker_hits), "markers_hit": a, "controls": len(control_hits),
             "controls_hit": c, "p": p, "pairs_only_marker": only_marker,
             "pairs_only_control": only_control, "p_paired": p_paired,
+            "lemma_pairs": len(lemma_pairs), "lemma_only_marker": lemma_marker,
+            "lemma_only_control": lemma_control, "p_lemma": p_lemma,
             "pairs": {w: sorted(found) for w, found in marker_hits.items() if found},
             "own": sorted((w for w, found in marker_hits.items() if not found),
                           key=lambda w: -markers[w]),
             "control_pairs": {w: sorted(found) for w, found in control_hits.items() if found}}
         rows.append([f"{lang} to {other}", f"{a}/{a + b} ({a / (a + b):.0%})",
                      f"{c}/{c + d} ({c / (c + d):.0%})", f"{p:.1e}",
-                     f"{only_marker} against {only_control}", f"{p_paired:.1e}"])
+                     f"{only_marker} against {only_control}", f"{p_paired:.1e}",
+                     f"{lemma_marker} against {lemma_control} of {len(lemma_pairs)}",
+                     f"{p_lemma:.1e}"])
     lines += table(["direction", "markers that hit", "controls that hit", "p",
-                    "pairs where only the marker / only the control hits", "paired p"], rows)
+                    "pairs where only the marker / only the control hits", "paired p",
+                    "same, one pair per dictionary form", "paired p, dictionary forms"], rows)
+    lines += check_report(status, report)
     for lang in LANGS:
         result, other = report[lang], OTHER[lang]
         ranked = sorted(result["pairs"], key=lambda w: -marker_words(lang)[w])
@@ -310,8 +403,10 @@ def main():
         command = sub.add_parser(name)
         command.add_argument("--model", default="opus")
     sub.add_parser("compare")
+    sub.add_parser("check")
     args = parser.parse_args()
-    {"controls": cmd_controls, "translate": cmd_translate, "compare": cmd_compare}[args.command](args)
+    {"controls": cmd_controls, "translate": cmd_translate, "compare": cmd_compare,
+     "check": cmd_check}[args.command](args)
 
 
 if __name__ == "__main__":

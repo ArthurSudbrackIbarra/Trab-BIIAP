@@ -101,7 +101,8 @@ The paper is `Artigo/paper.tex` (`latexmk paper.tex`; the PDF lands in `Artigo/b
 A copy of the PDF is committed as `Artigo/paper.pdf` (the author asked for it on 2026-11-04): copy
 it again from `build/` whenever the paper changes.
 Its figures are in `Artigo/figures/`: TikZ and pgfplots files whose numbers come from `analysis/`,
-and screenshots of the English site taken at 2x in headless Chrome. Do not load `hyperref`: with
+and a screenshot of the English site's time machine taken at 2x in headless Chrome (the words and
+fields screenshots were cut on 2026-11-04 to fit 20 pages). Do not load `hyperref`: with
 `sbc-template.sty` it stops the build (`\normalsfcodes` undefined), so URLs use the `url` package.
 
 Template caveats:
@@ -176,10 +177,15 @@ paper:
 - **Cross-fitted lower bound.** Marker words are chosen on one random half of the abstracts (by DOI)
   and the gap is measured on the other half, both ways; the same-data estimate (Kobak's procedure)
   is reported next to it. A placebo applies the same markers and span to 2015-2016 and should give
-  about zero.
+  about zero. Standard errors come from 1,000 resamples of the panel's journals with the marker sets
+  held fixed (added 2026-11-04; the binomial error, which treats abstracts as independent, was half
+  as large for English). The report also gives the tighter bound gap / (1 - q) (Holzwarth et al.)
+  and robustness checks for the years with 10+ markers per half: ambiguous words as style, 20+
+  abstracts and 10+ journals per word, only the Portuguese H3 markers with no English counterpart
+  (read from `analysis/crosslang/report.json`), and a linear trend over 2017-2022.
 - Kobak et al. print the ratio threshold as log10 r > (log10 2 / 4) log10 p, which read literally
-  passes almost every word; the code uses r > 2^(-log10(p) / 4) (r > 2 at p = 1e-4, rising for
-  rarer words). Check this against the published version before describing it in the paper.
+  passes almost every word; their code uses r > 2^(-log10(p) / 4) (r > 2 at p = 1e-4, rising for
+  rarer words), and so do we. Checked on 2026-11-04; the paper says so in a footnote.
 
 `scripts/crosslang.py` tests whether the Portuguese markers echo the English ones (H3). Markers
 are the excess style words of 2024-2026 under either baseline. Each marker gets a control: a word
@@ -188,7 +194,10 @@ labels style with the markers' prompt. Claude (through `claude -p`, prompts in
 `analysis/crosslang/`) gives the dictionary form of every marker and translates markers and
 controls, shuffled together, into the other language; a word hits when one of its translations is
 the dictionary form of a marker of the other language. Commands: `controls`, `translate`,
-`compare` (`analysis/crosslang/report.md`).
+`compare` (`analysis/crosslang/report.md`; Fisher's test, the exact McNemar test on the
+marker-control pairs and the same with one pair per dictionary form), and `check`, which drew the
+blind sample of 50 translated words the author checked by hand (`analysis/crosslang/author-check.csv`;
+`compare` reports the error rates).
 
 `scripts/pairs.py` tests H2 on the ArticleMeta sample. `prepare` cleans both abstracts of every
 sampled paper with the corpus filters (`data/interim/pairs.jsonl.gz`, 9,312 usable papers).
@@ -199,10 +208,11 @@ rerun `compare` whenever it changes). Only years with at least 10 markers per ha
 languages are used: 2025 and 2026, since the 2023 and 2024 Portuguese sets have 0 or 1 words. With
 about 750 papers a year the counterfactual is flat (the 2021-2022 share), and the estimate is a
 difference in differences, how much more the English share rose than the Portuguese share in the
-same papers: length-standardized (quintiles), with 2,000 bootstrap resamples of papers within
-years and a placebo. The report adds the 2025 sets applied to every year (timing and pre-trends),
-which abstract carries the markers, robustness variants, and how often the experiment's texts
-carry a marker.
+same papers: length-standardized (quintiles), with 2,000 bootstrap resamples of journals (each
+with all its papers of every year; papers within years until 2026-11-04) and a placebo. The report
+adds the 2025 sets applied to every year (timing and pre-trends), which abstract carries the
+markers, the rise of Portuguese markers in papers whose English abstract has none (the translation
+route), robustness variants, and how often the experiment's texts carry a marker.
 
 ## Site (IAês)
 
@@ -278,23 +288,38 @@ abstract than in the Portuguese abstract of the same paper?
 - Results (2026-10-31): excess style words per year stay at 0 to 6 until 2022, then English 14
   (2023), 50 (2024), 108 (2025), 150 (2026) and Portuguese 2, 10, 69, 126. Cross-fitted lower
   bound on the share of abstracts processed by an LLM: English 11% in 2024, 17% in 2025, 16% in
-  2026; Portuguese 0% in 2024, 13% in 2025, 19% in 2026; placebo about 0. H3 test
+  2026; Portuguese 0% in 2024, 13% in 2025, 19% in 2026; placebo about 0. With the journal
+  bootstrap (2026-11-04): English 2025 17.3 ± 1.6, Portuguese 12.7 ± 1.7, every placebo within two
+  standard errors of zero; tighter bound 29.5% and 22.2%; the 2025 bound stays at 12.2-13.9%
+  (Portuguese) and 13.5-17.3% (English) across the robustness checks, and the Portuguese markers
+  with no English counterpart give 14.0 ± 2.5 in 2026 (too few words in 2025). Against the fixed
+  baseline, 2025 has 201 English and 99 Portuguese excess style words. H3 test
   (`scripts/crosslang.py`): 72% of the 349 Portuguese markers translate into an English marker
   against 44% of their controls (Fisher p = 3e-14); 49% of the 437 English markers translate into
-  a Portuguese marker against 22% of controls (p = 3e-17). The Portuguese markers are mostly style
-  words but largely mirror the English ones (aprofunda/delves, ressaltando/highlighting,
-  moldam/shaping), so the "differ" half of H3 fails; 28% are Portuguese only (tensionam,
-  multifacetada, agrava, perpetuando).
+  a Portuguese marker against 22% of controls (p = 3e-17). With one pair per dictionary form, the
+  McNemar counts are 92 against 35 (p = 2e-7) and 124 against 45 (p = 5e-10). The Portuguese
+  markers are mostly style words but largely mirror the English ones (aprofunda/delves,
+  ressaltando/highlighting, moldam/shaping), so the "differ" half of H3 fails; 28% are Portuguese
+  only (tensionam, multifacetada, agrava, perpetuando). The author's blind check of 50 translated
+  words (2026-11-04): two had a wrong translation (compares as confrontar, baixos as base) and one
+  lacked a common one (existem, without "there are"); only baixos changed a hit, a control hitting
+  based, which works against the marker-control difference. The paper reports this in the H3
+  results and in the impacts section.
 - H2 (`scripts/pairs.py`, same papers): from 2021-2022 to 2025-2026 the share of English abstracts
   with an English marker rose 17.5 points and the share of Portuguese abstracts with a Portuguese
-  marker 14.9; the difference, 2.7 points [-1.8, 7.4] (p = 0.12), is no larger than the placebo
-  (2.4) and stays between 0.2 and 2.7 in every robustness variant. With the 2025 sets on every
-  year, English led in 2024 (8.6 against 1.8 points, difference 6.8 [0.8, 12.8]) and Portuguese
-  caught up in 2025. The growth is in papers with markers in both abstracts (15% to 31% with the
-  2025 sets), while papers with markers in English only went from 23% to 24%. The paper reads
-  this as H2 not supported: the main test finds no English lead, and the 2024 lead comes from an
-  exploratory check that marker turnover and Portuguese inflection may also explain (review of
-  2026-11-04). The placebo of the papers written in Portuguese is 5.4 [-0.2, 10.9], too large to read the
+  marker 14.9; the difference, 2.7 points [-1.9, 7.0] (p = 0.14, journal bootstrap), is no larger
+  than the placebo (2.4 [-1.8, 6.5]) and stays between 0.2 and 2.7 in every robustness variant. With
+  the 2025 sets on every year, English led in 2024 (8.6 against 1.8 points, difference 6.8
+  [1.1, 12.4]) and Portuguese caught up in 2025. The growth is in papers with markers in both
+  abstracts (15% to 31% with the 2025 sets), while papers with markers in English only (23% to
+  24%) or Portuguese only (21% to 20%) stayed flat. Among papers whose English abstract has no
+  marker, the Portuguese share still rose 12.7 points [8.7, 16.6] from 2021-2022 to 2025-2026,
+  against 19.0 [14.8, 23.6] where it has one (14.2 and 15.6 in papers written in Portuguese), so
+  translating an edited English abstract does not explain the Portuguese rise. The paper reads
+  this as H2 not supported, a small English lead (up to about 7 points) not ruled out, and the
+  2024 lead from an exploratory check that marker turnover and Portuguese inflection may also
+  explain. It compares markers, not use: the markers catch an edit less easily in Portuguese. The
+  placebo of the papers written in Portuguese is 5.4 [-0.2, 10.9], too large to read the
   subgroups by article language.
 - Rewriting experiment (2026-10-31, 80 texts per task and model). Word analysis
   (`experiment.py analyze`, `analysis/experiment/report.md`, markers = the H3 markers): polishing an
@@ -352,7 +377,9 @@ Code still adds about 900 tokens of environment information to that context: rep
 limitation. `python3 -I scripts/experiment.py ingest` parses and checks every reply, writes
 `experiment/results/<model>.jsonl` and retry batches for missing or broken items.
 
-ChatGPT is done (2026-10-31, GPT-6 per the author, 240 of 240 replies, no warnings). The author
+ChatGPT is done (2026-10-31, GPT-6 per the author, 240 of 240 replies, no warnings; OpenAI's
+release notes say the free plan ran GPT-6 Luna from 8 October, so the paper names GPT-6 Luna, and
+the author confirmed Gemini 3.6 Flash on 2026-11-04). The author
 sent the replies as files named `1.txt` (polish-pt-01), `1-en.txt` (polish-en-01) and `t1.txt`
 (translate-pt-en-01), with Windows line endings, some without the code block and none with the
 model line; they were rewritten into `experiment/inbox/chatgpt/<batch>.txt` in Claude's format
@@ -365,8 +392,9 @@ each model adds and drops (a word counts when its number of texts changes by at 
 and a Fisher test of markers among added against dropped words.
 
 **Paper (drafted 2026-11-04).** `Artigo/paper.tex` follows `docs/paper-plan.md`: 20 pages, 48
-references, six figures (pipeline, excess words, the H2 timing, three screenshots of the site) and
-four tables (related work, lower bound, H2, experiment); the H3 numbers sit in the text. Every cited
+references, four figures (pipeline, excess words, the H2 timing, the time machine screenshot) and
+four tables (related work by features, lower bound, H2, experiment); the H3 numbers sit in the
+text. Every cited
 number was checked against its source on 2026-11-04, and a subagent reviewed the PDF with the ENIAC
 reviewer skill (accept, with fixes that were applied: the H2 verdict, the assumption behind the
 lower bound, credit to Lee 2026, the 195,600 abstracts analysed, an exact McNemar test for H3, which
@@ -376,7 +404,22 @@ Korean journals lead, so the paper claims the same-paper difference in differenc
 look at the lag. The AI-use declaration follows the author's decision of 2026-11-04: brief, naming
 Claude (Claude Code, Claude Opus 5.5) for improving the writing, searching the literature and
 speeding up the site's code; the LLM steps of the method (labels, translations, the experiment) are
-described in the Methodology.
+described in the Methodology. The author kept it this way after the second review round too.
+
+Second review round (2026-11-04): the author had ChatGPT (GPT-6), Gemini and an unnamed LLM review
+the PDF (they weighted the GPT and unnamed reviews over Gemini's). Claude checked each point and
+three subagents verified the literature and facts. With the author's approval: the journal
+bootstrap, the translation-route checks, the robustness checks and the tighter bound (above), H3
+by dictionary form, and a hand check of 50 translations (results under H3 above); Figures 3 (words over time) and 4 (fields
+heatmap) cut and Table 1 turned into a table of features to fit 20 pages. Text fixes: H1 described
+as "above the trend of the preceding years" (the rolling baseline of 2025-2026 includes ChatGPT
+years), the bound as conditional on its assumption, H2 as no clear difference in markers (not in
+use), the scope as SciELO Brazil journals that deposit abstracts in Crossref, credit to Lee (2026)
+for the split-half bound, the article-level pairing, a rewriting experiment and placebos, plus Koo,
+Kim and Kim (2026) and Lobo and Martins (2026); CNPq's rule limited to the research it funds,
+CAPES described as a discussion paper, Kousha and Thelwall described as twelve fixed terms. To fit
+20 pages, the sentences citing Hanauer et al. and Packer et al. (1998) were cut, and an independent
+consistency check of every number against `analysis/` was applied.
 
 Open items:
 

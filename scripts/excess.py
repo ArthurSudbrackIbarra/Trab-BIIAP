@@ -37,7 +37,7 @@ import unicodedata
 from bisect import bisect_right
 from collections import Counter, defaultdict
 from pathlib import Path
-from statistics import NormalDist
+from statistics import NormalDist, stdev
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from harvest_scielo import FIRST_YEAR, LAST_YEAR, RAW, ROOT, log, read_jsonl  # noqa: E402
@@ -72,6 +72,9 @@ PRE_LLM = (2021, 2022)  # baseline of the lower bound
 PLACEBO = (2015, 2016)  # baseline of the placebo: the same span, seven years earlier
 THRESHOLDS = (0.002, 0.005, 0.01, 0.02, 0.05, 0.1, 1.0)  # candidate T for the marker set
 AREA_MIN = 200  # abstracts in the year for an area's lower bound to be reported
+BOOT = 1000  # journal resamples for the standard errors of the lower bound
+TREND = range(2017, 2023)  # robustness check: a linear trend over these years
+STRICT_COUNT, STRICT_JOURNALS = 20, 10  # robustness check: stricter tests for an excess word
 RULES = ("rolling", "fixed")
 
 
@@ -527,34 +530,101 @@ def read_excess(variant):
     return found
 
 
-def marker_gap(groups, lang, journals, edges, markers, year, first, second):
-    """Kobak et al.'s gap for the share of abstracts with at least one marker word, standardized to
-    the lengths of the baseline years, and its standard error. None if there is nothing to compare.
-
-    If a share L of the abstracts went through an LLM, the share with a marker word can grow by at
-    most L, so the gap is a lower bound on L.
-    """
-    years = (first, second, year)
-    sizes, counts = Counter(), defaultdict(Counter)
+def journal_cells(groups, lang, journals, edges, markers, years):
+    """Per journal, abstracts ("n") and abstracts with a marker word ("k") per (year, length bin)."""
+    cells = defaultdict(Counter)
     for y in years:
         for r in groups[lang, y]:
             if journals is None or r["journal"] in journals:
                 cell = (y, bisect_right(edges, len(r["words"])))
-                sizes[cell] += 1
-                counts[cell]["*"] += not markers.isdisjoint(r["words"])
+                cells[r["journal"]]["n", cell] += 1
+                cells[r["journal"]]["k", cell] += not markers.isdisjoint(r["words"])
+    return cells
+
+
+def gap_from(totals, year, first, second, trend=None):
+    """Kobak et al.'s gap for the share of abstracts with at least one marker word, from the counts
+    of `journal_cells` summed over journals, standardized to the lengths of the baseline years, with
+    its binomial standard error (which treats abstracts as independent). `trend` replaces the
+    counterfactual with a linear trend fitted to those years and extended from the last one, again
+    never assuming a decline. None if there is nothing to compare.
+
+    If a share f of the abstracts went through an LLM and a share s of those contain a marker word,
+    the gap is f (s - q), so it is a lower bound on f, and gap / (1 - q) a tighter one, since s <= 1.
+    """
+    years = (*(trend or (first, second)), year)
+    sizes, counts = Counter(), defaultdict(Counter)
+    for (kind, cell), value in totals.items():
+        if kind == "n":
+            sizes[cell] = value
+        else:
+            counts[cell]["*"] = value
     weights = length_weights(sizes, years, first, second)
     if not weights:
         return None
     share, variance = {}, {}
     for y in years:
         share[y], variance[y] = standardized("*", y, sizes, counts, weights)
-    factor = year - second
-    slope = share[second] - share[first]
-    expected = share[second] + factor * max(slope, 0)
-    var_q = ((1 + factor) ** 2 * variance[second] + factor ** 2 * variance[first]
-             if slope > 0 else variance[second])
-    return {"observed": share[year], "expected": expected, "gap": share[year] - expected,
-            "se": math.sqrt(variance[year] + var_q), "abstracts": sum(sizes[year, b] for b in weights)}
+    if trend:
+        middle = sum(trend) / len(trend)
+        level = sum(share[y] for y in trend) / len(trend)
+        slope = (sum((y - middle) * (share[y] - level) for y in trend)
+                 / sum((y - middle) ** 2 for y in trend))
+        expected = level + (trend[-1] - middle) * slope + (year - trend[-1]) * max(slope, 0)
+        var_q = 0.0  # the journal bootstrap gives this variant's error
+    else:
+        factor = year - second
+        slope = share[second] - share[first]
+        expected = share[second] + factor * max(slope, 0)
+        var_q = ((1 + factor) ** 2 * variance[second] + factor ** 2 * variance[first]
+                 if slope > 0 else variance[second])
+    gap = share[year] - expected
+    return {"observed": share[year], "expected": expected, "gap": gap, "tight": gap / (1 - expected),
+            "se_binomial": math.sqrt(variance[year] + var_q),
+            "abstracts": sum(sizes[year, b] for b in weights)}
+
+
+def summed(cells, drawn=None):
+    """The counts of `journal_cells` summed over journals, each counted as often as `drawn` says."""
+    totals = Counter()
+    for journal, times in (drawn or dict.fromkeys(cells, 1)).items():
+        for key, value in cells.get(journal, {}).items():
+            totals[key] += times * value
+    return totals
+
+
+def measure(directions, year, first, second, trend=None, seed="", minimum=1):
+    """The gap, averaged over `directions` (per-journal cells of one marker set each, all over the
+    same journals: for the cross-fitted bound, the markers picked on one half measured on the
+    other, both ways), with standard errors from BOOT resamples of the journals. A resample keeps
+    all the abstracts of each journal it draws, since abstracts of one journal share editors, rules
+    and topics, and are not independent. None if there is nothing to compare or fewer than
+    `minimum` abstracts in the year."""
+    results = [r for r in (gap_from(summed(cells), year, first, second, trend) for cells in directions)
+               if r]
+    if not results or sum(r["abstracts"] for r in results) < minimum:
+        return None
+    n = len(results)
+    mean = {key: sum(r[key] for r in results) / n for key in ("observed", "expected", "gap", "tight")}
+    rng = random.Random(f"{SEED}-bound-{seed}")
+    journals = sorted(set().union(*directions))
+    gaps, tights = [], []
+    for _ in range(BOOT):
+        drawn = Counter(rng.choices(journals, k=len(journals)))
+        again = [r for r in (gap_from(summed(cells, drawn), year, first, second, trend)
+                             for cells in directions) if r]
+        if again:
+            gaps.append(sum(r["gap"] for r in again) / len(again))
+            tights.append(sum(r["tight"] for r in again) / len(again))
+    return mean | {"se": stdev(gaps), "se_tight": stdev(tights),
+                   "se_binomial": math.sqrt(sum(r["se_binomial"] ** 2 for r in results)) / n,
+                   "abstracts": sum(r["abstracts"] for r in results), "journals": len(journals)}
+
+
+def marker_gap(groups, lang, journals, edges, markers, year, first, second):
+    """The gap of `gap_from` for one marker set measured on `groups`, without standard errors."""
+    cells = journal_cells(groups, lang, journals, edges, markers, (first, second, year))
+    return gap_from(summed(cells), year, first, second)
 
 
 def choose_markers(candidates, groups, lang, journals, edges, year):
@@ -568,17 +638,6 @@ def choose_markers(candidates, groups, lang, journals, edges, year):
             if result and (best is None or result["gap"] > best[2]["gap"]):
                 best = (threshold, markers, result)
     return best
-
-
-def combine(results):
-    """Mean of the two cross-fitted estimates, whose errors are independent (disjoint halves)."""
-    results = [r for r in results if r]
-    if not results:
-        return None
-    n = len(results)
-    mean = {key: sum(r[key] for r in results) / n for key in ("observed", "expected", "gap")}
-    return mean | {"se": math.sqrt(sum(r["se"] ** 2 for r in results)) / n,
-                   "abstracts": sum(r["abstracts"] for r in results)}
 
 
 def kappa(pairs):
@@ -648,36 +707,71 @@ def cmd_report(args):
                     "author vs Claude"], rows) if rows else [
         "The author has not labelled the sample yet (analysis/labels/author-<lang>.csv).", ""]
 
-    bound_rows, area_rows = [], []
+    # Portuguese and English markers of the H3 test with no counterpart in the other language
+    # (crosslang.py compare), for a robustness check of the bound.
+    crosslang = OUT / "crosslang" / "report.json"
+    own = ({lang: set(result["own"]) for lang, result in
+            json.loads(crosslang.read_text(encoding="utf-8")).items() if lang in LANGS}
+           if crosslang.exists() else {})
+
+    def kept(found, keep):
+        return {word: row for word, row in found.items() if keep(word, row)}
+
+    bound_rows, area_rows, robust_rows = [], [], []
     for lang in LANGS:
         edges = length_edges(full, lang)
+        label = labels[lang]
+        tests = {
+            "main": lambda word, row: label.get(word) == "style",
+            "ambiguous as style": lambda word, row: label.get(word) in ("style", "ambiguous"),
+            f"in {STRICT_COUNT}+ abstracts and {STRICT_JOURNALS}+ journals":
+                lambda word, row: (label.get(word) == "style" and int(row["count"]) >= STRICT_COUNT
+                                   and int(row["journals"]) >= STRICT_JOURNALS),
+        }
+        if lang == "pt" and own:
+            # Could the Portuguese markers just be inherited from English ones by translation?
+            tests["no English counterpart"] = lambda word, row: (label.get(word) == "style"
+                                                                  and word in own["pt"])
         for year in BOUND_YEARS:
             panel = balanced_panel(full, lang, (*PRE_LLM, year))
 
-            def style(found):
-                return {word: row for word, row in found.items() if labels[lang].get(word) == "style"}
+            def pick(keep):
+                return {half: choose_markers(kept(runs[f"fixed-half-{half}"].get((lang, year), {}), keep),
+                                             halves[half], lang, panel, edges, year) for half in "ab"}
 
-            picked = {half: choose_markers(style(runs[f"fixed-half-{half}"].get((lang, year), {})),
-                                           halves[half], lang, panel, edges, year) for half in "ab"}
+            def crossfit(picked, journals, trend=None, seed="", minimum=1):
+                years = (*(trend or PRE_LLM), year)
+                directions = [journal_cells(halves[other], lang, journals, edges, picked[half][1], years)
+                              for half, other in (("a", "b"), ("b", "a")) if picked[half]]
+                return measure(directions, year, *PRE_LLM, trend, f"{lang}-{year}-{seed}", minimum)
 
-            def crossfit(journals):
-                return combine([marker_gap(halves[other], lang, journals, edges, picked[half][1],
-                                           year, *PRE_LLM)
-                                for half, other in (("a", "b"), ("b", "a")) if picked[half]])
-
-            same = choose_markers(style(runs["fixed"].get((lang, year), {})), full, lang, panel,
-                                  edges, year)
+            picked = pick(tests["main"])
+            same = choose_markers(kept(runs["fixed"].get((lang, year), {}), tests["main"]), full,
+                                  lang, panel, edges, year)
             placebo = None
             if same:
                 placebo_year = PLACEBO[1] + year - PRE_LLM[1]
-                placebo = marker_gap(full, lang, balanced_panel(full, lang, (*PLACEBO, placebo_year)),
-                                     edges, same[1], placebo_year, *PLACEBO)
+                cells = journal_cells(full, lang, balanced_panel(full, lang, (*PLACEBO, placebo_year)),
+                                      edges, same[1], (*PLACEBO, placebo_year))
+                placebo = measure([cells], placebo_year, *PLACEBO, seed=f"{lang}-{year}-placebo")
                 placebo["year"] = placebo_year
-            result = {"crossfit": crossfit(panel),
+            result = {"crossfit": crossfit(picked, panel, seed="main"),
                       "thresholds": {h: picked[h][0] if picked[h] else None for h in "ab"},
                       "markers": {h: len(picked[h][1]) if picked[h] else 0 for h in "ab"},
                       "same_data": same[2] | {"threshold": same[0], "markers": len(same[1])} if same else None,
-                      "placebo": placebo}
+                      "placebo": placebo, "robustness": {},
+                      "panel": {"journals": len(panel),
+                                "abstracts": sum(r["journal"] in panel for r in full[lang, year])}}
+            if result["markers"]["a"] >= 10 and result["markers"]["b"] >= 10:
+                variants = {name: (pick(keep), panel, None)
+                            for name, keep in tests.items() if name != "main"}
+                variants[f"linear trend {TREND[0]}-{TREND[-1]}"] = (
+                    picked, balanced_panel(full, lang, (*TREND, year)), TREND)
+                for name, (sets, journals, trend) in variants.items():
+                    estimate = crossfit(sets, journals, trend, name)
+                    if estimate:
+                        result["robustness"][name] = estimate | {
+                            "markers": {h: len(sets[h][1]) if sets[h] else 0 for h in "ab"}}
             report["bound"][lang][year] = result
             # Picked on one half, so meant for abstracts of the other (scripts/pairs.py uses them).
             report["crossfit_markers"][lang][year] = {h: sorted(picked[h][1]) if picked[h] else []
@@ -689,26 +783,52 @@ def cmd_report(args):
             bound_rows.append([
                 lang, year,
                 pct(cross["gap"], cross["se"]) if cross else "-",
+                pct(cross["se_binomial"]) if cross else "-",
                 pct(cross["observed"]) if cross else "-", pct(cross["expected"]) if cross else "-",
                 f"{result['markers']['a']}/{result['markers']['b']}",
+                pct(cross["tight"], cross["se_tight"]) if cross else "-",
+                f"{result['panel']['journals']} / {result['panel']['abstracts']}",
                 pct(same[2]["gap"]) + f" ({len(same[1])} words, T={same[0]})" if same else "-",
                 f"{placebo['year']}: " + pct(placebo["gap"], placebo["se"]) if placebo else "-"])
+            for name, estimate in result["robustness"].items():
+                robust_rows.append([lang, year, name, pct(estimate["gap"], estimate["se"]),
+                                    pct(estimate["tight"], estimate["se_tight"]),
+                                    f"{estimate['markers']['a']}/{estimate['markers']['b']}",
+                                    f"{estimate['journals']} / {estimate['abstracts']}"])
             for area in sorted(area_journals):
-                estimate = crossfit(panel & area_journals[area])
-                if estimate and estimate["abstracts"] >= AREA_MIN:
+                estimate = crossfit(picked, panel & area_journals[area], seed=f"area-{area}",
+                                    minimum=AREA_MIN)
+                if estimate:
                     report["areas"][lang][area][year] = estimate
     lines += ["## Lower bound on the share of abstracts processed by an LLM", "",
               "Gap between the observed and the expected share of abstracts with at least one marker "
               "word (Kobak et al.), counterfactual from 2021 and 2022. Cross-fitted: the marker set "
               "(style excess words below the threshold T that maximizes the gap) is chosen on one "
-              "random half of the abstracts and measured on the other, both ways. Same data: chosen "
-              "and measured on all abstracts, as Kobak et al. did. Placebo: the same-data markers "
-              "with the same extrapolation span, from 2015 and 2016.", ""]
-    lines += table(["lang", "year", "gap, cross-fitted", "observed", "expected", "markers (a/b)",
-                    "gap, same data", "placebo gap"], bound_rows)
+              "random half of the abstracts and measured on the other, both ways. Standard errors "
+              f"come from {BOOT} resamples of the journals, with the marker sets held fixed; the "
+              "binomial standard error, which treats abstracts as independent, is shown for "
+              "comparison. Tighter bound: gap / (1 - expected), valid under the same assumptions "
+              "because no more than every processed abstract can carry a marker. Panel: journals and "
+              "abstracts of the year (both halves). Same data: chosen and measured on all "
+              "abstracts, as Kobak et al. did. Placebo: the same-data markers with the same "
+              "extrapolation span, from 2015 and 2016.", ""]
+    lines += table(["lang", "year", "gap, cross-fitted", "binomial se", "observed", "expected",
+                    "markers (a/b)", "tighter bound", "panel", "gap, same data", "placebo gap"],
+                   bound_rows)
+    lines += ["## Robustness of the cross-fitted bound", "",
+              "The years whose marker sets have at least ten words per half. Ambiguous as style: "
+              "words labelled ambiguous join the candidates. Stricter tests: an excess word must be "
+              f"in at least {STRICT_COUNT} abstracts and {STRICT_JOURNALS} journals. No counterpart: "
+              "only markers of the H3 test with no translation among the other language's markers. "
+              "Each of these picks its sets again on each half. Linear trend: the main sets, with "
+              f"the counterfactual from a linear trend over {TREND[0]}-{TREND[-1]} and the journals "
+              "present in all those years.", ""]
+    lines += table(["lang", "year", "variant", "gap", "tighter bound", "markers (a/b)", "panel"],
+                   robust_rows)
 
     lines += ["## Lower bound by area (cross-fitted)", "",
-              "Percent of abstracts ± standard error, and abstracts in the year (both halves). Cells "
+              "Percent of abstracts ± standard error (journal bootstrap), and abstracts in the year "
+              "(both halves). Cells "
               f"with fewer than {AREA_MIN} abstracts are left out.", ""]
     for lang in LANGS:
         for area in sorted(report["areas"][lang]):

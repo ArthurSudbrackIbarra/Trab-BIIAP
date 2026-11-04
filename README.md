@@ -31,12 +31,14 @@ bound. The Method page of the site explains each change.
 
 - From 2018 to 2022, at most 6 style words a year rose above the trend in each language. In 2025
   there were 108 in English abstracts and 69 in Portuguese abstracts.
-- At least 17.3% of the English abstracts and 12.7% of the Portuguese abstracts published in 2025
-  went through an LLM. This is a lower bound, since it only counts texts in which the model left
-  marker words.
+- If the abstracts that no LLM touched kept to their trend, at least 17.3% of the English abstracts
+  and 12.7% of the Portuguese abstracts published in 2025 went through an LLM. This is a lower
+  bound, since it only counts texts in which the model left marker words; a tighter form of the
+  same bound gives 29.5% and 22.2%.
 - In the same papers, the share of abstracts with a marker word rose 17.5 points in English and
-  14.9 in Portuguese from 2021-22 to 2025-26. That difference is about the size of the placebo.
-  English rose clearly faster only in 2024.
+  14.9 in Portuguese from 2021-22 to 2025-26, a difference about the size of the placebo. English
+  rose clearly faster only in 2024, and Portuguese abstracts gained marker words even in papers
+  whose English abstract had none.
 - Most Portuguese marker words mirror English ones (aprofunda and delves, for example): 72% of them
   translate into an English marker, against 44% of control words.
 - When ChatGPT and Gemini polished English abstracts published from 2019 to 2021, they added about 5

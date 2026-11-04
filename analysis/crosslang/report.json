@@ -8,6 +8,10 @@
   "pairs_only_marker": 138,
   "pairs_only_control": 40,
   "p_paired": 4.028110489806045e-14,
+  "lemma_pairs": 242,
+  "lemma_only_marker": 92,
+  "lemma_only_control": 35,
+  "p_lemma": 2.1804525057413582e-07,
   "pairs": {
    "como": [
     "like"
@@ -1802,6 +1806,10 @@
   "pairs_only_marker": 171,
   "pairs_only_control": 53,
   "p_paired": 5.629775037553272e-16,
+  "lemma_pairs": 347,
+  "lemma_only_marker": 124,
+  "lemma_only_control": 45,
+  "p_lemma": 4.903774536406385e-10,
   "pairs": {
    "findings": [
     "resultados"
@@ -3346,6 +3354,23 @@
    "works": [
     "funciona"
    ]
+  }
+ },
+ "check": {
+  "markers": {
+   "words": 24,
+   "correct": 23,
+   "missing": 0
+  },
+  "controls": {
+   "words": 26,
+   "correct": 25,
+   "missing": 1
+  },
+  "all": {
+   "words": 50,
+   "correct": 48,
+   "missing": 1
   }
  }
 }
