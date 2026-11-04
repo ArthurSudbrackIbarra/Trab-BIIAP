@@ -59,8 +59,9 @@
   adapted the excess-vocabulary method that Kobak et al. applied to PubMed to this smaller corpus in
   two languages, compared the two abstracts of the same papers, tested whether the Portuguese marker
   words translate English ones, and asked three chatbots to rewrite abstracts written before
-  ChatGPT. From 2018 to 2022, at most six style words a year rose above the trend of the preceding
-  years, against 108 in English and 69 in Portuguese in 2025. If the texts that no LLM touched
+  ChatGPT. From 2018 to 2022, few style words became more common than their trend predicted, at
+  most six a year in each language. In 2025, there were 108 such words in English and 69 in
+  Portuguese. If the texts that no LLM touched
   kept to their trend, at least 17\% of the English and 13\% of the Portuguese abstracts of 2025
   went through an LLM. In the same papers, the English abstracts did not gain clearly more marker
   words than the Portuguese ones, and the Portuguese abstracts gained them even when the English
@@ -78,9 +79,9 @@ Since OpenAI released ChatGPT on 30 November 2022 \cite{openai2022chatgpt}, chat
 language models (LLMs) have become everyday writing tools in research. In a 2025 survey of more
 than 5,000 researchers, about 28\% had used AI to edit a paper, and most of those who had used AI
 had not disclosed it \cite{kwon2025ok}. Journals and publishers had set rules early on: an LLM
-cannot be listed as an author, and its use must be disclosed \cite{nature2023tools}. In 2023,
-slightly over 1\% of all articles, some 60,000 papers, already showed signs of LLM use, yet explicit
-disclosures of that use were very rare \cite{gray2024contamination}.
+cannot be listed as an author, and its use must be disclosed \cite{nature2023tools}. In 2023, at
+least 60,000 papers, slightly over 1\% of all articles, already showed signs of LLM use, yet
+explicit disclosures of that use were very rare \cite{gray2024contamination}.
 
 Measuring use from the text itself avoids relying on what authors report. In PubMed abstracts,
 words such as \w{delves} and \w{underscores} rose far above their trend after 2022, much as
@@ -118,9 +119,11 @@ likely to seek help in the language they master less, chatbots learn mostly from
 in Korean journals the English abstracts changed earlier and more than the Korean ones
 \cite{koo2026lexical,lee2026korean}. H3 states that the Portuguese words that rose above their
 trend are mostly style words and differ from the English ones, as would be expected if chatbots had
-separate stylistic preferences in each language. The rise of AI-associated words across languages
-in news \cite{juzek2026crosslingual} points the other way, toward shared words, and the test of H3
-decides between the two.
+separate stylistic preferences in each language. A study of news in 34 languages suggests
+otherwise: GPT-4.1 overused verbs meaning \w{emphasize} in 24 of these languages, and its most
+overused words became more common in most of them after ChatGPT \cite{juzek2026crosslingual}. If
+chatbots behave the same way in scientific abstracts, most of the Portuguese words should be
+translations of the English ones.
 
 Our objective is to measure this footprint year by year in both languages and to compare the two
 abstracts of the same papers. The study makes five contributions:
@@ -343,9 +346,9 @@ abstracts. As in Kobak et al., a word is a sequence of four or more letters, whi
 out most function words; we lowercase the text, keep accented letters, split words at hyphens and
 digits, and count each word once per abstract and as written, not by dictionary form.
 
-To pair the two languages, we used ArticleMeta, which keeps every abstract of an article. It
-answers slowly, so instead of the whole collection we drew a random sample of 1,300 articles per
-year from all the journals. After the same cleaning, 9,312 papers from 315 journals had a usable
+To pair the two languages, we used ArticleMeta, which keeps every abstract of an article. Because
+it takes one to three seconds to return each article, we drew a random sample of 1,300 articles
+per year from all the journals instead of downloading the whole collection. After the same cleaning, 9,312 papers from 315 journals had a usable
 abstract in both Portuguese and English, from 695 to 865 per year.
 
 \subsection{Excess words}
@@ -467,7 +470,7 @@ to submit to a journal, keeping its meaning, data and numbers, and for the reply
 Three chatbots did every task with the same prompt, in batches of ten abstracts per new
 conversation, on 30 and 31 October 2026. They were ChatGPT (GPT-6 Luna, the model of the free
 plan, in temporary chats), Gemini 3.6 Flash (Google AI Pro plan) and Claude Sonnet 5.5 (through the
-command-line mode of Claude Code, without tools). All 720 replies came back complete. For each text,
+command-line mode of Claude Code, without tools). For each text,
 we counted the H3 markers before and after the chatbot's pass, with intervals from resampling the
 texts, and we listed the words each model adds or drops, counting a word when the number of texts
 that contain it changes by at least 4 of 80. To compare with the same papers, we also checked
@@ -594,9 +597,9 @@ of the article, it is 1.7 points for papers written in Portuguese and 3.1 for th
 English, although the placebo of the first group, 5.4 points, is too large to read it alone. With about 700 papers in each of these years, the data are
 compatible with no difference and with an English lead of up to about 7 points, so a small lead
 cannot be ruled out. Both rises also include the slow growth that the two languages shared before
-2023 (Figure~\ref{fig:same-paper}), which the difference cancels. The comparison concerns markers,
-not editing: since the markers catch an edit more easily in English (Section~\ref{sec:experiment}),
-similar rises do not imply similar use.
+2023 (Figure~\ref{fig:same-paper}), which the difference cancels. Similar rises in markers need not
+mean similar use, since an edit is more likely to leave a marker in an English abstract than in a
+Portuguese one (Section~\ref{sec:experiment}).
 
 \begin{table}[!htb]
   \centering
@@ -813,9 +816,9 @@ detectors applied to one text at a time.
 \label{sec:conclusion}
 
 LLM chatbots have left a measurable footprint in the abstracts of the SciELO Brazil journals that
-deposit them in Crossref, in Portuguese as well as in English. From 2018 to 2022 at most six style
-words a year rose above the trend of the preceding years, against 108 in English and 69 in
-Portuguese in 2025, which supports H1. If the texts that no LLM touched kept to their trend, at
+deposit them in Crossref, in Portuguese as well as in English. From 2018 to 2022, before ChatGPT,
+at most six style words a year in each language became more common than their trend predicted. In
+2025, there were 108 such words in English and 69 in Portuguese, which supports H1. If the texts that no LLM touched kept to their trend, at
 least 17\% of the English and 13\% of the Portuguese abstracts of 2025 went through an LLM, and the
 tighter form of the bound raises these shares to about 30\% and 22\%. In the same papers, the
 English abstracts did not gain clearly more markers than the Portuguese ones, so H2 is not
@@ -837,8 +840,8 @@ words on their own. The style labels
 come from an LLM whose agreement with a single annotator, the first author, who knew the
 hypotheses, was fair to moderate ($\kappa$ of 0.50 in Portuguese and 0.36 in English). In the H3
 test, the controls match the markers in frequency but not in part of speech, and an LLM translated
-each word without context. The experiment used 80 texts per task and one pass, through different
-interfaces (Claude through Claude Code rather than the chat researchers use); texts sent in the
+each word without context. The experiment used 80 texts per task, one pass and a different
+interface for each chatbot; texts sent in the
 same conversation may not be independent, which would make its intervals too narrow, and its
 markers come from a corpus in which ChatGPT was probably the most used chatbot. Finally, we studied
 abstracts only and set the Spanish ones aside.
