@@ -97,6 +97,11 @@ Build from `Artigo/` with `latexmk <file>.tex`. `Artigo/.latexmkrc` selects pdfl
 everything to `Artigo/build/` (generated, never commit it). The template compiled cleanly this way
 on 2026-10-30: 4 pages, accents and bibliography correct.
 
+The paper is `Artigo/paper.tex` (`latexmk paper.tex`; the PDF lands in `Artigo/build/paper.pdf`).
+Its figures are in `Artigo/figures/`: TikZ and pgfplots files whose numbers come from `analysis/`,
+and screenshots of the English site taken at 2x in headless Chrome. Do not load `hyperref`: with
+`sbc-template.sty` it stops the build (`\normalsfcodes` undefined), so URLs use the `url` package.
+
 Template caveats:
 
 - The shipped preamble loaded `inputenc` twice, `utf8` and then `latin1`, an option clash that
@@ -354,6 +359,17 @@ author's Google AI Pro plan, same file names, 240 of 240, no warnings).
 translation with the authors' English): markers per text with a bootstrap interval, the words
 each model adds and drops (a word counts when its number of texts changes by at least 4 of 80),
 and a Fisher test of markers among added against dropped words.
+
+**Paper (drafted 2026-11-04).** `Artigo/paper.tex` follows `docs/paper-plan.md`: 19 pages, 51
+references, six figures (pipeline, excess words, the H2 timing, three screenshots of the site) and
+four tables (related work, lower bound, H2, experiment); the H3 numbers sit in the text. Every cited
+number was checked against its source on 2026-11-04. Two corrections came out of it: Liang et al.'s
+22% is a share of sentences, not of abstracts, and Lee (2026) already saw the English abstracts of
+Korean journals lead, so the paper claims the same-paper difference in differences, not the first
+look at the lag. The AI-use declaration follows the author's decision of 2026-11-04: brief, naming
+Claude (Claude Code, Claude Opus 5.5) for improving the writing, searching the literature and
+speeding up the site's code; the LLM steps of the method (labels, translations, the experiment) are
+described in the Methodology.
 
 Open items:
 

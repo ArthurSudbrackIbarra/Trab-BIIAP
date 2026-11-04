@@ -48,7 +48,7 @@ bound. The Method page of the site explains each change.
 | `analysis/` | Reports and tables produced by the scripts |
 | `experiment/` | Prompts, batches and the replies of ChatGPT, Gemini and Claude |
 | `site/` | The IAês site: page generator, templates, texts in both languages, scripts and data |
-| `Artigo/` | The paper, in the SBC LaTeX template |
+| `Artigo/` | The paper (`paper.tex`), its figures and references, in the SBC LaTeX template |
 | `docs/` | Project notes, the paper plan and the AI usage log |
 
 ## Reproducing
@@ -89,6 +89,9 @@ python3 -I scripts/pairs.py compare
 python3 -I scripts/build_site_data.py all
 python3 -I site/build.py
 python3 -m http.server 8000 -d site/dist
+
+# paper, written to Artigo/build/paper.pdf (needs a TeX distribution)
+cd Artigo && latexmk paper.tex
 ```
 
 The steps that call Claude (`label`, `controls` and `translate`) need Claude Code; the labels and

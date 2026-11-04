@@ -1,0 +1,39 @@
+% Figure 2: excess words per year by label, rolling baseline (analysis/report.md).
+\begin{tikzpicture}
+  \begin{groupplot}[
+      group style={group size=2 by 1, horizontal sep=0.55cm, y descriptions at=edge left},
+      width=0.515\textwidth, height=5.1cm,
+      ybar stacked, /pgf/bar width=7.5pt,
+      ymin=0, ymax=290, xmin=2017.4, xmax=2026.6,
+      xtick={2018,2020,2022,2024,2026}, minor xtick={2019,2021,2023,2025},
+      xticklabels={2018,2020,2022,2024,2026},
+      ytick={0,50,100,150,200,250},
+      tick label style={font=\scriptsize}, label style={font=\footnotesize},
+      title style={font=\footnotesize\bfseries, yshift=-3pt},
+      axis lines*=left, ymajorgrids, grid style={gridline}, major tick length=2pt,
+      minor tick length=1.5pt, axis line style={ink2}, tick style={ink2},
+    ]
+    \nextgroupplot[title={Portuguese abstracts}, ylabel={Excess words},
+      legend style={at={(0.03,0.97)}, anchor=north west, draw=none, fill=none,
+        font=\scriptsize, cells={anchor=west}},
+      legend image code/.code={\fill[#1] (0cm,-0.08cm) rectangle (0.24cm,0.12cm);}]
+    \addplot[fill=excess, draw=none] coordinates
+      {(2018,1) (2019,0) (2020,1) (2021,0) (2022,0) (2023,2) (2024,10) (2025,69) (2026,126)};
+    \addplot[fill=content, draw=none] coordinates
+      {(2018,0) (2019,0) (2020,10) (2021,10) (2022,0) (2023,2) (2024,3) (2025,16) (2026,48)};
+    \addplot[fill=ambiguous, draw=none] coordinates
+      {(2018,0) (2019,0) (2020,5) (2021,4) (2022,0) (2023,2) (2024,0) (2025,16) (2026,48)};
+    \legend{style, content, ambiguous}
+    \draw[ink2, densely dashed] (axis cs:2022.5,0) -- (axis cs:2022.5,215)
+      node[above, font=\scriptsize, ink2] {ChatGPT};
+    \nextgroupplot[title={English abstracts}]
+    \addplot[fill=excess, draw=none] coordinates
+      {(2018,3) (2019,0) (2020,4) (2021,4) (2022,6) (2023,14) (2024,50) (2025,108) (2026,150)};
+    \addplot[fill=content, draw=none] coordinates
+      {(2018,1) (2019,0) (2020,6) (2021,12) (2022,2) (2023,7) (2024,5) (2025,24) (2026,26)};
+    \addplot[fill=ambiguous, draw=none] coordinates
+      {(2018,0) (2019,0) (2020,3) (2021,3) (2022,3) (2023,14) (2024,4) (2025,31) (2026,100)};
+    \draw[ink2, densely dashed] (axis cs:2022.5,0) -- (axis cs:2022.5,215)
+      node[above, font=\scriptsize, ink2] {ChatGPT};
+  \end{groupplot}
+\end{tikzpicture}
