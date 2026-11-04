@@ -289,8 +289,10 @@ abstract than in the Portuguese abstract of the same paper?
   (2.4) and stays between 0.2 and 2.7 in every robustness variant. With the 2025 sets on every
   year, English led in 2024 (8.6 against 1.8 points, difference 6.8 [0.8, 12.8]) and Portuguese
   caught up in 2025. The growth is in papers with markers in both abstracts (15% to 31% with the
-  2025 sets), while papers with markers in English only went from 23% to 24%. So H2 holds for 2024
-  only. The placebo of the papers written in Portuguese is 5.4 [-0.2, 10.9], too large to read the
+  2025 sets), while papers with markers in English only went from 23% to 24%. The paper reads
+  this as H2 not supported: the main test finds no English lead, and the 2024 lead comes from an
+  exploratory check that marker turnover and Portuguese inflection may also explain (review of
+  2026-11-04). The placebo of the papers written in Portuguese is 5.4 [-0.2, 10.9], too large to read the
   subgroups by article language.
 - Rewriting experiment (2026-10-31, 80 texts per task and model). Word analysis
   (`experiment.py analyze`, `analysis/experiment/report.md`, markers = the H3 markers): polishing an
@@ -360,10 +362,13 @@ translation with the authors' English): markers per text with a bootstrap interv
 each model adds and drops (a word counts when its number of texts changes by at least 4 of 80),
 and a Fisher test of markers among added against dropped words.
 
-**Paper (drafted 2026-11-04).** `Artigo/paper.tex` follows `docs/paper-plan.md`: 19 pages, 51
+**Paper (drafted 2026-11-04).** `Artigo/paper.tex` follows `docs/paper-plan.md`: 20 pages, 48
 references, six figures (pipeline, excess words, the H2 timing, three screenshots of the site) and
 four tables (related work, lower bound, H2, experiment); the H3 numbers sit in the text. Every cited
-number was checked against its source on 2026-11-04. Two corrections came out of it: Liang et al.'s
+number was checked against its source on 2026-11-04, and a subagent reviewed the PDF with the ENIAC
+reviewer skill (accept, with fixes that were applied: the H2 verdict, the assumption behind the
+lower bound, credit to Lee 2026, the 195,600 abstracts analysed, an exact McNemar test for H3, which
+`crosslang.py compare` now reports next to Fisher's test). Two corrections came out of it: Liang et al.'s
 22% is a share of sentences, not of abstracts, and Lee (2026) already saw the English abstracts of
 Korean journals lead, so the paper claims the same-paper difference in differences, not the first
 look at the lag. The AI-use declaration follows the author's decision of 2026-11-04: brief, naming

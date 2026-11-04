@@ -6,7 +6,9 @@ paper as figures.
 The draft was written on 2026-11-04 in `Artigo/paper.tex`. Changes from this plan: the H3 table
 became two sentences in the text; the H2 figure is a pgfplots chart of the year-by-year test, not
 the site's hexbins; the word map is out; the AI-use declaration is brief, by the author's decision;
-and about 50 references are cited, each claim checked against its source. Deadline about 2026-11-05 (to confirm). Paper in English, SBC template, 12 to 20
+about 50 references are cited, each claim checked against its source; and, after the ENIAC-style
+review, H2 reads as not supported (the 2024 English lead comes from an exploratory check) and H3
+uses an exact McNemar test on the marker-control pairs. Deadline about 2026-11-05 (to confirm). Paper in English, SBC template, 12 to 20
 pages, every text through the humanizer, no em dashes, no mention of the author's master's.
 References: `Artigo/references.bib`, every DOI checked at doi.org (see "References" below).
 

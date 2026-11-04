@@ -5,6 +5,9 @@
   "controls": 349,
   "controls_hit": 154,
   "p": 3.226350780233867e-14,
+  "pairs_only_marker": 138,
+  "pairs_only_control": 40,
+  "p_paired": 4.028110489806045e-14,
   "pairs": {
    "como": [
     "like"
@@ -1179,48 +1182,17 @@
    "sobre"
   ],
   "control_pairs": {
-   "resultantes": [
-    "resulting"
+   "abordado": [
+    "addresses",
+    "addressing",
+    "approach",
+    "approaches"
    ],
-   "contextualizar": [
-    "situating"
-   ],
-   "compreende": [
-    "comprising",
-    "including"
-   ],
-   "implica": [
-    "involves",
-    "involving"
-   ],
-   "insuficientemente": [
-    "insufficiently"
-   ],
-   "permanecer": [
-    "persist",
-    "persisted",
-    "remain",
-    "remained",
-    "remains"
-   ],
-   "estiveram": [
-    "remain",
-    "remained",
-    "remains"
-   ],
-   "atuam": [
-    "acts",
-    "operate",
-    "operates"
-   ],
-   "caracterizada": [
-    "marked"
-   ],
-   "consideradas": [
-    "deemed"
-   ],
-   "baixos": [
-    "based"
+   "abordando": [
+    "addresses",
+    "addressing",
+    "approach",
+    "approaches"
    ],
    "abordar": [
     "addresses",
@@ -1228,122 +1200,15 @@
     "approach",
     "approaches"
    ],
-   "realidade": [
-    "realities"
+   "abrangentes": [
+    "broader",
+    "comprehensive",
+    "ranging"
    ],
-   "alcançados": [
-    "achieve",
-    "achieved",
-    "achieves",
-    "achieving"
-   ],
-   "notáveis": [
-    "notable"
-   ],
-   "insuficiente": [
-    "insufficient"
-   ],
-   "ademais": [
-    "furthermore"
-   ],
-   "refletiu": [
-    "reflecting",
-    "reflects"
-   ],
-   "verificados": [
-    "confirmed"
-   ],
-   "aplicamos": [
-    "using"
-   ],
-   "precisar": [
-    "require",
-    "requires"
-   ],
-   "utilizamos": [
-    "employed",
-    "employs",
-    "using",
-    "utilized",
-    "utilizing"
-   ],
-   "original": [
-    "novel"
-   ],
-   "opção": [
-    "alternative"
-   ],
-   "adotadas": [
-    "adopts"
-   ],
-   "constituindo": [
-    "comprising",
-    "constitutes"
-   ],
-   "oferecida": [
-    "offering",
-    "provides"
-   ],
-   "avalia": [
-    "assessed",
-    "assessing",
-    "evaluates"
-   ],
-   "aproximou": [
-    "approach",
-    "approaches"
-   ],
-   "precisou": [
-    "require",
-    "requires"
-   ],
-   "pretende": [
-    "planning"
-   ],
-   "compará": [
-    "compares"
-   ],
-   "aponta": [
-    "indicate",
-    "indicated"
-   ],
-   "preocupação": [
-    "concerns"
-   ],
-   "identificados": [
-    "identifies",
-    "identifying"
-   ],
-   "restrita": [
-    "limited"
-   ],
-   "apontamentos": [
-    "notes"
-   ],
-   "dando": [
-    "provides"
-   ],
-   "compreendeu": [
-    "comprising",
+   "abrangeu": [
+    "covering",
+    "encompassing",
     "including"
-   ],
-   "continua": [
-    "remain",
-    "remained",
-    "remains"
-   ],
-   "visam": [
-    "targeted",
-    "targeting"
-   ],
-   "traçando": [
-    "outlined"
-   ],
-   "disto": [
-    "this"
-   ],
-   "pelo": [
-    "through"
    ],
    "abrangência": [
     "ranging"
@@ -1352,133 +1217,25 @@
     "marked",
     "pronounced"
    ],
-   "inserido": [
-    "including"
-   ],
-   "necessitam": [
-    "require",
-    "requires"
-   ],
-   "considerado": [
-    "deemed"
-   ],
-   "associação": [
-    "associations"
-   ],
-   "tornando": [
-    "become"
-   ],
-   "repercussões": [
-    "impacts"
-   ],
-   "demonstrado": [
-    "demonstrated"
-   ],
-   "utilizaram": [
-    "using",
-    "utilized",
-    "utilizing"
-   ],
-   "esse": [
-    "this"
-   ],
-   "trataram": [
-    "addresses",
-    "addressing"
-   ],
-   "estes": [
-    "this"
-   ],
-   "atenderam": [
-    "serve",
-    "serves",
-    "serving"
-   ],
-   "atuais": [
-    "contemporary",
-    "presents"
-   ],
-   "geral": [
-    "comprehensive",
-    "overall"
-   ],
-   "utilizado": [
-    "using",
-    "utilized",
-    "utilizing"
-   ],
-   "embasadas": [
-    "based",
-    "grounded"
-   ],
-   "nesses": [
-    "this"
-   ],
-   "interagem": [
-    "engage",
-    "engages",
-    "engaging"
-   ],
-   "apresentaram": [
-    "introduces",
-    "presents",
-    "show"
-   ],
-   "constituídos": [
-    "constitutes"
-   ],
-   "comparados": [
-    "compares"
-   ],
-   "tradicionalmente": [
-    "traditionally"
-   ],
-   "direcionada": [
-    "targeted",
-    "targeting"
-   ],
-   "aproximando": [
-    "approach",
-    "approaches"
-   ],
-   "consideramos": [
-    "deemed"
-   ],
-   "inédito": [
-    "novel"
-   ],
-   "defendo": [
-    "argues"
-   ],
-   "construiu": [
-    "constructing"
-   ],
-   "especial": [
-    "particular"
-   ],
-   "ambos": [
-    "both"
-   ],
-   "diferenças": [
-    "distinction"
-   ],
-   "participaram": [
-    "shared"
-   ],
-   "descrições": [
-    "accounted"
-   ],
-   "explicação": [
-    "accounted"
+   "ademais": [
+    "furthermore"
    ],
    "adota": [
     "adopts"
    ],
-   "operacionalizada": [
-    "practices"
+   "adotadas": [
+    "adopts"
    ],
-   "estudado": [
-    "examined"
+   "afetam": [
+    "affecting",
+    "impacts",
+    "influence"
+   ],
+   "alcançados": [
+    "achieve",
+    "achieved",
+    "achieves",
+    "achieving"
    ],
    "alcançou": [
     "achieve",
@@ -1486,68 +1243,354 @@
     "achieves",
     "achieving"
    ],
-   "refletidas": [
-    "reflecting",
-    "reflects"
+   "alinham": [
+    "align",
+    "aligning",
+    "aligns"
    ],
-   "indica": [
-    "indicate",
-    "indicated",
+   "ambos": [
+    "both"
+   ],
+   "analisada": [
+    "analyzed",
+    "analyzes",
+    "examine",
+    "examined",
+    "examines",
+    "examining"
+   ],
+   "analisado": [
+    "analyzed",
+    "analyzes",
+    "examine",
+    "examined",
+    "examines",
+    "examining"
+   ],
+   "aparece": [
+    "emerged",
+    "emerges",
+    "emerging",
     "show"
    ],
-   "desse": [
-    "this"
+   "aplicamos": [
+    "using"
+   ],
+   "apoiada": [
+    "based"
+   ],
+   "aponta": [
+    "indicate",
+    "indicated"
+   ],
+   "apontado": [
+    "indicate",
+    "indicated"
+   ],
+   "apontamentos": [
+    "notes"
+   ],
+   "apresentaram": [
+    "introduces",
+    "presents",
+    "show"
+   ],
+   "aproximando": [
+    "approach",
+    "approaches"
+   ],
+   "aproximou": [
+    "approach",
+    "approaches"
    ],
    "articuladas": [
     "coordinated"
    ],
-   "provocar": [
-    "causing"
+   "associação": [
+    "associations"
    ],
-   "efetivo": [
-    "effective"
+   "atenderam": [
+    "serve",
+    "serves",
+    "serving"
+   ],
+   "atrelada": [
+    "linked",
+    "linking"
+   ],
+   "atuais": [
+    "contemporary",
+    "presents"
+   ],
+   "atuam": [
+    "acts",
+    "operate",
+    "operates"
+   ],
+   "avalia": [
+    "assessed",
+    "assessing",
+    "evaluates"
    ],
    "avaliaram": [
     "assessed",
     "assessing",
     "evaluates"
    ],
-   "apontado": [
-    "indicate",
-    "indicated"
+   "avançam": [
+    "advances",
+    "advancing"
    ],
-   "reduzidas": [
-    "limited"
+   "baixos": [
+    "based"
+   ],
+   "caracterizada": [
+    "marked"
+   ],
+   "comparados": [
+    "compares"
+   ],
+   "comparação": [
+    "comparisons"
+   ],
+   "compará": [
+    "compares"
+   ],
+   "compreende": [
+    "comprising",
+    "including"
+   ],
+   "compreendem": [
+    "comprising",
+    "including"
+   ],
+   "compreendemos": [
+    "including"
+   ],
+   "compreendeu": [
+    "comprising",
+    "including"
+   ],
+   "concepção": [
+    "designing"
+   ],
+   "configurações": [
+    "settings"
+   ],
+   "considera": [
+    "deemed"
+   ],
+   "consideradas": [
+    "deemed"
+   ],
+   "considerado": [
+    "deemed"
+   ],
+   "consideramos": [
+    "deemed"
+   ],
+   "consolidada": [
+    "strengthened"
+   ],
+   "constituindo": [
+    "comprising",
+    "constitutes"
+   ],
+   "constituídos": [
+    "constitutes"
+   ],
+   "construiu": [
+    "constructing"
+   ],
+   "construímos": [
+    "constructing"
+   ],
+   "contextualizar": [
+    "situating"
+   ],
+   "continua": [
+    "remain",
+    "remained",
+    "remains"
+   ],
+   "dando": [
+    "provides"
+   ],
+   "debater": [
+    "argues"
+   ],
+   "defendem": [
+    "argues"
+   ],
+   "defendo": [
+    "argues"
+   ],
+   "demonstrado": [
+    "demonstrated"
+   ],
+   "descrições": [
+    "accounted"
+   ],
+   "desfecho": [
+    "outcomes"
+   ],
+   "desse": [
+    "this"
    ],
    "diferentes": [
     "distinct",
     "various"
+   ],
+   "diferenças": [
+    "distinction"
+   ],
+   "direcionada": [
+    "targeted",
+    "targeting"
+   ],
+   "disto": [
+    "this"
+   ],
+   "diversos": [
+    "various"
+   ],
+   "efetivo": [
+    "effective"
+   ],
+   "embasadas": [
+    "based",
+    "grounded"
+   ],
+   "empregam": [
+    "employed",
+    "employs",
+    "using"
+   ],
+   "especial": [
+    "particular"
    ],
    "específico": [
     "distinct",
     "particular",
     "specific"
    ],
-   "notável": [
-    "notable"
-   ],
-   "abordado": [
-    "addresses",
-    "addressing",
-    "approach",
-    "approaches"
-   ],
-   "avançam": [
-    "advances",
-    "advancing"
-   ],
-   "resulta": [
-    "resulting"
-   ],
    "específicos": [
     "distinct",
     "particular",
     "specific"
+   ],
+   "esse": [
+    "this"
+   ],
+   "estas": [
+    "these"
+   ],
+   "estes": [
+    "this"
+   ],
+   "estiveram": [
+    "remain",
+    "remained",
+    "remains"
+   ],
+   "estruturação": [
+    "structure",
+    "structured"
+   ],
+   "estudado": [
+    "examined"
+   ],
+   "evidenciada": [
+    "demonstrated",
+    "highlight",
+    "highlighted",
+    "highlighting",
+    "highlights",
+    "show"
+   ],
+   "exibir": [
+    "exhibit",
+    "exhibited",
+    "exhibiting",
+    "exhibits",
+    "show"
+   ],
+   "explicação": [
+    "accounted"
+   ],
+   "formada": [
+    "shape",
+    "shaped",
+    "shapes",
+    "shaping"
+   ],
+   "formas": [
+    "shape",
+    "shaped",
+    "shapes",
+    "shaping"
+   ],
+   "fornecem": [
+    "provides"
+   ],
+   "geral": [
+    "comprehensive",
+    "overall"
+   ],
+   "holística": [
+    "holistic"
+   ],
+   "identificados": [
+    "identifies",
+    "identifying"
+   ],
+   "impactou": [
+    "affecting",
+    "impacts",
+    "influence"
+   ],
+   "implica": [
+    "involves",
+    "involving"
+   ],
+   "indica": [
+    "indicate",
+    "indicated",
+    "show"
+   ],
+   "influenciaram": [
+    "affecting",
+    "influence",
+    "shape",
+    "shaped",
+    "shapes",
+    "shaping"
+   ],
+   "inserido": [
+    "including"
+   ],
+   "insuficiente": [
+    "insufficient"
+   ],
+   "insuficientemente": [
+    "insufficiently"
+   ],
+   "interagem": [
+    "engage",
+    "engages",
+    "engaging"
+   ],
+   "inédito": [
+    "novel"
+   ],
+   "juntamente": [
+    "along"
+   ],
+   "lacunas": [
+    "gaps"
+   ],
+   "ligados": [
+    "linked"
    ],
    "melhorar": [
     "enhance",
@@ -1561,79 +1604,75 @@
    "mitigar": [
     "mitigating"
    ],
+   "moderna": [
+    "contemporary"
+   ],
+   "necessidades": [
+    "necessity"
+   ],
+   "necessitam": [
+    "require",
+    "requires"
+   ],
+   "nesses": [
+    "this"
+   ],
+   "notáveis": [
+    "notable"
+   ],
+   "notável": [
+    "notable"
+   ],
    "objetivos": [
     "goals",
     "objectives"
    ],
-   "fornecem": [
+   "oferecida": [
+    "offering",
     "provides"
-   ],
-   "compreendem": [
-    "comprising",
-    "including"
-   ],
-   "abrangeu": [
-    "covering",
-    "encompassing",
-    "including"
-   ],
-   "diversos": [
-    "various"
-   ],
-   "considera": [
-    "deemed"
-   ],
-   "atrelada": [
-    "linked",
-    "linking"
-   ],
-   "analisada": [
-    "analyzed",
-    "analyzes",
-    "examine",
-    "examined",
-    "examines",
-    "examining"
-   ],
-   "formas": [
-    "shape",
-    "shaped",
-    "shapes",
-    "shaping"
-   ],
-   "consolidada": [
-    "strengthened"
-   ],
-   "configurações": [
-    "settings"
-   ],
-   "padronizadas": [
-    "standardized"
-   ],
-   "estruturação": [
-    "structure",
-    "structured"
-   ],
-   "construímos": [
-    "constructing"
-   ],
-   "afetam": [
-    "affecting",
-    "impacts",
-    "influence"
-   ],
-   "lacunas": [
-    "gaps"
    ],
    "opera": [
     "operate",
     "operates"
    ],
-   "tradicional": [
-    "conventional"
+   "operacionalizada": [
+    "practices"
    ],
-   "apoiada": [
-    "based"
+   "opção": [
+    "alternative"
+   ],
+   "original": [
+    "novel"
+   ],
+   "padronizadas": [
+    "standardized"
+   ],
+   "participaram": [
+    "shared"
+   ],
+   "pelo": [
+    "through"
+   ],
+   "permanecer": [
+    "persist",
+    "persisted",
+    "remain",
+    "remained",
+    "remains"
+   ],
+   "precisar": [
+    "require",
+    "requires"
+   ],
+   "precisou": [
+    "require",
+    "requires"
+   ],
+   "preocupação": [
+    "concerns"
+   ],
+   "pretende": [
+    "planning"
    ],
    "propiciou": [
     "enabled",
@@ -1642,73 +1681,58 @@
     "fosters",
     "provides"
    ],
-   "desfecho": [
-    "outcomes"
+   "provoca": [
+    "causing"
    ],
-   "abordando": [
-    "addresses",
-    "addressing",
-    "approach",
-    "approaches"
+   "provocar": [
+    "causing"
    ],
-   "somente": [
-    "merely",
-    "solely"
+   "realidade": [
+    "realities"
    ],
-   "abrangentes": [
-    "broader",
-    "comprehensive",
-    "ranging"
+   "reduzidas": [
+    "limited"
    ],
-   "aparece": [
-    "emerged",
-    "emerges",
-    "emerging",
-    "show"
+   "refletidas": [
+    "reflecting",
+    "reflects"
+   ],
+   "refletiu": [
+    "reflecting",
+    "reflects"
    ],
    "relacionadas": [
     "associated"
    ],
-   "impactou": [
-    "affecting",
-    "impacts",
-    "influence"
+   "repercussões": [
+    "impacts"
    ],
-   "provoca": [
-    "causing"
+   "restrita": [
+    "limited"
    ],
-   "necessidades": [
-    "necessity"
-   ],
-   "compreendemos": [
-    "including"
-   ],
-   "influenciaram": [
-    "affecting",
-    "influence",
-    "shape",
-    "shaped",
-    "shapes",
-    "shaping"
-   ],
-   "ligados": [
-    "linked"
+   "resulta": [
+    "resulting"
    ],
    "resultante": [
     "resulting"
    ],
-   "tratamos": [
-    "addresses",
-    "addressing"
-   ],
-   "concepção": [
-    "designing"
+   "resultantes": [
+    "resulting"
    ],
    "robustos": [
     "robust",
     "strong",
     "stronger",
     "strongest"
+   ],
+   "servem": [
+    "serve",
+    "serves",
+    "serving"
+   ],
+   "somente": [
+    "merely",
+    "solely"
    ],
    "sugere": [
     "proposed",
@@ -1717,31 +1741,45 @@
     "suggesting",
     "suggests"
    ],
-   "exibir": [
-    "exhibit",
-    "exhibited",
-    "exhibiting",
-    "exhibits",
-    "show"
+   "tornando": [
+    "become"
    ],
-   "empregam": [
+   "tradicional": [
+    "conventional"
+   ],
+   "tradicionalmente": [
+    "traditionally"
+   ],
+   "tratamos": [
+    "addresses",
+    "addressing"
+   ],
+   "trataram": [
+    "addresses",
+    "addressing"
+   ],
+   "traçando": [
+    "outlined"
+   ],
+   "utilizado": [
+    "using",
+    "utilized",
+    "utilizing"
+   ],
+   "utilizamos": [
     "employed",
     "employs",
-    "using"
+    "using",
+    "utilized",
+    "utilizing"
    ],
-   "formada": [
-    "shape",
-    "shaped",
-    "shapes",
-    "shaping"
+   "utilizaram": [
+    "using",
+    "utilized",
+    "utilizing"
    ],
-   "analisado": [
-    "analyzed",
-    "analyzes",
-    "examine",
-    "examined",
-    "examines",
-    "examining"
+   "verificados": [
+    "confirmed"
    ],
    "verificamos": [
     "confirm",
@@ -1749,44 +1787,9 @@
     "confirming",
     "confirms"
    ],
-   "servem": [
-    "serve",
-    "serves",
-    "serving"
-   ],
-   "debater": [
-    "argues"
-   ],
-   "holística": [
-    "holistic"
-   ],
-   "alinham": [
-    "align",
-    "aligning",
-    "aligns"
-   ],
-   "comparação": [
-    "comparisons"
-   ],
-   "estas": [
-    "these"
-   ],
-   "defendem": [
-    "argues"
-   ],
-   "moderna": [
-    "contemporary"
-   ],
-   "evidenciada": [
-    "demonstrated",
-    "highlight",
-    "highlighted",
-    "highlighting",
-    "highlights",
-    "show"
-   ],
-   "juntamente": [
-    "along"
+   "visam": [
+    "targeted",
+    "targeting"
    ]
   }
  },
@@ -1796,6 +1799,9 @@
   "controls": 437,
   "controls_hit": 94,
   "p": 2.749609759809399e-17,
+  "pairs_only_marker": 171,
+  "pairs_only_control": 53,
+  "p_paired": 5.629775037553272e-16,
   "pairs": {
    "findings": [
     "resultados"
@@ -2975,259 +2981,24 @@
    "through"
   ],
   "control_pairs": {
-   "sophisticated": [
-    "complexa"
-   ],
-   "returned": [
-    "voltadas"
-   ],
-   "lasted": [
-    "permanece",
-    "permanecem",
-    "permaneceu"
-   ],
-   "noticed": [
-    "observa",
-    "observou"
-   ],
-   "emphasized": [
-    "destaca",
-    "destacam",
-    "destacando"
-   ],
-   "favor": [
-    "favorece",
-    "favorecendo",
-    "favorecer"
-   ],
-   "contrasts": [
-    "compara"
-   ],
-   "emerge": [
-    "emerge"
-   ],
-   "considers": [
-    "considerar"
-   ],
-   "arising": [
-    "decorre"
-   ],
-   "extending": [
-    "amplia",
-    "ampliam",
-    "ampliando",
-    "ampliar",
-    "ampliem"
-   ],
-   "shows": [
-    "demonstram"
-   ],
-   "perspective": [
-    "perspectivas"
-   ],
-   "indicates": [
-    "indicam",
-    "indicando",
-    "indicou"
-   ],
-   "circumstances": [
-    "condições"
-   ],
-   "observing": [
-    "observa",
-    "observou"
-   ],
-   "impact": [
-    "impacto",
-    "impactos"
-   ],
-   "restricted": [
-    "restringe"
-   ],
-   "intended": [
-    "intencional"
-   ],
-   "highest": [
-    "elevada",
-    "elevados"
-   ],
-   "clear": [
-    "claras"
+   "able": [
+    "capaz",
+    "capazes"
    ],
    "absence": [
     "ausência",
     "falta"
    ],
-   "favors": [
-    "favorece",
-    "favorecendo",
-    "favorecer"
-   ],
-   "modern": [
-    "contemporânea",
-    "contemporâneas",
-    "contemporâneos"
-   ],
-   "prevailed": [
-    "predominam",
-    "predominaram"
-   ],
-   "reveals": [
-    "revela",
-    "revelam",
-    "revelaram",
-    "revelou"
-   ],
-   "capacities": [
-    "capacidade"
-   ],
-   "worked": [
-    "funciona"
-   ],
-   "differentiate": [
-    "distingue"
+   "affects": [
+    "influenciam"
    ],
    "agreed": [
     "combina",
     "combinando",
     "combinou"
    ],
-   "before": [
-    "diante"
-   ],
-   "consisting": [
-    "consiste"
-   ],
-   "faced": [
-    "enfrenta",
-    "enfrentados",
-    "enfrentam",
-    "enfrentar"
-   ],
-   "outcome": [
-    "resultados"
-   ],
-   "played": [
-    "desempenha"
-   ],
-   "argue": [
-    "argumenta",
-    "discutindo",
-    "sustentada"
-   ],
-   "encountered": [
-    "enfrenta",
-    "enfrentados",
-    "enfrentam",
-    "enfrentar"
-   ],
-   "concentrating": [
-    "concentra",
-    "concentraram"
-   ],
-   "exploit": [
-    "explora",
-    "explorar"
-   ],
-   "especially": [
-    "especialmente"
-   ],
-   "discuss": [
-    "discutindo"
-   ],
-   "continuous": [
-    "contínua",
-    "contínuo"
-   ],
-   "analyzing": [
-    "analisa",
-    "analisando",
-    "analisou",
-    "examina",
-    "examinando",
-    "examinar",
-    "examinou"
-   ],
-   "arranged": [
-    "organiza"
-   ],
-   "surpass": [
-    "ultrapassa"
-   ],
-   "basis": [
-    "fundamentos"
-   ],
-   "affects": [
-    "influenciam"
-   ],
-   "recognize": [
-    "identificadas",
-    "identificaram",
-    "reconhecendo"
-   ],
-   "compared": [
-    "compara"
-   ],
-   "know": [
-    "reconhecendo"
-   ],
-   "consist": [
-    "consiste"
-   ],
-   "able": [
-    "capaz",
-    "capazes"
-   ],
-   "papers": [
-    "papel"
-   ],
-   "imperative": [
-    "essenciais",
-    "essencial"
-   ],
-   "supplementary": [
-    "complementam"
-   ],
-   "distinguishes": [
-    "distingue"
-   ],
-   "conditions": [
-    "condições"
-   ],
-   "associate": [
-    "associada"
-   ],
-   "stimulates": [
-    "incentivando"
-   ],
-   "consequence": [
-    "importância",
-    "resultados"
-   ],
-   "considering": [
-    "considerar"
-   ],
-   "relevant": [
-    "relevante"
-   ],
-   "offered": [
-    "oferece",
-    "oferecem",
-    "oferecendo"
-   ],
-   "researched": [
-    "investiga",
-    "investigando",
-    "investigou"
-   ],
-   "formed": [
-    "constituem",
-    "constitui",
-    "moldam",
-    "moldaram"
-   ],
-   "distinguishing": [
-    "distingue"
+   "alternatively": [
+    "como"
    ],
    "analyse": [
     "analisa",
@@ -3238,8 +3009,60 @@
     "examinar",
     "examinou"
    ],
-   "produces": [
-    "produzindo"
+   "analyzing": [
+    "analisa",
+    "analisando",
+    "analisou",
+    "examina",
+    "examinando",
+    "examinar",
+    "examinou"
+   ],
+   "argue": [
+    "argumenta",
+    "discutindo",
+    "sustentada"
+   ],
+   "argued": [
+    "argumenta",
+    "discutindo"
+   ],
+   "arising": [
+    "decorre"
+   ],
+   "arranged": [
+    "organiza"
+   ],
+   "associate": [
+    "associada"
+   ],
+   "basis": [
+    "fundamentos"
+   ],
+   "before": [
+    "diante"
+   ],
+   "capacities": [
+    "capacidade"
+   ],
+   "circumstances": [
+    "condições"
+   ],
+   "clear": [
+    "claras"
+   ],
+   "compare": [
+    "compara"
+   ],
+   "compared": [
+    "compara"
+   ],
+   "concentrating": [
+    "concentra",
+    "concentraram"
+   ],
+   "conditions": [
+    "condições"
    ],
    "confronting": [
     "enfrenta",
@@ -3247,82 +3070,35 @@
     "enfrentam",
     "enfrentar"
    ],
-   "alternatively": [
-    "como"
+   "consequence": [
+    "importância",
+    "resultados"
    ],
-   "argued": [
-    "argumenta",
-    "discutindo"
+   "considering": [
+    "considerar"
    ],
-   "high": [
-    "elevada",
-    "elevados"
+   "considers": [
+    "considerar"
    ],
-   "encourages": [
-    "incentivando"
-   ],
-   "discussions": [
-    "debate",
-    "debates"
-   ],
-   "supplemental": [
-    "complementam"
-   ],
-   "investigate": [
-    "investiga",
-    "investigando",
-    "investigou"
-   ],
-   "denoting": [
-    "indicam",
-    "indicando",
-    "indicou"
-   ],
-   "exceeds": [
-    "ultrapassa"
-   ],
-   "qualifying": [
-    "qualificar"
-   ],
-   "encompasses": [
-    "abrangendo"
+   "consist": [
+    "consiste"
    ],
    "consisted": [
     "consiste"
    ],
-   "stimulate": [
-    "incentivando"
+   "consisting": [
+    "consiste"
    ],
-   "develop": [
-    "revela",
-    "revelam",
-    "revelaram",
-    "revelou"
+   "continuous": [
+    "contínua",
+    "contínuo"
    ],
-   "compare": [
+   "contrasts": [
     "compara"
    ],
-   "resulted": [
-    "decorre"
-   ],
-   "pertinent": [
-    "relevante"
-   ],
-   "points": [
-    "indicam",
-    "indicando",
-    "indicou"
-   ],
-   "latest": [
-    "recentes"
-   ],
-   "identified": [
-    "identificadas",
-    "identificaram"
-   ],
-   "though": [
-    "apesar",
-    "embora"
+   "decreasing": [
+    "reduz",
+    "reduzir"
    ],
    "delimited": [
     "limita",
@@ -3330,15 +3106,245 @@
     "limitadas",
     "limitados"
    ],
+   "denoting": [
+    "indicam",
+    "indicando",
+    "indicou"
+   ],
+   "develop": [
+    "revela",
+    "revelam",
+    "revelaram",
+    "revelou"
+   ],
+   "differentiate": [
+    "distingue"
+   ],
+   "discuss": [
+    "discutindo"
+   ],
+   "discussions": [
+    "debate",
+    "debates"
+   ],
+   "distinguishes": [
+    "distingue"
+   ],
+   "distinguishing": [
+    "distingue"
+   ],
+   "emerge": [
+    "emerge"
+   ],
+   "emphasized": [
+    "destaca",
+    "destacam",
+    "destacando"
+   ],
+   "encompasses": [
+    "abrangendo"
+   ],
+   "encountered": [
+    "enfrenta",
+    "enfrentados",
+    "enfrentam",
+    "enfrentar"
+   ],
+   "encourages": [
+    "incentivando"
+   ],
+   "especially": [
+    "especialmente"
+   ],
+   "exceeds": [
+    "ultrapassa"
+   ],
+   "exploit": [
+    "explora",
+    "explorar"
+   ],
+   "extending": [
+    "amplia",
+    "ampliam",
+    "ampliando",
+    "ampliar",
+    "ampliem"
+   ],
+   "faced": [
+    "enfrenta",
+    "enfrentados",
+    "enfrentam",
+    "enfrentar"
+   ],
+   "favor": [
+    "favorece",
+    "favorecendo",
+    "favorecer"
+   ],
+   "favors": [
+    "favorece",
+    "favorecendo",
+    "favorecer"
+   ],
+   "formed": [
+    "constituem",
+    "constitui",
+    "moldam",
+    "moldaram"
+   ],
+   "high": [
+    "elevada",
+    "elevados"
+   ],
+   "highest": [
+    "elevada",
+    "elevados"
+   ],
+   "identified": [
+    "identificadas",
+    "identificaram"
+   ],
+   "impact": [
+    "impacto",
+    "impactos"
+   ],
+   "imperative": [
+    "essenciais",
+    "essencial"
+   ],
+   "indicates": [
+    "indicam",
+    "indicando",
+    "indicou"
+   ],
+   "intended": [
+    "intencional"
+   ],
+   "investigate": [
+    "investiga",
+    "investigando",
+    "investigou"
+   ],
+   "know": [
+    "reconhecendo"
+   ],
+   "lasted": [
+    "permanece",
+    "permanecem",
+    "permaneceu"
+   ],
+   "latest": [
+    "recentes"
+   ],
+   "modern": [
+    "contemporânea",
+    "contemporâneas",
+    "contemporâneos"
+   ],
+   "noticed": [
+    "observa",
+    "observou"
+   ],
+   "observing": [
+    "observa",
+    "observou"
+   ],
+   "offered": [
+    "oferece",
+    "oferecem",
+    "oferecendo"
+   ],
+   "outcome": [
+    "resultados"
+   ],
+   "papers": [
+    "papel"
+   ],
+   "perspective": [
+    "perspectivas"
+   ],
+   "pertinent": [
+    "relevante"
+   ],
+   "played": [
+    "desempenha"
+   ],
+   "points": [
+    "indicam",
+    "indicando",
+    "indicou"
+   ],
+   "prevailed": [
+    "predominam",
+    "predominaram"
+   ],
+   "produces": [
+    "produzindo"
+   ],
+   "qualifying": [
+    "qualificar"
+   ],
+   "recognize": [
+    "identificadas",
+    "identificaram",
+    "reconhecendo"
+   ],
    "recommendations": [
     "recomendações"
    ],
-   "works": [
+   "relevant": [
+    "relevante"
+   ],
+   "researched": [
+    "investiga",
+    "investigando",
+    "investigou"
+   ],
+   "restricted": [
+    "restringe"
+   ],
+   "resulted": [
+    "decorre"
+   ],
+   "returned": [
+    "voltadas"
+   ],
+   "reveals": [
+    "revela",
+    "revelam",
+    "revelaram",
+    "revelou"
+   ],
+   "shows": [
+    "demonstram"
+   ],
+   "sophisticated": [
+    "complexa"
+   ],
+   "stimulate": [
+    "incentivando"
+   ],
+   "stimulates": [
+    "incentivando"
+   ],
+   "supplemental": [
+    "complementam"
+   ],
+   "supplementary": [
+    "complementam"
+   ],
+   "surpass": [
+    "ultrapassa"
+   ],
+   "though": [
+    "apesar",
+    "embora"
+   ],
+   "worked": [
     "funciona"
    ],
-   "decreasing": [
-    "reduz",
-    "reduzir"
+   "works": [
+    "funciona"
    ]
   }
  }

@@ -52,14 +52,14 @@
 \maketitle
 
 \begin{abstract}
-  Chatbots based on large language models (LLMs) help researchers write and translate, and they
-  favor certain words. We measured this footprint in 204,937 abstracts published from 2015 to 2026
-  by the journals of SciELO Brazil, adapting the excess-vocabulary method of Kobak et al. Style words
-  above their pre-ChatGPT trend went from at most six a year before 2023 to 108 in English and 69 in
-  Portuguese in 2025, and at least 17\% of the English and 13\% of the Portuguese abstracts of 2025
-  went through an LLM. In the same papers, English abstracts moved first, in 2024, and Portuguese
-  ones caught up in 2025; most Portuguese markers translate English ones. A rewriting experiment
-  and IAês, an open bilingual website, complete the study.
+  Chatbots built on large language models (LLMs) favor certain words. We measured this footprint
+  in 195,600 Portuguese and English abstracts from SciELO Brazil journals, 2015 to 2026, adapting
+  the excess-vocabulary method of Kobak et al. Style words above their pre-ChatGPT trend rose from
+  at most six a year before 2023 to 108 in English and 69 in Portuguese in 2025, when at least 17\%
+  of the English and 13\% of the Portuguese abstracts went through an LLM. In the same papers, both
+  abstracts gained markers at similar rates, and most Portuguese markers translate English ones.
+  ChatGPT and Gemini added about five markers when polishing an English abstract. An open bilingual
+  website, IAês, presents the data.
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -71,7 +71,7 @@ language models (LLMs) have become everyday writing tools in research. In a 2025
 than 5,000 researchers, about 28\% had used AI to edit a paper, and most of those who had used AI
 had not disclosed it \cite{kwon2025ok}. Journals and publishers had set rules early on: an LLM
 cannot be listed as an author, and its use must be disclosed
-\cite{nature2023tools,thorp2023chatgpt}. Explicit
+\cite{nature2023tools}. Explicit
 disclosures were nevertheless very rare in 2023, when slightly over 1\% of all articles, some
 60,000 papers, already showed signs of LLM use \cite{gray2024contamination}.
 
@@ -94,8 +94,8 @@ papers because of the language about 2.5 times as often \cite{amano2023manifold}
 to lower that cost \cite{berdejoespinola2023ai}, and their use for writing has grown fastest in
 countries with lower English proficiency \cite{liu2025aiassisted}. In Brazil, after SciELO and CAPES
 published documents on AI in research \cite{scielo2023guia,capes2025ia}, CNPq began to require researchers to declare any use
-of generative AI, naming the tool and its purpose \cite{cnpq2026portaria}, which makes an
-independent measure of use all the more relevant.
+of generative AI, naming the tool and its purpose \cite{cnpq2026portaria}, so it is useful to
+measure use independently of what authors declare.
 
 To our knowledge, no study has measured the vocabulary of LLMs in SciELO or in Portuguese
 scientific writing. The closest work is a preprint on Korean journals, which found the excess in
@@ -109,8 +109,9 @@ We test three hypotheses. H1 states that, since 2023, some style words appear ab
 trend in both languages, as they did in PubMed. H2 states that the footprint is larger in the
 English abstracts than in the Portuguese abstracts of the same papers, since authors are more
 likely to seek help in the language they master less and chatbots learn mostly from English text.
-H3 states that the Portuguese marker words differ from the English ones and are mostly style words,
-as would be expected if chatbots had separate stylistic preferences in each language.
+H3 states that the Portuguese words that rose above their trend are mostly style words and differ
+from the English ones, as would be expected if chatbots had separate stylistic preferences in each
+language.
 
 Our objective is to measure this footprint year by year in both languages and to compare the two
 abstracts of the same papers. The study makes six contributions:
@@ -144,8 +145,8 @@ text; at that scale, a model can carry out a new task from a few examples given 
 \cite{brown2020language}. A chatbot such as ChatGPT is a model trained further to follow
 instructions and to give the answers that people rate highly, through instruction tuning and
 reinforcement learning from human feedback (RLHF) \cite{ouyang2022training}. This second stage
-makes the model useful for editing and translating on request, and it is also where its stylistic
-habits are formed.
+makes the model useful for editing and translating on request, and it may also shape the model's
+style (Section~\ref{sec:vocab}).
 
 \subsection{Why chatbots favor certain words}
 \label{sec:vocab}
@@ -163,8 +164,8 @@ which of five chatbots wrote a text 97\% of the time \cite{sun2025idiosyncrasies
 words change between model generations, which makes detection tools fail after a change of model
 \cite{nakajima2026turnover}. People, in turn, can pick these words up in their own speech
 \cite{yakura2024empirical}, or avoid them once they become known as signs of AI,
-as happened to \w{delve} in early 2024 \cite{geng2025coevolution}. For measurement, the vocabulary of chatbots is
-therefore a real but moving target.
+as happened to \w{delve} in early 2024 \cite{geng2025coevolution}. For measurement, this means that a list of words that
+mark chatbot text has to be renewed over time.
 
 \subsection{Excess vocabulary}
 \label{sec:excess-theory}
@@ -205,7 +206,8 @@ $s$ the share of those that contain a marker. Then
 \end{equation}
 so the gap $\Delta$ is a lower bound on $f$. It stays below $f$ because many processed texts contain no
 marker ($s < 1$) and because unprocessed texts may contain one anyway ($q > 0$). The bound assumes
-that, without LLMs, the share would have followed its trend.
+that texts no LLM touched keep following the trend, so it would overstate $f$ if authors picked up
+the marker words on their own (Section~\ref{sec:alternatives}).
 
 Two cautions apply. If the same abstracts are used to pick the markers and to measure the gap,
 the chance fluctuations that helped a word get picked also inflate the gap, a form of circular
@@ -216,7 +218,7 @@ try to judge single texts are unreliable \cite{weberwulff2023testing}. In one
 test they flagged, on average, 61\% of essays by non-native English speakers as written by AI
 \cite{liang2023gpt}, and in another they gave human-written Portuguese scientific texts average AI
 scores between 30\% and 84\% \cite{candido2025analise}. Measuring a population of texts avoids
-these problems, at the price of saying nothing about any individual author.
+these problems.
 
 \subsection{Two abstracts of the same paper}
 \label{sec:paired-theory}
@@ -226,7 +228,9 @@ describe the same work and share authors, journal, field and year, so comparing 
 these fixed and leaves language as the main difference. If chatbots were used mostly for the
 English version, its share of markers would rise more than that of the Portuguese version of the
 same papers. Comparing the two rises is a difference in differences \cite{angrist2009mostly},
-which cancels any change that affects both versions equally. The design cannot reveal who produced
+which cancels any change that affects both versions equally, provided the markers of the two
+languages are equally likely to catch an edit, a condition the experiment of
+Section~\ref{sec:experiment} lets us examine. The design cannot reveal who produced
 each version, whether the authors, a translator or a tool, a question tied to the unequal burden
 that English places on researchers who write it as a second language \cite{hanauer2018linguistic}.
 
@@ -235,9 +239,8 @@ that English places on researchers who write it as a second language \cite{hanau
 \label{sec:related}
 
 Most estimates of LLM use in science come from English texts. Some count the words that rose above
-their trend, as \cite{kobak2025delving} did for PubMed and later studies did for medical writing
-\cite{matsui2025delving}, dentistry \cite{uribe2024estimating}, linguistics \cite{botes2026initial}
-and several databases at once \cite{kousha2026much}. Others compare the distribution of words with
+their trend, as \cite{kobak2025delving} did for PubMed and later studies did for linguistics
+\cite{botes2026initial} and for several databases at once \cite{kousha2026much}. Others compare the distribution of words with
 that of known human and LLM texts to estimate how much text was modified, in papers
 \cite{liang2025quantifying,geng2024transforming}, and recent studies take these ideas to full texts
 \cite{siler2026diffusion,holzwarth2026most}.
@@ -257,9 +260,10 @@ morphology, and found the excess in the English abstracts of Korean journals a y
 Korean abstracts of the same papers \cite{lee2026korean}. Another preprint found AI-associated
 words rising in news in 26 of 34 languages \cite{juzek2026crosslingual}. For Portuguese, the closest work
 tested AI detectors on scientific texts \cite{candido2025analise}. We found no study of LLM
-vocabulary in Portuguese scientific writing or in SciELO. Our design also differs from earlier work
-in three ways: it estimates the language gap within the same papers, tests whether the markers of
-one language translate those of the other, and cross-fits the lower bound.
+vocabulary in Portuguese scientific writing or in SciELO. Like the Korean study, ours compares the
+two abstracts of the same papers; it adds a Portuguese corpus, an estimate of the gap between the
+languages with intervals and a placebo, a test of whether the markers of one language translate
+those of the other, and a cross-fitted lower bound.
 
 \begin{table}[t]
   \centering
@@ -279,7 +283,7 @@ one language translate those of the other, and cross-fits the lower bound.
     \cite{gray2024contamination} & Scholarly articles of 2023 & English
       & Slightly over 1\% of 2023 articles \\
     \cite{geng2024transforming} & arXiv abstracts, to early 2024 & English
-      & About 35\% in computer science \\
+      & About 35\% of computer science text revised by ChatGPT (density estimate) \\
     \cite{botes2026initial} & 129,338 linguistics abstracts & English
       & About 16\% of 2025 abstracts \\
     \cite{siler2026diffusion} & 7.3 million full texts & English
@@ -288,7 +292,7 @@ one language translate those of the other, and cross-fits the lower bound.
       & 77\% of 2025 full texts and 53\% of abstracts \\
     \cite{lee2026korean} & Korean journal abstracts (preprint) & Korean, English
       & At least 10.5\% of 2025 Korean abstracts; English abstracts a year earlier \\
-    This study & 204,937 SciELO Brazil abstracts, 2015-2026, and 9,312 papers with both abstracts
+    This study & 195,600 SciELO Brazil abstracts, 2015-2026, and 9,312 papers with both abstracts
       & Portuguese, English
       & At least 17.3\% (English) and 12.7\% (Portuguese) of 2025 abstracts; same-paper and
         cross-language tests \\
@@ -332,8 +336,11 @@ We cleaned the corpus with filters close to those of Kobak et al. We removed dup
 errata and retraction notices, abstracts shorter than 250 or longer than 4,000 characters,
 abstracts in which no language clearly dominated the function words, and abstracts with a second
 abstract or the keywords attached. This left 204,937 usable abstracts from 357 journals: 94,882 in
-Portuguese, 100,718 in English and 9,337 in Spanish, which we set aside. A word is a sequence of
-four or more letters, counted once per abstract.
+Portuguese, 100,718 in English and 9,337 in Spanish, which we set aside, so the analyses use 195,600
+abstracts. Because Crossref keeps the abstract in the article's own language, English makes up
+about half of them in 2022, less than the 76\% of SciELO documents available in English that year.
+A word is a sequence of four or more letters, counted once per abstract and as written, not by
+dictionary form.
 
 Crossref coverage is uneven: some journals deposit no abstracts at all, while others deposited them
 for a few years, stopped and started again, so the yearly totals of the whole corpus mix changes in
@@ -377,24 +384,27 @@ journal brings in, for instance with a special issue.
 Claude Opus 5.5 labeled each of the 1,682 words that were excess in any year, language or
 baseline as style, content or ambiguous, in alphabetical order and without knowing the year. The
 first author then labeled a random sample of 100 words per language as style or content, without
-seeing Claude's labels. They agreed on 72\% of the Portuguese words (Cohen's $\kappa = 0.50$) and
-67\% of the English words ($\kappa = 0.36$) \cite{cohen1960coefficient}; where Claude chose style
-or content, they agreed on 92\% and 91\%. Most disagreements were words that Claude called
-ambiguous and the author called style, so Claude's labels, and the marker sets built from them,
-lean conservative. For the 200 sampled words, the author's label replaced Claude's.
+seeing Claude's labels. They agreed on 72\% of the Portuguese words and 67\% of the English words, with Cohen's
+$\kappa$ of 0.50 and 0.36 computed over the three labels \cite{cohen1960coefficient}; where Claude
+chose style or content, they agreed on 92\% and 91\%. Most disagreements were words that Claude
+called ambiguous and the first author called style, so Claude's labels, and the marker sets built
+from them, lean conservative. For the 200 sampled words, the first author's label replaced
+Claude's. This prompt and all the others used in the study are in the repository.
 
 \subsection{Lower bound}
 \label{sec:bound-method}
 
 For each language and year from 2023 on, the candidate markers are that year's excess style words
-under the fixed baseline. Following Kobak et al., the marker set keeps the candidates whose
-frequency is below a threshold $T$, and $T$ is chosen to maximize the gap $\Delta$ of
-Equation~\ref{eq:bound}. Choosing and measuring on the same abstracts makes the estimate optimistic, so
-we cross-fitted it: we split the abstracts at random into two halves by DOI, chose the markers on
+under the fixed baseline. Following Kobak et al., the marker set keeps the candidates rarer than
+a threshold $T$, since rarer words are more specific to LLM text, and $T$ is chosen to maximize the
+gap $\Delta$ of Equation~\ref{eq:bound}. Choosing and measuring on the same abstracts makes the estimate optimistic, so
+we cross-fitted it: we split the abstracts at random into two halves by DOI, chose the markers, threshold included, on
 one half and measured $\Delta$ on the other, then swapped the halves and averaged the two results. We report the same-data estimate next to it for comparison. As a placebo, we
 applied the same markers over the same span to 2015 and 2016, which should give a gap near zero in
 2017 to 2020. We also computed the bound by subject area, in areas with at least 200 abstracts in
-the year.
+the year. Two other kinds of marker sets appear later: the larger sets of the H3 test, which pool
+the excess style words of 2024 to 2026 and are also the markers of the experiment and of the site,
+and the same-data sets, used only for comparison.
 
 \subsection{Same papers (H2)}
 \label{sec:h2-method}
@@ -405,14 +415,15 @@ of the lower bound, taken from the Crossref half that the paper's DOI does not b
 paper never helped choose the markers that judge it. Only 2025 and 2026 have at least ten markers
 per half in both languages, since the Portuguese sets of 2023 and 2024 have one word or none.
 
-With about 750 papers a year, a trend fitted on two years would be noisy, so the counterfactual is
+With 700 to 870 papers a year, a trend fitted on two years would be noisy, so the counterfactual is
 flat: the share of 2021 and 2022, standardized to the length quintiles of those years. The estimate
 is the difference in differences of Section~\ref{sec:paired-theory}, how much more the English
 share rose than the Portuguese share in the same papers. Its 95\% intervals and one-sided $p$-values
 come from 2,000 bootstrap resamples of papers within years \cite{efron1979bootstrap}. A placebo
 applies the same sets and span to 2015-2016 and 2019-2020, and, to see the timing, we also applied
 the 2025 sets to every year from 2015 to 2026. As variants, we dropped the length standardization,
-used 2019 to 2022 as the baseline and used the same-data marker sets.
+used 2019 to 2022 as the baseline, used the same-data marker sets and split the papers by the
+language of the article.
 
 \subsection{Cross-language test (H3)}
 \label{sec:h3-method}
@@ -425,8 +436,10 @@ frequency in 2021-2022 that was never excess and that Claude labels style with t
 instructions. Claude gave the dictionary form of every marker and translated markers and controls,
 shuffled together, into the other language, listing the usual translations of each word. A word
 hits when one of its translations, in dictionary form, is the dictionary form of a marker of the
-other language, and a one-sided Fisher exact test \cite{fisher1922interpretation} compares the hit
-rates of markers and controls.
+other language. Since each marker is paired with its control, an exact one-sided McNemar test
+\cite{mcnemar1947note} compares them over the pairs in which only one of the two words hits. The
+claim of H3 that the two sets differ fails if markers hit significantly more often than their
+controls.
 
 \subsection{Rewriting experiment}
 \label{sec:experiment-method}
@@ -436,8 +449,10 @@ chatbots add to a known human text, we sampled abstracts published from 2019 to 
 ChatGPT, for three tasks. Two asked a chatbot to improve the writing of a Portuguese or an English
 abstract, and the third asked it to translate a Portuguese abstract into English, with the
 authors' own English abstract as the human reference. Each task has 80 abstracts, ten per subject
-area, and no paper appears in two tasks. Three chatbots did every task with the same prompt, in
-batches of ten abstracts per new conversation, on 30 and 31 October 2026. They were ChatGPT
+area, and no paper appears in two tasks. Each prompt, written in the language of the source abstract, asked for an abstract ready
+to submit to a journal, keeping its meaning, data and numbers, and for the reply in a fixed format.
+Three chatbots did every task with the same prompt, in batches of ten abstracts per new
+conversation, on 30 and 31 October 2026. They were ChatGPT
 (GPT-6, free plan, temporary chats), Gemini 3.6 Flash (Google AI Pro plan) and Claude Sonnet 5.5
 (through the command-line mode of Claude Code, without tools). All 720 replies came back complete. For each
 text, we counted the H3 markers before and after the chatbot's pass, and we listed the words each
@@ -450,14 +465,12 @@ model adds or drops, counting a word when the number of texts that contain it ch
 IAês\footnote{\site}, a play on \emph{IA}, Portuguese for AI, and the ending of language names such
 as \emph{português}, presents the same data as a website in English and Portuguese
 (Figures~\ref{fig:site-words}, \ref{fig:site-fields} and~\ref{fig:site-time-machine}). Readers can
-follow any word over time in each language, browse a map of all words by frequency and excess, and
-compare fields. They can also read the two abstracts of the sampled papers and the experiment's
-texts side by side, see which marker words a text of their own contains, and guess whether an
-abstract was published before or after ChatGPT. The site runs in the browser on precomputed data, without
-cookies or requests to other sites, and uses the same measurement frames as this paper.
+follow any word over time in each language, compare fields, read the two abstracts of the sampled
+papers and the experiment's texts side by side, and see which marker words a text of their own
+contains. The site uses the same measurements as this paper.
 
-The analyses use only the Python standard library, and each step runs in minutes on a desktop
-computer; the data collection can be repeated from the public SciELO and Crossref APIs.
+Each analysis step runs in minutes on a desktop computer, and the data collection can be repeated
+from the public SciELO and Crossref APIs.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results and discussion}
@@ -474,7 +487,7 @@ the number of style words grows every year: 14, 50, 108 and 150 in English from 
 2, 10, 69 and 126 in Portuguese. English moved a year earlier, but by 2025 both languages had dozens
 of style words above trend, and style words outnumbered content words in every year from 2024 on.
 
-\begin{figure}[t]
+\begin{figure}[!htb]
   \centering
   \input{figures/excess-words}
   \caption{Style words above their trend rose after 2022 in both languages. Excess words per year
@@ -493,13 +506,14 @@ and \w{aprofunda}. Figure~\ref{fig:site-words} shows three examples on the site:
 times as many, and the Portuguese \w{crucial} in 5.7 times as many. We therefore accept H1 for both
 languages.
 
-\begin{figure}[t]
+\begin{figure}[!htb]
   \centering
   \includegraphics[width=\textwidth]{figures/site-words.png}
   \caption{Three marker words far above their expected share. Words over time screen of IAês: the
     share of abstracts that contain each word (solid line; English in blue, Portuguese in teal),
-    the share expected from the 2021-2022 trend (dashed) and the excess (shaded). The number above
-    each panel is the ratio of observed to expected in 2025. Screenshot of the site.}
+    the share expected from the 2021-2022 trend (dashed) and the excess (shaded). Each panel has its
+    own scale, and the number above it is the ratio of observed to expected in 2025. Screenshot of
+    the site.}
   \label{fig:site-words}
 \end{figure}
 
@@ -509,14 +523,15 @@ languages.
 Table~\ref{tab:bound} gives the cross-fitted lower bound. In English, the gap was 0.5 points in
 2023 and 11.2 in 2024, then 17.3 in 2025 and 15.8 in partial 2026. In Portuguese, it stayed near
 zero until 2024, when the marker sets still had one word or none, and then reached 12.7 in 2025 and
-19.4 in 2026. At least one in six English abstracts and one in eight Portuguese abstracts of 2025
-therefore went through an LLM, and in 2026 the Portuguese bound passed the English one, although
+19.4 in 2026. Under the assumptions of Section~\ref{sec:bound-theory}, at least one in six English
+abstracts and one in eight Portuguese abstracts of 2025 therefore went through an LLM, and in 2026 the Portuguese bound passed the English one, although
 their intervals overlap.
 
-\begin{table}[t]
+\begin{table}[!htb]
   \centering
   \caption{Lower bound on the share of abstracts processed by an LLM, in percent of abstracts, with
-    the 2021-2022 baseline. Markers: words chosen on each half of the corpus. Observed and
+    the 2021-2022 baseline. Markers: number of words chosen on each half of the corpus; with one word or none, the
+    Portuguese gaps of 2023 and 2024 mean little. Observed and
     expected: share of abstracts with at least one marker. Gap: cross-fitted estimate with its
     standard error. Same data: markers chosen and measured on all abstracts, as in Kobak et al.
     Placebo: the same markers and span applied to 2015-2016, measured in 2017 to 2020.}
@@ -547,36 +562,40 @@ English abstracts of 2024 it gives 15.2\%, and 11.2\% once cross-fitted.
 
 The rise reached every field. In English, the bound for 2025 is highest in the Human Sciences
 ($18.2 \pm 2.4$) and the Health Sciences ($16.4 \pm 2.5$), while the smaller areas have wide
-intervals; in Portuguese, the four areas with enough abstracts lie between 10.0 and 12.6. The site
-shows the same pattern through a simpler marker index (Figure~\ref{fig:site-fields}), which in
-2025 was at least 1.3 in every field.
+intervals; in Portuguese, the four areas with enough abstracts lie between 10.0 and 12.6. The marker
+index of the site (Figure~\ref{fig:site-fields}), computed with the cross-fitted 2025 sets, divides
+the share of abstracts with a marker by its 2021-2022 value instead of subtracting an expected
+share, so it ranks the fields differently; it also rose in every field, to at least 1.3 in 2025.
 
 \begin{figure}[!htb]
   \centering
-  \includegraphics[width=0.86\textwidth]{figures/site-fields.png}
+  \includegraphics[width=0.62\textwidth]{figures/site-fields.png}
   \caption{Markers rose in every field. Fields over time screen of IAês for English abstracts:
     each cell is a field's marker index in a year, the share of abstracts with at least one marker
-    word divided by the 2021-2022 share in the same journals, so 1 means no change. Hatched cells
-    have too few abstracts. Screenshot of the site.}
+    word divided by the 2021-2022 share in the same journals, so 1 means no change. The outlined
+    column is 2025, and hatched cells have too few abstracts. Screenshot of the site.}
   \label{fig:site-fields}
 \end{figure}
 
-\subsection{English came first, and Portuguese caught up within a year (H2)}
+\subsection{Both abstracts of a paper gained markers at similar rates (H2)}
 \label{sec:h2}
 
 Over the whole period, the two languages rose by similar amounts (Table~\ref{tab:h2}). From
 2021-2022 to 2025-2026, the share of English abstracts with an English marker rose 17.5 points,
 and the share of Portuguese abstracts with a Portuguese marker rose 14.9 points. The difference,
-2.7 points [$-1.8$, 7.4] ($p = 0.12$), is about the size of the placebo difference (2.4) and stays
-between 0.2 and 2.7 in every variant. With about 700 papers a year, this rules out an English lead
-of more than about 7 points, though not a smaller one.
+2.7 points [$-1.8$, 7.4] ($p = 0.12$), is about the size of the placebo difference, 2.4 [$-1.5$,
+6.3], and stays between 0.2 and 2.7 in every variant. Splitting the papers by the language of the
+article gives the same picture, although the placebos of these smaller groups are too large to read
+them on their own, and even single years have placebo differences of up to 5.4 points. With about
+700 papers in each of these years, the data rule out an English lead of more than about 7 points,
+though not a smaller one.
 
 \begin{table}[!htb]
   \centering
   \caption{Same papers in English and Portuguese: share of abstracts with a marker of their
     language in 2021-2022 and in the year (percent), its rise in points, and how much more the
-    English share rose. Brackets: 95\% bootstrap intervals. Placebo: the same sets and span applied
-    to 2015-2016 and 2019-2020.}
+    English share rose, computed before rounding. Brackets: 95\% bootstrap intervals. Placebo: the
+    same sets and span applied to 2015-2016 and 2019-2020.}
   \label{tab:h2}
   \footnotesize
   \setlength{\tabcolsep}{4pt}
@@ -596,19 +615,27 @@ of more than about 7 points, though not a smaller one.
   \end{tabular}
 \end{table}
 
-Year by year, however, the two languages did not move together (Figure~\ref{fig:same-paper}). With the 2025 marker sets
-applied to every year, the two languages move together before 2023, which supports the comparison.
-In 2024, English abstracts rose 8.6 points and Portuguese ones 1.8, a difference of 6.8 points
-[0.8, 12.8], and in 2025 Portuguese caught up (14.6 against 12.2). In partial 2026 the 2025 sets put
-English ahead again, by 9.4 points [2.8, 15.9], but this seems to reflect the fading of the 2025
-Portuguese markers rather than less use, since the sets chosen on 2026 abstracts give a difference
-of 3.0 [$-3.5$, 9.2].
+Year by year, however, the two languages did not always move together
+(Figure~\ref{fig:same-paper}). With the 2025 marker sets applied to every year, both languages rise
+slowly toward 2021-2022, a common trend that the difference in differences removes, and the yearly
+differences before 2023 all have intervals that include zero. In 2024, English abstracts rose 8.6
+points and Portuguese ones 1.8, a difference of 6.8 points [0.8, 12.8], and in 2025 Portuguese
+caught up (14.6 against 12.2). In partial 2026 the 2025 sets put English ahead again, by 9.4 points
+[2.8, 15.9], while the sets chosen on 2026 abstracts give a difference of 3.0 [$-3.5$, 9.2].
+
+These yearly leads come from an exploratory check, not from the main test, and they have other
+explanations. The Portuguese vocabulary of chatbots may have changed from year to year, so that the
+2025 Portuguese markers miss part of the use in 2024 and 2026. Portuguese words are also spread over
+more inflected forms than English ones, which may delay their detection. Moreover, the markers catch
+an edit more easily in English (Section~\ref{sec:experiment}), so similar rises may even hide more
+editing of the Portuguese abstracts.
 
 \begin{figure}[!htb]
   \centering
   \input{figures/same-paper}
-  \caption{In the same papers, English abstracts rose first, in 2024, and Portuguese ones caught up
-    in 2025. The 2025 marker sets are applied to every year. Left: rise in the share of English
+  \caption{Year by year, the English abstracts of the same papers rose more than the Portuguese ones
+    in 2024 and in partial 2026, but not in 2025 (exploratory check). The 2025 marker sets are
+    applied to every year. Left: rise in the share of English
     abstracts with an English marker and of Portuguese abstracts with a Portuguese marker, relative
     to 2021-2022. Right: the difference between the two rises. Bars are 95\% bootstrap intervals and
     the dashed line marks the release of ChatGPT. 2026 runs through October.}
@@ -620,16 +647,18 @@ whose two abstracts contain a marker doubled, from 15.4\% in 2021-2022 to 30.6\%
 share with a marker only in the English abstract barely moved (23.1\% to 24.2\%). Had authors used
 chatbots mostly for the English version, this last group would have grown. The pattern fits a
 workflow in which the same tool touches both versions, for instance by writing one abstract and
-translating it into the other. H2 thus holds for 2024 only: English came first, and Portuguese
-caught up within a year.
+translating it into the other. H2 is therefore not supported: in the same papers, the English
+abstracts did not gain clearly more markers than the Portuguese ones, and the only sign of an
+English lead, in 2024, comes from an exploratory check.
 
 \subsection{Portuguese markers mirror English ones (H3)}
 \label{sec:h3}
 
 Most Portuguese markers translate into English markers. Of the 349 Portuguese
-markers, 72\% translate into an English marker, against 44\% of their controls
-($p = 3 \times 10^{-14}$); in the other direction, 49\% of the 437 English markers translate into
-a Portuguese marker, against 22\% of controls ($p = 3 \times 10^{-17}$). Examples are \w{aprofunda} (\w{delves}), \w{moldam} (\w{shaping}),
+markers, 72\% translate into an English marker, against 44\% of their controls; among the pairs in
+which only one word hits, it is the marker 138 times and the control 40 times
+($p = 4 \times 10^{-14}$). In the other direction, 49\% of the 437 English markers translate into a
+Portuguese marker, against 22\% of controls (171 pairs against 53, $p = 6 \times 10^{-16}$). Examples are \w{aprofunda} (\w{delves}), \w{moldam} (\w{shaping}),
 \w{ressaltando} (\w{highlighting}, \w{underscores}) and \w{crucial}. The controls hit often because
 the English set includes frequent words such as \w{these}, \w{using} and \w{across}, which many
 translations land on; the markers hit far more often all the same. About 28\% of the Portuguese
@@ -640,7 +669,7 @@ markers have no English counterpart, among them \w{tensionam}, \w{multifacetada}
 H3 had two parts, and they fare differently. The part about style holds: since 2024, style words
 have been the majority of excess words in both languages (Figure~\ref{fig:excess}), whereas content
 words led in the pandemic years. The part about difference fails, because the Portuguese markers
-largely mirror the English ones. The Portuguese of chatbots seems to carry an English accent, in
+largely mirror the English ones. The Portuguese of chatbots seems to follow English word choices, in
 line with reports that AI writing suggestions pull texts toward Western styles
 \cite{agarwal2025homogenize} and that AI-associated words rose in news in 26 of 34 languages, with
 verbs such as \w{ressaltar} and \w{destacar} in Portuguese \cite{juzek2026crosslingual}.
@@ -702,8 +731,9 @@ sets of 2025, polishing raised the share of English abstracts with a marker by 2
 (Gemini) and 8 points (Claude), but the share of Portuguese abstracts by only 8, 14 and 0 points.
 Similar rises in the two languages may therefore hide more editing of the Portuguese abstracts.
 Dividing the rises seen in the same papers by these rates gives shares between about 35\% and more
-than 100\%, so a single polishing pass by a 2026 chatbot cannot calibrate the bound: real use
-evidently leaves more markers, through older models, repeated passes or drafting from scratch. With
+than 100\%, so a single polishing pass by a 2026 chatbot cannot calibrate the bound. Shares above
+100\% mean that real use leaves more markers than such a pass, through older models, repeated passes
+or drafting from scratch, or that part of the rise has other causes. With
 80 texts per task, we read these rates as rough.
 
 \subsection{Alternative explanations}
@@ -714,16 +744,14 @@ translators, grammar checkers and human editing services may also leave such wor
 those tools now run on LLMs, so our results refer to LLM-based tools in a broad sense; we did not
 test dedicated translators. Authors may also pick up the words without any tool, as people did in
 speech \cite{yakura2024empirical}. We expect this to be slower and smaller in
-formal writing than the jumps we found, which begin right after the release of ChatGPT, but we
-cannot rule it out.
+formal writing than the sudden jumps we found, but we cannot rule it out, and it would make the
+lower bound overstate the use of LLMs (Section~\ref{sec:bound-theory}).
 
-Other explanations are addressed by the design. Journals entering and leaving Crossref are handled
-by the balanced panel, and longer abstracts by the length standardization. Shifts in topic, such as
-the pandemic, are filtered by the style labels and the spread test and checked by the placebo, and
-the false discovery rate controls the many words tested. Policies that make some journals publish
-in English only cannot explain the same-paper results, which compare the two abstracts of each
-paper, and cross-fitting removes the optimism of choosing the markers on the same data. Finally,
-2026 runs only through October, so its values may still change.
+The design addresses other explanations: the balanced panel handles journals entering and leaving
+Crossref, the length standardization handles longer abstracts, and the style labels, the spread
+test and the placebo guard against shifts in topic such as the pandemic. Policies that make some
+journals publish in English only cannot explain the same-paper results, and 2026 runs only through
+October, so its values may still change.
 
 \subsection{Discussion}
 \label{sec:discussion}
@@ -737,10 +765,11 @@ abstracts of 2025 \cite{holzwarth2026most}. In Korean journals, lower bounds for
 of 2025 ranged from 10.5\% to 20.6\% depending on the method \cite{lee2026korean}, the same order as
 ours. These studies measure different things, but they all point to use well above the bound.
 
-The gap between the languages was a lag rather than a lasting difference. English abstracts moved
-first, perhaps because the pressure to publish in English made the English version the first one
-authors took to a chatbot, and Portuguese abstracts caught up within a year. The growth of papers
-with markers in both abstracts suggests that, once adopted, the tools serve both versions.
+The two languages ended up with similar footprints. English abstracts may have moved first, as they
+did in Korean journals \cite{lee2026korean}, perhaps because the pressure to publish in English
+made the English version the first one authors took to a chatbot, but by 2025 the Portuguese
+abstracts had caught up. The growth of papers with markers in both abstracts suggests that, once
+adopted, the tools serve both versions.
 
 The markers also change over time. The Portuguese \w{crucial} appeared in 1.63\% of the abstracts of 2025 and
 in 0.79\% of those of 2026 so far, still above its expected share, and the 2025 Portuguese sets lost
@@ -764,21 +793,27 @@ LLM chatbots have left a measurable footprint in the abstracts of Brazilian scie
 as well as in English. Style words above their pre-ChatGPT trend went from at most six a year to 108
 in English and 69 in Portuguese in 2025, which supports H1. At least 17\% of the English abstracts
 and 13\% of the Portuguese abstracts of 2025 went through an LLM, and in partial 2026 the Portuguese
-bound reached 19\%. In the same papers, English abstracts moved first, in 2024, and Portuguese ones
-caught up in 2025, so H2 holds for 2024 only. The Portuguese markers are mostly style words, as H3
-expected, but they largely translate the English ones, which refutes its claim that the two sets
+bound reached 19\%. In the same papers, the English and Portuguese abstracts gained markers at similar
+rates, so H2 is not supported; English may have moved first, in 2024, but only an exploratory check
+shows it. Most Portuguese excess words of 2024 to 2026 are style words, as H3 expected, but the
+Portuguese markers largely translate the English ones, which refutes its claim that the two sets
 differ. In the rewriting experiment, ChatGPT and Gemini added about five markers to each English
 abstract they polished, and Claude about one. Taken together, the results show that chatbot use in
-Brazilian science is not confined to the English version of papers: it reached the Portuguese
-abstracts within a year and brought an English accent with it.
+Brazilian science is not confined to the English version of papers: it shows in the Portuguese
+abstracts about as much, and with largely the same words.
 
 The study has several limitations. Crossref covers some journal-years and not others, so the balanced panels use
 fewer journals than SciELO has, and 2026 runs only through October. The corpus is about a hundred
-times smaller than PubMed, which left the Portuguese marker sets of 2023 and 2024 nearly empty.
-The markers give a lower bound and a proxy: they see vocabulary, not the tool or the person, and they cannot
-attribute use to any author. The style labels come from an LLM whose agreement with the author was
-moderate ($\kappa$ of 0.36 and 0.50), and so do the translations of the H3 test. The experiment used
-80 texts per task, one pass and specific model versions, run through different interfaces. Finally,
+times smaller than PubMed, which left the Portuguese marker sets of 2023 and 2024 nearly empty, and
+words are counted as written, so a Portuguese verb spread over many forms may reach the thresholds
+later than an English one.
+The markers give a lower bound and a proxy: they see vocabulary, not the tool or the person, they
+cannot attribute use to any author, and the bound assumes that authors did not pick up the words on
+their own. The style labels come from an LLM whose agreement with the first author was
+fair to moderate ($\kappa$ of 0.36 and 0.50), and the translations of the H3 test come from an LLM
+without a human check. The experiment used 80 texts per task, one pass and specific model versions,
+run through different interfaces, and texts sent in the same conversation may not be independent,
+which would make its intervals too narrow. Finally,
 we studied abstracts only and set the Spanish ones aside.
 
 Future work can extend the measurement to full texts, to the Spanish abstracts and to the other
@@ -788,32 +823,33 @@ with the disclosure statements that SciELO, CAPES and CNPq now ask for.
 \subsection{Benefits and impacts of AI}
 \label{sec:impacts}
 
-For Brazilian science, chatbots bring a clear benefit and several risks. They lower the cost of
-writing in English, which falls hardest on researchers who learned it as a second language
+For Brazilian science, the main benefit of chatbots is a lower cost of writing in English, a cost
+that falls hardest on researchers who learned it as a second language
 \cite{amano2023manifold,berdejoespinola2023ai}; the rise in output that followed LLM adoption was
-largest among authors likely to be non-native English speakers \cite{kusumegi2026scientific}. They
-also make bilingual publication cheaper, which helps keep Portuguese in use as a language of
-research. The risks are a narrower range of styles
-\cite{agarwal2025homogenize,sourati2026shrinking}, a Portuguese that echoes English, as the H3 test
-suggests, and use that goes undisclosed. Detectors are a poor answer to the last risk, since they
+largest among authors likely to be non-native English speakers \cite{kusumegi2026scientific}.
+Chatbots also make bilingual publication cheaper, which may help journals keep publishing in
+Portuguese. The risks are a narrower range of styles \cite{agarwal2025homogenize,sourati2026shrinking},
+a Portuguese that follows English word choices, as the H3 test suggests, and use that goes
+undisclosed. Detectors are a poor answer to the last risk, since they
 penalize the very authors who gain the most from the tools \cite{liang2023gpt}.
 
 In this study, AI was both the object of research and one of its instruments. Claude labeled 1,682
-words and translated about 1,600 more in a fraction of the time a person would need, and three
-chatbots served as the subjects of the experiment. Each of these steps needed a check. The first author's
-blind labels showed that Claude's labels lean conservative, and one batch of the translation step
-came back as a refusal because the model read the listed word \w{stop} as an instruction. Small
-failures of this kind are easy to miss in an automated pipeline, and they are the reason LLM steps
-in research need human checks and a record of what was done.
+words and translated about 1,600 more, and three chatbots served as the subjects of the experiment.
+These steps need checks, and ours had them only in part: the first author's blind labels showed
+that Claude's labels lean conservative, while no person checked the translations. One batch of the
+translation step also came back as a refusal, because the model read the listed word \w{stop} as an
+instruction. Failures like this are easy to miss when a pipeline runs unattended, which is why each
+LLM step in research needs a record and, where possible, a human check.
 
 \section*{Declaration of AI use}
 
 The authors used Claude (Anthropic), through Claude Code with the Claude Opus 5.5 model, for three
 tasks: improving the writing of the text, with spelling corrections and more fluent phrasing;
-searching the literature through deep search; and speeding up the development of the code of the
-IAês site. The uses of language models that are part of the method, namely the word labels, the
-translations and the rewriting experiment, are described in Section~\ref{sec:method}. The authors
-take full responsibility for the content of this paper.
+searching the literature through deep search with the Exa search engine; and speeding up the
+development of the code of the IAês site. As part of the method (Section~\ref{sec:method}), Claude
+Opus 5.5 labeled and translated words, and ChatGPT (GPT-6), Gemini 3.6 Flash and Claude Sonnet 5.5
+rewrote and translated abstracts in the experiment. The authors take full responsibility for the
+content of this paper.
 
 \bibliographystyle{sbc}
 \bibliography{references}

@@ -8,7 +8,8 @@
                controls into the other language, shuffled together so that it cannot tell them
                apart (analysis/crosslang/lemmas-<lang>.csv and translations-<lang>.csv)
     compare    share of markers and of controls with a translation that is a marker of the other
-               language, and Fisher's exact test (analysis/crosslang/report.md)
+               language, Fisher's exact test, and the exact McNemar test on the marker-control
+               pairs (analysis/crosslang/report.md)
 
 Run the four `excess.py excess` variants and `excess.py label` first. Claude runs through
 `claude -p`, as in the rewriting experiment, and every step resumes where it stopped.
@@ -223,6 +224,13 @@ def fisher_greater(a, b, c, d):
                for x in range(a, min(first, hits) + 1)) / total
 
 
+def mcnemar_greater(only_first, only_second):
+    """One-sided exact McNemar p for matched pairs: the chance that the first word is the one that
+    hits in `only_first` or more of the pairs where only one word hits, if either were as likely."""
+    n = only_first + only_second
+    return sum(math.comb(n, k) for k in range(only_first, n + 1)) / 2 ** n
+
+
 def cmd_compare(args):
     report, lines = {}, [
         "# Do the Portuguese markers echo the English ones?", "",
@@ -230,7 +238,8 @@ def cmd_compare(args):
         "of 2024 to 2026. A word hits when one of its translations, in dictionary form, is the "
         "dictionary form of a marker of the other language. Controls are style words of the same "
         "language and frequency in 2021-2022 that were never excess. Claude translated markers and "
-        "controls shuffled together. p is Fisher's exact test, one-sided (markers hit more often).",
+        "controls shuffled together. p is Fisher's exact test, one-sided (markers hit more often); "
+        "paired p is the exact McNemar test, one-sided, on each marker and its control.",
         ""]
     rows = []
     for lang in LANGS:
@@ -242,8 +251,10 @@ def cmd_compare(args):
                 targets.setdefault(form, set()).add(word)
         translations = read_sheet(CROSS / f"translations-{lang}.csv")
         markers = marker_words(lang)
-        controls = {row["control"] for row in read_sheet(CROSS / f"controls-{lang}.csv", "marker").values()
-                    if row["control"]}
+        matched = {marker: row["control"]
+                   for marker, row in read_sheet(CROSS / f"controls-{lang}.csv", "marker").items()
+                   if row["control"]}
+        controls = sorted(set(matched.values()))
 
         def hits(word):
             found = set()
@@ -257,16 +268,24 @@ def cmd_compare(args):
         c = sum(1 for found in control_hits.values() if found)
         b, d = len(marker_hits) - a, len(control_hits) - c
         p = fisher_greater(a, b, c, d)
+        pairs = [(bool(marker_hits[m]), bool(control_hits[k])) for m, k in matched.items()
+                 if m in marker_hits and k in control_hits]
+        only_marker = sum(1 for m, k in pairs if m and not k)
+        only_control = sum(1 for m, k in pairs if k and not m)
+        p_paired = mcnemar_greater(only_marker, only_control)
         report[lang] = {
             "markers": len(marker_hits), "markers_hit": a, "controls": len(control_hits),
-            "controls_hit": c, "p": p,
+            "controls_hit": c, "p": p, "pairs_only_marker": only_marker,
+            "pairs_only_control": only_control, "p_paired": p_paired,
             "pairs": {w: sorted(found) for w, found in marker_hits.items() if found},
             "own": sorted((w for w, found in marker_hits.items() if not found),
                           key=lambda w: -markers[w]),
             "control_pairs": {w: sorted(found) for w, found in control_hits.items() if found}}
         rows.append([f"{lang} to {other}", f"{a}/{a + b} ({a / (a + b):.0%})",
-                     f"{c}/{c + d} ({c / (c + d):.0%})", f"{p:.1e}"])
-    lines += table(["direction", "markers that hit", "controls that hit", "p"], rows)
+                     f"{c}/{c + d} ({c / (c + d):.0%})", f"{p:.1e}",
+                     f"{only_marker} against {only_control}", f"{p_paired:.1e}"])
+    lines += table(["direction", "markers that hit", "controls that hit", "p",
+                    "pairs where only the marker / only the control hits", "paired p"], rows)
     for lang in LANGS:
         result, other = report[lang], OTHER[lang]
         ranked = sorted(result["pairs"], key=lambda w: -marker_words(lang)[w])
