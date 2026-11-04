@@ -52,14 +52,21 @@
 \maketitle
 
 \begin{abstract}
-  Chatbots built on large language models (LLMs) favor certain words. We measured this footprint
-  in 195,600 Portuguese and English abstracts from SciELO Brazil journals, 2015 to 2026, adapting
-  the excess-vocabulary method of Kobak et al. Style words above their pre-ChatGPT trend rose from
-  at most six a year before 2023 to 108 in English and 69 in Portuguese in 2025, when at least 17\%
-  of the English and 13\% of the Portuguese abstracts went through an LLM. In the same papers, both
-  abstracts gained markers at similar rates, and most Portuguese markers translate English ones.
-  ChatGPT and Gemini added about five markers when polishing an English abstract. An open bilingual
-  website, IAês, presents the data.
+  Chatbots based on large language models (LLMs) now help many researchers write, edit and
+  translate their papers, and they leave traces in the text: some words become far more common than
+  they were before ChatGPT. We measured this footprint in 195,600 Portuguese and English abstracts
+  published from 2015 to 2026 by the journals of SciELO Brazil. We adapted the excess-vocabulary
+  method that Kobak et al. applied to PubMed to this smaller corpus in two languages, compared the
+  two abstracts of the same papers, tested whether the Portuguese marker words translate English
+  ones, and asked three chatbots to rewrite abstracts written before ChatGPT. The number of style
+  words above their pre-ChatGPT trend went from at most six a year before 2023 to 108 in English and
+  69 in Portuguese in 2025, and we estimate that at least 17\% of the English and 13\% of the
+  Portuguese abstracts of that year went through an LLM. In the same papers, the English and
+  Portuguese abstracts gained marker words at similar rates, and most Portuguese markers are
+  translations of English ones, so chatbot use in Brazilian science is not limited to the English
+  version of papers. When ChatGPT and Gemini polished an English abstract, they added about five
+  marker words to it. IAês, an open bilingual website built on the same data, lets readers explore
+  every word, field and paper.
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -835,11 +842,10 @@ penalize the very authors who gain the most from the tools \cite{liang2023gpt}.
 
 In this study, AI was both the object of research and one of its instruments. Claude labeled 1,682
 words and translated about 1,600 more, and three chatbots served as the subjects of the experiment.
-These steps need checks, and ours had them only in part: the first author's blind labels showed
-that Claude's labels lean conservative, while no person checked the translations. One batch of the
-translation step also came back as a refusal, because the model read the listed word \w{stop} as an
-instruction. Failures like this are easy to miss when a pipeline runs unattended, which is why each
-LLM step in research needs a record and, where possible, a human check.
+Using LLMs in this way raises, for our own work, the question the study asks about authors: how
+much of the work the model did, and who checked it. The labels had a check, since the first
+author's blind sample showed that Claude's labels lean conservative, but no person checked the
+translations.
 
 \section*{Declaration of AI use}
 

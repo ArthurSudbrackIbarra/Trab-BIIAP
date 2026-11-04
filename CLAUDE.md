@@ -314,8 +314,8 @@ abstract than in the Portuguese abstract of the same paper?
   also wrote chemical and mathematical notation as LaTeX in 23 of its 240 texts (the analysis drops
   LaTeX commands). With 80 texts per task, treat the rates as rough.
 - One translation batch was answered with a refusal (the model read the listed word "stop" as an
-  instruction); its words were resent in batches of 25 in a new order. Mention it in the paper as
-  a small example of LLM fragility in research pipelines.
+  instruction); its words were resent in batches of 25 in a new order. It stays out of the paper:
+  the author (2026-11-04) wants no incidental pipeline events there.
 
 **Interactive companion (decided 2026-10-30, built 2026-10-31).** A static web app, *IAês*, built
 on the same data; see the Site section. Spec for Claude Design: [docs/app-spec.md](docs/app-spec.md).
