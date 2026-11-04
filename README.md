@@ -11,7 +11,15 @@ The site is at https://arthursudbrackibarra.github.io/Trab-BIIAP/ in English, wi
 version at [/pt/](https://arthursudbrackibarra.github.io/Trab-BIIAP/pt/). It runs in the browser on
 precomputed data. It sets no cookies and makes no requests to other sites.
 
-The paper that reports the study, in English, is [`Artigo/paper.pdf`](Artigo/paper.pdf).
+The paper that reports the study, in English, is [`Artigo/paper.pdf`](Artigo/paper.pdf). After
+editing `Artigo/paper.tex`, compile it again from the repository root with
+
+```
+sh Artigo/compile.sh
+```
+
+The script runs latexmk, which needs a TeX distribution, and replaces `Artigo/paper.pdf` only when
+the build succeeds.
 
 ## Data and method
 
@@ -94,8 +102,8 @@ python3 -I scripts/build_site_data.py all
 python3 -I site/build.py
 python3 -m http.server 8000 -d site/dist
 
-# paper, written to Artigo/build/paper.pdf (needs a TeX distribution)
-cd Artigo && latexmk paper.tex
+# paper, compiled to Artigo/paper.pdf (needs a TeX distribution)
+sh Artigo/compile.sh
 ```
 
 The steps that call Claude (`label`, `controls` and `translate`) need Claude Code; the labels and

@@ -88,8 +88,8 @@ speaking; script and content are the student's own; slides are optional.
 TeX Live 2026 is installed for this user only, without sudo, in `~/texlive/2026` (collections:
 basic, latex, latexrecommended, latexextra, fontsrecommended, binextra, pictures, mathscience,
 plaingeneric, English, Portuguese; documentation not installed). Binaries live in
-`~/texlive/2026/bin/x86_64-linux`. The author puts that directory on the PATH in their own shell
-config; Claude's shell may not have it, so prefix commands with
+`~/texlive/2026/bin/x86_64-linux`. That directory is not on the PATH, neither in Claude's shell nor
+in the author's interactive zsh (checked 2026-11-04), so prefix commands with
 `PATH=$HOME/texlive/2026/bin/x86_64-linux:$PATH`. A missing package is one
 `tlmgr install <package>` away.
 
@@ -98,8 +98,11 @@ everything to `Artigo/build/` (generated, never commit it). The template compile
 on 2026-10-30: 4 pages, accents and bibliography correct.
 
 The paper is `Artigo/paper.tex` (`latexmk paper.tex`; the PDF lands in `Artigo/build/paper.pdf`).
-A copy of the PDF is committed as `Artigo/paper.pdf` (the author asked for it on 2026-11-04): copy
-it again from `build/` whenever the paper changes.
+A copy of the PDF is committed as `Artigo/paper.pdf` (the author asked for it on 2026-11-04).
+`sh Artigo/compile.sh` (the author asked for a command of their own, 2026-11-04) runs latexmk,
+finding TeX Live in `~/texlive` when latexmk is not on the PATH, copies the PDF over
+`Artigo/paper.pdf` only when the build succeeds, and warns past 20 pages. Run it whenever the paper
+changes.
 Its figures are in `Artigo/figures/`: TikZ and pgfplots files whose numbers come from `analysis/`,
 and a screenshot of the English site's time machine taken at 2x in headless Chrome (the words and
 fields screenshots were cut on 2026-11-04 to fit 20 pages). Do not load `hyperref`: with
