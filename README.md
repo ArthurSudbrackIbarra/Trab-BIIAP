@@ -11,6 +11,8 @@ The site is at https://arthursudbrackibarra.github.io/Trab-BIIAP/ in English, wi
 version at [/pt/](https://arthursudbrackibarra.github.io/Trab-BIIAP/pt/). It runs in the browser on
 precomputed data. It sets no cookies and makes no requests to other sites.
 
+The paper that reports the study, in English, is [`Artigo/paper.pdf`](Artigo/paper.pdf).
+
 ## Data and method
 
 The corpus has the abstracts that the journals of SciELO Brazil deposit with Crossref, from 2015 to
@@ -48,7 +50,7 @@ bound. The Method page of the site explains each change.
 | `analysis/` | Reports and tables produced by the scripts |
 | `experiment/` | Prompts, batches and the replies of ChatGPT, Gemini and Claude |
 | `site/` | The IAês site: page generator, templates, texts in both languages, scripts and data |
-| `Artigo/` | The paper (`paper.tex`), its figures and references, in the SBC LaTeX template |
+| `Artigo/` | The paper (`paper.tex`, compiled to `paper.pdf`), its figures and references, in the SBC LaTeX template |
 | `docs/` | Project notes, the paper plan and the AI usage log |
 
 ## Reproducing

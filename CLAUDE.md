@@ -98,6 +98,8 @@ everything to `Artigo/build/` (generated, never commit it). The template compile
 on 2026-10-30: 4 pages, accents and bibliography correct.
 
 The paper is `Artigo/paper.tex` (`latexmk paper.tex`; the PDF lands in `Artigo/build/paper.pdf`).
+A copy of the PDF is committed as `Artigo/paper.pdf` (the author asked for it on 2026-11-04): copy
+it again from `build/` whenever the paper changes.
 Its figures are in `Artigo/figures/`: TikZ and pgfplots files whose numbers come from `analysis/`,
 and screenshots of the English site taken at 2x in headless Chrome. Do not load `hyperref`: with
 `sbc-template.sty` it stops the build (`\normalsfcodes` undefined), so URLs use the `url` package.
