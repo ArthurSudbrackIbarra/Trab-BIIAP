@@ -1,5 +1,4 @@
-/* IAês · Máquina do tempo (d-experimento, m-experimento, e-experimento-modelos,
-   e-experimento-traduzir). Componentes comuns (filtros, dica, tabela, painel) ficam em site.css.
+/* IAês · Máquina do tempo. Componentes comuns (filtros, dica, tabela, painel) ficam em site.css.
    Cor só por token. */
 
 .exp-curto,.exp-so-celular,.exp-visao-celular{display:none}

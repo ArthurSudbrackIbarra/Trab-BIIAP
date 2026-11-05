@@ -1,4 +1,4 @@
-// IAês · Mapa de palavras (spec 4.3; design d-mapa, m-mapa, e-mapa-lado).
+// IAês · Mapa de palavras.
 // Dispersão em canvas de todas as palavras de 2025 de uma língua e área (dados/mapa/<l>-<area>.json):
 // X = parcela em 2021-22, Y = razão observado/esperado em 2025, os dois em log. Ao lado, a lista
 // "Maiores excessos"; no modo lado a lado, PT e EN com os mesmos eixos e a tradução realçada no

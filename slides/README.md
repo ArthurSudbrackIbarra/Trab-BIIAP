@@ -1,11 +1,9 @@
 # Slides do vídeo
 
 Apresentação de apoio para o vídeo de até 5 minutos pedido na disciplina. É um arquivo HTML único,
-`index.html`, feito com a skill `frontend-slides` (a mesma do deck do orientador no voicemark-br) e
-com as regras de conteúdo da skill `academic-pptx`. O visual é o do IAês: fundo papel, fonte Figtree
-e as cores do site para excesso, português e inglês. Assim, no vídeo, os slides e o site parecem
-uma peça só. São 15 slides em português: a capa, 10 de conteúdo, 3 que levam às demos no site e as
-referências.
+`index.html`, com o visual do IAês: fundo papel, fonte Figtree e as cores do site para excesso,
+português e inglês. Assim, no vídeo, os slides e o site parecem uma peça só. São 15 slides em
+português: a capa, 10 de conteúdo, 3 que levam às demos no site e as referências.
 
 ## Abrir
 
@@ -81,14 +79,6 @@ janela do apresentador, e os links passam a abrir o site publicado.
    gravada.
 4. Ensaie uma vez com o relógio. Se passar de 5 minutos, encurte primeiro a demo do Raio-X
    (slide 13) e depois a do Palavras no tempo (slide 5).
-
-## Exportar PDF
-
-```bash
-bash ~/Documents/Mestrado/voicemark-br/.claude/skills/frontend-slides/scripts/export-pdf.sh slides/index.html
-```
-
-O PDF sai com os slides estáticos, sem as falas.
 
 ## De onde vêm os números
 

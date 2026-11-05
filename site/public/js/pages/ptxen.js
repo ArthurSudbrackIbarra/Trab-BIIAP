@@ -1,4 +1,4 @@
-// IAês · O mesmo artigo em duas línguas (spec 4.5, d-ptxen, m-ptxen).
+// IAês · O mesmo artigo em duas línguas.
 // Hexágonos de 2019 e de outro ano (marcas a cada 100 palavras no resumo em português × no
 // abstract em inglês), a linha do tempo da parcela de artigos com mais marcas no inglês, e os
 // pares lado a lado com as palavras-marcadoras realçadas.
@@ -187,7 +187,7 @@ function desenharHex(fig, ano, todos) {
   foco);
 
   const rotulos = [
-    // No celular ficam só 0, 10 e 20 (três marcas por eixo, como no guia).
+    // No celular ficam só 0, 10 e 20 (três marcas por eixo, como no design).
     ...MARCAS_EIXO.map((v) => rotulo(`rot-x${v % 10 ? ' ptx-rot-meio' : ''}`, fmt.num(v), [pctX(px(v)), pctY(VB.y0 + VB.lado)])),
     ...MARCAS_EIXO.map((v) => rotulo(`rot-y${v % 10 ? ' ptx-rot-meio' : ''}`, fmt.num(v), [pctX(VB.x0), pctY(py(v))])),
     rotulo('ptx-canto ptx-canto-en', [el('span', { class: 'ptx-so-largo', text: t('canto_en') }), el('span', { class: 'ptx-so-celular', text: t('canto_en_curto') })], [16, 6], { 'aria-hidden': 'true' }),

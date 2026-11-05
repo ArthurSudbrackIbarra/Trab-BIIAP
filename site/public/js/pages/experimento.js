@@ -1,5 +1,4 @@
-// IAês · Máquina do tempo (spec 4.6; d-experimento, m-experimento, e-experimento-modelos,
-// e-experimento-traduzir). Três partes:
+// IAês · Máquina do tempo. Três partes:
 //   1. um resumo antes e depois: diferenças palavra a palavra calculadas aqui (melhorar a escrita)
 //      ou as marcadoras realçadas na tradução do modelo e na dos autores (traduzir);
 //   2. o que cada modelo insere: barras de experimento/<tarefa>.json (insere, resumo);
@@ -24,8 +23,8 @@ const MODELOS = ['chatgpt', 'gemini', 'claude'];
 const LIMIAR = 4;             // textos a mais para uma palavra entrar em `insere` (DADOS.md)
 const LOTE = 10;              // resumos por lote (experiment/batches/, e o `como` de cada modelo)
 const CORTE_PADRAO = 150;     // palavras: o resumo de partida cabe na primeira dobra de 1440 × 900
-const N_COMPARAR = 8;         // barras por coluna em Comparar modelos (e-experimento-modelos)
-const N_CELULAR = 10;         // barras antes de "Ver as 15" no celular (m-experimento)
+const N_COMPARAR = 8;         // barras por coluna em Comparar modelos
+const N_CELULAR = 10;         // barras antes de "Ver as 15" no celular
 const langDe = (l) => (l === 'en' ? 'en' : 'pt-BR');
 const sinal = (v) => (v > 0 ? `+${fmt.num(v)}` : fmt.num(v));
 const casas = (x) => (Number.isInteger(x) ? 0 : Number.isInteger(Math.round(x * 1e6) / 1e5) ? 1 : 2);

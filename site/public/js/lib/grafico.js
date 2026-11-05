@@ -1,6 +1,6 @@
-// IAês · escalas, marcas de eixo e o gráfico de linha do tempo do design (fund-graficos,
-// comp-dados, d-palavras). SVG desenhado na largura real da caixa (redesenha ao redimensionar),
-// rótulos em HTML por cima. Cor só por token.
+// IAês · escalas, marcas de eixo e o gráfico de linha do tempo do design.
+// SVG desenhado na largura real da caixa (redesenha ao redimensionar), rótulos em HTML por cima.
+// Cor só por token.
 //
 // ---------- Escalas ----------
 //   escalaLinear([d0, d1], [r0, r1]) → f(v) em px; f.inverso(px); f.dominio; f.faixa

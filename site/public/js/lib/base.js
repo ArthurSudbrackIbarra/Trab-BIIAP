@@ -334,7 +334,7 @@ export async function copiarTexto(texto) {
 export const escapar = (texto) => String(texto).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
 /**
- * Aviso de link com problema (prancheta Falhas): o que o link pedia e não existe, o que a tela
+ * Aviso de link com problema (estado de falha do design): o que o link pedia e não existe, o que a tela
  * mostra no lugar, e "Copiar o link corrigido". `mensagem` pode ter <b>; o que veio do endereço
  * passa por escapar().
  */

@@ -4,8 +4,7 @@ Site estático que acompanha o artigo: uma página por ferramenta, em inglês (o
 português (em `/pt/`), com os dados pré-calculados. Não chama modelo de IA nenhum, não usa cookies
 e não faz requisição a terceiros (fontes e dados vêm do próprio site).
 
-O design foi feito no Claude Design a partir da spec em `docs/app-spec.md`. Os dados seguem
-`site/DADOS.md`.
+Os dados seguem `site/DADOS.md`.
 
 ## Gerar e ver
 
@@ -33,7 +32,7 @@ site/
   src/pages/<id>.html   corpo (dentro de <main>) de cada tela, com {{t:chave}}, {{rota:id}}, {{raiz}}
   src/i18n/comum.json   textos de todas as telas: cabeçalho, rodapé, estados, painel, áreas
   src/i18n/<id>.json    textos de uma tela: {"pt": {...}, "en": {...}}, com as mesmas chaves
-  public/css/iaes.css   tokens e componentes do design (o CSS do Claude Design; não editar)
+  public/css/iaes.css   tokens e componentes do design (base comum; não editar)
   public/css/site.css   layout global, cabeçalho, rodapé, estados e as regras de celular
   public/css/pages/<id>.css   estilos de uma tela (carregado só nela, se existir)
   public/js/lib/        código comum (ver abaixo)
@@ -114,12 +113,12 @@ altera; o que faltar numa tela fica no `js/pages/<id>.js` dela.
   `<button>`, levam o prefixo `.iaes` (`.iaes .minha-lista{padding:6px}`).
 - A palavra analisada vai em negrito (`.w`); números que se comparam usam `.num`/`.dado`. Sem
   itálico. Títulos em caixa normal.
-- Fora da interface (seção 10 do guia): rótulo pequeno em caixa alta sobre título, fileira de
-  cartões iguais, degradê, brilho, etiqueta em pílula, bolinha de status, raio acima de 4 px em
-  botões e campos, números redondos de mentira, numeração 01/02/03 sem sequência, travessão.
-- Textos: diretos, curtos, sem travessão (— ou –), sem jargão de IA ("crucial", "aprofundar",
-  "destacar", "robusto", "abrangente" como enfeite) e sem frases de efeito. Português do Brasil e
-  inglês completos; números no padrão de cada idioma (`Intl.NumberFormat`).
+- Fora da interface: rótulo pequeno em caixa alta sobre título, fileira de cartões iguais,
+  degradê, brilho, etiqueta em pílula, bolinha de status, raio acima de 4 px em botões e campos,
+  números redondos de mentira, numeração 01/02/03 sem sequência, travessão.
+- Textos: diretos, curtos, sem travessão (— ou –), sem as palavras-marcadoras do estudo usadas como
+  enfeite ("crucial", "aprofundar", "destacar", "robusto", "abrangente") e sem frases de efeito.
+  Português do Brasil e inglês completos; números no padrão de cada idioma (`Intl.NumberFormat`).
 - Acessibilidade: contraste AA, foco visível, tudo pelo teclado, `lang="en"` em texto inglês,
   alvos de 44 px no celular, resumo em texto de cada gráfico e "Ver como tabela".
 - O gráfico principal de cada ferramenta cabe na primeira dobra de 1440 × 900.

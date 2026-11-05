@@ -1,5 +1,5 @@
 /* IAês · Método: página de leitura com índice lateral (desktop) ou recolhido (celular e tablet).
-   Medidas das pranchetas d-metodo e m-metodo. Cor só por token. */
+   Medidas do design. Cor só por token. */
 
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 .metodo{padding-top:48px;padding-bottom:32px}

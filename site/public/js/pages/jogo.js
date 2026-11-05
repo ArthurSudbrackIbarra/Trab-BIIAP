@@ -1,4 +1,4 @@
-// IAês · Antes ou depois? (spec 4.8; d-jogo, m-jogo, e-jogo-revelacao, e-jogo-fim).
+// IAês · Antes ou depois?.
 //
 // Quatro fases na mesma página, sem recarregar: escolha da língua (o formulário de jogo.html),
 // pergunta, revelação e fim. Uma rodada tem N resumos de dados/jogo.json, metade de cada período

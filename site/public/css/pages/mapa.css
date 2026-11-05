@@ -1,4 +1,4 @@
-/* IAês · Mapa de palavras (d-mapa, m-mapa, e-mapa-lado). Cor só por token.
+/* IAês · Mapa de palavras. Cor só por token.
    Componentes comuns (filtros, busca, dica, tabela, painel) ficam em site.css. */
 
 .mapa-so-celular{display:none}

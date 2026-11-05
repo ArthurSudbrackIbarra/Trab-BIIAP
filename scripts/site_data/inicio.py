@@ -51,7 +51,7 @@ SAMPLE_WORDS, SAMPLE_CHANGES, SAMPLE_SIMILAR = (8, 22), (1, 3), 0.5
 # year, and the partial year no lower than the year before the last full one), and take the one
 # with the largest ratio.
 MIN_HIGHLIGHT = 30
-EVENT_YEAR = 2024  # the one year in which the English rise was larger (CLAUDE.md, H2)
+EVENT_YEAR = 2024  # the one year in which the English rise was larger (analysis/pairs/report.md, H2)
 
 
 def clean_line(found):
