@@ -1,4 +1,4 @@
-// IAês · Raio-X do seu texto (spec 4.7; d-raiox, m-raiox, e-raiox-entrada, e-vazio-erro, e-falhas).
+// IAês · Raio-X do seu texto.
 //
 // Tudo roda no navegador, só com dados/marcadoras.json (site/DADOS.md, "marcadoras.json" e "Marcas
 // num texto"). O texto colado não vai para o endereço, para armazenamento nenhum nem para

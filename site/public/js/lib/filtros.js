@@ -1,4 +1,4 @@
-// IAês · controles de filtro do design (comp-controles): segmentos, interruptor, seletor de área
+// IAês · controles de filtro do design: segmentos, interruptor, seletor de área
 // e o filtro "Resumos em". Todos devolvem o elemento pronto, com .valor e .definir(v), e chamam
 // aoMudar(valor) só quando a pessoa muda (definir() não chama).
 //

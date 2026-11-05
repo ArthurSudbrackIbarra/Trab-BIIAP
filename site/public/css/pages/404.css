@@ -1,4 +1,4 @@
-/* IAês · página que não existe (prancheta Falhas, último bloco). Cor só por token. */
+/* IAês · página que não existe. Cor só por token. */
 .nao-existe{display:flex;flex-direction:column;align-items:flex-start;gap:14px;padding-top:64px;padding-bottom:32px}
 .nao-existe-pedido{max-width:min(100%,760px);padding:8px 12px;border-radius:var(--r-1);background:var(--sutil);font-size:12px;color:var(--tinta-2);overflow-wrap:anywhere}
 .nao-existe h1{margin-top:4px}

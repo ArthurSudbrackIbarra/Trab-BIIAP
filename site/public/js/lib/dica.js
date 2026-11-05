@@ -1,6 +1,6 @@
 // IAês · a dica (tooltip) dos gráficos: abre igual com mouse, foco e toque.
 // No desktop e no tablet flutua dentro da caixa do gráfico, ao lado do ponto, sem cobri-lo.
-// No celular vira um cartão fixo logo abaixo do gráfico, com botão de fechar (design: m-palavras).
+// No celular vira um cartão fixo logo abaixo do gráfico, com botão de fechar.
 //
 //   const dica = criarDica(caixa, { fixaNoCelular: true, topo: 38 });
 //   dica.mostrar(conteudoDica({...}), { x: 210, y: 80, topo });   // px dentro da caixa; topo fixo opcional

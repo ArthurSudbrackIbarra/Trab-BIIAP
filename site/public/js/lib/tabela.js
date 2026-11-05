@@ -1,4 +1,4 @@
-// IAês · tabelas e o botão "Ver como tabela" (design: comp-dados, fund-graficos).
+// IAês · tabelas e o botão "Ver como tabela".
 //
 //   tabela(colunas, linhas, opcoes) → elemento .tabela-caixa com a <table>
 //     colunas: [{ rotulo, num, curto, classe }]

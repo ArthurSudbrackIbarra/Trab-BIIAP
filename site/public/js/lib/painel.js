@@ -1,4 +1,4 @@
-// IAês · o painel da palavra (cmp-painel, e-painel, e-painel-celular; spec 4.10).
+// IAês · o painel da palavra.
 // Gaveta de 440 px à direita no desktop e no tablet; folha que sobe de baixo no celular. Cobre o
 // cabeçalho e escurece a página. role="dialog" com aria-modal, foco preso dentro (o resto da
 // página fica inert), Esc fecha, o foco volta para quem abriu.

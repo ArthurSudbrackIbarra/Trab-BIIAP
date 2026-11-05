@@ -1,4 +1,4 @@
-// IAês · Áreas do conhecimento (d-areas, m-areas, e-areas-reproduzindo; spec 4.4, guia seção 7).
+// IAês · Áreas do conhecimento.
 // Mapa de calor das oito áreas (e de todas juntas) por ano, com Reproduzir, régua, barras do ano
 // escolhido e o cartão de uma célula. Estado no endereço:
 //   ?resumos=en&metrica=indice&ano=2025[&area=saude]   (area = cartão aberto)
@@ -20,9 +20,9 @@ const I2025 = ANOS.indexOf(2025);
 const ULTIMO = ANOS.length - 1;
 const MIN_INDICE = 100;      // abaixo disso a célula fica hachurada (DADOS.md)
 const MIN_MINIMO = 200;      // a estimativa mínima só existe com 200 resumos ou mais
-const PASSO_MS = 600;        // Reproduzir: um ano a cada 600 ms (guia, seção 7)
+const PASSO_MS = 600;        // Reproduzir: um ano a cada 600 ms
 const LINHAS = [...AREAS, 'todas'];
-// Faixas do calor: índice pelo guia (até 1,1; 1,1 a 1,3; ...; 2,1 ou mais). A estimativa mínima
+// Faixas do calor: índice pelo design (até 1,1; 1,1 a 1,3; ...; 2,1 ou mais). A estimativa mínima
 // não tem faixa no design: passos de 3 pontos percentuais, do zero aos 18% ou mais.
 const FAIXAS = {
   indice: [1.1, 1.3, 1.5, 1.7, 1.9, 2.1],

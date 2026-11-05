@@ -28,7 +28,7 @@ from site_data.comum import (AREAS, LAST_FULL, OUT, RAW, SITE, Frame, clean_titl
 REPORT = OUT / "experiment" / "report.json"
 DATE_LINE = re.compile(r"^#[ \t]*data[ \t]*:[ \t]*(\S+)", re.M | re.I)
 API_ID = re.compile(r"claude-([a-z]+)-(\d+)-(\d+)")  # claude -p reports the model by its id
-# How each model was run (experiment/README.md and CLAUDE.md). "plano" is the access row of
+# How each model was run (experiment/README.md). "plano" is the access row of
 # "Como pedimos", "como" the settings row; the version and the dates come from the inbox headers.
 RUNS = {
     "chatgpt": {

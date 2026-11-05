@@ -383,7 +383,7 @@ def cmd_analyze(args):
 # --- claude -----------------------------------------------------------------------------------
 
 def run_claude(text, model):
-    # An empty working directory keeps this project's CLAUDE.md and memory out of the context.
+    # An empty working directory keeps this project's files out of the context.
     with tempfile.TemporaryDirectory(prefix="biiap-claude-") as workdir:
         result = subprocess.run(
             ["claude", "-p", "--model", model, "--output-format", "json",

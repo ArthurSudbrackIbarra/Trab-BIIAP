@@ -61,7 +61,7 @@ bound. The Method page of the site explains each change.
 | `experiment/` | Prompts, batches and the replies of ChatGPT, Gemini and Claude |
 | `site/` | The IAês site: page generator, templates, texts in both languages, scripts and data |
 | `Artigo/` | The paper (`paper.tex`, compiled to `paper.pdf`), its figures and references, in the SBC LaTeX template |
-| `docs/` | Project notes, the paper plan and the AI usage log |
+| `docs/img/` | The screenshot of the site in this README |
 
 ## Reproducing
 

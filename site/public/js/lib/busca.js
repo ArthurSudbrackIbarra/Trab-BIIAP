@@ -1,4 +1,4 @@
-// IAês · busca de palavras com autocompletar (padrão ARIA combobox com listbox; comp-controles).
+// IAês · busca de palavras com autocompletar (padrão ARIA combobox com listbox).
 //
 //   const busca = criarBusca({ aoEscolher(item) {...}, linguas: ['pt', 'en'] });
 //   caixa.append(busca.elemento);

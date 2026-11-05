@@ -53,8 +53,8 @@ python3 -I scripts/experiment.py claude
 ```
 
 O script manda cada lote pendente para o `claude -p`, pelo seu plano Max, sem chave de API. Ele
-roda numa pasta vazia, com um prompt de sistema de uma linha e sem ferramentas, para que o
-CLAUDE.md deste projeto não chegue às respostas. Cada lote leva cerca de um minuto.
+roda numa pasta vazia, com um prompt de sistema de uma linha e sem ferramentas, para que nenhum
+arquivo deste projeto chegue ao contexto. Cada lote leva cerca de um minuto.
 
 ## Conferir e repescar
 
