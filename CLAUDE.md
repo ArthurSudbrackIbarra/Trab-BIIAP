@@ -424,6 +424,8 @@ CAPES described as a discussion paper, Kousha and Thelwall described as twelve f
 20 pages, the sentences citing Hanauer et al. and Packer et al. (1998) were cut, and an independent
 consistency check of every number against `analysis/` was applied.
 
+Prose rewrite (2026-11-05, branch `paper-rewrite`): the author found the technical sections dense and disconnected, so the whole text was rewritten for a gentler read without changing any number, table, figure or equation. Cut on the way: the bound by subject area, the H2 split by article language, the list of contributions (now a sentence) and the citations of Brown et al. and Padmakumar and He. Still 20 pages, 46 references.
+
 Open items:
 
 - Exact deadlines for the paper and the video.
