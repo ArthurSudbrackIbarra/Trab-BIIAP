@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A IA está delving na ciência brasileira?</title>
+
+<!-- Figtree, the IAês typeface, from the site's own files (see FONTS below), so the deck works
+     offline and makes no third-party requests, like the site. -->
+
+<style>
+/* ===========================================================================
+   FONTS
+   =========================================================================== */
+@font-face { font-family: 'Figtree'; font-weight: 400; font-display: swap; src: url('../site/public/fontes/figtree/figtree-latin-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Figtree'; font-weight: 500; font-display: swap; src: url('../site/public/fontes/figtree/figtree-latin-500-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Figtree'; font-weight: 600; font-display: swap; src: url('../site/public/fontes/figtree/figtree-latin-600-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Figtree'; font-weight: 700; font-display: swap; src: url('../site/public/fontes/figtree/figtree-latin-700-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Figtree'; font-weight: 800; font-display: swap; src: url('../site/public/fontes/figtree/figtree-latin-800-normal.woff2') format('woff2'); }
+
+/* ===========================================================================
+   THEME TOKENS
+   Copied from the IAês design (site/public/css/iaes.css) so the slides and
+   the site look like one piece when the video cuts between them.
+   =========================================================================== */
+:root {
+    --papel: #FAF9F6;
+    --superficie: #FFFFFF;
+    --sutil: #F1F0ED;
+    --linha: #E1DFDB;
+    --linha-forte: #CAC7C2;
+    --tinta: #1C1A17;
+    --tinta-2: #4F4D48;
+    --tinta-3: #66635D;
+    --grade: #E8E6E2;
+    --eixo: #BAB7B2;
+    --base: #888681;
+    --base-claro: #B3B1AB;
+    --excesso: #D84925;
+    --excesso-texto: #AF2F09;
+    --excesso-veu: rgba(216, 73, 37, .16);
+    --pt: #0A96AF;
+    --en: #3853B6;
+    --pt-1: #D4E9EB;
+    --en-1: #DBDEEC;
+    --inserido: #035E23;
+    --inserido-fundo: #CDF1D3;
+    --realce-2: #FED6C2;
+
+    --fonte: 'Figtree', 'Helvetica Neue', Arial, sans-serif;
+
+    --stage-bg: #E9E7E3;
+    --slide-bg: var(--papel);
+
+    --pad-x: 128px;
+    --title-size: 64px;
+    --body-size: 34px;
+    --small-size: 24px;
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ===========================================================================
+   FIXED 16:9 STAGE (viewport-base.css from the frontend-slides skill, in full)
+   =========================================================================== */
+/* 1. Lock the browser viewport */
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    background: var(--stage-bg, #000);
+}
+
+/* 2. Full-window deck viewport */
+.deck-viewport {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    background: var(--stage-bg, #000);
+}
+
+/* 3. Fixed 16:9 design canvas.
+   JavaScript sets transform: translate(...) scale(...). */
+.deck-stage {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    transform-origin: 0 0;
+    background: var(--slide-bg, #fff);
+}
+
+/* 4. Slides stack inside the fixed stage.
+   Content must be laid out at 1920×1080, not reflowed per device. */
+.slide {
+    position: absolute;
+    inset: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    background: var(--slide-bg, #fff);
+}
+
+.slide.active,
+.slide.visible {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 1;
+}
+
+/* 5. Keep media inside authored slide bounds */
+img,
+video,
+canvas,
+svg {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* 6. Presentation chrome stays outside the slide design system */
+.deck-controls {
+    position: fixed;
+    left: 50%;
+    bottom: 22px;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+/* 7. Print one fixed-size slide per page */
+@media print {
+    html,
+    body {
+        width: 1920px;
+        height: auto;
+        overflow: visible;
+        background: #fff;
+    }
+
+    .deck-viewport {
+        position: static;
+        overflow: visible;
+        background: #fff;
+    }
+
+    .deck-stage {
+        position: static;
+        width: auto;
+        height: auto;
+        transform: none !important;
+        background: none;
+    }
+
+    .slide {
+        position: relative;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        width: 1920px;
+        height: 1080px;
+        break-after: page;
+        page-break-after: always;
+    }
+
+    .slide:last-child {
+        break-after: auto;
+        page-break-after: auto;
+    }
+
+    .deck-controls {
+        display: none !important;
+    }
+}
+
+/* 8. Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.2s !important;
+    }
+}
+
+/* ===========================================================================
+   BASE TYPE
+   =========================================================================== */
+body { font-family: var(--fonte); color: var(--tinta); -webkit-font-smoothing: antialiased; }
+.slide { font-family: var(--fonte); color: var(--tinta); }
+.notes { display: none !important; }
+
+/* ===========================================================================
+   SLIDE FRAME
+   Every content slide: an action title at the top, the exhibit below, and a
+   thin footer with the author and the slide number.
+   =========================================================================== */
+.frame {
+    position: absolute;
+    inset: 0;
+    padding: 96px var(--pad-x) 0;
+    display: flex;
+    flex-direction: column;
+}
+.title {
+    font-size: var(--title-size);
+    line-height: 1.08;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    max-width: 1560px;
+    text-wrap: balance;
+}
+.lede {
+    margin-top: 24px;
+    font-size: 30px;
+    line-height: 1.4;
+    color: var(--tinta-2);
+    max-width: 1300px;
+}
+.body {
+    flex: 1;
+    display: flex;
+    gap: 80px;
+    align-items: center;
+    padding-bottom: 120px;
+}
+.foot {
+    position: absolute;
+    left: var(--pad-x);
+    right: var(--pad-x);
+    bottom: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 20px;
+    color: var(--tinta-3);
+    border-top: 1px solid var(--linha);
+    padding-top: 16px;
+}
+.foot .src { max-width: 1300px; }
+.foot .n { font-weight: 600; font-variant-numeric: tabular-nums; }
+
+.wordmark { font-weight: 800; letter-spacing: -0.03em; }
+.wordmark span { font-weight: 300; }
+
+.w { font-style: italic; }
+.en { color: var(--en); }
+.pt { color: var(--pt); }
+.ex { color: var(--excesso-texto); }
+.mark {
+    background: var(--realce-2);
+    border-radius: 6px;
+    padding: 0 8px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+}
+
+/* Side column of a result slide: big number, then the reading of it. */
+.side { width: 600px; flex: none; }
+.side p { font-size: var(--body-size); line-height: 1.38; color: var(--tinta-2); }
+.side p + p { margin-top: 28px; }
+.side strong { color: var(--tinta); font-weight: 700; }
+.big {
+    font-size: 132px;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+    font-variant-numeric: tabular-nums;
+}
+.big small { font-size: 64px; font-weight: 700; }
+.big-label { font-size: 28px; color: var(--tinta-2); margin-top: 12px; line-height: 1.35; }
+.verdict {
+    margin-top: 36px;
+    padding-left: 24px;
+    border-left: 6px solid var(--tinta);
+    font-size: 32px;
+    line-height: 1.35;
+    font-weight: 600;
+}
+.verdict.ok { border-color: var(--excesso); }
+.verdict.no { border-color: var(--base); }
+
+.chart { flex: 1; min-width: 0; height: 640px; }
+.chart svg { width: 100%; height: 100%; overflow: visible; }
+.chart text { font-family: var(--fonte); }
+
+/* ===========================================================================
+   ENTRANCE ANIMATION
+   One soft rise per element, staggered. Chart bars grow from the axis.
+   =========================================================================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity .7s var(--ease), transform .7s var(--ease);
+}
+.slide.visible .reveal { opacity: 1; transform: none; }
+.slide.visible .reveal.d1 { transition-delay: .08s; }
+.slide.visible .reveal.d2 { transition-delay: .18s; }
+.slide.visible .reveal.d3 { transition-delay: .30s; }
+.slide.visible .reveal.d4 { transition-delay: .42s; }
+
+.grow { transform-box: fill-box; transform-origin: 50% 100%; transform: scaleY(0); transition: transform .9s var(--ease); }
+.grow-x { transform-box: fill-box; transform-origin: 0 50%; transform: scaleX(0); transition: transform .9s var(--ease); }
+.slide.visible .grow, .slide.visible .grow-x { transform: none; }
+/* The slide shown on load appears at once; the entrance plays from the first change on. */
+body.instant .reveal, body.instant .grow, body.instant .grow-x { transition: none !important; }
+
+/* ===========================================================================
+   SLIDE 1: TITLE
+   =========================================================================== */
+.cover { padding: 0 var(--pad-x); display: flex; flex-direction: column; justify-content: center; height: 100%; }
+.cover .wordmark { font-size: 40px; margin-bottom: 56px; }
+.cover h1 {
+    font-size: 132px;
+    line-height: 1.0;
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    max-width: 1500px;
+}
+.cover h1 .mark { padding: 0 14px; border-radius: 10px; font-style: italic; }
+.cover .sub { margin-top: 40px; font-size: 38px; color: var(--tinta-2); max-width: 1300px; line-height: 1.35; }
+.cover .authors { margin-top: 88px; font-size: 28px; line-height: 1.55; color: var(--tinta-2); }
+.cover .authors strong { color: var(--tinta); font-weight: 700; }
+
+/* ===========================================================================
+   SLIDE 2: MOTIVATION
+   =========================================================================== */
+.quote {
+    flex: 1;
+    background: var(--superficie);
+    border: 1px solid var(--linha);
+    border-radius: 16px;
+    padding: 56px 64px;
+}
+.quote .q { font-size: 44px; line-height: 1.35; font-weight: 500; }
+.quote .who { margin-top: 28px; font-size: 24px; color: var(--tinta-3); }
+.quote .tag { font-size: 24px; color: var(--tinta-3); margin-bottom: 20px; font-weight: 600; }
+
+/* ===========================================================================
+   SLIDE 3: QUESTION AND HYPOTHESES
+   =========================================================================== */
+.hyps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; width: 100%; }
+.hyp {
+    background: var(--superficie);
+    border: 1px solid var(--linha);
+    border-radius: 16px;
+    padding: 44px 44px 48px;
+}
+.hyp .h { font-size: 36px; font-weight: 800; color: var(--excesso-texto); }
+.hyp p { margin-top: 18px; font-size: 32px; line-height: 1.38; color: var(--tinta); }
+
+/* ===========================================================================
+   SLIDE 4: METHOD
+   =========================================================================== */
+.facts { width: 560px; flex: none; display: flex; flex-direction: column; gap: 36px; }
+.fact .v { font-size: 64px; font-weight: 800; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.fact .l { font-size: 27px; line-height: 1.35; color: var(--tinta-2); margin-top: 4px; }
+
+/* ===========================================================================
+   DEMO SLIDES
+   A browser frame with the page and the steps, so the viewer knows the
+   video is about to leave the slides.
+   =========================================================================== */
+.demo { background: var(--tinta); color: var(--papel); }
+.demo .frame { padding-top: 0; justify-content: center; }
+.demo .live { font-size: 30px; font-weight: 700; color: #FFB596; display: flex; align-items: center; gap: 16px; }
+.demo .live::before { content: ''; width: 18px; height: 18px; border-radius: 50%; background: var(--excesso); box-shadow: 0 0 0 8px rgba(216, 73, 37, .25); }
+.demo .title { color: var(--papel); margin-top: 20px; font-size: 96px; }
+.demo .lede { color: #D9D6D0; }
+.browser {
+    margin-top: 64px;
+    width: 1664px;
+    background: var(--papel);
+    border-radius: 18px;
+    overflow: hidden;
+    color: var(--tinta);
+}
+.browser .bar {
+    display: flex; align-items: center; gap: 14px;
+    padding: 18px 26px;
+    background: var(--sutil);
+    border-bottom: 1px solid var(--linha);
+    font-size: 24px; color: var(--tinta-2);
+}
+.browser .dot { width: 14px; height: 14px; border-radius: 50%; background: var(--linha-forte); }
+.browser .url {
+    margin-left: 18px; flex: 1;
+    background: var(--superficie); border: 1px solid var(--linha); border-radius: 10px;
+    padding: 8px 18px; font-size: 24px; color: var(--tinta-2);
+    text-decoration: none; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+}
+.browser .url b { color: var(--tinta); font-weight: 600; }
+.steps { list-style: none; counter-reset: s; padding: 40px 48px 44px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; }
+.steps li { counter-increment: s; font-size: 30px; line-height: 1.38; }
+.steps li::before {
+    content: counter(s);
+    display: block;
+    font-size: 26px; font-weight: 800; color: var(--excesso-texto);
+    margin-bottom: 10px;
+}
+
+/* ===========================================================================
+   SLIDE 9: TRANSLATION PAIRS
+   =========================================================================== */
+.pairs { margin-top: 28px; display: grid; grid-template-columns: auto auto auto; gap: 10px 20px; font-size: 32px; align-items: baseline; justify-content: start; }
+.pairs .arrow { color: var(--tinta-3); }
+
+/* ===========================================================================
+   SLIDE 12: BENEFITS AND IMPACTS
+   =========================================================================== */
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; width: 100%; }
+.col { background: var(--superficie); border: 1px solid var(--linha); border-radius: 16px; padding: 48px 52px; }
+.col h3 { font-size: 38px; font-weight: 800; }
+.col.good h3 { color: var(--inserido); }
+.col.bad h3 { color: var(--excesso-texto); }
+.col ul { margin-top: 24px; list-style: none; }
+.col li { font-size: 31px; line-height: 1.38; padding-left: 30px; position: relative; color: var(--tinta); }
+.col li + li { margin-top: 18px; }
+.col li::before { content: ''; position: absolute; left: 0; top: 17px; width: 12px; height: 12px; border-radius: 3px; background: var(--linha-forte); }
+.col.good li::before { background: var(--inserido); }
+.col.bad li::before { background: var(--excesso); }
+
+/* ===========================================================================
+   SLIDE 14: CONCLUSIONS
+   =========================================================================== */
+.concl { list-style: none; width: 960px; flex: none; }
+.concl li { font-size: 36px; line-height: 1.36; padding: 22px 0 22px 0; border-top: 1px solid var(--linha); }
+.concl li:last-child { border-bottom: 1px solid var(--linha); }
+.concl li b { font-weight: 800; }
+.links { flex: 1; display: flex; flex-direction: column; gap: 32px; }
+.link .l { font-size: 24px; color: var(--tinta-3); font-weight: 600; }
+.link a { display: block; margin-top: 6px; font-size: 27px; color: var(--tinta); text-decoration: none; white-space: nowrap; line-height: 1.3; }
+
+/* ===========================================================================
+   SLIDE 15: REFERENCES
+   =========================================================================== */
+.refs { list-style: none; margin-top: 48px; max-width: 1600px; }
+.refs li { font-size: 26px; line-height: 1.45; color: var(--tinta-2); padding-left: 0; }
+.refs li + li { margin-top: 20px; }
+.refs li b { color: var(--tinta); font-weight: 600; }
+
+/* ===========================================================================
+   OVERLAY CHROME (outside the slide design: rehearsal notes, help, editing)
+   =========================================================================== */
+.notes-drawer {
+    position: fixed; left: 0; right: 0; bottom: 0;
+    max-height: 42vh; overflow: auto;
+    background: rgba(28, 26, 23, .94); color: #F4F2EE;
+    padding: 20px 28px 24px;
+    font: 18px/1.5 var(--fonte);
+    z-index: 2000;
+    display: none;
+}
+.notes-drawer.show { display: block; }
+.notes-drawer .t { font-size: 14px; color: #BDB9B2; margin-bottom: 6px; }
+.help {
+    position: fixed; right: 16px; bottom: 16px; z-index: 2001;
+    background: rgba(28, 26, 23, .92); color: #F4F2EE;
+    font: 15px/1.6 var(--fonte); padding: 14px 18px; border-radius: 10px;
+    display: none;
+}
+.help.show { display: block; }
+.help b { display: inline-block; min-width: 26px; color: #FFB596; }
+
+.edit-hotzone { position: fixed; top: 0; left: 0; width: 80px; height: 80px; z-index: 10000; cursor: pointer; }
+.edit-toggle {
+    position: fixed; top: 16px; left: 16px; z-index: 10001;
+    font: 600 15px var(--fonte); padding: 8px 14px; border-radius: 8px;
+    border: 1px solid var(--linha-forte); background: var(--superficie); color: var(--tinta);
+    opacity: 0; pointer-events: none; transition: opacity .3s ease;
+}
+.edit-toggle.show, .edit-toggle.active { opacity: 1; pointer-events: auto; }
+.edit-bar {
+    position: fixed; top: 16px; left: 50%; transform: translateX(-50%); z-index: 10001;
+    display: none; gap: 10px; align-items: center;
+    font: 15px var(--fonte); padding: 8px 12px; border-radius: 10px;
+    background: var(--tinta); color: var(--papel);
+}
+.edit-bar.show { display: flex; }
+.edit-bar button { font: 600 14px var(--fonte); padding: 6px 10px; border-radius: 6px; border: 0; cursor: pointer; }
+body.editing [contenteditable="true"] { outline: 2px dashed var(--excesso); outline-offset: 4px; }
+</style>
+</head>
+<body>
+
+<div class="deck-viewport">
+<main class="deck-stage" id="deckStage">
+
+<!-- ======================================================================
+     SPEAKER NOTES
+     Each slide carries an <aside class="notes"> that is never shown on the
+     slide. Press P to open the presenter window (speech, steps on the site,
+     background, timer) or N for a drawer with the speech at the bottom.
+       .fale     what to say, word for word
+       .site     the clicks on IAês (demo slides only)
+       .entenda  the background, in plain words, for the author to read
+                 before recording; not to be said
+     data-tempo on each section is the speaking budget in seconds.
+     ====================================================================== -->
+
+<!-- ===================== 1. TITLE ===================== -->
+<section class="slide" data-tempo="9" data-titulo="Capa">
+    <div class="cover">
+        <div class="wordmark reveal">IA<span>ês</span></div>
+        <h1 class="reveal d1">A IA está <span class="mark">delving</span> na ciência brasileira?</h1>
+        <p class="sub reveal d2">O rastro dos chatbots no vocabulário dos resumos do SciELO Brasil, de 2015 a 2026</p>
+        <p class="authors reveal d3">
+            <strong>Arthur Sudbrack Ibarra</strong>, Rodrigo Coelho Barros e Lucas Silveira Kupssinskü<br>
+            PPGCC, Pontifícia Universidade Católica do Rio Grande do Sul (PUCRS)<br>
+            Benefícios e Impactos da Inteligência Artificial na Pesquisa, 2026/2
+        </p>
+    </div>
+    <aside class="notes">
+        <div class="fale">
+            <p>Oi, eu sou o Arthur Ibarra, da PUCRS. Neste vídeo eu conto se a inteligência artificial já mudou o jeito como a ciência brasileira escreve.</p>
+        </div>
+        <div class="entenda">
+            <p><b>O título.</b> <i>Delve</i> é um verbo inglês que quer dizer mergulhar num assunto, se aprofundar. O ChatGPT usa essa palavra muito mais do que as pessoas usavam, e ela virou piada entre pesquisadores. O título pergunta, brincando, se a IA já está "mergulhando" na ciência do Brasil.</p>
+            <p><b>Resumo.</b> É o parágrafo no começo de um artigo científico que conta, em poucas linhas, o que foi feito e o que se descobriu. Quase todo artigo brasileiro tem um resumo em português e uma versão em inglês, o <i>abstract</i>.</p>
+            <p><b>SciELO Brasil.</b> É a biblioteca on-line que reúne as principais revistas científicas brasileiras de acesso aberto. Foi de lá que vieram todos os resumos.</p>
+            <p><b>Os coautores.</b> Rodrigo Barros é o orientador e Lucas Kupssinskü o coorientador; o enunciado pede que eles apareçam como autores.</p>
+        </div>
+    </aside>
+</section>
+
+<!-- ===================== 2. MOTIVATION ===================== -->
+<section class="slide" data-tempo="19" data-titulo="Motivação">
+    <div class="frame">
+        <h2 class="title reveal">Os chatbots têm palavras favoritas, e elas já aparecem nos artigos científicos</h2>
+        <div class="body">
+            <div class="quote reveal d1">
+                <div class="tag">Um abstract brasileiro de 2025</div>
+                <p class="q">"The investigation <span class="mark">delves</span> into understanding the correlation among various DLT test variables..."</p>
+                <p class="who">Soils and Rocks, 2025, no SciELO Brasil</p>
+            </div>
+            <div class="side reveal d2">
+                <div class="big">13,5%<small></small></div>
+                <p class="big-label">dos resumos de biomedicina de 2024, no mínimo, passaram por um chatbot, segundo a contagem de palavras de Kobak e colegas no PubMed</p>
+            </div>
+        </div>
+    </div>
+    <div class="foot"><span class="src">Kobak et al. (2025), Science Advances. Frase: Soils and Rocks (2025), SciELO Brasil, CC BY.</span><span class="n">02</span></div>
+    <aside class="notes">
+        <div class="fale">
+            <p>Quem usa o ChatGPT percebe que ele tem palavras preferidas, como o verbo inglês <i>delve</i>, se aprofundar. Contando palavras assim em milhões de resumos de biomedicina, Kobak e colegas estimaram que pelo menos 13,5% dos resumos de 2024 passaram por um chatbot. Faltava essa conta para o Brasil.</p>
+        </div>
+        <div class="entenda">
+            <p><b>Chatbot e LLM.</b> LLM quer dizer <i>large language model</i>, modelo de linguagem grande. É o "motor" por trás do ChatGPT, do Gemini e do Claude. Chatbot é o programa de conversa que usa esse motor.</p>
+            <p><b>A frase do slide.</b> É de um abstract de verdade, publicado em 2025 na revista Soils and Rocks e guardado no site. Ela mostra o tipo de frase que o ChatGPT costuma escrever.</p>
+            <p><b>Kobak e colegas (2025).</b> Publicaram na Science Advances o método que nós adaptamos. Eles contaram, ano a ano, quantos resumos do PubMed (a base de artigos de medicina e biologia dos Estados Unidos) usavam cada palavra, e acharam palavras que dispararam depois do ChatGPT. Daí saiu a estimativa de que pelo menos 13,5% dos resumos de 2024 passaram por um LLM.</p>
+            <p><b>"Passou por um chatbot".</b> Quer dizer que o autor usou a ferramenta para escrever, revisar ou traduzir o texto. Não quer dizer que o artigo foi inventado pela IA.</p>
+        </div>
+    </aside>
+</section>
+
+<!-- ===================== 3. QUESTION ===================== -->
+<section class="slide" data-tempo="20" data-titulo="Pergunta e hipóteses">
+    <div class="frame">
+        <h2 class="title reveal">Os chatbots deixaram marca nos resumos brasileiros? E essa marca é maior em inglês?</h2>
+        <div class="body">
+            <div class="hyps">
+                <div class="hyp reveal d1">
+                    <div class="h">H1</div>
+                    <p>Depois de 2023, algumas palavras de estilo aparecem bem acima da sua tendência.</p>
+                </div>
+                <div class="hyp reveal d2">
+                    <div class="h">H2</div>
+                    <p>No mesmo artigo, a marca é maior no abstract em <span class="en">inglês</span> do que no resumo em <span class="pt">português</span>.</p>
+                </div>
+                <div class="hyp reveal d3">
+                    <div class="h">H3</div>
+                    <p>As palavras que marcam o <span class="pt">português</span> são outras, diferentes das do <span class="en">inglês</span>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="foot"><span class="src">Hipóteses do artigo, que testamos com dados do SciELO Brasil.</span><span class="n">03</span></div>
+    <aside class="notes">
+        <div class="fale">
+            <p>Então perguntamos: os chatbots deixaram marca nos resumos do SciELO Brasil? E, como quase todo artigo daqui tem resumo em português e em inglês, a marca é maior no inglês? Daí vêm as três hipóteses: palavras acima do esperado, mais marca em inglês e marcas diferentes em cada língua.</p>
+        </div>
+        <div class="entenda">
+            <p><b>Hipótese.</b> É o palpite que o estudo testa com os dados. No fim, cada uma se confirma ou não.</p>
+            <p><b>Por que esperar mais marca em inglês (H2).</b> Muitos pesquisadores brasileiros escrevem o resumo em português e usam um chatbot para fazer ou melhorar a versão em inglês, a língua em que têm menos segurança. Então era de se esperar que o inglês mostrasse mais rastro.</p>
+            <p><b>Por que esperar palavras diferentes (H3).</b> Cada língua tem os seus vícios. Achávamos que o ChatGPT teria palavras preferidas próprias em português.</p>
+            <p><b>Palavra de estilo.</b> É uma palavra que muda o jeito de dizer, sem mudar o assunto: <i>destacando</i>, <i>crucial</i>, <i>abordagens</i>. Palavra de tema (ou de conteúdo) é a que diz do que o texto trata: <i>covid</i>, <i>vacina</i>, <i>soja</i>.</p>
+        </div>
+    </aside>
+</section>
+
+<!-- ===================== 4. METHOD ===================== -->
+<section class="slide" data-tempo="24" data-titulo="Como medimos">
+    <div class="frame">
+        <h2 class="title reveal">Uma palavra entra na conta quando sobe muito acima da própria tendência</h2>
+        <div class="body">
+            <div class="chart reveal d1" id="chartMetodo" role="img" aria-label="Parcela dos resumos em português com a palavra destacando, de 2015 a 2026, contra o esperado pela tendência de 2021-22: 4,7% em 2025, quando a tendência previa 1,5%."></div>
+            <div class="facts reveal d2">
+                <div class="fact"><div class="v">195.600</div><div class="l">resumos, <span class="pt">94.882 em português</span> e <span class="en">100.718 em inglês</span></div></div>
+                <div class="fact"><div class="v">357</div><div class="l">revistas do SciELO Brasil, de 2015 a 2026</div></div>
+                <div class="fact"><div class="l">Só contam as palavras de <strong>estilo</strong>. Palavras de tema, como <i>covid</i>, sobem por outro motivo.</div></div>
+            </div>
+        </div>
+    </div>
+    <div class="foot"><span class="src">Método de Kobak et al. (2025), adaptado ao SciELO. 2026 vai até outubro.</span><span class="n">04</span></div>
+    <aside class="notes">
+        <div class="fale">
+            <p>Juntamos 195.600 resumos de 357 revistas, de 2015 a 2026. Para cada palavra, prolongamos a tendência de 2021 e 2022, antes do ChatGPT. Veja <i>destacando</i>: o tracejado é o esperado, e a palavra subiu muito acima dele. Essa distância é o excesso. Só contam palavras de estilo, como esta, porque palavras de tema, como <i>covid</i>, sobem por outro motivo.</p>
+        </div>
+        <div class="entenda">
+            <p><b>O gráfico.</b> A linha azul-petróleo é a parcela dos resumos em português que usam <i>destacando</i>, ano a ano. Ficava perto de 1,5% até 2022 e chegou a 4,7% em 2025. A linha tracejada cinza é o que se esperava se nada tivesse mudado. A área laranja entre as duas é o excesso.</p>
+            <p><b>A tendência.</b> Pegamos o uso da palavra em 2021 e em 2022 e prolongamos essa linha para os anos seguintes (se ela estava caindo, a linha fica reta). 2023 não entra na base porque o ChatGPT saiu em 30 de novembro de 2022.</p>
+            <p><b>Excesso.</b> Uma palavra só conta quando aparece em pelo menos 10 resumos no ano, fica bem acima do esperado, passa num teste estatístico e é usada por várias revistas (para não pegar o vício de uma revista só).</p>
+            <p><b>Estilo ou tema.</b> O Claude classificou cada uma das 1.682 palavras com excesso, e você conferiu uma amostra de 100 por língua sem ver a resposta dele. Onde vocês discordaram, valeu a sua classificação.</p>
+            <p><b>O que adaptamos.</b> O SciELO é cerca de cem vezes menor que o PubMed. Por isso usamos sempre o mesmo grupo de revistas em cada comparação, corrigimos pelo tamanho dos resumos (eles ficaram mais longos) e exigimos testes estatísticos. Se perguntarem, isso está no artigo; no vídeo não precisa entrar.</p>
+        </div>
+    </aside>
+</section>
+
+<!-- ===================== 5. DEMO: WORDS OVER TIME ===================== -->
+<section class="slide demo" data-tempo="22" data-titulo="Demo: Palavras no tempo">
+    <div class="frame">
+        <div class="live reveal">Agora no site</div>
+        <h2 class="title reveal d1">Palavras no tempo</h2>
+        <p class="lede reveal d2">Cada palavra contra a sua tendência, nas duas línguas.</p>
+        <div class="browser reveal d3">
+            <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                <a class="url demo-link" data-path="pt/palavras/?p=destacando.pt,highlighting.en" target="_blank" rel="noopener"><b>IAês</b> &rsaquo; Palavras no tempo</a></div>
+            <ol class="steps">
+                <li><i>destacando</i> em português e <i>highlighting</i> em inglês</li>
+                <li>O tracejado é o esperado; o laranja é o excesso</li>
+                <li>Frases reais com a palavra, antes e depois do ChatGPT</li>
+            </ol>
+        </div>
+    </div>
+    <aside class="notes">
+        <div class="fale">
+            <p>Isso está no IAês, o site que construímos com os mesmos dados. Aqui está <i>destacando</i> e, ao lado, <i>highlighting</i>, a equivalente em inglês. Em 2025, <i>destacando</i> apareceu 3,1 vezes o que a tendência previa. E lá embaixo dá para ler frases reais com a palavra.</p>
+        </div>
+        <ol class="site">
+            <li>Clique no endereço do slide (ou abra o link abaixo). A página abre com <i>destacando</i> e <i>highlighting</i> já escolhidas.</li>
+            <li>Na frase "aqui está <i>destacando</i>", passe o mouse pelo ponto de 2025 do painel <i>destacando</i>: a dica mostra o observado e o esperado.</li>
+            <li>Na frase "3,1 vezes", aponte o número 3,1× no canto do painel.</li>
+            <li>Na frase "lá embaixo", role a página até "Em contexto" e mostre uma frase de 2025.</li>
+            <li>Volte para a aba dos slides e avance.</li>
+        </ol>
+        <div class="entenda">
+            <p><b>IAês.</b> É o site que fizemos junto com o artigo. O nome junta IA com o -ês de juridiquês e economês, que indica um jeito próprio de escrever. Ele roda todo no navegador, em português e em inglês.</p>
+            <p><b>3,1×.</b> Quer dizer que, em 2025, a parcela de resumos com <i>destacando</i> foi 3,1 vezes o valor que a tendência previa (4,7% contra 1,5%). <i>Highlighting</i> ficou em 2,8 vezes.</p>
+            <p><b>O par.</b> <i>Highlighting</i> aparece ao lado porque o Claude traduziu <i>destacando</i> como <i>highlighting</i> no teste entre línguas (o slide 9).</p>
+        </div>
+    </aside>
+</section>
+
+<!-- ===================== 6. RESULT H1 ===================== -->
+<section class="slide" data-tempo="17" data-titulo="H1: palavras em excesso">
+    <div class="frame">
+        <h2 class="title reveal">Depois do ChatGPT, as palavras de estilo em excesso dispararam nas duas línguas</h2>
+        <div class="body">
+            <div class="chart reveal d1" id="chartH1" role="img" aria-label="Palavras de estilo em excesso por ano: no máximo 6 por ano de 2018 a 2022 em cada língua; em 2025, 108 em inglês e 69 em português; em 2026, até outubro, 150 e 126."></div>
+            <div class="side reveal d2">
+                <p>De 2018 a 2022: <strong>no máximo 6</strong> por ano em cada língua.</p>
+                <p>Em 2025: <strong class="en">108 em inglês</strong> e <strong class="pt">69 em português</strong>.</p>
+                <div class="verdict ok">H1 se confirma.</div>
+            </div>
+        </div>
+    </div>
+    <div class="foot"><span class="src">Tendência dos dois anos anteriores a cada ano. 2026 vai até outubro.</span><span class="n">06</span></div>
+    <aside class="notes">
+        <div class="fale">
+            <p>A primeira hipótese se confirma com folga. Até 2022, no máximo seis palavras de estilo por ano passavam da tendência em cada língua. Em 2025 foram 108 em inglês e 69 em português, e 2026, que nem terminou, já passou disso.</p>
+        </div>
+        <div class="entenda">
+            <p><b>O gráfico.</b> Cada par de barras é um ano: azul para inglês, azul-petróleo para português. A linha vertical marca a chegada do ChatGPT.</p>
+            <p><b>Uma diferença de base.</b> Aqui, cada ano é comparado com a tendência dos dois anos que vieram três e dois anos antes (a regra de Kobak). Para 2025, isso quer dizer 2022 e 2023. Por isso o slide diz "acima da tendência", que é a descrição exata.</p>
+            <p><b>2026.</b> Os dados vão até outubro de 2026: 150 palavras em inglês e 126 em português.</p>
+        </div>
+    </aside>
+</section>
+
+<!-- ===================== 7. LOWER BOUND ===================== -->
+<section class="slide" data-tempo="17" data-titulo="Estimativa mínima">
+    <div class="frame">
+        <h2 class="title reveal">Pelo menos 1 em cada 6 abstracts em inglês de 2025 passou por um chatbot</h2>
+        <div class="body">
+            <div class="chart reveal d1" id="chartBound" role="img" aria-label="Parcela mínima dos resumos que passaram por um LLM: em inglês, 0,5% em 2023, 11,2% em 2024, 17,3% em 2025 e 15,8% em 2026; em português, 1,8%, 0,4%, 12,7% e 19,4%."></div>
+            <div class="side reveal d2">
+                <div class="big en">17,3%</div>
+                <p class="big-label">dos abstracts em inglês de 2025, no mínimo</p>
+                <div class="big pt" style="margin-top:40px">12,7%</div>
+                <p class="big-label">dos resumos em português de 2025, no mínimo</p>
+            </div>
+        </div>
+    </div>
+    <div class="foot"><span class="src">Marcadoras escolhidas numa metade dos resumos e medidas na outra. Barras finas: erro padrão.</span><span class="n">07</span></div>
+    <aside class="notes">
+        <div class="fale">
+            <p>Com essas palavras dá para estimar quantos resumos passaram por um chatbot: pelo menos 17% dos abstracts em inglês de 2025 e 13% dos resumos em português. É um piso, porque a conta só enxerga os textos em que o modelo deixou essas palavras.</p>
+        </div>
+        <div class="entenda">
+            <p><b>A ideia.</b> Contamos quantos resumos têm pelo menos uma palavra-marcadora. Essa parcela subiu bem acima do que a tendência previa. Se os textos sem IA seguiram a tendência, essa sobra só pode vir de textos que passaram por um chatbot. Logo, pelo menos essa parcela usou IA.</p>
+            <p><b>Palavra-marcadora.</b> Uma palavra de estilo com excesso, que funciona como pista de uso de IA.</p>
+            <p><b>Por que é um piso.</b> Um texto que passou pelo chatbot sem ganhar nenhuma marcadora não aparece na conta. Uma versão mais apertada da mesma conta dá 29,5% em inglês e 22,2% em português.</p>
+            <p><b>Metades.</b> Escolhemos as marcadoras com metade dos resumos e medimos na outra metade (e vice-versa). Assim a palavra não é escolhida e medida nos mesmos textos, o que inflaria o número.</p>
+            <p><b>Placebo.</b> A mesma conta feita em 2015-2016, quando não havia ChatGPT, dá perto de zero. É o sinal de que a conta não inventa uso onde não existe.</p>
+            <p><b>Erro padrão.</b> É a margem de incerteza: 17,3% mais ou menos 1,6 em inglês e 12,7% mais ou menos 1,7 em português.</p>
+        </div>
+    </aside>
+</section>
+
+<!-- ===================== 8. RESULT H2 ===================== -->
+<section class="slide" data-tempo="20" data-titulo="H2: mesmo artigo">
+    <div class="frame">
+        <h2 class="title reveal">No mesmo artigo, inglês e português ganharam marcadoras quase no mesmo ritmo</h2>
+        <div class="body">
+            <div class="chart reveal d1" id="chartH2" role="img" aria-label="Alta da parcela de resumos com palavra-marcadora, de 2021-22 para 2025-26, nos mesmos 9.312 artigos: 17,5 pontos em inglês e 14,9 em português. Diferença de 2,7 pontos; o placebo dá 2,4."></div>
+            <div class="side reveal d2">
+                <p>Diferença: <strong>2,7 pontos</strong>.</p>
+                <p>A mesma conta em anos sem ChatGPT dá <strong>2,4</strong>. Pode ser acaso.</p>
+                <div class="verdict no">H2 não se confirma.</div>
+            </div>
+        </div>
+    </div>
+    <div class="foot"><span class="src">9.312 artigos com resumo e abstract, amostra do SciELO Brasil. Alta de 2021-22 para 2025-26.</span><span class="n">08</span></div>
+    <aside class="notes">
+        <div class="fale">
+            <p>Para a segunda hipótese, comparamos o inglês e o português dentro dos mesmos 9.312 artigos. A parcela com marcadoras subiu 17,5 pontos no inglês e 14,9 no português. Essa diferença, de 2,7, é parecida com a que aparece em anos sem ChatGPT, então a segunda hipótese não se confirma.</p>
+        </div>
+        <div class="entenda">
+            <p><b>Por que o mesmo artigo.</b> Comparar o artigo com ele mesmo tira do caminho tudo o que muda de um artigo para outro (assunto, revista, área). Só sobra a língua.</p>
+            <p><b>Pontos.</b> "Subiu 17,5 pontos" quer dizer que a porcentagem de abstracts com marcadora aumentou 17,5 pontos percentuais entre 2021-22 e 2025-26.</p>
+            <p><b>Placebo de novo.</b> Fizemos a mesma comparação entre anos sem ChatGPT (2015-16 contra 2019-20) e deu 2,4 pontos de diferença. Como 2,7 é desse tamanho, não dá para dizer que o inglês subiu mais.</p>
+            <p><b>Detalhes que ajudam se alguém perguntar.</b> Em 2024 o inglês saiu na frente (8,6 pontos contra 1,8), e em 2025 o português alcançou. E o português ganhou marcadoras mesmo nos artigos cujo abstract em inglês não tinha nenhuma, então não é só tradução de um inglês editado.</p>
+            <p><b>Um cuidado.</b> O teste compara marcadoras. O uso da IA pode ter sido maior no português do que parece, porque o experimento (slide 10) mostra que as marcadoras pegam uma edição em português com menos facilidade.</p>
+        </div>
+    </aside>
+</section>
+
+<!-- ===================== 9. RESULT H3 ===================== -->
+<section class="slide" data-tempo="18" data-titulo="H3: tradução">
+    <div class="frame">
+        <h2 class="title reveal">A maioria das marcadoras do português é tradução de marcadoras do inglês</h2>
+        <div class="body">
+            <div class="chart reveal d1" id="chartH3" role="img" aria-label="Palavras que, traduzidas, viram uma marcadora da outra língua: 72% das marcadoras do português contra 44% das palavras de controle; 49% das marcadoras do inglês contra 22% dos controles."></div>
+            <div class="side reveal d2">
+                <div class="pairs">
+                    <span class="pt w">aprofunda</span><span class="arrow">&rarr;</span><span class="en w">delves</span>
+                    <span class="pt w">destacando</span><span class="arrow">&rarr;</span><span class="en w">highlighting</span>
+                    <span class="pt w">moldam</span><span class="arrow">&rarr;</span><span class="en w">shaping</span>
+                </div>
+                <div class="verdict no">H3 não se confirma: as marcas são, em grande parte, as mesmas.</div>
+            </div>
+        </div>
+    </div>
+    <div class="foot"><span class="src">Traduções do Claude, sem saber quais palavras eram marcadoras. Controles: palavras de mesma frequência sem excesso.</span><span class="n">09</span></div>
+    <aside class="notes">
+        <div class="fale">
+            <p>Para a terceira, traduzimos as marcadoras do português para o inglês, e 72% viraram marcadoras do inglês, contra 44% de palavras comparáveis. <i>Aprofunda</i> vira <i>delves</i>, <i>destacando</i> vira <i>highlighting</i>. O português está herdando as palavras do inglês, e a terceira hipótese também não se confirma.</p>
+        </div>
+        <div class="entenda">
+            <p><b>Como foi o teste.</b> Para cada marcadora do português escolhemos uma palavra de controle: uma palavra de estilo com frequência parecida em 2021-22, que nunca teve excesso. O Claude traduziu todas misturadas, sem saber quais eram marcadoras. Depois vimos quantas traduções caíam numa marcadora do inglês.</p>
+            <p><b>Por que o controle importa.</b> Palavras comuns às vezes traduzem para outras palavras comuns por acaso. O controle mostra quanto isso acontece sem IA nenhuma (44%). As marcadoras passam bem disso (72%), e o teste estatístico dá chance de acaso menor que uma em um milhão.</p>
+            <p><b>Na outra direção.</b> 49% das marcadoras do inglês viram uma marcadora do português, contra 22% dos controles.</p>
+            <p><b>O que se confirma da H3.</b> As marcadoras do português são mesmo palavras de estilo. O que cai é a ideia de que elas seriam diferentes das do inglês. Ainda assim, 28% são só do português, como <i>tensionam</i> e <i>multifacetada</i>.</p>
+            <p><b>Conferência.</b> Você checou 50 traduções à mão: duas estavam erradas e uma ficou sem uma tradução comum. Isso não muda o resultado.</p>
+        </div>
+    </aside>
+</section>
+
+<!-- ===================== 10. EXPERIMENT ===================== -->
+<section class="slide" data-tempo="17" data-titulo="Experimento">
+    <div class="frame">
+        <h2 class="title reveal">Ao polir um abstract em inglês, o ChatGPT e o Gemini inserem cerca de 5 marcadoras</h2>
+        <div class="body">
+            <div class="chart reveal d1" id="chartExp" role="img" aria-label="Marcadoras a mais por texto depois que o modelo melhora um abstract em inglês de 2019 a 2021: ChatGPT 5,1, Gemini 5,1, Claude 1,1."></div>
+            <div class="side reveal d2">
+                <p>80 abstracts de <strong>2019 a 2021</strong>, de antes do ChatGPT, com o pedido "melhore a escrita".</p>
+                <p>Em português, eles inserem menos: <strong>2,2</strong>, <strong>2,4</strong> e <strong>0,8</strong>.</p>
+            </div>
+        </div>
+    </div>
+    <div class="foot"><span class="src">ChatGPT (GPT-6 Luna), Gemini 3.6 Flash e Claude Sonnet 5.5, 2026. Barras finas: intervalo de 95%.</span><span class="n">10</span></div>
+    <aside class="notes">
+        <div class="fale">
+            <p>De onde vêm essas palavras? Pedimos ao ChatGPT, ao Gemini e ao Claude que melhorassem resumos escritos antes do ChatGPT. Em inglês, o ChatGPT e o Gemini colocaram umas cinco marcadoras a mais em cada texto, e o Claude, uma.</p>
+        </div>
+        <div class="entenda">
+            <p><b>Por que resumos antigos.</b> Um resumo de 2019 com certeza foi escrito sem chatbot. Então tudo o que muda depois é obra do modelo.</p>
+            <p><b>As três tarefas.</b> Melhorar um resumo em português, melhorar um em inglês e traduzir um do português para o inglês. Foram 80 textos por tarefa e por modelo. Você rodou o ChatGPT e o Gemini à mão, nas versões gratuita e Pro; o Claude rodou automático.</p>
+            <p><b>Os números.</b> Em inglês, a média de marcadoras por texto foi de 8,1 para 13,2 com o ChatGPT e com o Gemini, e para 9,3 com o Claude. As palavras que eles colocam são muito mais vezes marcadoras do que as que eles tiram: das 92 palavras que o ChatGPT acrescentou, 40 eram marcadoras; das 46 que ele tirou, só 1.</p>
+            <p><b>Um limite.</b> Uma passada de um modelo de 2026 não reproduz o uso real, que mistura modelos antigos, várias revisões e textos escritos do zero. Por isso o experimento mostra de onde vêm as palavras, mas não serve para converter as marcas em número de usuários.</p>
+        </div>
+    </aside>
+</section>
+
+<!-- ===================== 11. DEMO: TIME MACHINE ===================== -->
+<section class="slide demo" data-tempo="24" data-titulo="Demo: Máquina do tempo">
+    <div class="frame">
+        <div class="live reveal">Agora no site</div>
+        <h2 class="title reveal d1">Máquina do tempo</h2>
+        <p class="lede reveal d2">Um abstract de 2019, antes e depois de passar pelo ChatGPT.</p>
+        <div class="browser reveal d3">
+            <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                <a class="url demo-link" data-path="pt/maquina-do-tempo/?resumo=en-018&amp;modelo=chatgpt" target="_blank" rel="noopener"><b>IAês</b> &rsaquo; Máquina do tempo</a></div>
+            <ol class="steps">
+                <li>À esquerda o original, à direita a versão do ChatGPT</li>
+                <li>Verde é o que ele inseriu; com contorno, as marcadoras do SciELO</li>
+                <li>As palavras que cada modelo mais insere</li>
+            </ol>
+        </div>
+    </div>
+    <aside class="notes">
+        <div class="fale">
+            <p>No site, isso é a máquina do tempo. À esquerda está o abstract original, de 2019, e à direita a versão do ChatGPT. Em verde está o que ele colocou, e com contorno, as palavras que cresceram no SciELO: aqui foram 15. Mais abaixo aparecem as palavras que cada modelo mais insere, como <i>findings</i> e <i>these</i>.</p>
+        </div>
+        <ol class="site">
+            <li>Clique no endereço do slide. A página abre na tarefa "Melhorar a escrita", resumo em inglês, com o ChatGPT.</li>
+            <li>Na frase "à esquerda", aponte a coluna "Original (2019)"; em "à direita", a coluna "Reescrito pelo ChatGPT".</li>
+            <li>Na frase "neste texto foram 15", aponte a linha acima das colunas: "54 palavras inseridas, 15 delas marcadoras".</li>
+            <li>Na frase "mais abaixo", role até "O que cada modelo insere" e mostre <i>findings</i> e <i>these</i> no topo.</li>
+            <li>Se sobrar tempo, clique em Gemini e depois em Claude no alto da página para comparar. Volte para os slides.</li>
+        </ol>
+        <div class="entenda">
+            <p><b>Máquina do tempo.</b> O nome vem da ideia de pegar um texto do passado, de antes do ChatGPT, e ver como ele ficaria escrito hoje com IA.</p>
+            <p><b>As cores.</b> Riscado em rosa à esquerda: o que o modelo tirou. Verde à direita: o que ele pôs. Verde com contorno: o que ele pôs e que também é marcadora no SciELO.</p>
+            <p><b>findings e these.</b> Junto com <i>across</i>, <i>using</i> e <i>whereas</i>, são palavras que os três modelos acrescentaram aos abstracts em inglês.</p>
+        </div>
+    </aside>
+</section>
+
+<!-- ===================== 12. BENEFITS AND IMPACTS ===================== -->
+<section class="slide" data-tempo="26" data-titulo="Benefícios e impactos">
+    <div class="frame">
+        <h2 class="title reveal">A IA barateia a escrita e, ao mesmo tempo, deixa a ciência brasileira com um sotaque só</h2>
+        <div class="body">
+            <div class="cols">
+                <div class="col good reveal d1">
+                    <h3>Benefícios</h3>
+                    <ul>
+                        <li>Escrever e traduzir em inglês fica mais barato para quem não é nativo</li>
+                        <li>Publicar nas duas línguas fica mais fácil</li>
+                        <li>Neste estudo, o Claude classificou 1.682 palavras e traduziu cerca de 1.600</li>
+                    </ul>
+                </div>
+                <div class="col bad reveal d2">
+                    <h3>Impactos</h3>
+                    <ul>
+                        <li>Pelo menos 1 em 6 abstracts em inglês e 1 em 8 resumos em português de 2025 passaram por um LLM</li>
+                        <li>O português herda as escolhas de palavras do inglês</li>
+                        <li>Detectores de IA erram mais com quem não é nativo</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="foot"><span class="src">Liang et al. (2023); Agarwal, Naaman e Vashistha (2025); Sourati et al. (2026).</span><span class="n">12</span></div>
+    <aside class="notes">
+        <div class="fale">
+            <p>Isso tem dois lados. Para quem não é nativo em inglês, o chatbot barateia escrever e traduzir, e este estudo também ganhou com isso: o Claude classificou e traduziu milhares de palavras. Por outro lado, a ciência brasileira passa a escrever com o mesmo sotaque, e o português pega hábitos do inglês. Como detectores de IA erram mais com quem não é nativo, o melhor caminho é pedir que os autores declarem o uso.</p>
+        </div>
+        <div class="entenda">
+            <p><b>Este slide responde ao enunciado.</b> A disciplina pede uma discussão dos benefícios e impactos da IA no contexto do estudo. Este é esse momento.</p>
+            <p><b>Sotaque só.</b> Estudos recentes mostram que sugestões de IA puxam textos de várias culturas para um estilo ocidental parecido (Agarwal e colegas, 2025) e que a variedade de estilos encolhe na era dos LLMs (Sourati e colegas, 2026). Nossos dados mostram o mesmo movimento no Brasil: o português pegando as palavras do inglês.</p>
+            <p><b>Detectores.</b> Liang e colegas (2023) mostraram que detectores de texto de IA marcam como "feitos por IA" muitos textos de quem escreve inglês como segunda língua. Ou seja, puniriam justamente quem mais ganha com a ferramenta.</p>
+            <p><b>O trabalho do Claude no estudo.</b> Classificou 1.682 palavras como estilo ou tema, classificou cerca de 4.000 palavras candidatas a controle e traduziu cerca de 1.600 palavras. Uma pessoa sozinha levaria muito mais tempo.</p>
+            <p><b>Medir em grande escala.</b> Contar palavras em milhares de textos mostra o tamanho da mudança sem acusar nenhum autor em particular.</p>
+        </div>
+    </aside>
+</section>
+
+<!-- ===================== 13. DEMO: X-RAY ===================== -->
+<section class="slide demo" data-tempo="22" data-titulo="Demo: Raio-X">
+    <div class="frame">
+        <div class="live reveal">Agora no site</div>
+        <h2 class="title reveal d1">Raio-X do seu texto</h2>
+        <p class="lede reveal d2">Um resumo com as marcadoras realçadas, comparado aos de 2019 e de 2025.</p>
+        <div class="browser reveal d3">
+            <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                <a class="url demo-link" data-path="pt/raio-x/" target="_blank" rel="noopener"><b>IAês</b> &rsaquo; Raio-X do seu texto</a></div>
+            <ol class="steps">
+                <li>Um resumo de 2025 com as marcadoras realçadas</li>
+                <li>Onde ele cai entre os resumos de 2019 e de 2025</li>
+                <li>Por que essa conta não detecta IA</li>
+            </ol>
+        </div>
+    </div>
+    <aside class="notes">
+        <div class="fale">
+            <p>Por isso o site tem um raio-X. Você cola um resumo, vê as marcadoras realçadas e onde ele fica entre os resumos de 2019 e de 2025. E o aviso lembra que isso não diz se um texto foi escrito com IA, porque muita gente já escrevia assim antes.</p>
+        </div>
+        <ol class="site">
+            <li>Clique no endereço do slide. A página abre vazia.</li>
+            <li>Na frase "você cola um resumo", clique em "Exemplo de 2025". O texto aparece com as marcadoras realçadas em laranja.</li>
+            <li>Na frase "onde o texto fica", role até o gráfico "A comparação honesta" e aponte a linha "seu texto".</li>
+            <li>Na frase "o aviso embaixo", role até "Isto não é um detector de IA".</li>
+            <li>Volte para os slides e avance para a conclusão.</li>
+        </ol>
+        <div class="entenda">
+            <p><b>O que aparece.</b> O exemplo de 2025 tem 17 marcadoras em 170 palavras, 10 a cada 100. Só 1,8% dos resumos de 2019 têm tantas, contra 10,3% dos de 2025.</p>
+            <p><b>Por que não é detector.</b> Muitos resumos de 2019, escritos sem IA, também têm muitas marcadoras, e as curvas de 2019 e de 2025 se sobrepõem em 77%. A conta funciona para milhares de textos e falha para um texto sozinho.</p>
+            <p><b>Privacidade.</b> O texto colado fica no navegador; nada é enviado para lugar nenhum.</p>
+        </div>
+    </aside>
+</section>
+
+<!-- ===================== 14. CONCLUSIONS ===================== -->
+<section class="slide" data-tempo="17" data-titulo="Conclusões">
+    <div class="frame">
+        <h2 class="title reveal">Os chatbots já deixaram marca nos resumos brasileiros, nas duas línguas</h2>
+        <div class="body">
+            <ul class="concl reveal d1">
+                <li><b>H1 se confirma:</b> 108 palavras de estilo em excesso em inglês e 69 em português em 2025</li>
+                <li><b>Pelo menos 17%</b> dos abstracts em inglês e <b>13%</b> dos resumos em português de 2025 passaram por um LLM</li>
+                <li><b>H2 não se confirma:</b> inglês e português subiram quase juntos</li>
+                <li><b>H3 não se confirma:</b> as marcadoras do português traduzem as do inglês</li>
+            </ul>
+            <div class="links reveal d2">
+                <div class="link"><div class="l">Site IAês</div><a href="https://arthursudbrackibarra.github.io/Trab-BIIAP/pt/" target="_blank" rel="noopener">arthursudbrackibarra.github.io/Trab-BIIAP</a></div>
+                <div class="link"><div class="l">Código, dados e artigo</div><a href="https://github.com/ArthurSudbrackIbarra/Trab-BIIAP" target="_blank" rel="noopener">github.com/ArthurSudbrackIbarra/Trab-BIIAP</a></div>
+                <div class="link"><div class="l">Contato</div><a href="mailto:arthur.ibarra@edu.pucrs.br">arthur.ibarra@edu.pucrs.br</a></div>
+            </div>
+        </div>
+    </div>
+    <div class="foot"><span class="src">Os números são estimativas mínimas e valem para as revistas do SciELO Brasil que depositam resumos no Crossref.</span><span class="n">14</span></div>
+    <aside class="notes">
+        <div class="fale">
+            <p>Resumindo: os chatbots já deixaram marca nos resumos brasileiros, quase igual nas duas línguas, e o português está herdando as palavras do inglês. Os números são um piso e valem para as revistas do SciELO no Crossref. O site e o código estão abertos. Obrigado!</p>
+        </div>
+        <div class="entenda">
+            <p><b>Limitações, em uma frase cada.</b> Os números são um piso. Cobrem só as revistas que mandam os resumos ao Crossref (357 das 427). As classificações de estilo do Claude puxam para o lado conservador, então as marcadoras podem ser até mais numerosas. E marcadoras medem rastro de escrita, não quem usou a IA.</p>
+            <p><b>Crossref.</b> É o serviço onde as revistas registram os seus artigos e os DOIs. Foi a nossa fonte para os resumos.</p>
+            <p><b>O site.</b> O endereço do GitHub Pages funciona depois que o repositório ficar público e o Pages estiver ligado. Antes disso, use o site local (veja o README dos slides).</p>
+        </div>
+    </aside>
+</section>
+
+<!-- ===================== 15. REFERENCES ===================== -->
+<section class="slide" data-tempo="0" data-titulo="Referências">
+    <div class="frame">
+        <h2 class="title reveal">Referências</h2>
+        <ul class="refs reveal d1">
+            <li>Agarwal, D., Naaman, M. e Vashistha, A. (2025). <b>AI suggestions homogenize writing toward Western styles and diminish cultural nuances.</b> Proceedings of CHI 2025, p. 1-21. doi:10.1145/3706598.3713564</li>
+            <li>Kobak, D., González-Márquez, R., Horvát, E.-Á. e Lause, J. (2025). <b>Delving into LLM-assisted writing in biomedical publications through excess vocabulary.</b> Science Advances, 11, eadt3813. doi:10.1126/sciadv.adt3813</li>
+            <li>Liang, W., Yuksekgonul, M., Mao, Y., Wu, E. e Zou, J. (2023). <b>GPT detectors are biased against non-native English writers.</b> Patterns, 4, 100779. doi:10.1016/j.patter.2023.100779</li>
+            <li>Sourati, Z., Karimi-Malekabadi, F., Ozcan, M. et al. (2026). <b>The shrinking landscape of linguistic diversity in the age of large language models.</b> Nature Human Behaviour, 10, 1925-1942. doi:10.1038/s41562-026-02550-0</li>
+            <li>Dados: resumos do SciELO Brasil (licença CC BY), obtidos pelo Crossref e pela API ArticleMeta do SciELO.</li>
+        </ul>
+    </div>
+    <div class="foot"><span class="src">Ibarra, Barros e Kupssinskü, "Is AI delving into Brazilian science?", PPGCC/PUCRS, 2026.</span><span class="n">15</span></div>
+    <aside class="notes">
+        <div class="fale">
+            <p>(Este slide não é falado. Deixe-o no fim para quem pausar o vídeo.)</p>
+        </div>
+        <div class="entenda">
+            <p>As referências são as citadas nos slides. O artigo tem as outras 42.</p>
+        </div>
+    </aside>
+</section>
+
+</main>
+</div>
+
+<!-- Overlay chrome, outside the 1920x1080 stage -->
+<div class="notes-drawer" id="notesDrawer" aria-live="polite"></div>
+<div class="help" id="help">
+    <b>P</b> janela do apresentador<br>
+    <b>N</b> fala embaixo da tela (ensaio)<br>
+    <b>F</b> tela cheia<br>
+    <b>E</b> editar o texto dos slides<br>
+    <b>?</b> esta ajuda
+</div>
+<div class="edit-hotzone"></div>
+<button class="edit-toggle" id="editToggle" title="Editar (E)">Editar</button>
+<div class="edit-bar" id="editBar"><span>Modo de edição: clique num texto</span><button id="editSave">Salvar</button><button id="editReset">Restaurar original</button></div>
+
+<script>
+/* =====================================================================
+   SITE ADDRESS FOR THE DEMOS
+   The demo slides link to IAês. "local" is the copy served from this
+   repository (python3 -m http.server 8000 -d site/dist); "publico" is
+   GitHub Pages, which works once the repository is public. The presenter
+   window switches between them and remembers the choice.
+   ===================================================================== */
+const SITES = {
+    local: 'http://localhost:8000/',
+    publico: 'https://arthursudbrackibarra.github.io/Trab-BIIAP/'
+};
+function siteChoice() {
+    try { return localStorage.getItem('biiap-slides/site') || 'local'; } catch (err) { return 'local'; }
+}
+function setSiteChoice(v) {
+    try { localStorage.setItem('biiap-slides/site', v); } catch (err) { /* page works without it */ }
+    applySiteLinks();
+}
+function siteUrl(path) { return SITES[siteChoice()] + path; }
+function applySiteLinks() {
+    document.querySelectorAll('.demo-link').forEach((a) => { a.href = siteUrl(a.dataset.path); });
+}
+applySiteLinks();
+
+/* =====================================================================
+   CHARTS
+   Small SVG charts drawn from the numbers below, which come from the
+   analysis (analysis/report.json, analysis/pairs/report.md,
+   analysis/crosslang/report.md, analysis/experiment/report.md) and the
+   site data (site/public/dados/palavras/pt/d.json for "destacando").
+   ===================================================================== */
+const NS = 'http://www.w3.org/2000/svg';
+function el(tag, attrs, parent, text) {
+    const e = document.createElementNS(NS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    if (text !== undefined) e.textContent = text;
+    if (parent) parent.appendChild(e);
+    return e;
+}
+function newSvg(id, w, h) {
+    const box = document.getElementById(id);
+    const svg = el('svg', { viewBox: `0 0 ${w} ${h}`, preserveAspectRatio: 'xMinYMid meet', 'aria-hidden': 'true' }, box);
+    return svg;
+}
+const fmt = (v, d = 1) => v.toFixed(d).replace('.', ',');
+const C = {
+    tinta: '#1C1A17', t2: '#4F4D48', t3: '#66635D', grade: '#E8E6E2', eixo: '#BAB7B2',
+    base: '#888681', pt: '#0A96AF', en: '#3853B6', ex: '#D84925', exTexto: '#AF2F09', veu: 'rgba(216,73,37,.16)'
+};
+
+/* Slide 4: "destacando" in Portuguese abstracts, observed against the 2021-22 trend. */
+(function chartMetodo() {
+    const anos = [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026];
+    const obs = [1.6886, 1.42624, 1.44805, 1.60362, 1.30159, 1.34697, 1.82443, 1.5019, 1.69718, 2.80627, 4.6838, 5.08177];
+    const esp = [1.82443, 1.5019, 1.49882, 1.50576, 1.51254, 1.56998]; // 2021 to 2026
+    const W = 1060, H = 640, L = 84, R = 40, T = 40, B = 70;
+    const svg = newSvg('chartMetodo', W, H);
+    const x = (a) => L + (a - 2015) * (W - L - R) / 11;
+    const y = (v) => T + (6 - v) * (H - T - B) / 6;
+    for (let v = 0; v <= 6; v += 2) {
+        el('line', { x1: L, x2: W - R, y1: y(v), y2: y(v), stroke: C.grade, 'stroke-width': 2 }, svg);
+        el('text', { x: L - 16, y: y(v) + 8, 'text-anchor': 'end', 'font-size': 24, fill: C.t3 }, svg, v + '%');
+    }
+    [2015, 2018, 2021, 2024, 2026].forEach((a) => el('text', { x: x(a), y: H - 24, 'text-anchor': 'middle', 'font-size': 24, fill: C.t3 }, svg, a));
+    // ChatGPT release, 30/11/2022
+    const xc = x(2022 + 11 / 12);
+    el('line', { x1: xc, x2: xc, y1: T - 10, y2: y(0), stroke: C.t3, 'stroke-width': 2 }, svg);
+    el('text', { x: xc - 12, y: T + 14, 'text-anchor': 'end', 'font-size': 22, fill: C.t3, 'font-weight': 600 }, svg, 'ChatGPT');
+    // excess area between observed and expected, 2023 to 2026
+    let d = '';
+    for (let i = 8; i < 12; i++) d += (i === 8 ? 'M' : 'L') + x(anos[i]) + ',' + y(obs[i]);
+    for (let i = 11; i >= 8; i--) d += 'L' + x(anos[i]) + ',' + y(esp[i - 6]);
+    el('path', { d: d + 'Z', fill: C.veu }, svg);
+    // expected, dashed
+    el('polyline', { points: esp.map((v, i) => x(2021 + i) + ',' + y(v)).join(' '), fill: 'none', stroke: C.base, 'stroke-width': 4, 'stroke-dasharray': '10 8' }, svg);
+    // observed
+    el('polyline', { points: obs.map((v, i) => x(anos[i]) + ',' + y(v)).join(' '), fill: 'none', stroke: C.pt, 'stroke-width': 5, 'stroke-linejoin': 'round' }, svg);
+    obs.forEach((v, i) => el('circle', { cx: x(anos[i]), cy: y(v), r: i === 11 ? 8 : 7, fill: i === 11 ? '#FAF9F6' : C.pt, stroke: C.pt, 'stroke-width': 3 }, svg));
+    // labels
+    el('text', { x: x(2016), y: y(2.3), 'font-size': 30, 'font-weight': 700, fill: C.pt, 'font-style': 'italic' }, svg, 'destacando');
+    el('text', { x: x(2016), y: y(2.3) + 34, 'font-size': 22, fill: C.t3 }, svg, '% dos resumos em português');
+    el('text', { x: x(2025) + 4, y: y(4.68) - 22, 'text-anchor': 'end', 'font-size': 26, 'font-weight': 700, fill: C.pt }, svg, 'observado 4,7%');
+    el('text', { x: x(2024.6), y: y(1.51) + 40, 'text-anchor': 'middle', 'font-size': 24, fill: C.t2 }, svg, 'esperado 1,5%');
+    el('text', { x: x(2025), y: y(2.7), 'text-anchor': 'middle', 'font-size': 26, 'font-weight': 800, fill: C.exTexto }, svg, 'excesso');
+    el('text', { x: x(2026) + 14, y: y(5.08) + 8, 'font-size': 20, fill: C.t3 }, svg, 'parcial');
+})();
+
+/* Slide 6: style words above their trend per year (rolling baseline). */
+(function chartH1() {
+    const anos = [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026];
+    const en = [3, 0, 4, 4, 6, 14, 50, 108, 150];
+    const pt = [1, 0, 1, 0, 0, 2, 10, 69, 126];
+    const W = 1060, H = 640, L = 70, R = 20, T = 40, B = 70, MAX = 160;
+    const svg = newSvg('chartH1', W, H);
+    const gw = (W - L - R) / anos.length, bw = gw * 0.34;
+    const y = (v) => T + (MAX - v) * (H - T - B) / MAX;
+    for (let v = 0; v <= 150; v += 50) {
+        el('line', { x1: L, x2: W - R, y1: y(v), y2: y(v), stroke: C.grade, 'stroke-width': 2 }, svg);
+        el('text', { x: L - 14, y: y(v) + 8, 'text-anchor': 'end', 'font-size': 24, fill: C.t3 }, svg, v);
+    }
+    const xc = L + gw * 4.92;
+    el('line', { x1: xc, x2: xc, y1: T - 10, y2: y(0), stroke: C.t3, 'stroke-width': 2 }, svg);
+    el('text', { x: xc - 12, y: T + 14, 'text-anchor': 'end', 'font-size': 22, fill: C.t3, 'font-weight': 600 }, svg, 'ChatGPT');
+    anos.forEach((a, i) => {
+        const gx = L + gw * i + gw / 2;
+        [[en[i], C.en, -1], [pt[i], C.pt, 1]].forEach(([v, c, s]) => {
+            const bx = s < 0 ? gx - bw - 3 : gx + 3;
+            el('rect', { x: bx, y: y(v), width: bw, height: Math.max(y(0) - y(v), 0.01), fill: c, class: 'grow', rx: 3 }, svg);
+            if (a >= 2024) el('text', { x: bx + bw / 2, y: y(v) - 12, 'text-anchor': 'middle', 'font-size': 24, 'font-weight': 700, fill: c }, svg, v);
+        });
+        el('text', { x: gx, y: H - 30, 'text-anchor': 'middle', 'font-size': 24, fill: C.t3 }, svg, a);
+        if (a === 2026) el('text', { x: gx, y: H - 4, 'text-anchor': 'middle', 'font-size': 18, fill: C.t3 }, svg, 'até out.');
+    });
+    el('rect', { x: L + 10, y: T, width: 22, height: 22, fill: C.en, rx: 3 }, svg);
+    el('text', { x: L + 42, y: T + 19, 'font-size': 24, fill: C.t2 }, svg, 'abstracts em inglês');
+    el('rect', { x: L + 10, y: T + 38, width: 22, height: 22, fill: C.pt, rx: 3 }, svg);
+    el('text', { x: L + 42, y: T + 57, 'font-size': 24, fill: C.t2 }, svg, 'resumos em português');
+})();
+
+/* Slide 7: cross-fitted lower bound with its journal-bootstrap standard error. */
+(function chartBound() {
+    const anos = [2023, 2024, 2025, 2026];
+    const en = [[0.5, 0.9], [11.2, 1.5], [17.3, 1.6], [15.8, 3.6]];
+    const pt = [[1.8, 0.9], [0.4, 0.7], [12.7, 1.7], [19.4, 2.9]];
+    const W = 1060, H = 640, L = 80, R = 20, T = 30, B = 70, MAX = 25;
+    const svg = newSvg('chartBound', W, H);
+    const gw = (W - L - R) / anos.length, bw = gw * 0.3;
+    const y = (v) => T + (MAX - v) * (H - T - B) / MAX;
+    for (let v = 0; v <= 25; v += 5) {
+        el('line', { x1: L, x2: W - R, y1: y(v), y2: y(v), stroke: C.grade, 'stroke-width': 2 }, svg);
+        el('text', { x: L - 14, y: y(v) + 8, 'text-anchor': 'end', 'font-size': 24, fill: C.t3 }, svg, v + '%');
+    }
+    anos.forEach((a, i) => {
+        const gx = L + gw * i + gw / 2;
+        [[en[i], C.en, -1], [pt[i], C.pt, 1]].forEach(([[v, se], c, s]) => {
+            const bx = s < 0 ? gx - bw - 4 : gx + 4, cx = bx + bw / 2;
+            el('rect', { x: bx, y: y(v), width: bw, height: Math.max(y(0) - y(v), 0.01), fill: c, class: 'grow', rx: 3, opacity: a === 2025 ? 1 : 0.55 }, svg);
+            el('line', { x1: cx, x2: cx, y1: y(v + se), y2: y(Math.max(v - se, 0)), stroke: C.tinta, 'stroke-width': 2.5 }, svg);
+            el('text', { x: cx, y: y(v + se) - 12, 'text-anchor': 'middle', 'font-size': 24, 'font-weight': a === 2025 ? 800 : 500, fill: c }, svg, fmt(v));
+        });
+        el('text', { x: gx, y: H - 30, 'text-anchor': 'middle', 'font-size': 26, fill: a === 2025 ? C.tinta : C.t3, 'font-weight': a === 2025 ? 700 : 400 }, svg, a);
+        if (a === 2026) el('text', { x: gx, y: H - 4, 'text-anchor': 'middle', 'font-size': 18, fill: C.t3 }, svg, 'até out.');
+    });
+})();
+
+/* Slide 8: rise in the share of abstracts with a marker, same papers. */
+(function chartH2() {
+    const rows = [['inglês', 17.5, C.en], ['português', 14.9, C.pt]];
+    const W = 1060, H = 520, L = 190, R = 120, MAX = 20;
+    const svg = newSvg('chartH2', W, H);
+    const x = (v) => L + v * (W - L - R) / MAX;
+    el('text', { x: L, y: 30, 'font-size': 24, fill: C.t3 }, svg, 'alta de 2021-22 para 2025-26, em pontos percentuais');
+    for (let v = 0; v <= 20; v += 5) {
+        el('line', { x1: x(v), x2: x(v), y1: 60, y2: 440, stroke: C.grade, 'stroke-width': 2 }, svg);
+        el('text', { x: x(v), y: 480, 'text-anchor': 'middle', 'font-size': 24, fill: C.t3 }, svg, v);
+    }
+    rows.forEach(([n, v, c], i) => {
+        const yy = 100 + i * 170;
+        el('text', { x: L - 20, y: yy + 62, 'text-anchor': 'end', 'font-size': 32, 'font-weight': 700, fill: c }, svg, n);
+        el('rect', { x: L, y: yy, width: x(v) - L, height: 96, fill: c, rx: 4, class: 'grow-x' }, svg);
+        el('text', { x: x(v) + 16, y: yy + 62, 'font-size': 40, 'font-weight': 800, fill: c }, svg, '+' + fmt(v));
+    });
+})();
+
+/* Slide 9: share of words whose translation is a marker of the other language. */
+(function chartH3() {
+    const rows = [
+        ['marcadoras do português', 72, C.pt], ['controles', 44, C.base],
+        ['marcadoras do inglês', 49, C.en], ['controles', 22, C.base]
+    ];
+    const W = 1060, H = 600, L = 340, R = 110, MAX = 100;
+    const svg = newSvg('chartH3', W, H);
+    const x = (v) => L + v * (W - L - R) / MAX;
+    el('text', { x: L, y: 28, 'font-size': 24, fill: C.t3 }, svg, '% que, traduzidas, viram marcadora da outra língua');
+    rows.forEach(([n, v, c], i) => {
+        const yy = 70 + i * 120 + (i >= 2 ? 30 : 0);
+        el('text', { x: L - 20, y: yy + 48, 'text-anchor': 'end', 'font-size': 28, 'font-weight': c === C.base ? 400 : 700, fill: c === C.base ? C.t2 : c }, svg, n);
+        el('rect', { x: L, y: yy, width: x(v) - L, height: 76, fill: c, rx: 4, class: 'grow-x', opacity: c === C.base ? 0.6 : 1 }, svg);
+        el('text', { x: x(v) + 14, y: yy + 50, 'font-size': 36, 'font-weight': 800, fill: c === C.base ? C.t2 : c }, svg, v + '%');
+    });
+})();
+
+/* Slide 10: markers added per English abstract when polishing, with 95% bootstrap intervals. */
+(function chartExp() {
+    const rows = [['ChatGPT', 5.11, 4.54, 5.69], ['Gemini', 5.10, 4.38, 5.81], ['Claude', 1.14, 0.75, 1.50]];
+    const W = 1060, H = 560, L = 170, R = 110, MAX = 6;
+    const svg = newSvg('chartExp', W, H);
+    const x = (v) => L + v * (W - L - R) / MAX;
+    el('text', { x: L, y: 28, 'font-size': 24, fill: C.t3 }, svg, 'marcadoras a mais por abstract em inglês');
+    for (let v = 0; v <= 6; v += 2) {
+        el('line', { x1: x(v), x2: x(v), y1: 56, y2: 500, stroke: C.grade, 'stroke-width': 2 }, svg);
+        el('text', { x: x(v), y: 540, 'text-anchor': 'middle', 'font-size': 24, fill: C.t3 }, svg, v);
+    }
+    rows.forEach(([n, v, lo, hi], i) => {
+        const yy = 84 + i * 140;
+        const c = n === 'Claude' ? C.base : C.ex;
+        el('text', { x: L - 20, y: yy + 52, 'text-anchor': 'end', 'font-size': 32, 'font-weight': 700, fill: C.tinta }, svg, n);
+        el('rect', { x: L, y: yy, width: x(v) - L, height: 84, fill: c, rx: 4, class: 'grow-x' }, svg);
+        el('line', { x1: x(lo), x2: x(hi), y1: yy + 42, y2: yy + 42, stroke: C.tinta, 'stroke-width': 3 }, svg);
+        el('text', { x: x(hi) + 16, y: yy + 54, 'font-size': 38, 'font-weight': 800, fill: n === 'Claude' ? C.t2 : C.exTexto }, svg, '+' + fmt(v));
+    });
+})();
+
+/* =====================================================================
+   PRESENTATION CONTROLLER
+   Scales the 1920x1080 stage to fit the window, switches slides through
+   .active/.visible and accepts keyboard, mouse wheel and touch. The slide
+   number lives in the URL (#7 opens the seventh slide).
+   ===================================================================== */
+class SlidePresentation {
+    constructor() {
+        this.slides = Array.from(document.querySelectorAll('.slide'));
+        this.stage = document.getElementById('deckStage');
+        this.current = 0;
+        this.wheelLock = false;
+        this.listeners = [];
+        this.setupStageScale();
+        this.setupKeyboardNav();
+        this.setupWheelNav();
+        this.setupTouchNav();
+        const fromHash = () => parseInt((location.hash || '').replace('#', ''), 10);
+        window.addEventListener('hashchange', () => {
+            const n = fromHash();
+            if (Number.isFinite(n) && n - 1 !== this.current) this.showSlide(n - 1);
+        });
+        document.body.classList.add('instant');
+        this.showSlide(Number.isFinite(fromHash()) ? fromHash() - 1 : 0);
+        requestAnimationFrame(() => requestAnimationFrame(() => document.body.classList.remove('instant')));
+    }
+
+    setupStageScale() {
+        const scale = () => {
+            const factor = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+            const x = (window.innerWidth - 1920 * factor) / 2;
+            const y = (window.innerHeight - 1080 * factor) / 2;
+            this.stage.style.transform = `translate(${x}px, ${y}px) scale(${factor})`;
+        };
+        scale();
+        window.addEventListener('resize', scale);
+    }
+
+    /* Navigation keys; also used by the presenter window, which forwards its keys here. */
+    handleKey(e) {
+        if (document.body.classList.contains('editing') && e.target && e.target.isContentEditable) return false;
+        switch (e.key) {
+            case 'ArrowRight': case 'ArrowDown': case ' ': case 'PageDown':
+                this.next(); return true;
+            case 'ArrowLeft': case 'ArrowUp': case 'PageUp':
+                this.prev(); return true;
+            case 'Home': this.showSlide(0); return true;
+            case 'End': this.showSlide(this.slides.length - 1); return true;
+        }
+        return false;
+    }
+
+    setupKeyboardNav() {
+        document.addEventListener('keydown', (e) => {
+            if (this.handleKey(e)) e.preventDefault();
+        });
+    }
+
+    setupWheelNav() {
+        window.addEventListener('wheel', (e) => {
+            if (document.body.classList.contains('editing')) return;
+            if (this.wheelLock || Math.abs(e.deltaY) < 20) return;
+            this.wheelLock = true;
+            if (e.deltaY > 0) this.next(); else this.prev();
+            setTimeout(() => { this.wheelLock = false; }, 650);
+        }, { passive: true });
+    }
+
+    setupTouchNav() {
+        let sx = 0, sy = 0;
+        window.addEventListener('touchstart', (e) => { sx = e.changedTouches[0].clientX; sy = e.changedTouches[0].clientY; }, { passive: true });
+        window.addEventListener('touchend', (e) => {
+            if (document.body.classList.contains('editing')) return;
+            const dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
+            if (Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy)) return;
+            if (dx < 0) this.next(); else this.prev();
+        }, { passive: true });
+    }
+
+    next() { this.showSlide(this.current + 1); }
+    prev() { this.showSlide(this.current - 1); }
+    onChange(fn) { this.listeners.push(fn); }
+
+    showSlide(index) {
+        this.current = Math.max(0, Math.min(index, this.slides.length - 1));
+        this.slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === this.current);
+            slide.classList.toggle('visible', i === this.current);
+        });
+        history.replaceState(null, '', `#${this.current + 1}`);
+        this.listeners.forEach((fn) => fn(this.current));
+    }
+}
+
+/* =====================================================================
+   SPEAKER NOTES
+   Reads the <aside class="notes"> of each slide. N toggles a drawer with
+   the speech at the bottom of this window (for rehearsal). P opens the
+   presenter window: speech, the clicks on the site, background, a
+   five-minute clock and the next slide. Keys pressed there drive the deck.
+   ===================================================================== */
+class SpeakerNotes {
+    constructor(deck) {
+        this.deck = deck;
+        this.drawer = document.getElementById('notesDrawer');
+        this.win = null;
+        this.startedAt = null;
+        this.tempos = deck.slides.map((s) => parseInt(s.dataset.tempo || '0', 10));
+        this.total = this.tempos.reduce((a, b) => a + b, 0);
+        deck.onChange(() => this.render());
+        document.addEventListener('keydown', (e) => {
+            if (e.target && e.target.isContentEditable) return;
+            if (e.ctrlKey || e.metaKey || e.altKey) return;
+            const k = e.key.toLowerCase();
+            if (k === 'n') { this.drawer.classList.toggle('show'); this.render(); }
+            else if (k === 'p') this.openPresenter();
+            else if (k === 'f') this.fullscreen();
+            else if (e.key === '?') document.getElementById('help').classList.toggle('show');
+        });
+        setInterval(() => this.tick(), 500);
+        this.render();
+    }
+
+    fullscreen() {
+        if (document.fullscreenElement) document.exitFullscreen();
+        else document.documentElement.requestFullscreen().catch(() => {});
+    }
+
+    part(i, sel) {
+        const n = this.deck.slides[i].querySelector('.notes ' + sel);
+        return n ? n.innerHTML : '';
+    }
+
+    title(i) {
+        const s = this.deck.slides[i];
+        return s ? s.dataset.titulo : '';
+    }
+
+    render() {
+        const i = this.deck.current;
+        if (this.drawer.classList.contains('show')) {
+            this.drawer.innerHTML = `<div class="t">${i + 1}/${this.deck.slides.length} · ${this.title(i)} · ${this.tempos[i]} s</div>${this.part(i, '.fale')}`;
+        }
+        if (this.win && !this.win.closed) this.renderPresenter();
+    }
+
+    mmss(sec) {
+        const s = Math.max(0, Math.round(sec));
+        return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0');
+    }
+
+    openPresenter() {
+        this.win = window.open('', 'biiap-apresentador', 'width=1000,height=1000');
+        if (!this.win) { alert('O navegador bloqueou a janela. Permita pop-ups para este arquivo e tecle P de novo.'); return; }
+        const d = this.win.document;
+        if (!d.getElementById('pv')) {
+            d.open();
+            d.write(PRESENTER_HTML);
+            d.close();
+            d.addEventListener('keydown', (e) => {
+                if (e.target && e.target.tagName === 'BUTTON' && (e.key === ' ' || e.key === 'Enter')) return;
+                if (this.deck.handleKey(e)) {
+                    e.preventDefault();
+                    if (!this.startedAt) this.startedAt = Date.now();
+                }
+            });
+            d.getElementById('bPrev').onclick = () => this.deck.prev();
+            d.getElementById('bNext').onclick = () => { if (!this.startedAt) this.startedAt = Date.now(); this.deck.next(); };
+            d.getElementById('bClock').onclick = () => { this.startedAt = this.startedAt ? null : Date.now(); this.tick(); };
+            d.getElementById('bScript').onclick = () => this.openScript();
+            d.querySelectorAll('input[name=site]').forEach((r) => {
+                r.checked = r.value === siteChoice();
+                r.onchange = () => { setSiteChoice(r.value); this.renderPresenter(); };
+            });
+        }
+        this.renderPresenter();
+        this.win.focus();
+    }
+
+    renderPresenter() {
+        const d = this.win.document, i = this.deck.current, n = this.deck.slides.length;
+        const before = this.tempos.slice(0, i).reduce((a, b) => a + b, 0);
+        d.getElementById('pos').textContent = `${i + 1} / ${n}`;
+        d.getElementById('ttl').textContent = this.title(i);
+        d.getElementById('budget').textContent = this.tempos[i] ? `${this.tempos[i]} s · comece em ${this.mmss(before)}` : 'sem fala';
+        d.getElementById('fale').innerHTML = this.part(i, '.fale');
+        const site = this.part(i, '.site');
+        d.getElementById('siteBox').style.display = site ? '' : 'none';
+        d.getElementById('site').innerHTML = site;
+        const link = this.deck.slides[i].querySelector('.demo-link');
+        d.getElementById('siteLink').textContent = link ? link.href : '';
+        d.getElementById('siteLink').href = link ? link.href : '#';
+        d.getElementById('entenda').innerHTML = this.part(i, '.entenda');
+        d.getElementById('nxt').textContent = i + 1 < n ? `Próximo: ${this.title(i + 1)}` : 'Último slide';
+        this.tick();
+    }
+
+    tick() {
+        if (!this.win || this.win.closed) return;
+        const d = this.win.document;
+        const el = d.getElementById('clock');
+        if (!el) return;
+        const i = this.deck.current;
+        const before = this.tempos.slice(0, i).reduce((a, b) => a + b, 0);
+        if (!this.startedAt) {
+            el.textContent = '0:00';
+            d.getElementById('pace').textContent = `relógio parado · total previsto ${this.mmss(this.total)}`;
+            d.getElementById('bClock').textContent = 'Iniciar relógio';
+            return;
+        }
+        const t = (Date.now() - this.startedAt) / 1000;
+        el.textContent = this.mmss(t);
+        el.className = t > 300 ? 'late' : '';
+        const diff = t - before;
+        d.getElementById('pace').textContent = diff > this.tempos[i] + 5
+            ? `atrasado ${this.mmss(diff - this.tempos[i])} neste slide`
+            : `no ritmo · faltam ${this.mmss(300 - t)} para os 5 minutos`;
+        d.getElementById('bClock').textContent = 'Zerar relógio';
+    }
+
+    /* The whole script on one printable page. */
+    openScript() {
+        const w = window.open('', 'biiap-roteiro');
+        if (!w) return;
+        let acc = 0, body = '';
+        this.deck.slides.forEach((s, i) => {
+            const site = this.part(i, '.site');
+            body += `<section><h2>${i + 1}. ${this.title(i)} <span>${this.mmss(acc)} · ${this.tempos[i]} s</span></h2>
+                <div class="fale">${this.part(i, '.fale')}</div>
+                ${site ? `<h3>No site</h3><ol>${site}</ol>` : ''}
+                <details open><summary>Entenda</summary>${this.part(i, '.entenda')}</details></section>`;
+            acc += this.tempos[i];
+        });
+        w.document.open();
+        w.document.write(`<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><title>Roteiro do vídeo</title>
+            <style>${FONT_FACES}body{font:17px/1.55 Figtree,'Helvetica Neue',Arial,sans-serif;color:#1C1A17;background:#FAF9F6;max-width:860px;margin:40px auto;padding:0 24px}
+            h1{font-size:30px}h2{font-size:22px;margin-top:36px;border-top:1px solid #E1DFDB;padding-top:20px}h2 span{font-weight:400;color:#66635D;font-size:16px}
+            h3{font-size:16px;color:#AF2F09;margin:14px 0 4px}.fale{font-size:20px;background:#fff;border:1px solid #E1DFDB;border-radius:10px;padding:14px 18px}
+            summary{cursor:pointer;color:#66635D;margin-top:12px;font-weight:600}details p{color:#4F4D48}@media print{details{display:block}}</style></head>
+            <body><h1>Roteiro do vídeo · ${this.mmss(this.total)} de fala prevista</h1>${body}</body></html>`);
+        w.document.close();
+    }
+}
+
+/* Figtree for the presenter and script windows, which are about:blank pages and cannot see this
+   page's @font-face rules. */
+const FONT_BASE = new URL('../site/public/fontes/figtree/', location.href).href;
+const FONT_FACES = [400, 600, 700, 800].map((w) =>
+    `@font-face{font-family:Figtree;font-weight:${w};src:url(${FONT_BASE}figtree-latin-${w}-normal.woff2) format('woff2')}`).join('');
+
+const PRESENTER_HTML = `<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><title>Apresentador</title>
+<style>${FONT_FACES}
+*{box-sizing:border-box}body{margin:0;font:18px/1.5 Figtree,'Helvetica Neue',Arial,sans-serif;background:#1C1A17;color:#F4F2EE}
+#pv{padding:20px 26px 40px}
+header{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;border-bottom:1px solid #4F4D48;padding-bottom:14px}
+#pos{font-weight:800;font-size:22px}#ttl{font-weight:700;font-size:22px;flex:1}#budget{color:#BDB9B2}
+.clockrow{display:flex;align-items:center;gap:16px;margin-top:12px;flex-wrap:wrap}
+#clock{font-size:40px;font-weight:800;font-variant-numeric:tabular-nums}#clock.late{color:#FF8A65}#pace{color:#BDB9B2;flex:1}
+button{font:600 15px Figtree,Arial,sans-serif;padding:8px 14px;border-radius:8px;border:1px solid #66635D;background:#2B2925;color:#F4F2EE;cursor:pointer}
+h2{font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:#FFB596;margin:22px 0 8px}
+#fale{font-size:28px;line-height:1.5;background:#2B2925;border-radius:12px;padding:18px 22px}
+#site{font-size:20px;padding-left:24px;margin:0}#site li{margin-bottom:8px}
+#siteLink{color:#9FB4FF;word-break:break-all;font-size:16px}
+#entenda{color:#D9D6D0;font-size:17px}#entenda p{margin:0 0 10px}
+#nxt{margin-top:22px;color:#BDB9B2}
+.sites{color:#BDB9B2;font-size:15px}label{margin-right:10px}
+</style></head><body><div id="pv">
+<header><span id="pos"></span><span id="ttl"></span><span id="budget"></span></header>
+<div class="clockrow"><span id="clock">0:00</span><span id="pace"></span>
+<button id="bPrev">&larr; Voltar</button><button id="bNext">Avançar &rarr;</button><button id="bClock">Iniciar relógio</button><button id="bScript">Roteiro inteiro</button></div>
+<h2>Fale</h2><div id="fale"></div>
+<div id="siteBox"><h2>No site</h2><ol id="site"></ol><a id="siteLink" target="_blank" rel="noopener"></a></div>
+<h2>Entenda antes de gravar (não é para falar)</h2><div id="entenda"></div>
+<div id="nxt"></div>
+<p class="sites">Site das demos: <label><input type="radio" name="site" value="local"> local (localhost:8000)</label><label><input type="radio" name="site" value="publico"> GitHub Pages</label></p>
+<p class="sites">Setas e espaço nesta janela também passam os slides. O relógio começa no primeiro avanço.</p>
+</div></body></html>`;
+
+/* =====================================================================
+   INLINE EDITOR
+   E (or the top left corner) makes slide text editable; Ctrl+S or leaving
+   edit mode saves each slide's HTML in this browser's localStorage. To
+   keep a change for good, copy it into this file. "Restaurar original"
+   clears what was saved.
+   ===================================================================== */
+class InlineEditor {
+    constructor(slides) {
+        this.slides = slides;
+        this.isActive = false;
+        this.storageKey = 'biiap-slides/v1';
+        this.selector = '.slide h1, .slide h2, .slide h3, .slide p, .slide li, .fact .v, .fact .l, .big, .big-label, .verdict, .foot .src';
+        this.toggle = document.getElementById('editToggle');
+        this.bar = document.getElementById('editBar');
+        this.restore();
+        this.bindUi();
+    }
+    restore() {
+        try {
+            const saved = JSON.parse(localStorage.getItem(this.storageKey) || 'null');
+            if (!saved || !Array.isArray(saved)) return;
+            saved.forEach((html, i) => { if (typeof html === 'string' && this.slides[i]) this.slides[i].innerHTML = html; });
+        } catch (err) { /* page works without storage */ }
+    }
+    save() {
+        try {
+            localStorage.setItem(this.storageKey, JSON.stringify(this.slides.map((s) => s.innerHTML)));
+            this.flash('salvo neste navegador');
+        } catch (err) { this.flash('não foi possível salvar'); }
+    }
+    reset() {
+        try { localStorage.removeItem(this.storageKey); } catch (err) { /* ignored */ }
+        location.reload();
+    }
+    flash(msg) {
+        const span = this.bar.querySelector('span'), old = span.textContent;
+        span.textContent = msg;
+        setTimeout(() => { span.textContent = old; }, 1600);
+    }
+    toggleEditMode() {
+        this.isActive = !this.isActive;
+        document.body.classList.toggle('editing', this.isActive);
+        this.toggle.classList.toggle('active', this.isActive);
+        this.toggle.classList.toggle('show', this.isActive);
+        this.bar.classList.toggle('show', this.isActive);
+        this.toggle.textContent = this.isActive ? 'Sair da edição' : 'Editar';
+        document.querySelectorAll(this.selector).forEach((el) => {
+            if (el.closest('.notes')) return;
+            if (this.isActive) el.setAttribute('contenteditable', 'true'); else el.removeAttribute('contenteditable');
+        });
+        if (!this.isActive) this.save();
+    }
+    bindUi() {
+        const hotzone = document.querySelector('.edit-hotzone');
+        let hideTimeout = null;
+        const scheduleHide = () => { hideTimeout = setTimeout(() => { if (!this.isActive) this.toggle.classList.remove('show'); }, 400); };
+        this.toggle.addEventListener('click', () => this.toggleEditMode());
+        hotzone.addEventListener('mouseenter', () => { clearTimeout(hideTimeout); this.toggle.classList.add('show'); });
+        hotzone.addEventListener('mouseleave', scheduleHide);
+        this.toggle.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+        this.toggle.addEventListener('mouseleave', scheduleHide);
+        hotzone.addEventListener('click', () => this.toggleEditMode());
+        document.addEventListener('keydown', (e) => {
+            const typing = e.target && e.target.isContentEditable;
+            if ((e.key === 'e' || e.key === 'E') && !typing && !e.ctrlKey && !e.metaKey) this.toggleEditMode();
+            else if (e.key === 'Escape' && this.isActive) { if (typing) e.target.blur(); this.toggleEditMode(); }
+            else if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'S') && this.isActive) { e.preventDefault(); this.save(); }
+        });
+        document.getElementById('editSave').addEventListener('click', () => this.save());
+        document.getElementById('editReset').addEventListener('click', () => this.reset());
+    }
+}
+
+const deck = new SlidePresentation();
+const editor = new InlineEditor(deck.slides);
+const notes = new SpeakerNotes(deck);
+</script>
+</body>
+</html>

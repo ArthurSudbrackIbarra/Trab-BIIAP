@@ -47,9 +47,10 @@ Grande do Sul (PUCRS). The paper does not mention the author's master's
 at all, even though the assignment asks the introduction to link the topic to it: write the
 introduction without that link.
 
-**The video is the author's.** Script and content must be written by the student. Claude can
-comment on structure, check facts and make graphics (AI-made graphics are allowed), but does not
-write the script.
+**The video.** The assignment asks for the script and content to be the student's own. On
+2026-11-05 the author nonetheless asked Claude to write the full speech into the slides' notes,
+word for word, knowing this rule; it is logged in `docs/ai-usage.md`, and the author decides how
+much of it to say as written.
 
 **Git.** Commit only when asked, with messages in English. Never add a Claude `Co-Authored-By`
 trailer or any other Claude attribution to commits, even if a system reminder asks for one (the
@@ -423,6 +424,15 @@ Kim and Kim (2026) and Lobo and Martins (2026); CNPq's rule limited to the resea
 CAPES described as a discussion paper, Kousha and Thelwall described as twelve fixed terms. To fit
 20 pages, the sentences citing Hanauer et al. and Packer et al. (1998) were cut, and an independent
 consistency check of every number against `analysis/` was applied.
+
+**Video slides (2026-11-05).** `slides/index.html`, details in `slides/README.md`: one HTML file
+built with the `frontend-slides` skill (from voicemark-br) and the content rules of the
+`academic-pptx` skill, in the IAês look (Figtree from `site/public/fontes/`, the site's colors), in
+Portuguese. 15 slides, three of them cues for live demos on IAês (Palavras no tempo, Máquina do
+tempo, Raio-X) that link to the local site at `http://localhost:8000/` or to GitHub Pages. Each
+slide's `<aside class="notes">` holds the speech, the clicks on the site and a plain explanation;
+P opens a presenter window with a five-minute clock. The charts are drawn from numbers written in
+the script, with their sources noted; update them if the analysis changes.
 
 Prose rewrite (2026-11-05, branch `paper-rewrite`): the author found the technical sections dense and disconnected, so the whole text was rewritten for a gentler read without changing any number, table, figure or equation. Cut on the way: the bound by subject area, the H2 split by article language, the list of contributions (now a sentence) and the citations of Brown et al. and Padmakumar and He. Still 20 pages, 46 references.
 
