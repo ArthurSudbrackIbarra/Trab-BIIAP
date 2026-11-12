@@ -514,7 +514,8 @@ body.editing [contenteditable="true"] { outline: 2px dashed var(--excesso); outl
         <h1 class="reveal d1">A IA está <span class="mark">delving</span> na ciência brasileira?</h1>
         <p class="sub reveal d2">O rastro dos chatbots no vocabulário dos resumos do SciELO Brasil, de 2015 a 2026</p>
         <p class="authors reveal d3">
-            <strong>Arthur Sudbrack Ibarra</strong>, Rodrigo Coelho Barros e Lucas Silveira Kupssinskü<br>
+            <strong>Arthur Sudbrack Ibarra</strong><br>
+            Rodrigo Coelho Barros (orientador) e Lucas Silveira Kupssinskü (coorientador)<br>
             PPGCC, Pontifícia Universidade Católica do Rio Grande do Sul (PUCRS)<br>
             Benefícios e Impactos da Inteligência Artificial na Pesquisa, 2026/2
         </p>
@@ -570,7 +571,7 @@ body.editing [contenteditable="true"] { outline: 2px dashed var(--excesso); outl
             <div class="hyps">
                 <div class="hyp reveal d1">
                     <div class="h">H1</div>
-                    <p>Depois de 2023, algumas palavras de estilo aparecem bem acima da sua tendência.</p>
+                    <p>A partir de 2023, algumas palavras de estilo aparecem bem acima da sua tendência.</p>
                 </div>
                 <div class="hyp reveal d2">
                     <div class="h">H2</div>
@@ -578,7 +579,7 @@ body.editing [contenteditable="true"] { outline: 2px dashed var(--excesso); outl
                 </div>
                 <div class="hyp reveal d3">
                     <div class="h">H3</div>
-                    <p>As palavras que marcam o <span class="pt">português</span> são outras, diferentes das do <span class="en">inglês</span>.</p>
+                    <p>As palavras que marcam o <span class="pt">português</span> são de estilo e são outras, diferentes das do <span class="en">inglês</span>.</p>
                 </div>
             </div>
         </div>
@@ -591,7 +592,7 @@ body.editing [contenteditable="true"] { outline: 2px dashed var(--excesso); outl
         <div class="entenda">
             <p><b>Hipótese.</b> É o palpite que o estudo testa com os dados. No fim, cada uma se confirma ou não.</p>
             <p><b>Por que esperar mais marca em inglês (H2).</b> Muitos pesquisadores brasileiros escrevem o resumo em português e usam um chatbot para fazer ou melhorar a versão em inglês, a língua em que têm menos segurança. Então era de se esperar que o inglês mostrasse mais rastro.</p>
-            <p><b>Por que esperar palavras diferentes (H3).</b> Cada língua tem os seus vícios. Achávamos que o ChatGPT teria palavras preferidas próprias em português.</p>
+            <p><b>Por que esperar palavras diferentes (H3).</b> Cada língua tem os seus vícios. Achávamos que o ChatGPT teria palavras preferidas próprias em português. No artigo, a H3 tem duas partes: as palavras do português são de estilo (isso se confirma) e são diferentes das do inglês (isso não).</p>
             <p><b>Palavra de estilo.</b> É uma palavra que muda o jeito de dizer, sem mudar o assunto: <i>destacando</i>, <i>crucial</i>, <i>abordagens</i>. Palavra de tema (ou de conteúdo) é a que diz do que o texto trata: <i>covid</i>, <i>vacina</i>, <i>soja</i>.</p>
         </div>
     </aside>
@@ -710,7 +711,7 @@ body.editing [contenteditable="true"] { outline: 2px dashed var(--excesso); outl
             <p><b>Palavra-marcadora.</b> Uma palavra de estilo com excesso, que funciona como pista de uso de IA.</p>
             <p><b>Por que é um piso.</b> Um texto que passou pelo chatbot sem ganhar nenhuma marcadora não aparece na conta. Uma versão mais apertada da mesma conta dá 29,5% em inglês e 22,2% em português.</p>
             <p><b>Metades.</b> Escolhemos as marcadoras com metade dos resumos e medimos na outra metade (e vice-versa). Assim a palavra não é escolhida e medida nos mesmos textos, o que inflaria o número.</p>
-            <p><b>Placebo.</b> A mesma conta feita em 2015-2016, quando não havia ChatGPT, dá perto de zero. É o sinal de que a conta não inventa uso onde não existe.</p>
+            <p><b>Placebo.</b> A mesma conta feita seis anos antes, com a tendência de 2015-2016 e medindo 2017 a 2020, quando não havia ChatGPT, dá perto de zero. É o sinal de que a conta não inventa uso onde não existe.</p>
             <p><b>Erro padrão.</b> É a margem de incerteza: 17,3% mais ou menos 1,6 em inglês e 12,7% mais ou menos 1,7 em português.</p>
         </div>
     </aside>
@@ -745,7 +746,7 @@ body.editing [contenteditable="true"] { outline: 2px dashed var(--excesso); outl
 </section>
 
 <!-- ===================== 9. RESULT H3 ===================== -->
-<section class="slide" data-tempo="18" data-titulo="H3: tradução">
+<section class="slide" data-tempo="20" data-titulo="H3: tradução">
     <div class="frame">
         <h2 class="title reveal">A maioria das marcadoras do português é tradução de marcadoras do inglês</h2>
         <div class="body">
@@ -756,14 +757,14 @@ body.editing [contenteditable="true"] { outline: 2px dashed var(--excesso); outl
                     <span class="pt w">destacando</span><span class="arrow">&rarr;</span><span class="en w">highlighting</span>
                     <span class="pt w">moldam</span><span class="arrow">&rarr;</span><span class="en w">shaping</span>
                 </div>
-                <div class="verdict no">H3 não se confirma: as marcas são, em grande parte, as mesmas.</div>
+                <div class="verdict no">H3 só se confirma em parte: são palavras de estilo, mas, em grande parte, as mesmas do inglês.</div>
             </div>
         </div>
     </div>
     <div class="foot"><span class="src">Traduções do Claude, sem saber quais palavras eram marcadoras. Controles: palavras de mesma frequência sem excesso.</span><span class="n">09</span></div>
     <aside class="notes">
         <div class="fale">
-            <p>Para a terceira, traduzimos as marcadoras do português para o inglês, e 72% viraram marcadoras do inglês, contra 44% de palavras comparáveis. <i>Aprofunda</i> vira <i>delves</i>, <i>destacando</i> vira <i>highlighting</i>. O português está herdando as palavras do inglês, e a terceira hipótese também não se confirma.</p>
+            <p>Para a terceira, traduzimos as marcadoras do português para o inglês, e 72% viraram marcadoras do inglês, contra 44% de palavras comparáveis. <i>Aprofunda</i> vira <i>delves</i>, <i>destacando</i> vira <i>highlighting</i>. O português está herdando as palavras do inglês. A terceira hipótese só se confirma em parte: são palavras de estilo, mas não são outras.</p>
         </div>
         <div class="entenda">
             <p><b>Como foi o teste.</b> Para cada marcadora do português escolhemos uma palavra de controle: uma palavra de estilo com frequência parecida em 2021-22, que nunca teve excesso. O Claude traduziu todas misturadas, sem saber quais eram marcadoras. Depois vimos quantas traduções caíam numa marcadora do inglês.</p>
@@ -795,7 +796,7 @@ body.editing [contenteditable="true"] { outline: 2px dashed var(--excesso); outl
         <div class="entenda">
             <p><b>Por que resumos antigos.</b> Um resumo de 2019 com certeza foi escrito sem chatbot. Então tudo o que muda depois é obra do modelo.</p>
             <p><b>As três tarefas.</b> Melhorar um resumo em português, melhorar um em inglês e traduzir um do português para o inglês. Foram 80 textos por tarefa e por modelo. Você rodou o ChatGPT e o Gemini à mão, nas versões gratuita e Pro; o Claude rodou automático.</p>
-            <p><b>Os números.</b> Em inglês, a média de marcadoras por texto foi de 8,1 para 13,2 com o ChatGPT e com o Gemini, e para 9,3 com o Claude. As palavras que eles colocam são muito mais vezes marcadoras do que as que eles tiram: das 92 palavras que o ChatGPT acrescentou, 40 eram marcadoras; das 46 que ele tirou, só 1.</p>
+            <p><b>Os números.</b> Em inglês, a média de marcadoras por texto foi de 8,1 para 13,2 com o ChatGPT e com o Gemini, e para 9,3 com o Claude (um limite: as marcadoras vêm de um corpus em que o ChatGPT era provavelmente o chatbot mais usado). As palavras que eles colocam são muito mais vezes marcadoras do que as que eles tiram: das 92 palavras que o ChatGPT acrescentou, 40 eram marcadoras; das 46 que ele tirou, só 1.</p>
             <p><b>Um limite.</b> Uma passada de um modelo de 2026 não reproduz o uso real, que mistura modelos antigos, várias revisões e textos escritos do zero. Por isso o experimento mostra de onde vêm as palavras, mas não serve para converter as marcas em número de usuários.</p>
         </div>
     </aside>
@@ -920,7 +921,7 @@ body.editing [contenteditable="true"] { outline: 2px dashed var(--excesso); outl
                 <li><b>H1 se confirma:</b> 108 palavras de estilo em excesso em inglês e 69 em português em 2025</li>
                 <li><b>Pelo menos 17%</b> dos abstracts em inglês e <b>13%</b> dos resumos em português de 2025 passaram por um LLM</li>
                 <li><b>H2 não se confirma:</b> inglês e português subiram quase juntos</li>
-                <li><b>H3 não se confirma:</b> as marcadoras do português traduzem as do inglês</li>
+                <li><b>H3 só em parte:</b> as marcadoras do português são de estilo, mas traduzem as do inglês</li>
             </ul>
             <div class="links reveal d2">
                 <div class="link"><div class="l">Site IAês</div><a href="https://arthursudbrackibarra.github.io/Trab-BIIAP/pt/" target="_blank" rel="noopener">arthursudbrackibarra.github.io/Trab-BIIAP</a></div>
@@ -960,7 +961,7 @@ body.editing [contenteditable="true"] { outline: 2px dashed var(--excesso); outl
             <p>(Este slide não é falado. Deixe-o no fim para quem pausar o vídeo.)</p>
         </div>
         <div class="entenda">
-            <p>As referências são as citadas nos slides. O artigo tem as outras 42.</p>
+            <p>As referências são as citadas nos slides. O artigo tem as outras 41.</p>
         </div>
     </aside>
 </section>

@@ -44,7 +44,7 @@ A tecla P abre uma segunda janela (permita pop-ups se o navegador pedir). Ela mo
 As setas e o espaço nessa janela também passam os slides, então dá para deixá-la na frente e gravar
 a outra. O botão "Roteiro inteiro" abre todas as falas numa página só, que dá para imprimir.
 
-A fala prevista soma 4 minutos e 32 segundos, com cerca de 650 palavras. O resto fica para as trocas
+A fala prevista soma 4 minutos e 34 segundos, com cerca de 660 palavras. O resto fica para as trocas
 entre os slides e o site. O tempo de cada slide está em `data-tempo` no `index.html`.
 
 ## As demos
