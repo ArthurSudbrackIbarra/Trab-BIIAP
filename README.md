@@ -1,4 +1,4 @@
-# Is AI delving into Brazilian science?
+# Is AI _delving_ into Brazilian science?
 
 This repository holds a study of the vocabulary of Brazilian scientific abstracts before and after
 ChatGPT, and IAês, an interactive site built on the same data. The question is whether LLM chatbots
@@ -19,7 +19,10 @@ sh Artigo/compile.sh
 ```
 
 The script runs latexmk, which needs a TeX distribution, and replaces `Artigo/paper.pdf` only when
-the build succeeds.
+the build succeeds. It finds a TeX Live in `~/texlive` or a [TinyTeX](https://yihui.org/tinytex/) in
+its default folder by itself, and warns when the paper passes 20 pages. On Windows, run it from Git
+Bash. A TinyTeX there needs these extra packages, installed once with
+`tlmgr install pgf pgfplots enumitem caption babel-english times helvetic courier ec cm-super titlesec`.
 
 ## Data and method
 
@@ -112,9 +115,9 @@ the site on GitHub Pages.
 
 ## Authors
 
-Arthur Sudbrack Ibarra, Rodrigo Coelho Barros and Lucas Silveira Kupssinskü, Programa de
-Pós-Graduação em Ciência da Computação (PPGCC), Pontifícia Universidade Católica do Rio Grande do
-Sul (PUCRS). Term paper for the course Benefícios e Impactos da Inteligência Artificial na Pesquisa
+Arthur Sudbrack Ibarra, Rodrigo Coelho Barros (advisor) and Lucas Silveira Kupssinskü (co-advisor),
+Programa de Pós-Graduação em Ciência da Computação (PPGCC), Pontifícia Universidade Católica do Rio
+Grande do Sul (PUCRS). Term paper for the course Benefícios e Impactos da Inteligência Artificial na Pesquisa
 (BIIAP), 2026/2.
 
 The abstracts come from SciELO Brazil under a CC BY license. The method is from Kobak,

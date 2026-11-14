@@ -2,30 +2,30 @@
 \begin{tikzpicture}[
     font=\scriptsize,
     box/.style={draw=ink2, rounded corners=1.5pt, align=center, text width=4.0cm,
-      inner sep=2.5pt, minimum height=8.5mm},
+      inner sep=2.5pt, minimum height=8mm},
     data/.style={box, fill=black!5},
     proc/.style={box, fill=excess!9},
     result/.style={box, fill=encol!8},
     arr/.style={-{Stealth[length=3.5pt]}, ink2, thin},
   ]
-  \node[font=\footnotesize\bfseries] at (0, 0.85) {Data};
-  \node[font=\footnotesize\bfseries] at (4.85, 0.85) {Measurement};
-  \node[font=\footnotesize\bfseries] at (9.7, 0.85) {Analyses};
+  \node[font=\footnotesize\bfseries] at (0, 0.8) {Data};
+  \node[font=\footnotesize\bfseries] at (4.85, 0.8) {Measurement};
+  \node[font=\footnotesize\bfseries] at (9.7, 0.8) {Analyses};
 
-  \node[data] (crossref) at (0, 0) {Crossref: 195,600 abstracts in\\Portuguese and English, 2015-2026};
-  \node[data] (journals) at (0, -1.05) {ArticleMeta: the 427 journals\\and their subject areas};
-  \node[data] (pairs) at (0, -3.15) {ArticleMeta sample: 9,312\\papers with both abstracts};
-  \node[data] (experiment) at (0, -4.2) {240 abstracts from 2019 to 2021\\rewritten by three chatbots};
+  \node[data] (crossref) at (0, 0) {Crossref: 195,600 Portuguese and\\English abstracts, 2015-2026};
+  \node[data] (journals) at (0, -0.98) {ArticleMeta: the 427 journals\\and their subject areas};
+  \node[data] (pairs) at (0, -2.94) {ArticleMeta sample: 9,312\\papers with both abstracts};
+  \node[data] (experiment) at (0, -3.92) {240 abstracts from 2019 to 2021\\rewritten by three chatbots};
 
   \node[proc] (excess) at (4.85, 0) {Excess words per language\\and year};
-  \node[proc] (labels) at (4.85, -1.05) {Style labels by Claude, with a\\blind sample by the first author};
-  \node[proc] (markers) at (4.85, -2.1) {Marker words: style words\\above their trend};
+  \node[proc] (labels) at (4.85, -0.98) {Style labels by Claude, with a\\blind sample by the first author};
+  \node[proc] (markers) at (4.85, -1.96) {Marker words: style words\\above their trend};
 
   \node[result] (h1) at (9.7, 0) {H1: style words above trend,\\year by year};
-  \node[result] (bound) at (9.7, -1.05) {Lower bound on the share\\of abstracts};
-  \node[result] (h3) at (9.7, -2.1) {H3: do Portuguese markers\\translate English ones?};
-  \node[result] (h2) at (9.7, -3.15) {H2: English against Portuguese\\in the same papers};
-  \node[result] (exp) at (9.7, -4.2) {Markers each chatbot adds\\to a known human text};
+  \node[result] (bound) at (9.7, -0.98) {Lower bound on the share\\of abstracts};
+  \node[result] (h3) at (9.7, -1.96) {H3: do Portuguese markers\\translate English ones?};
+  \node[result] (h2) at (9.7, -2.94) {H2: English against Portuguese\\in the same papers};
+  \node[result] (exp) at (9.7, -3.92) {Markers each chatbot adds\\to a known human text};
 
   \draw[arr] (crossref) -- (excess);
   \draw[arr] (journals.north) -- (crossref.south);
@@ -38,9 +38,4 @@
   \draw[arr] (markers.east) -- (exp.west);
   \draw[arr] (pairs) -- (h2);
   \draw[arr] (experiment) -- (exp);
-
-  \node[draw=ink2, densely dashed, rounded corners=2pt, fit=(h1) (exp), inner sep=3pt] (all) {};
-  \node[box, fill=ptcol!10, text width=8.5cm] (site) at (7.275, -5.5)
-    {IAês: the same data as an open, bilingual website};
-  \draw[arr] (all.south) -- (all.south |- site.north);
 \end{tikzpicture}

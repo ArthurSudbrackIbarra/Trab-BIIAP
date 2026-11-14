@@ -4,14 +4,17 @@
 set -e
 cd "$(dirname "$0")"
 
-# The latexmk on the PATH, or else that of a TeX Live installed in the user's home (~/texlive).
+# The latexmk on the PATH, or else that of a TeX distribution installed in the user's home: TeX Live
+# (~/texlive) or TinyTeX (%APPDATA%\TinyTeX on Windows, ~/.TinyTeX on Linux, ~/Library/TinyTeX on
+# macOS). On Windows, run this script from Git Bash.
 if ! command -v latexmk >/dev/null 2>&1; then
-    for dir in "$HOME"/texlive/*/bin/*; do
-        if [ -x "$dir/latexmk" ]; then PATH="$dir:$PATH"; fi
+    for dir in "$HOME"/texlive/*/bin/* "${APPDATA:-$HOME/AppData/Roaming}"/TinyTeX/bin/* \
+        "$HOME"/.TinyTeX/bin/* "$HOME"/Library/TinyTeX/bin/*; do
+        if [ -x "$dir/latexmk" ] || [ -x "$dir/latexmk.exe" ]; then PATH="$dir:$PATH"; fi
     done
 fi
 if ! command -v latexmk >/dev/null 2>&1; then
-    echo "latexmk not found: install a TeX distribution such as TeX Live" >&2
+    echo "latexmk not found: install a TeX distribution such as TeX Live or TinyTeX" >&2
     exit 1
 fi
 
