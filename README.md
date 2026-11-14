@@ -101,7 +101,7 @@ python3 -I scripts/pairs.py prepare
 python3 -I scripts/pairs.py compare
 
 # site, served at http://localhost:8000/
-python3 -I scripts/build_site_data.py all
+python3 -I scripts/build_site_data.py all # needs the data from the previous steps
 python3 -I site/build.py
 python3 -m http.server 8000 -d site/dist
 
